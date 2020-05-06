@@ -20,7 +20,7 @@
 project = 'Return Request API'
 copyright = '2020, Return Helper Limited'
 author = 'Return Helper Limited'
-
+master_doc = 'index'
 
 # -- General configuration ---------------------------------------------------
 
