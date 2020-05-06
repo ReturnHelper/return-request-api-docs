@@ -21,7 +21,7 @@ Put authenication keys in your request header:
 
 .. toctree::
    :maxdepth: 3
-   :caption: Documentation:
+   :caption: Contents:
 
    API Methods <api_methods>
    Data Structure <data_structure>
