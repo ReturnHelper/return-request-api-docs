@@ -1,0 +1,7 @@
+returnRequestLineItemVasId, long_
+returnRequestLineItemId, long_
+vasCode, string_
+metaQuantity, integer_
+vasResult, string_
+notes, string_
+isFinished, bool_

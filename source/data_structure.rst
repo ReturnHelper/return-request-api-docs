@@ -9,208 +9,85 @@
 Data Structure
 ==============
 
-.. _structure-SearchReturnInventoryRequest:
+.. _structure-PaginationRequest:
 
-SearchReturnInventoryRequest
-----------------------------
+PaginationRequest
+-----------------
 
-Usage 
-  - :ref:`method-SearchReturnInventory`
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/BaseClass/PaginationRequest.csv
 
-===========================  =========  ========
-variable name                 type      remark    
-===========================  =========  ========
-apiName                       string_                 
-returnRequestNumber           string_                 
-returnRequestLineItemNumber   string_                 
-handlingCode                  string_                 
-handlingStatusCode            string_                 
-shipmentNumber                string_                 
-warehouseId                   integer_                
-createFromStr                 string_                 
-createToStr                   string_                 
-warehouseRma                  string_                 
-sku                           string_                 
-pageSize                      integer_                
-offset                        integer_                
-===========================  =========  ========
+.. _structure-CreateOnlyPayload:
 
-----
+CreateOnlyPayload
+-----------------
 
-.. _structure-SearchReturnInventoryResponse:
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/BaseClass/CreateOnlyPayload.csv
 
-SearchReturnInventoryResponse
------------------------------
+.. _structure-EditablePayload:
 
-Usage 
-  - :ref:`method-SearchReturnInventory`
+EditablePayload
+---------------
 
-============================  ===========================================================  ======
-variable name                 type                                                         remark     
-============================  ===========================================================  ======
-returnInventoryList           List of :ref:`structure-SearchReturnInventoryResultPayload`
-correlationId                 string_
-meta                          :ref:`structure-ApiResponseMeta`
-totalNumberOfRecords          integer_
-============================  ===========================================================  ======
+.. csv-table:: (inherit :ref:`structure-CreateOnlyPayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/BaseClass/EditablePayload.csv
 
-----
 
-.. _structure-SearchReturnInventoryResultPayload:
+.. _structure-PaginationResponse:
 
-SearchReturnInventoryResultPayload
-----------------------------------
+PaginationResponse
+------------------
 
-Usage
-  - :ref:`structure-SearchReturnInventoryResponse`
-
-============================  ===========================================================  ======
-variable name                 type                                                         remark     
-============================  ===========================================================  ======
-apiName                       string_                
-returnRequestNumber           string_                
-shipmentNumber                string_                
-vasCount                      integer_               
-warehouseRma                  string_                
-returnRequestRemarks          string_                
-shipmentId                    long_                  
-actualWeight                  decimal_               
-cbm                           decimal_          
-returnInventoryId             long_                  
-warehouseId                   integer_               
-stockAge                      double_                  
-returnRequestLineItemId       long_                  
-returnRequestId               integer_               
-description                   string_                
-weight                        decimal_               
-weightUom                     string_                
-valueCurrencyCode             string_                
-value                         decimal_               
-handlingCode                  string_                
-handlingStatusCode            string_                
-returnRequestLineItemImages   List of :ref:`structure-ReturnRequestLineItemImagePayload`                
-returnRequestLineItemVasList  List of :ref:`structure-ReturnRequestLineItemVasPayload`                
-warehouseRemarks              string_                
-handlingUpdatedOnStr          string_                
-sku                           string_                
-modifyOn                      Datetime_
-modifyBy                      string_
-modifyOnStr                   string_
-createOn                      Datetime_
-createBy                      string_
-createOnStr                   string_
-============================  ===========================================================  ======
-
-----
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/BaseClass/PaginationResponse.csv
 
 .. _structure-ApiResponseMeta:
 
 ApiResponseMeta
 ---------------
 
-Usage
-  - :ref:`structure-SearchReturnInventoryResponse`
-  - :ref:`structure-ReturnInventoryResponse`
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/BaseClass/ApiResponseMeta.csv
 
-============================  ===========================================================  ======
-variable name                 type                                                         remark     
-============================  ===========================================================  ======
-shipmentStatusCode            string_
-shipmentStatus                string_
-shipmentStageDescription      string_
-isShipmentEditable            bool_
-============================  ===========================================================  ======
+.. _structure-ReturnInventoryPayload:
 
-----
+ReturnInventoryPayload
+----------------------
+
+.. csv-table:: (inherit :ref:`structure-EditablePayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/ReturnInventory/ReturnInventoryPayload.csv
 
 .. _structure-ReturnRequestLineItemImagePayload:
 
 ReturnRequestLineItemImagePayload
 ---------------------------------
 
-Usage
-  - :ref:`structure-SearchReturnInventoryResultPayload`
-  - :ref:`structure-ReturnInventoryResponse`
-
-============================  =========  ======
-variable name                 type       remark
-============================  =========  ======
-returnRequestLineItemImageId  long_
-returnRequestLineItemId       long_
-filename                      string_
-fileExt                       string_
-s3OriginalFileKey             string_
-s3SmallFileKey                string_
-s3MediumFileKey               string_
-s3LargeFileKey                string_
-createOn                      Datetime_
-createBy                      string_
-createOnStr                   string_
-============================  =========  ======
-
-----
+.. csv-table:: (inherit :ref:`structure-CreateOnlyPayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/ReturnRequest/ReturnRequestLineItemImagePayload.csv
 
 .. _structure-ReturnRequestLineItemVasPayload:
 
 ReturnRequestLineItemVasPayload
 -------------------------------
 
-Usage
-  - :ref:`structure-SearchReturnInventoryResultPayload`
-  - :ref:`structure-ReturnInventoryResponse`
+.. csv-table:: (inherit :ref:`structure-EditablePayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/ReturnRequest/ReturnRequestLineItemVasPayload.csv
 
-============================  =========  ======
-variable name                 type       remark
-============================  =========  ======
-returnRequestLineItemVasId    long_
-returnRequestLineItemId       long_
-vasCode                       string_
-metaQuantity                  integer_
-vasResult                     string_
-notes                         string_
-isFinished                    bool_
-modifyOn                      Datetime_
-modifyBy                      string_
-modifyOnStr                   string_
-createOn                      Datetime_
-createBy                      string_
-createOnStr                   string_
-============================  =========  ======
 
-.. _structure-ReturnInventoryResponse:
-
-ReturnInventoryResponse
------------------------
-
-Usage
-  - :ref:`method-GetReturnInventory`
-
-============================  ===========================================================  ======
-variable name                 type                                                         remark     
-============================  ===========================================================  ======
-correlationId                 string_
-meta                          :ref:`structure-ApiResponseMeta`
-returnInventoryId             long_                  
-warehouseId                   integer_               
-stockAge                      double_                  
-returnRequestLineItemId       long_                  
-returnRequestId               integer_               
-description                   string_                
-weight                        decimal_               
-weightUom                     string_                
-valueCurrencyCode             string_                
-value                         decimal_               
-handlingCode                  string_                
-handlingStatusCode            string_                
-returnRequestLineItemImages   List of :ref:`structure-ReturnRequestLineItemImagePayload`                
-returnRequestLineItemVasList  List of :ref:`structure-ReturnRequestLineItemVasPayload`                
-warehouseRemarks              string_                
-handlingUpdatedOnStr          string_                
-sku                           string_                
-modifyOn                      Datetime_
-modifyBy                      string_
-modifyOnStr                   string_
-createOn                      Datetime_
-createBy                      string_
-createOnStr                   string_
-============================  ===========================================================  ======

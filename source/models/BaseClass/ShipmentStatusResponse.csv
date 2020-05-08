@@ -1,0 +1,4 @@
+shipmentStatusCode, string_
+shipmentStatus, string_
+shipmentStageDescription, string_
+isShipmentEditable, bool_

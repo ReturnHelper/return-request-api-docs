@@ -1,0 +1,8 @@
+returnRequestLineItemImageId, long_
+returnRequestLineItemId, long_
+filename, string_
+fileExt, string_
+s3OriginalFileKey, string_
+s3SmallFileKey, string_
+s3MediumFileKey, string_
+s3LargeFileKey, string_
