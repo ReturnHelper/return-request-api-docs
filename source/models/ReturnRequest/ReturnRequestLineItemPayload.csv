@@ -1,0 +1,11 @@
+   returnRequestLineItemId, long_
+   returnRequestId, integer_
+   returnRequestLineItemNumber, string_
+   description, string_
+   weight, decimal_
+   weightUom, string_
+   valueCurrencyCode, string_
+   value, decimal_
+   handlingCode, string_
+   returnRequestLineItemImages, :ref:`structure-ReturnRequestLineItemImagePayload`
+   returnRequestLineItemVasList, :ref:`structure-ReturnRequestLineItemVasPayload`

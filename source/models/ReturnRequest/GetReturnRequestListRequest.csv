@@ -1,0 +1,10 @@
+   returnRequestNumber, string_
+   apiName, string_
+   returnStatusCode, string_
+   shipmentName, string_
+   warehouseRma, string_
+   shipmentCountryCode, string_
+   warehouseId, integer_
+   createFromStr, string_
+   createToStr, string_
+   returnRequestSourceType, string_

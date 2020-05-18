@@ -1,0 +1,7 @@
+   returnRequestId, integer_
+   returnTitle, string_
+   totalValue, decimal_
+   totalValueCurrency, string_
+   remarks, string_
+   shipment, :ref:`structure-ShipmentPayload`
+   returnRequestLineItems, List<:ref:`structure-EditReturnRequestLineItemRequest`>

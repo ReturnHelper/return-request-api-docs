@@ -1,0 +1,4 @@
+   status, string_ , Http Status Code
+   data, DATA
+   errorCode, string_ , Error Code
+   error, DATA

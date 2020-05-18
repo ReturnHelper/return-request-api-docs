@@ -1,0 +1,4 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>
+   shipments, List<:ref:`structure-ShipmentWithLabel`>

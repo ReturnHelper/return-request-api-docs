@@ -1,0 +1,6 @@
+   returnRequestLineItemId, long_
+   description, string_
+   weight, decimal_
+   weightUom, string_
+   valueCurrencyCode, string_
+   value, decimal_
