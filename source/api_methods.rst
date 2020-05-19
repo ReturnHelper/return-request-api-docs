@@ -2,6 +2,465 @@
 API Methods
 ###########
 
+General
+=======
+
+.. _method-getAllApiTypes:
+
+getAllApiTypes
+--------------
+
+::
+
+[GET] /apitype/getAllApiTypes
+
+Input: No Input
+
+Output:
+
+.. _structure-ApiTypeListResponse:
+
+.. csv-table:: ``ApiTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllBoxTypes:
+
+GetAllBoxTypes
+--------------
+
+::
+
+[GET] /boxtype/getAllBoxTypes
+
+Input: No Input
+
+Output:
+
+.. _structure-BoxTypeListResponse:
+
+.. csv-table:: ``BoxTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/BoxTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllCountries:
+
+GetAllCountries
+---------------
+
+::
+
+[GET] /country/getAllCountries
+
+Input: No Input
+
+Output:
+
+.. _structure-CountryListResponse:
+
+.. csv-table:: ``CountryListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CountryListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllFromCountries:
+
+GetAllFromCountries
+-------------------
+
+::
+
+[GET] /country/getAllFromCountries
+
+Input: No Input
+
+Output:
+
+
+.. csv-table:: ``CountryListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CountryListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllCurrencies:
+
+GetAllCurrencies
+----------------
+
+::
+
+[GET] /currency/getAllCurrencies
+
+Input: No Input
+
+Output:
+
+.. _structure-CurrencyListResponse:
+
+.. csv-table:: ``CurrencyListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CurrencyListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllDimensionUoms:
+
+GetAllDimensionUoms
+-------------------
+
+::
+
+[GET] /dimensionuom/getAllDimensionUoms
+
+Input: No Input
+
+Output:
+
+.. _structure-DimensionUomListResponse:
+
+.. csv-table:: ``DimensionUomListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/DimensionUomListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllHandlings:
+
+GetAllHandlings
+---------------
+
+::
+
+[GET] /handling/getAllHandlings
+
+Input: No Input
+
+Output:
+
+.. _structure-HandlingListResponse:
+
+.. csv-table:: ``HandlingListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/HandlingListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllVas:
+
+GetAllVas
+---------
+
+::
+
+[GET] /vas/getAllVas
+
+Input: No Input
+
+Output:
+
+.. _structure-VasListResponse:
+
+.. csv-table:: ``VasListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/VasListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllLabelStatus:
+
+GetAllLabelStatus
+-----------------
+
+::
+
+[GET] /labelstatus/getAllLabelStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-LabelStatusListResponse:
+
+.. csv-table:: ``LabelStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/LabelStatusListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllRefundStatus:
+
+GetAllRefundStatus
+------------------
+
+::
+
+[GET] /labelstatus/getAllRefundStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-RefundStatusListResponse:
+
+.. csv-table:: ``RefundStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/RefundStatusListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllReturnRequestSourceTypes:
+
+GetAllReturnRequestSourceTypes
+------------------------------
+
+::
+
+[GET] /returnrequestsourcetype/getAllReturnRequestSourceTypes
+
+Input: No Input
+
+Output:
+
+.. _structure-ReturnRequestSourceTypeListResponse:
+
+.. csv-table:: ``ReturnRequestSourceTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ReturnRequestSourceTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllReturnRequestStatus:
+
+GetAllReturnRequestStatus
+-------------------------
+
+::
+
+[GET] /returnrequeststatus/getAllReturnRequestStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-ReturnRequestStatusListResponse:
+
+.. csv-table:: ``ReturnRequestStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ReturnRequestStatusListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllResendStatus:
+
+GetAllResendStatus
+------------------
+
+::
+
+[GET] /resendstatus/getAllResendStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-ResendStatusListResponse:
+
+.. csv-table:: ``ResendStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ResendStatusListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllHandlingStatus:
+
+GetAllHandlingStatus
+--------------------
+
+::
+
+[GET] /handlingstatus/getAllHandlingStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-HandlingStatusListResponse:
+
+.. csv-table:: ``HandlingStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/HandlingStatusListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllSpecialRequest:
+
+GetAllSpecialRequest
+--------------------
+
+::
+
+[GET] /specialrequest/getAllSpecialRequest
+
+Input: No Input
+
+Output:
+
+.. _structure-SpecialRequestListResponse:
+
+.. csv-table:: ``SpecialRequestListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SpecialRequestListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllTransactionType:
+
+GetAllTransactionType
+---------------------
+
+::
+
+[GET] /transactiontype/getAllTransactionType
+
+Input: No Input
+
+Output:
+
+.. _structure-TransactionTypeListResponse:
+
+.. csv-table:: ``TransactionTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/TransactionTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllHandlingFeeTypes:
+
+GetAllHandlingFeeTypes
+----------------------
+
+::
+
+[GET] /handlingfeetype/getAllHandlingFeeTypes
+
+Input: No Input
+
+Output:
+
+.. _structure-HandlingFeeTypeListResponse:
+
+.. csv-table:: ``HandlingFeeTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/HandlingFeeTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllWeightUom:
+
+GetAllWeightUom
+---------------
+
+::
+
+[GET] /weightuom/getAllWeightUom
+
+Input: No Input
+
+Output:
+
+.. _structure-WeightUomListResponse:
+
+.. csv-table:: ``WeightUomListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/WeightUomListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllUnknownShipmentStatus:
+
+GetAllUnknownShipmentStatus
+---------------------------
+
+::
+
+[GET] /unknownshipmentstatus/getAllUnknownShipmentStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-UnknownShipmentStatusListResponse:
+
+.. csv-table:: ``UnknownShipmentStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/UnknownShipmentStatusListResponse.csv
+
+|
+
+----
+
+
 Return Request
 ================
 

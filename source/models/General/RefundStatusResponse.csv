@@ -1,0 +1,3 @@
+   refundStatusCode, string_
+   refundStatus, string_
+   refundStageDescription, string_

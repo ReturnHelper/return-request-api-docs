@@ -1,0 +1,3 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   apiType, List<:ref:`structure-ApiTypeResponse`>

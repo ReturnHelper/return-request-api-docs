@@ -9,6 +9,186 @@
 Data Structure
 ==============
 
+.. _structure-ApiTypeResponse:
+
+ApiTypeResponse
+---------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiTypeResponse.csv
+
+.. _structure-BoxTypeResponse:
+
+BoxTypeResponse
+---------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/BoxTypeResponse.csv
+
+.. _structure-CountryResponse:
+
+CountryResponse
+---------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CountryResponse.csv
+
+.. _structure-CurrencyResponse:
+
+CurrencyResponse
+----------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CurrencyResponse.csv
+
+.. _structure-DimensionUomResponse:
+
+DimensionUomResponse
+--------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/DimensionUomResponse.csv
+
+.. _structure-HandlingResponse:
+
+HandlingResponse
+----------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/HandlingResponse.csv
+
+.. _structure-VasResponse:
+
+VasResponse
+-----------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/VasResponse.csv
+
+.. _structure-LabelStatusResponse:
+
+LabelStatusResponse
+-------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/LabelStatusResponse.csv
+
+.. _structure-RefundStatusResponse:
+
+RefundStatusResponse
+--------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/RefundStatusResponse.csv
+
+.. _structure-ReturnRequestSourceTypeResponse:
+
+ReturnRequestSourceTypeResponse
+-------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ReturnRequestSourceTypeResponse.csv
+
+.. _structure-ReturnRequestStatusResponse:
+
+ReturnRequestStatusResponse
+---------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ReturnRequestStatusResponse.csv
+
+.. _structure-ResendStatusResponse:
+
+ResendStatusResponse
+--------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ResendStatusResponse.csv
+
+.. _structure-HandlingStatusResponse:
+
+HandlingStatusResponse
+----------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/HandlingStatusResponse.csv
+
+.. _structure-SpecialRequestResponse:
+
+SpecialRequestResponse
+----------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SpecialRequestResponse.csv
+
+.. _structure-TransactionTypeResponse:
+
+TransactionTypeResponse
+-----------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/TransactionTypeResponse.csv
+
+.. _structure-HandlingFeeTypeResponse:
+
+HandlingFeeTypeResponse
+-----------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/HandlingFeeTypeResponse.csv
+
+.. _structure-WeightUomResponse:
+
+WeightUomResponse
+-----------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/WeightUomResponse.csv
+
+.. _structure-UnknownShipmentStatusResponse:
+
+UnknownShipmentStatusResponse
+-----------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/UnknownShipmentStatusResponse.csv
+
 .. _structure-PaginationRequest:
 
 PaginationRequest
@@ -163,7 +343,7 @@ LabelPayload
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/ShareClass/LabelPayload.csv
+   :file: models/General/LabelPayload.csv
 
 
 .. _structure-ShipmentCostDetailPayload:
