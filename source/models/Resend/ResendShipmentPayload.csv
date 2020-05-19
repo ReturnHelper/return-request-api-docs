@@ -1,0 +1,17 @@
+   resendShipmentId, long_
+   resendId, long_
+   warehouseId, integer_
+   resendShipmentNumber, string_
+   shipmentServiceType, string_
+   shipmentCountryCode, string_
+   shipmentName, string_
+   shipmentPhone, string_
+   shipmentFax, string_
+   shipmentEmail, string_
+   shipmentStreet1, string_
+   shipmentStreet2, string_
+   shipmentStreet3, string_
+   shipmentState, string_
+   shipmentCity, string_
+   shipmentPostalCode, string_
+   trackingNumber, string_

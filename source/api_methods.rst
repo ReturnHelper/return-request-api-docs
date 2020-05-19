@@ -477,6 +477,142 @@ Output:
 
 ----
 
+Resend
+======
+
+.. _method-CreateResend:
+
+CreateResend
+------------
+
+::
+
+[POST] /resend/createResend
+
+Input:
+
+.. _structure-CreateResendRequest:
+
+.. csv-table:: ``CreateResendRequest`` (inherit :ref:`structure-ResendPayload`)
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   resendShipment, :ref:`structure-ResendShipmentPayload`
+
+|
+
+Output:
+
+.. _structure-CreateResendResponse:
+
+.. csv-table:: ``CreateResendResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Resend/CreateResendResponse.csv
+
+|
+
+----
+
+.. _method-GetResend:
+
+GetResend
+---------
+
+::
+
+[GET] /resend/getResend
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   resendId, integer_
+
+|
+
+Output:
+
+.. _structure-ResendResponse:
+
+.. csv-table:: ``ResendResponse`` (inherit :ref:`structure-ResendPayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Resend/ResendResponse.csv
+
+|
+
+----
+
+.. _method-SearchResend:
+
+SearchResend
+------------
+
+::
+
+[GET] /resend/searchResend
+
+Input:
+
+.. _structure-GetResendListRequest:
+
+.. csv-table:: ``GetResendListRequest`` (inherit :ref:`structure-PaginationRequest`)
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+   :file: models/Resend/GetResendListRequest.csv
+
+|
+
+Output:
+
+.. _structure-SearchResendListResponse:
+
+.. csv-table:: ``SearchResendListResponse`` (inherit :ref:`structure-PaginationResponse`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   searchResendPayloadList, List<:ref:`structure-SearchResendPayload`>
+
+|
+
+----
+
+.. _method-CancelResend:
+
+CancelResend
+------------
+
+::
+
+[POST] /resend/cancelResend
+
+Input:
+
+.. _structure-CancelResendRequest:
+
+.. csv-table:: ``CancelResendRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   resendId, long_
+
+|
+
+Output:
+
+.. csv-table:: ``ApiResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/BaseClass/ApiResponse.csv
+
+|
+
+----
+
+
 
 .. reference definition goes here
 

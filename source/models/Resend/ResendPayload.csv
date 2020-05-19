@@ -1,0 +1,7 @@
+   resendId, long_
+   returnInventoryId, long_
+   resendNumber, string_
+   resendStatusCode, string_
+   description, string_
+   remarks, string_
+   warehouseRemarks, string_

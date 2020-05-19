@@ -1,0 +1,11 @@
+   apiName, string_
+   warehouseId, integer_
+   returnRequestLineItemId, long_
+   returnRequestLineItemNumber, string_
+   returnRequestNumber, string_
+   shipmentNumber, string_
+   warehouseRma, string_
+   returnRequestRemarks, string_
+   shipmentId, long_
+   actualWeight, decimal_
+   actualWeightUom, string_

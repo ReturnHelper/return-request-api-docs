@@ -1,0 +1,6 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   warehouseId, integer_
+   returnRequestLineItemId, long_
+   returnRequestLineItemNumber, string_
+   resendShipmentList, List<:ref:`structure-ResendShipmentPayload`>

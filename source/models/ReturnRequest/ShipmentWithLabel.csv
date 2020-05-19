@@ -1,0 +1,3 @@
+   label, :ref:`structure-LabelPayload`
+   shipmentCostDetail, List<:ref:`structure-ShipmentCostDetailPayload`>
+   shipmentSupplementPayload, :ref:`structure-ShipmentSupplementPayload`

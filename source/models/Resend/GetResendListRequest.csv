@@ -1,0 +1,11 @@
+   resendNumber, string_
+   apiName, string_
+   resendStatusCode, string_
+   shipmentName, string_
+   shipmentCountryCode, string_
+   warehouseId, integer_
+   createFromStr, string_
+   createToStr, string_
+   returnRequestNumber, string_
+   shipmentNumber, string_
+   warehouseRma, string_

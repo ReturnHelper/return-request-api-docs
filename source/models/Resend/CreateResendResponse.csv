@@ -1,0 +1,5 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   resendId, long_
+   resendNumber, string_
+   resendShipmentId, long_

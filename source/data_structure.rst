@@ -152,10 +152,8 @@ ShipmentWithLabel
 .. csv-table:: (inherit :ref:`structure-ShipmentPayload`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
+   :file: models/ReturnRequest/ShipmentWithLabel.csv
 
-   label, :ref:`structure-LabelPayload`
-   shipmentCostDetail, List<:ref:`structure-ShipmentCostDetailPayload`>
-   shipmentSupplementPayload, :ref:`structure-ShipmentSupplementPayload`
 
 .. _structure-LabelPayload:
 
@@ -199,4 +197,36 @@ UpdateReturnRequestLineItemHandlingRequest
 
    returnRequestLineItemId, long_
    handlingCode, string_
+
+.. _structure-ResendShipmentPayload:
+
+ResendShipmentPayload
+---------------------
+
+.. csv-table:: (inherit :ref:`structure-EditablePayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Resend/ResendShipmentPayload.csv
+
+.. _structure-ResendPayload:
+
+ResendPayload
+-------------
+
+.. csv-table:: (inherit :ref:`structure-EditablePayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Resend/ResendPayload.csv
+
+.. _structure-SearchResendPayload:
+
+SearchResendPayload
+-------------------
+
+.. csv-table:: (inherit :ref:`structure-ResendPayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Resend/SearchResendPayload.csv
+
+
 
