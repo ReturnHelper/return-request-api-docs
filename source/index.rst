@@ -6,6 +6,15 @@
 Return Request API
 ==================
 
+About this documentation
+------------------------
+
+This documentation listed the functions of Return Request API.
+
+Each function is provided with input and output object definition (if exist).
+
+Some objects may have an inherit class that you can use the parameters from it.
+
 Authenication
 -------------
 
@@ -26,11 +35,4 @@ Put authenication keys in your request header:
    API Methods <api_methods>
    Data Structure <data_structure>
 
-----
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   
