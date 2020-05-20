@@ -1,0 +1,5 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   apiFileId, long_
+   filename, string_
+   fileKey, string_

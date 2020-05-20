@@ -1,0 +1,3 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   shipmentCostTypes, List<:ref:`structure-ShipmentCostTypePayload`>

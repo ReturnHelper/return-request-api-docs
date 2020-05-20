@@ -1,0 +1,8 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   serviceTypeCode, string_
+   fromCountry, string_
+   toCountry, string_
+   currencyCode, string_
+   rate, decimal_
+   costDetails, Key Value Pairs

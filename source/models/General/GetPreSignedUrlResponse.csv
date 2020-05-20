@@ -1,0 +1,7 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   preSignedUrl, string_
+   filename, string_
+   fileKey, string_
+   contentType, string_
+   expires, DateTime_

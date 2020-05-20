@@ -189,6 +189,66 @@ UnknownShipmentStatusResponse
    :widths: 15, 10, 30
    :file: models/General/UnknownShipmentStatusResponse.csv
 
+.. _structure-ServiceTypeResponse:
+
+ServiceTypeResponse
+-------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ServiceTypeResponse.csv
+
+.. _structure-ShipmentStatusResponse:
+
+ShipmentStatusResponse
+----------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ShipmentStatusResponse.csv
+
+.. _structure-ShipmentCostTypePayload:
+
+ShipmentCostTypePayload
+-----------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ShipmentCostTypePayload.csv
+
+.. _structure-EbayReturnReasonResponse:
+
+EbayReturnReasonResponse
+------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/EbayReturnReasonResponse.csv
+
+.. _structure-EbayReturnStatusResponse:
+
+EbayReturnStatusResponse
+------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/EbayReturnStatusResponse.csv
+
+.. _structure-EbayCountryResponse:
+
+EbayCountryResponse
+-------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/EbayCountryResponse.csv
+
 .. _structure-PaginationRequest:
 
 PaginationRequest
@@ -269,16 +329,6 @@ ReturnRequestLineItemVasPayload
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnRequest/ReturnRequestLineItemVasPayload.csv
-
-.. _structure-ShipmentPayload:
-
-ShipmentPayload
----------------
-
-.. csv-table:: (inherit :ref:`structure-EditablePayload`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/ReturnRequest/ShipmentPayload.csv
 
 .. _structure-ReturnRequestLineItemPayload:
 

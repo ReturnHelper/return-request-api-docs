@@ -460,13 +460,351 @@ Output:
 
 ----
 
+.. _method-GetAllServiceType:
+
+GetAllServiceType
+-----------------
+
+::
+
+[GET] /servicetype/getAllServiceType
+
+Input: No Input
+
+Output:
+
+.. _structure-ServiceTypeListResponse:
+
+.. csv-table:: ``ServiceTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ServiceTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllShipmentStatus:
+
+GetAllShipmentStatus
+--------------------
+
+::
+
+[GET] /shipment/getAllShipmentStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-ShipmentStatusListResponse:
+
+.. csv-table:: ``ShipmentStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ShipmentStatusListResponse.csv
+
+|
+
+----
+
+.. _method-CalculateBuyerShipmentCost:
+
+CalculateBuyerShipmentCost
+--------------------------
+
+::
+
+[POST] /shipment/calculateBuyerShipmentCost
+
+Input:
+
+.. _structure-ShipmentPayload:
+
+.. csv-table:: ``ShipmentPayload`` (inherit :ref:`structure-EditablePayload`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/ReturnRequest/ShipmentPayload.csv
+
+|
+
+Output:
+
+.. _structure-ShipmentCostResponse:
+
+.. csv-table:: ``ShipmentCostResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ShipmentCostResponse.csv
+
+|
+
+----
+
+.. _method-GetAllShipmentCostTypes:
+
+GetAllShipmentCostTypes
+-----------------------
+
+::
+
+[GET] /shipment/getAllShipmentCostTypes
+
+Input: No Input
+
+Output:
+
+.. _structure-ShipmentCostTypeResponse:
+
+.. csv-table:: ``ShipmentCostTypeResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ShipmentCostTypeResponse.csv
+
+|
+
+----
+
+.. _method-GetApiInfo:
+
+GetApiInfo
+----------
+
+::
+
+[GET] /account/getApiInfo
+
+Input: No Input
+
+Output:
+
+.. _structure-ApiInfoResponse:
+
+.. csv-table:: ``ApiInfoResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiInfoResponse.csv
+
+|
+
+----
+
+.. _method-GetPublicReadUrl:
+
+GetPublicReadUrl
+----------------
+
+::
+
+[GET] /file/getPublicReadUrl
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   fileKey, string_
+
+|
+
+Output:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+
+|
+
+----
+
+.. _method-UploadFile:
+
+UploadFile
+----------
+
+::
+
+[POST] /file/uploadFile
+
+Input:
+
+.. _structure-UploadFileRequest:
+
+.. csv-table:: ``UploadFileRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   filename, string_
+   file, File
+
+|
+
+Output:
+
+.. _structure-UploadFileResponse:
+
+.. csv-table:: ``UploadFileResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/UploadFileResponse.csv
+
+|
+
+----
+
+.. _method-GetFile:
+
+GetFile
+-------
+
+::
+
+[GET] /file/getFile
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   apiFileId, long_
+
+|
+
+Output:
+
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   file, File
+
+|
+
+----
+
+.. _method-GetPreSignedUploadUrl:
+
+GetPreSignedUploadUrl
+---------------------
+
+::
+
+[GET] /file/getPreSignedUploadUrl
+
+Input:
+
+.. _structure-GetPreSignedUrlRequest:
+
+.. csv-table:: ``GetPreSignedUrlRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+   :file: models/General/GetPreSignedUrlRequest.csv
+
+|
+
+Output:
+
+.. _structure-GetPreSignedUrlResponse:
+
+.. csv-table:: ``GetPreSignedUrlResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetPreSignedUrlResponse.csv
+
+|
+
+----
+
+.. _method-GetEbayReturnReason:
+
+GetEbayReturnReason
+-------------------
+
+::
+
+[GET] /ebay/getEbayReturnReason
+
+Input: No Input
+
+Output:
+
+.. _structure-EbayReturnReasonListResponse:
+
+.. csv-table:: ``EbayReturnReasonListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/EbayReturnReasonListResponse.csv
+   
+|
+
+----
+
+.. _method-GetEbayReturnStatus:
+
+GetEbayReturnStatus
+-------------------
+
+::
+
+[GET] /ebay/getEbayReturnStatus
+
+Input: No Input
+
+Output:
+
+.. _structure-EbayReturnStatusListResponse:
+
+.. csv-table:: ``EbayReturnStatusListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/EbayReturnStatusListResponse.csv
+
+|
+
+----
+
+.. _method-GetAllEbayCountries:
+
+GetAllEbayCountries
+-------------------
+
+::
+
+[GET] /ebay/getAllEbayCountries
+
+Input: No Input
+
+Output:
+
+.. _structure-EbayCountryListResponse:
+
+.. csv-table:: ``EbayCountryListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   ebayCountryListResponse, List<:ref:`structure-EbayCountryResponse`>
+
+|
+
+----
+
 
 Return Request
 ================
 
 .. _method-createReturnRequest:
 
-createReturnRequest
+CreateReturnRequest
 -------------------
 
 ::
@@ -501,7 +839,7 @@ Output:
 
 .. _method-createNonRrLabelReturnRequest:
 
-createNonRrLabelReturnRequest
+CreateNonRrLabelReturnRequest
 -----------------------------
 
 ::

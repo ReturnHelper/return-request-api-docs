@@ -1,0 +1,5 @@
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   apiTypeCode, string_
+   apiName, string_
+   primayEmail, string_
