@@ -921,6 +921,171 @@ Output:
 
 ----
 
+Return User API
+================
+
+.. _method-GetApiBalance:
+
+GetApiBalance
+-------------------
+
+::
+
+[GET] <userapi-endpoint>/ApiBalance/GetApiBalance
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 20, 30
+
+   pageSize, integer_
+   offset, integer_
+
+|
+
+Output:
+
+.. _structure-ApiBalanceListResponse:
+
+.. csv-table:: ``ApiBalanceListResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiBalanceListResponse.csv
+      
+|
+
+----
+
+.. _method-createFbaRemovalOrder:
+
+CreateFbaRemovalOrder
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/fbaInventory/createFbaRemovalOrder
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 20, 30
+
+   removalOrderId, string_
+
+|
+
+Output:
+
+.. _structure-createFbaRemovalOrder:
+
+.. csv-table:: ``createFbaRemovalOrder`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CreateFbaRemovalOrder.csv
+      
+|
+
+----
+
+.. _method-createFbaRemovalShipment:
+
+CreateFbaRemovalShipment
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/fbaInventory/createFbaRemovalShipment
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 20, 30
+
+   fbaRemovalOrderId, string_
+   trackingNumber, string_
+   warehouseId, integer_
+
+|
+
+Output:
+
+.. _structure-CreateFbaRemovalShipment:
+
+.. csv-table:: ``CreateFbaRemovalShipment`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CreateFbaRemovalShipment.csv
+      
+|
+
+----
+
+.. _method-getFbaRemovalOrder:
+
+GetFbaRemovalOrder
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/getFbaRemovalOrder
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 20, 30
+
+   fbaRemovalOrderId, string_
+   
+|
+
+Output:
+
+.. _structure-GetFbaRemovalOrder:
+
+.. csv-table:: ``GetFbaRemovalOrder`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaRemovalOrderListResponse.csv
+      
+|
+
+----
+
+.. _method-searchFbaRemovalOrder:
+
+SearchFbaRemovalOrder
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/searchFbaRemovalOrder
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 20, 30
+
+   fbaRemovalOrderId, string_
+   
+|
+
+Output:
+
+.. _structure-SearchFbaRemovalOrder:
+
+.. csv-table:: ``SearchFbaRemovalOrder`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaRemovalOrderListResponse.csv
+      
+|
+
+----
 
 Return Request
 ================

@@ -1,0 +1,20 @@
+fbaRemovalShipmentId, integer_
+warehouseId, integer_
+apiId, integer_
+fbaRemovalOrderId, integer_
+trackingNumber, string_
+shipmentStatusCode, string_
+weight,decimal_
+weightUom, string_
+dimension1, decimal_
+dimension2, decimal_
+dimension3, decimal_
+dimensionUom, string_
+deliverDateStr, string_
+stockAge, decimal_
+modifyOn,Datetime_
+modifyBy, string_
+modifyOnStr, string_
+createOn,Datetime_
+createBy, string_
+createOnStr, string_

@@ -496,4 +496,27 @@ VasStatusResponse
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/VasStatusResponse.csv
+   :file: models/General/VasStatusRespons
+
+.. _structure-ApiBalanceResponse:
+
+ApiBalanceResponse
+------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiBalanceResponse.csv
+
+
+.. _structure-GetFbaRemovalOrderResponse:
+
+GetFbaRemovalOrderResponse
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaRemovalOrderResponse.csv
+
+      

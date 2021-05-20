@@ -1,0 +1,4 @@
+apiName, string_
+apiKey, string_
+currencyCode, string_
+balance, decimal_
