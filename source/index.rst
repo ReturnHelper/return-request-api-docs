@@ -26,7 +26,7 @@ Put authenication keys in your request header:
     x-rr-apitoken: (your token)
     Content-Type: "application/json"
 
-----
+---
 
 .. toctree::
    :maxdepth: 3
@@ -34,5 +34,3 @@ Put authenication keys in your request header:
 
    API Methods <api_methods>
    Data Structure <data_structure>
-
-   

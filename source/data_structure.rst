@@ -14,7 +14,7 @@ Data Structure
 ApiTypeResponse
 ---------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiTypeResponse.csv
@@ -34,7 +34,7 @@ BoxTypeResponse
 CountryResponse
 ---------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CountryResponse.csv
@@ -44,7 +44,7 @@ CountryResponse
 CurrencyResponse
 ----------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CurrencyResponse.csv
@@ -54,7 +54,7 @@ CurrencyResponse
 DimensionUomResponse
 --------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/DimensionUomResponse.csv
@@ -64,7 +64,7 @@ DimensionUomResponse
 HandlingResponse
 ----------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/HandlingResponse.csv
@@ -124,7 +124,7 @@ ReturnRequestStatusResponse
 ResendStatusResponse
 --------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ResendStatusResponse.csv
@@ -134,7 +134,7 @@ ResendStatusResponse
 HandlingStatusResponse
 ----------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/HandlingStatusResponse.csv
@@ -154,7 +154,7 @@ SpecialRequestResponse
 TransactionTypeResponse
 -----------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/TransactionTypeResponse.csv
@@ -164,7 +164,7 @@ TransactionTypeResponse
 HandlingFeeTypeResponse
 -----------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/HandlingFeeTypeResponse.csv
@@ -184,7 +184,7 @@ WeightUomResponse
 UnknownShipmentStatusResponse
 -----------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/UnknownShipmentStatusResponse.csv
@@ -194,7 +194,7 @@ UnknownShipmentStatusResponse
 ServiceTypeResponse
 -------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ServiceTypeResponse.csv
@@ -214,7 +214,7 @@ ShipmentStatusResponse
 ShipmentCostTypePayload
 -----------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ShipmentCostTypePayload.csv
@@ -234,7 +234,7 @@ EbayReturnReasonResponse
 EbayReturnStatusResponse
 ------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/EbayReturnStatusResponse.csv
@@ -244,7 +244,7 @@ EbayReturnStatusResponse
 EbayCountryResponse
 -------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/EbayCountryResponse.csv
@@ -367,7 +367,7 @@ CreateNonRrLabelShipmentRequest
 EditReturnRequestLineItemRequest
 --------------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnRequest/EditReturnRequestLineItemRequest.csv
@@ -411,7 +411,7 @@ ShipmentCostDetailPayload
 ShipmentSupplementPayload
 -------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnRequest/ShipmentSupplementPayload.csv
@@ -458,5 +458,42 @@ SearchResendPayload
    :widths: 15, 10, 30
    :file: models/Resend/SearchResendPayload.csv
 
+.. _structure-MarTypeResponse:
 
+MarTypeResponse
+---------------
 
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/MarTypeResponse.csv
+
+.. _structure-RecallInventoryStatusResponse:
+
+RecallInventoryStatusResponse
+-----------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/RecallInventoryStatusResponse.csv
+
+.. _structure-PickUpTypeStatusResponse:
+
+PickUpTypeStatusResponse
+------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/PickUpTypeStatusResponse.csv
+
+.. _structure-VasStatusResponse:
+
+VasStatusResponse
+-----------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/VasStatusResponse.csv
