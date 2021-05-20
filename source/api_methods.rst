@@ -948,11 +948,11 @@ Output:
 
 .. _structure-ApiBalanceListResponse:
 
-.. csv-table:: ``ApiBalanceListResponse``
+.. csv-table:: ``ApiBalanceListResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiBalanceListResponse.csv
-
+      
 |
 
 ----
@@ -978,13 +978,13 @@ Input:
 
 Output:
 
-.. _structure-createFbaRemovalOrder:
+.. _structure-CreateFbaRemovalOrderResponse:
 
-.. csv-table:: ``createFbaRemovalOrder``
+.. csv-table:: ``CreateFbaRemovalOrderResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateFbaRemovalOrder.csv
-
+      
 |
 
 ----
@@ -1000,25 +1000,24 @@ CreateFbaRemovalShipment
 
 Input:
 
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 20, 30
+.. _structure-CreateFbaRemovalShipmentRequest:
 
-   fbaRemovalOrderId, string_
-   trackingNumber, string_
-   warehouseId, integer_
+.. csv-table:: ``CreateFbaRemovalShipmentRequest`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CreateFbaRemovalShipmentRequest.csv
 
 |
 
 Output:
 
-.. _structure-CreateFbaRemovalShipment:
+.. _structure-CreateFbaRemovalShipmentResponse:
 
-.. csv-table:: ``CreateFbaRemovalShipment``
+.. csv-table:: ``CreateFbaRemovalShipmentResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateFbaRemovalShipment.csv
-
+      
 |
 
 ----
@@ -1039,18 +1038,18 @@ Input:
    :widths: 15, 20, 30
 
    fbaRemovalOrderId, string_
-
+   
 |
 
 Output:
 
-.. _structure-GetFbaRemovalOrder:
+.. _structure-FbaRemovalOrderResponse:
 
-.. csv-table:: ``GetFbaRemovalOrder``
+.. csv-table:: ``FbaRemovalOrderResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaRemovalOrderListResponse.csv
-
+      
 |
 
 ----
@@ -1068,224 +1067,515 @@ Input:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
-   :widths: 15, 20, 30
+   :widths: 20, 20, 30
 
-   fbaRemovalOrderId, string_
-
+   pageSize, integer_
+   offset, integer_
+   
 |
 
 Output:
 
-.. _structure-SearchFbaRemovalOrder:
+.. _structure-GetFbaRemovalOrderListResponse:
 
-.. csv-table:: ``SearchFbaRemovalOrder``
+.. csv-table:: ``GetFbaRemovalOrderListResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/GetFbaRemovalOrderListResponse.csv
-
+   :file: models/General/SearchFbaRemovalOrderListResponse.csv
+      
 |
 
 ----
 
-.. _method-GetServiceTypeByFromToCountry:
+.. _method-getFbaInventory:
 
-GetServiceTypeByFromToCountry
----------------
-
-::
-
-[GET] <userapi-endpoint>/warehouse/getServiceTypeByFromToCountry
-
-Input:
-
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   fromCountry, string_
-
-Output:
-
-.. csv-table:: ``ServiceTypeListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ServiceTypeListResponse.csv
-
-|
-
-----
-
-.. _method-GetServiceTypeByFromCountryAndWarehouse:
-
-GetServiceTypeByFromCountryAndWarehouse
----------------
+GetFbaInventory
+---------------------------
 
 ::
 
-[GET] <userapi-endpoint>/warehouse/getServiceTypeByFromCountryAndWarehouse
-
-Input:
-
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   fromCountry, string_
-   warehouseId, integer_
-
-Output:
-
-.. csv-table:: ``ServiceTypeListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ServiceTypeListResponse.csv
-
-|
-
-----
-
-.. _method-SearchShipment:
-
-SearchShipment
----------------
-
-::
-
-[GET] <userapi-endpoint>/warehouse/searchShipment
-
-Input:
-
-.. _structure-SearchShipmentRequest:
-
-.. csv-table:: ``SearchShipmentRequest``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchShipmentRequest.csv
-
-Output:
-
-.. _structure-SearchShipmentResponse:
-
-.. csv-table:: ``SearchShipmentResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchShipmentResponse.csv
-
-|
-
-----
-
-.. _method-GetAllWarehouse:
-
-GetAllWarehouse
----------------
-
-::
-
-[Get] <userapi-endpoint>/warehouse/getAllWarehouse
-
-Input: No Input
-
-Output:
-
-.. _structure-WarehouseListResponse:
-
-.. csv-table:: ``WarehouseListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/WarehouseListResponse.csv
-
-|
-
-----
-
-.. _method-GetWarehouseByFromCountry:
-
-GetWarehouseByFromCountry
--------------------------
-
-::
-
-[Get] <userapi-endpoint>/warehouse/getWarehouseByFromCountry
+[Get] <userapi-endpoint>/fbaInventory/getFbaInventory
 
 Input:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
+   :widths: 20, 20, 30
 
-   countryCode, string_
+   pageSize, integer_
+   offset, integer_
+   
+|
 
 Output:
 
-.. csv-table:: ``WarehouseListResponse``
+.. _structure-FbaInventoryResponse:
+
+.. csv-table:: ``FbaInventoryResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/WarehouseListResponse.csv
-
+   :file: models/General/GetFbaInventoryListResponse.csv
+    
 |
 
 ----
 
-.. _method-GetWarehouse:
+.. _method-searchFbaInventory:
 
-GetWarehouse
-------------
+SearchFbaInventory
+---------------------------
 
 ::
 
-[Get] <userapi-endpoint>/warehouse/getWarehouse
+[Get] <userapi-endpoint>/fbaInventory/searchFbaInventory
 
 Input:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
+   :widths: 20, 20, 30
 
-   warehouseId, integer_
+   pageSize, integer_
+   offset, integer_
+   
+|
 
 Output:
 
-.. _structure-WarehouseResponse:
+.. _structure-GetFbaInventoryListResponse:
 
-.. csv-table:: ``WarehouseResponse``
+.. csv-table:: ``GetFbaInventoryListResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/WarehouseResponse.csv
-
+   :file: models/General/SearchFbaInventoryListResponse.csv
+    
 |
 
 ----
 
-.. _method-SearchWarehouse:
+.. _method-assignFbaInventoryHandling:
 
-SearchWarehouse
----------------
+AssignFbaInventoryHandling
+---------------------------
 
 ::
 
-[POST] <userapi-endpoint>/warehouse/searchWarehouse
+[POST] <userapi-endpoint>/fbaInventory/assignFbaInventoryHandling
 
 Input:
 
-.. _structure-UserSearchWarehouseRequest:
+.. _structure-AssignFbaInventoryHandlingRequest:
 
-.. csv-table:: ``UserSearchWarehouseRequest``
+.. csv-table:: ``AssignFbaInventoryHandlingRequest`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/UserSearchWarehouseRequest.csv
+   :file: models/General/AssignFbaInventoryHandlingRequest.csv
+|
 
 Output:
 
-.. _structure-UserSearchWarehouseResponse:
+.. _structure-AssignFbaInventoryHandlingResponse:
 
-.. csv-table:: ``UserSearchWarehouseResponse``
+.. csv-table:: ``AssignFbaInventoryHandlingResponse`` 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/UserSearchWarehouseResponse.csv
+   :file: models/General/AssignFbaInventoryHandlingResponse.csv
+    
+|
 
+----
+
+.. _method-getFbaInventoryRecall:
+
+GetFbaInventoryRecall
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryRecall
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   fbaRecallId, integer_
+   
+|
+
+
+Output:
+
+.. _structure-FbaInventoryRecallResponse:
+
+.. csv-table:: ``FbaInventoryRecallResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRecallResponse.csv
+    
+|
+
+----
+
+.. _method-searchFbaInventoryRecall:
+
+SarchFbaInventoryRecall
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryRecall
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   pageSize, integer_
+   offset, integer_
+   
+|
+
+Output:
+
+.. _structure-GetFbaInventoryRecallListResponse:
+
+.. csv-table:: ``GetFbaInventoryRecallListResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryRecallListResponse.csv
+    
+|
+
+----
+
+.. _method-getFbaInventoryOthers:
+
+GetFbaInventoryOthers
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryOthers
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   fbaOthersId, long_
+   
+|
+
+Output:
+
+.. _structure-FbaInventoryOthersResponse:
+
+.. csv-table:: ``FbaInventoryOthersResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryOthersResponse.csv
+    
+|
+
+----
+
+.. _method-searchFbaInventoryOthers:
+
+SearchFbaInventoryOthers
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryOthers
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   pageSize, integer_
+   offset, integer_
+   
+|
+
+Output:
+
+.. _structure-GetFbaInventoryOthersListResponse:
+
+.. csv-table:: ``GetFbaInventoryOthersListResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryOthersListResponse.csv
+    
+|
+
+----
+
+.. _method-getFbaInventoryDispose:
+
+GetFbaInventoryDispose
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryDispose
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   fbaDisposeId, long_
+   
+|
+
+Output:
+
+.. _structure-FbaInventoryDisposeResponse:
+
+.. csv-table:: ``FbaInventoryDisposeResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryDisposeResponse.csv
+    
+|
+
+----
+
+.. _method-searchFbaInventoryDispose:
+
+SearchFbaInventoryDispose
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryDispose
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   pageSize, integer_
+   offset, integer_
+   
+|
+
+Output:
+
+.. _structure-GetFbaInventoryDisposeListResponse:
+
+.. csv-table:: ``GetFbaInventoryDisposeListResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryDisposeListResponse.csv
+    
+|
+
+----
+
+.. _method-getFbaInventoryRelabel:
+
+GetFbaInventoryRelabel
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryRelabel
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   fbaRelabelId, long_
+   
+|
+
+Output:
+
+.. _structure-FbaInventoryRelabelResponse:
+
+.. csv-table:: ``FbaInventoryRelabelResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRelabelResponse.csv
+    
+|
+
+----
+
+.. _method-searchFbaInventoryRelabel:
+
+SearchFbaInventoryRelabel
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryRelabel
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   pageSize, integer_
+   offset, integer_
+   
+|
+
+Output:
+
+.. _structure-GetFbaInventoryRelabelListResponse:
+
+.. csv-table:: ``GetFbaInventoryRelabelListResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryRelabelListResponse.csv
+    
+|
+
+----
+
+.. _method-assignFbaInventoryRelabelFnsku:
+
+AssignFbaInventoryRelabelFnsku
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/fbaInventory/assignFbaInventoryRelabelFnsku
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   fbaRelabelId, long_
+   newFnsku, string_
+   
+|
+
+Output:
+
+.. _structure-FbaInventoryRelabelResponse:
+
+.. csv-table:: ``FbaInventoryRelabelResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRelabelResponse.csv
+    
+|
+
+----
+
+.. _method-searchAvailableRelabelForShipment:
+
+SearchAvailableRelabelForShipment
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/searchAvailableRelabelForShipment
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   pageSize, integer_
+   offset, integer_
+   
+|
+
+Output:
+
+.. _structure-SearchAvailableRelabelForShipmentResponse:
+
+.. csv-table:: ``SearchAvailableRelabelForShipmentResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchAvailableRelabelForShipmentResultPayloadList.csv
+    
+|
+
+----
+
+.. _method-createFbaInventoryRelabelShipment:
+
+CreateFbaInventoryRelabelShipment
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/fbaInventory/createFbaInventoryRelabelShipment
+
+Input:
+
+.. _structure-CreateFbaInventoryRelabelShipmentRequest:
+
+.. csv-table:: ``CreateFbaInventoryRelabelShipmentRequest`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CreateFbaInventoryRelabelShipmentRequest.csv
+  
+  
+|
+
+Output:
+
+.. _structure-FbaInventoryRelabelShipmentResponse:
+
+.. csv-table:: ``FbaInventoryRelabelShipmentResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRelabelShipmentResponse.csv
+    
+|
+
+----
+
+.. _method-addAddressLabel:
+
+AddAddressLabel
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/fbaInventory/addAddressLabel
+
+Input:
+
+.. _structure-AddFbaInventoryRelabelAddressLabelRequest:
+
+.. csv-table:: ``AddFbaInventoryRelabelAddressLabelRequest`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/AddFbaInventoryRelabelAddressLabelRequest.csv
+  
+  
+|
+
+Output:
+
+.. _structure-FbaInventoryRelabelShipmentResponse:
+
+.. csv-table:: ``FbaInventoryRelabelShipmentResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRelabelShipmentResponse.csv
+    
 |
 
 ----

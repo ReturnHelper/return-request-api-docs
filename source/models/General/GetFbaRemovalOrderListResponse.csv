@@ -9,4 +9,4 @@ modifyOnStr, string_
 createOn, Datetime_
 createBy, string_
 createOnStr, string_
-fbaRemovalShipmentPayloadList, List<:ref:`structure-GetFbaRemovalOrderResponse`>
+fbaRemovalShipmentPayloadList, List<:ref:`structure-fbaRemovalShipmentPayload`>

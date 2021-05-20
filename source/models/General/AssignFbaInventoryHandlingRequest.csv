@@ -1,0 +1,3 @@
+fbaInventoryId, long_
+handlingCode , string_
+quantity, integer_

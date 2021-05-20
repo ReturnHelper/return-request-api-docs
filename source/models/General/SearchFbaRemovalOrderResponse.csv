@@ -1,0 +1,14 @@
+apiName, string_
+fbaRemovalShipmentId, integer_
+trackingNumber, string_
+deliverDateStr, string_
+shipmentStatusCode, string_
+fbaRemovalOrderId, integer_
+apiId, integer_
+removalOrderId, string_
+modifyOn, DateTime_
+modifyBy, string_
+modifyOnStr, string_
+createOn, DateTime_
+createBy, string_
+createOnStr, string_

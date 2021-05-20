@@ -1,0 +1,19 @@
+correlationId, string_
+meta, :ref:`structure-ApiResponseMeta`
+fbaRelabelId , long_
+apiId , integer_
+fbaInventoryId , long_
+newFnsku , string_
+quantity , integer_
+handlingStatusCode, string_
+repackStatusCode, string_
+fbaRelabelShipmentId,  long_
+modifyOn, DateTime_
+modifyBy, string_
+modifyOnStr, string_
+createOn, DateTime_
+createBy, string_
+createOnStr, string_
+fbaInventoryRelabelShipmentPayload, :ref:`structure-fbaInventoryRelabelShipmentPayload`
+fbaInventoryRelabelShipmentLabelPayload, :ref:`structure-fbaInventoryRelabelShipmentLabelPayload`
+

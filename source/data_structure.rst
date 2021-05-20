@@ -503,40 +503,159 @@ VasStatusResponse
 ApiBalanceResponse
 ------------------
 
-.. csv-table::
+.. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiBalanceResponse.csv
 
+.. _structure-fbaRemovalShipmentPayload:
 
-.. _structure-GetFbaRemovalOrderResponse:
-
-GetFbaRemovalOrderResponse
+fbaRemovalShipmentPayload
 --------------------------
 
-.. csv-table::
+.. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaRemovalOrderResponse.csv
 
+.. _structure-SearchFbaRemovalOrderResponse:
 
-.. _structure-UserSearchWarehousePayload:
-
-UserSearchWarehousePayload
+FbaRemovalOrderPayload
 --------------------------
 
-.. csv-table:: (inherit :ref:`structure-WarehouseResponse`)
+.. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
+   :file: models/General/SearchFbaRemovalOrderResponse.csv
 
-   apiName, string_
+.. _structure-fbaInventoryRelabelPayload:
 
-.. _structure-SearchShipmentResultPayload:
-
-SearchShipmentResultPayload
+fbaInventoryRelabelPayload
 --------------------------
 
-.. csv-table::
+.. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/SearchShipmentResultPayload.csv
+   :file: models/General/GetFbaInventoryResponse.csv
+   
+.. _structure-fbaInventoryRecallPayload:
+
+fbaInventoryRecallPayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryRecallPayload.csv
+
+
+.. _structure-fbaInventoryOthersPayload:
+
+fbaInventoryOthersPayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryOthersPayload.csv
+
+
+.. _structure-fbaInventoryDisposePayload:
+
+fbaInventoryDisposePayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryDisposePayload.csv
+
+.. _structure-searchFbaInventoryPayload:
+
+searchFbaInventoryPayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchFbaInventoryResponse.csv
+
+
+.. _structure-GetFbaInventoryRecallResponse:
+
+GetFbaInventoryRecallResponse
+------------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetFbaInventoryRecallResponse.csv
+   
+
+.. _structure-searchFbaInventoryOthersPayload:
+
+searchFbaInventoryOthersPayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchFbaInventoryOthersPayload.csv
+   
+
+.. _structure-SearchFbaInventoryDisposePayload:
+
+SearchFbaInventoryDisposePayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchFbaInventoryDisposePayload.csv
+
+.. _structure-fbaInventoryRelabelShipmentPayload:
+
+FbaInventoryRelabelShipmentPayload
+--------------------------
+   
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRelabelShipmentPayload.csv
+
+
+
+.. _structure-fbaInventoryRelabelShipmentLabelPayload:
+   
+FbaInventoryRelabelShipmentLabelPayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/FbaInventoryRelabelShipmentLabelPayload.csv
+   
+
+   
+.. _structure-searchFbaInventoryRelabelResultPayload:
+   
+SearchFbaInventoryRelabelResultPayload
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchFbaInventoryRelabelResultPayload.csv
+   
+   
+.. _structure-fbaRelabelId:
+
+fbaRelabelId
+--------------------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/fbaRelabelId.csv
+   
+   

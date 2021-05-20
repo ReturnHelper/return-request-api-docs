@@ -1,0 +1,6 @@
+correlationId, string_
+meta, :ref:`structure-ApiResponseMeta`
+fbaInventoryRelabelPayload, :ref:`structure-fbaInventoryRelabelPayload`
+fbaInventoryRecallPayload, :ref:`structure-fbaInventoryRecallPayload`
+fbaInventoryOthersPayload, :ref:`structure-fbaInventoryOthersPayload`
+fbaInventoryDisposePayload, :ref:`structure-fbaInventoryDisposePayload`

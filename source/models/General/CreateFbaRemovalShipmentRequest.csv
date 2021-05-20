@@ -1,0 +1,3 @@
+   fbaRemovalOrderId, string_
+   trackingNumber, string_
+   warehouseId, integer_

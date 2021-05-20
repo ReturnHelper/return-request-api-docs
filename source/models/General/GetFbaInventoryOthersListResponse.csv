@@ -1,4 +1,4 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
 totalNumberOfRecords, integer_
-ApiBalanceListResponse, List<:ref:`structure-ApiBalanceResponse`>
+searchFbaInventoryOthersPayloadList, List<:ref:`structure-searchFbaInventoryOthersPayload`>

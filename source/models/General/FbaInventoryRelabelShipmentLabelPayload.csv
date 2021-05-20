@@ -1,0 +1,10 @@
+fbaRelabelShipmentLabelId, long_
+apiId, integer_
+fbaRelabelShipmentId, long_
+filename, string_
+fileExt, string_
+s3OriginalFileKey, string_
+isDeleted, bool_
+createOn, DateTime_
+createBy, string_
+createOnStr, string_

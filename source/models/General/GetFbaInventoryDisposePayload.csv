@@ -1,0 +1,11 @@
+fbaDisposeId ,long_
+apiId, integer_
+fbaInventoryId, long_
+quantity, integer_
+handlingStatusCode, string_
+modifyOn, DateTime_
+modifyBy, string_
+modifyOnStr, string_
+createOn, DateTime_
+createBy, string_
+createOnStr, string_

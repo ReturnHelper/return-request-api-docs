@@ -1,0 +1,10 @@
+fbaRelabelShipmentId, long_
+newShipmentId, string_
+provideLabel, bool_
+newShipmentFbaName, string_
+newShipmentStreet1, string_
+newShipmentStreet2, string_
+newShipmentStreet3, string_
+newShipmentState, string_
+newShipmentCity, string_
+newShipmentPostalCode, string_
