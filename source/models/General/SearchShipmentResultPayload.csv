@@ -1,0 +1,9 @@
+  returnRequestNumber, string_
+  apiName, string_
+  labelRequestStatusCode, string_
+  trackingNumber, string_
+  labelUrl, string_
+  error, string_
+  cbm, decimal_
+  remarks, string_
+  returnRequestFrom, string_

@@ -503,7 +503,7 @@ VasStatusResponse
 ApiBalanceResponse
 ------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiBalanceResponse.csv
@@ -514,9 +514,29 @@ ApiBalanceResponse
 GetFbaRemovalOrderResponse
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaRemovalOrderResponse.csv
 
-      
+
+.. _structure-UserSearchWarehousePayload:
+
+UserSearchWarehousePayload
+--------------------------
+
+.. csv-table:: (inherit :ref:`structure-WarehouseResponse`)
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   apiName, string_
+
+.. _structure-SearchShipmentResultPayload:
+
+SearchShipmentResultPayload
+--------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchShipmentResultPayload.csv
