@@ -12,7 +12,7 @@ GetApiInfo
 
 ::
 
-[GET] /account/getApiInfo
+[GET] <publicapi-endpoint>/account/getApiInfo
 
 Input: No Input
 
@@ -36,7 +36,7 @@ GetAllApiTypes
 
 ::
 
-[GET] /apitype/getAllApiTypes
+[GET] <publicapi-endpoint>/apitype/getAllApiTypes
 
 Input: No Input
 
@@ -60,7 +60,7 @@ GetAllBoxTypes
 
 ::
 
-[GET] /boxtype/getAllBoxTypes
+[GET] <publicapi-endpoint>/boxtype/getAllBoxTypes
 
 Input: No Input
 
@@ -84,7 +84,7 @@ GetAllCountries
 
 ::
 
-[GET] /country/getAllCountries
+[GET] <publicapi-endpoint>/country/getAllCountries
 
 Input: No Input
 
@@ -108,7 +108,7 @@ GetAllFromCountries
 
 ::
 
-[GET] /country/getAllFromCountries
+[GET] <publicapi-endpoint>/country/getAllFromCountries
 
 Input: No Input
 
@@ -131,7 +131,7 @@ GetAllCurrencies
 
 ::
 
-[GET] /currency/getAllCurrencies
+[GET] <publicapi-endpoint>/currency/getAllCurrencies
 
 Input: No Input
 
@@ -155,7 +155,7 @@ GetAllDimensionUoms
 
 ::
 
-[GET] /dimensionuom/getAllDimensionUoms
+[GET] <publicapi-endpoint>/dimensionuom/getAllDimensionUoms
 
 Input: No Input
 
@@ -179,7 +179,7 @@ GetPublicReadUrl
 
 ::
 
-[GET] /file/getPublicReadUrl
+[GET] <publicapi-endpoint>/file/getPublicReadUrl
 
 Input:
 
@@ -213,7 +213,7 @@ UploadFile
 
 ::
 
-[POST] /file/uploadFile
+[POST] <publicapi-endpoint>/file/uploadFile
 
 Input:
 
@@ -248,7 +248,7 @@ GetFile
 
 ::
 
-[GET] /file/getFile
+[GET] <publicapi-endpoint>/file/getFile
 
 Input:
 
@@ -280,7 +280,7 @@ GetPreSignedUploadUrl
 
 ::
 
-[GET] /file/getPreSignedUploadUrl
+[GET] <publicapi-endpoint>/file/getPreSignedUploadUrl
 
 Input:
 
@@ -313,7 +313,7 @@ GetAllHandlings
 
 ::
 
-[GET] /handling/getAllHandlings
+[GET] <publicapi-endpoint>/handling/getAllHandlings
 
 Input: No Input
 
@@ -337,7 +337,7 @@ GetAllHandlingFeeTypes
 
 ::
 
-[GET] /handlingfeetype/getAllHandlingFeeTypes
+[GET] <publicapi-endpoint>/handlingfeetype/getAllHandlingFeeTypes
 
 Input: No Input
 
@@ -361,7 +361,7 @@ GetAllHandlingStatus
 
 ::
 
-[GET] /handlingstatus/getAllHandlingStatus
+[GET] <publicapi-endpoint>/handlingstatus/getAllHandlingStatus
 
 Input: No Input
 
@@ -385,7 +385,7 @@ GetAllLabelStatus
 
 ::
 
-[GET] /labelstatus/getAllLabelStatus
+[GET] <publicapi-endpoint>/labelstatus/getAllLabelStatus
 
 Input: No Input
 
@@ -409,7 +409,7 @@ GetAllMarType
 
 ::
 
-[GET] /martype/getAllMarType
+[GET] <publicapi-endpoint>/martype/getAllMarType
 
 Input: No Input
 
@@ -433,7 +433,7 @@ GetAllRecallInventoryStatus
 
 ::
 
-[GET] /recallStatus/getAllRecallInventoryStatus
+[GET] <publicapi-endpoint>/recallStatus/getAllRecallInventoryStatus
 
 Input: No Input
 
@@ -457,7 +457,7 @@ GetAllPickUpTypeStatus
 
 ::
 
-[GET] /recallStatus/getAllPickUpTypeStatus
+[GET] <publicapi-endpoint>/recallStatus/getAllPickUpTypeStatus
 
 Input: No Input
 
@@ -481,7 +481,7 @@ GetAllRecallServiceTypeStatus
 
 ::
 
-[GET] /recallStatus/getAllRecallServiceTypeStatus
+[GET] <publicapi-endpoint>/recallStatus/getAllRecallServiceTypeStatus
 
 Input: No Input
 
@@ -505,7 +505,7 @@ GetAllRefundStatus
 
 ::
 
-[GET] /refundstatus/getAllRefundStatus
+[GET] <publicapi-endpoint>/refundstatus/getAllRefundStatus
 
 Input: No Input
 
@@ -529,7 +529,7 @@ GetAllResendStatus
 
 ::
 
-[GET] /resendstatus/getAllResendStatus
+[GET] <publicapi-endpoint>/resendstatus/getAllResendStatus
 
 Input: No Input
 
@@ -553,7 +553,7 @@ GetAllReturnRequestSourceTypes
 
 ::
 
-[GET] /returnrequestsourcetype/getAllReturnRequestSourceTypes
+[GET] <publicapi-endpoint>/returnrequestsourcetype/getAllReturnRequestSourceTypes
 
 Input: No Input
 
@@ -577,7 +577,7 @@ GetAllReturnRequestStatus
 
 ::
 
-[GET] /returnrequeststatus/getAllReturnRequestStatus
+[GET] <publicapi-endpoint>/returnrequeststatus/getAllReturnRequestStatus
 
 Input: No Input
 
@@ -601,7 +601,7 @@ GetAllServiceType
 
 ::
 
-[GET] /servicetype/getAllServiceType
+[GET] <publicapi-endpoint>/servicetype/getAllServiceType
 
 Input: No Input
 
@@ -625,7 +625,7 @@ GetAllShipmentStatus
 
 ::
 
-[GET] /shipment/getAllShipmentStatus
+[GET] <publicapi-endpoint>/shipment/getAllShipmentStatus
 
 Input: No Input
 
@@ -649,7 +649,7 @@ CalculateBuyerShipmentCost
 
 ::
 
-[POST] /shipment/calculateBuyerShipmentCost
+[POST] <publicapi-endpoint>/shipment/calculateBuyerShipmentCost
 
 Input:
 
@@ -682,7 +682,7 @@ GetAllShipmentCostTypes
 
 ::
 
-[GET] /shipment/getAllShipmentCostTypes
+[GET] <publicapi-endpoint>/shipment/getAllShipmentCostTypes
 
 Input: No Input
 
@@ -706,7 +706,7 @@ GetAllTransactionType
 
 ::
 
-[GET] /transactiontype/getAllTransactionType
+[GET] <publicapi-endpoint>/transactiontype/getAllTransactionType
 
 Input: No Input
 
@@ -730,7 +730,7 @@ GetAllUnknownShipmentStatus
 
 ::
 
-[GET] /unknownshipmentstatus/getAllUnknownShipmentStatus
+[GET] <publicapi-endpoint>/unknownshipmentstatus/getAllUnknownShipmentStatus
 
 Input: No Input
 
@@ -754,7 +754,7 @@ GetAllVas
 
 ::
 
-[GET] /vas/getAllVas
+[GET] <publicapi-endpoint>/vas/getAllVas
 
 Input: No Input
 
@@ -778,7 +778,7 @@ GetAllVasStatus
 
 ::
 
-[GET] /vasStatus/getAllVasStatus
+[GET] <publicapi-endpoint>/vasStatus/getAllVasStatus
 
 Input: No Input
 
@@ -802,7 +802,7 @@ GetAllWeightUom
 
 ::
 
-[GET] /weightuom/getAllWeightUom
+[GET] <publicapi-endpoint>/weightuom/getAllWeightUom
 
 Input: No Input
 
@@ -814,108 +814,6 @@ Output:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/WeightUomListResponse.csv
-
-|
-
-----
-
-General
-=======
-
-.. _method-GetAllSpecialRequest:
-
-GetAllSpecialRequest
---------------------
-
-::
-
-[GET] /specialrequest/getAllSpecialRequest
-
-Input: No Input
-
-Output:
-
-.. _structure-SpecialRequestListResponse:
-
-.. csv-table:: ``SpecialRequestListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SpecialRequestListResponse.csv
-
-|
-
-----
-
-.. _method-GetEbayReturnReason:
-
-GetEbayReturnReason
--------------------
-
-::
-
-[GET] /ebay/getEbayReturnReason
-
-Input: No Input
-
-Output:
-
-.. _structure-EbayReturnReasonListResponse:
-
-.. csv-table:: ``EbayReturnReasonListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/EbayReturnReasonListResponse.csv
-
-|
-
-----
-
-.. _method-GetEbayReturnStatus:
-
-GetEbayReturnStatus
--------------------
-
-::
-
-[GET] /ebay/getEbayReturnStatus
-
-Input: No Input
-
-Output:
-
-.. _structure-EbayReturnStatusListResponse:
-
-.. csv-table:: ``EbayReturnStatusListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/EbayReturnStatusListResponse.csv
-
-|
-
-----
-
-.. _method-GetAllEbayCountries:
-
-GetAllEbayCountries
--------------------
-
-::
-
-[GET] /ebay/getAllEbayCountries
-
-Input: No Input
-
-Output:
-
-.. _structure-EbayCountryListResponse:
-
-.. csv-table:: ``EbayCountryListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   correlationId, string_
-   meta, :ref:`structure-ApiResponseMeta`
-   ebayCountryListResponse, List<:ref:`structure-EbayCountryResponse`>
 
 |
 
@@ -948,14 +846,17 @@ Output:
 
 .. _structure-ApiBalanceListResponse:
 
-.. csv-table:: ``ApiBalanceListResponse`` 
+.. csv-table:: ``ApiBalanceListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiBalanceListResponse.csv
-      
+
 |
 
 ----
+
+FBA
+###
 
 .. _method-createFbaRemovalOrder:
 
@@ -980,11 +881,11 @@ Output:
 
 .. _structure-CreateFbaRemovalOrderResponse:
 
-.. csv-table:: ``CreateFbaRemovalOrderResponse`` 
+.. csv-table:: ``CreateFbaRemovalOrderResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateFbaRemovalOrder.csv
-      
+
 |
 
 ----
@@ -1002,7 +903,7 @@ Input:
 
 .. _structure-CreateFbaRemovalShipmentRequest:
 
-.. csv-table:: ``CreateFbaRemovalShipmentRequest`` 
+.. csv-table:: ``CreateFbaRemovalShipmentRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateFbaRemovalShipmentRequest.csv
@@ -1013,11 +914,11 @@ Output:
 
 .. _structure-CreateFbaRemovalShipmentResponse:
 
-.. csv-table:: ``CreateFbaRemovalShipmentResponse`` 
+.. csv-table:: ``CreateFbaRemovalShipmentResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateFbaRemovalShipment.csv
-      
+
 |
 
 ----
@@ -1038,18 +939,18 @@ Input:
    :widths: 15, 20, 30
 
    fbaRemovalOrderId, string_
-   
+
 |
 
 Output:
 
 .. _structure-FbaRemovalOrderResponse:
 
-.. csv-table:: ``FbaRemovalOrderResponse`` 
+.. csv-table:: ``FbaRemovalOrderResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaRemovalOrderListResponse.csv
-      
+
 |
 
 ----
@@ -1071,18 +972,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-GetFbaRemovalOrderListResponse:
 
-.. csv-table:: ``GetFbaRemovalOrderListResponse`` 
+.. csv-table:: ``GetFbaRemovalOrderListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaRemovalOrderListResponse.csv
-      
+
 |
 
 ----
@@ -1104,18 +1005,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-FbaInventoryResponse:
 
-.. csv-table:: ``FbaInventoryResponse`` 
+.. csv-table:: ``FbaInventoryResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryListResponse.csv
-    
+
 |
 
 ----
@@ -1137,18 +1038,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-GetFbaInventoryListResponse:
 
-.. csv-table:: ``GetFbaInventoryListResponse`` 
+.. csv-table:: ``GetFbaInventoryListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaInventoryListResponse.csv
-    
+
 |
 
 ----
@@ -1166,7 +1067,7 @@ Input:
 
 .. _structure-AssignFbaInventoryHandlingRequest:
 
-.. csv-table:: ``AssignFbaInventoryHandlingRequest`` 
+.. csv-table:: ``AssignFbaInventoryHandlingRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/AssignFbaInventoryHandlingRequest.csv
@@ -1176,11 +1077,11 @@ Output:
 
 .. _structure-AssignFbaInventoryHandlingResponse:
 
-.. csv-table:: ``AssignFbaInventoryHandlingResponse`` 
+.. csv-table:: ``AssignFbaInventoryHandlingResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/AssignFbaInventoryHandlingResponse.csv
-    
+
 |
 
 ----
@@ -1201,7 +1102,7 @@ Input:
    :widths: 20, 20, 30
 
    fbaRecallId, integer_
-   
+
 |
 
 
@@ -1209,11 +1110,11 @@ Output:
 
 .. _structure-FbaInventoryRecallResponse:
 
-.. csv-table:: ``FbaInventoryRecallResponse`` 
+.. csv-table:: ``FbaInventoryRecallResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRecallResponse.csv
-    
+
 |
 
 ----
@@ -1235,18 +1136,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-GetFbaInventoryRecallListResponse:
 
-.. csv-table:: ``GetFbaInventoryRecallListResponse`` 
+.. csv-table:: ``GetFbaInventoryRecallListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryRecallListResponse.csv
-    
+
 |
 
 ----
@@ -1267,18 +1168,18 @@ Input:
    :widths: 20, 20, 30
 
    fbaOthersId, long_
-   
+
 |
 
 Output:
 
 .. _structure-FbaInventoryOthersResponse:
 
-.. csv-table:: ``FbaInventoryOthersResponse`` 
+.. csv-table:: ``FbaInventoryOthersResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryOthersResponse.csv
-    
+
 |
 
 ----
@@ -1300,18 +1201,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-GetFbaInventoryOthersListResponse:
 
-.. csv-table:: ``GetFbaInventoryOthersListResponse`` 
+.. csv-table:: ``GetFbaInventoryOthersListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryOthersListResponse.csv
-    
+
 |
 
 ----
@@ -1332,18 +1233,18 @@ Input:
    :widths: 20, 20, 30
 
    fbaDisposeId, long_
-   
+
 |
 
 Output:
 
 .. _structure-FbaInventoryDisposeResponse:
 
-.. csv-table:: ``FbaInventoryDisposeResponse`` 
+.. csv-table:: ``FbaInventoryDisposeResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryDisposeResponse.csv
-    
+
 |
 
 ----
@@ -1365,18 +1266,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-GetFbaInventoryDisposeListResponse:
 
-.. csv-table:: ``GetFbaInventoryDisposeListResponse`` 
+.. csv-table:: ``GetFbaInventoryDisposeListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryDisposeListResponse.csv
-    
+
 |
 
 ----
@@ -1397,18 +1298,18 @@ Input:
    :widths: 20, 20, 30
 
    fbaRelabelId, long_
-   
+
 |
 
 Output:
 
 .. _structure-FbaInventoryRelabelResponse:
 
-.. csv-table:: ``FbaInventoryRelabelResponse`` 
+.. csv-table:: ``FbaInventoryRelabelResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelResponse.csv
-    
+
 |
 
 ----
@@ -1430,18 +1331,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-GetFbaInventoryRelabelListResponse:
 
-.. csv-table:: ``GetFbaInventoryRelabelListResponse`` 
+.. csv-table:: ``GetFbaInventoryRelabelListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryRelabelListResponse.csv
-    
+
 |
 
 ----
@@ -1463,18 +1364,18 @@ Input:
 
    fbaRelabelId, long_
    newFnsku, string_
-   
+
 |
 
 Output:
 
 .. _structure-FbaInventoryRelabelResponse:
 
-.. csv-table:: ``FbaInventoryRelabelResponse`` 
+.. csv-table:: ``FbaInventoryRelabelResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelResponse.csv
-    
+
 |
 
 ----
@@ -1496,18 +1397,18 @@ Input:
 
    pageSize, integer_
    offset, integer_
-   
+
 |
 
 Output:
 
 .. _structure-SearchAvailableRelabelForShipmentResponse:
 
-.. csv-table:: ``SearchAvailableRelabelForShipmentResponse`` 
+.. csv-table:: ``SearchAvailableRelabelForShipmentResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchAvailableRelabelForShipmentResultPayloadList.csv
-    
+
 |
 
 ----
@@ -1525,23 +1426,23 @@ Input:
 
 .. _structure-CreateFbaInventoryRelabelShipmentRequest:
 
-.. csv-table:: ``CreateFbaInventoryRelabelShipmentRequest`` 
+.. csv-table:: ``CreateFbaInventoryRelabelShipmentRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateFbaInventoryRelabelShipmentRequest.csv
-  
-  
+
+
 |
 
 Output:
 
 .. _structure-FbaInventoryRelabelShipmentResponse:
 
-.. csv-table:: ``FbaInventoryRelabelShipmentResponse`` 
+.. csv-table:: ``FbaInventoryRelabelShipmentResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelShipmentResponse.csv
-    
+
 |
 
 ----
@@ -1559,23 +1460,23 @@ Input:
 
 .. _structure-AddFbaInventoryRelabelAddressLabelRequest:
 
-.. csv-table:: ``AddFbaInventoryRelabelAddressLabelRequest`` 
+.. csv-table:: ``AddFbaInventoryRelabelAddressLabelRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/AddFbaInventoryRelabelAddressLabelRequest.csv
-  
-  
+
+
 |
 
 Output:
 
 .. _structure-FbaInventoryRelabelShipmentResponse:
 
-.. csv-table:: ``FbaInventoryRelabelShipmentResponse`` 
+.. csv-table:: ``FbaInventoryRelabelShipmentResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelShipmentResponse.csv
-    
+
 |
 
 ----
@@ -1596,18 +1497,18 @@ Input:
    :widths: 20, 20, 30
 
    shipmentId, long_
-       
+
 |
 
 Output:
 
 .. _structure-ApiResponse:
 
-.. csv-table:: ``ApiResponse`` 
+.. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
-    
+
 |
 
 ----
@@ -1628,18 +1529,18 @@ Input:
    :widths: 20, 20, 30
 
    labelId, long_
-       
+
 |
 
 Output:
 
 .. _structure-ApiResponse:
 
-.. csv-table:: ``ApiResponse`` 
+.. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
-    
+
 |
 
 ----
@@ -1657,23 +1558,23 @@ Input:
 
 .. _structure-CreateRecallRequest:
 
-.. csv-table:: ``CreateRecallRequest`` 
+.. csv-table:: ``CreateRecallRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateRecallRequest.csv
-  
-     
+
+
 |
 
 Output:
 
 .. _structure-CreateRecallResponse:
 
-.. csv-table:: ``CreateRecallResponse`` 
+.. csv-table:: ``CreateRecallResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateRecallResponse.csv
-    
+
 |
 
 ----
@@ -1694,18 +1595,18 @@ Input:
    :widths: 20, 20, 30
 
    recallId, long_
-     
+
 |
 
 Output:
 
 .. _structure-ApiResponse:
 
-.. csv-table:: ``ApiResponse`` 
+.. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
-    
+
 |
 ----
 
@@ -1725,18 +1626,18 @@ Input:
    :widths: 20, 20, 30
 
    returnInventoryId, long_
-     
+
 |
 
 Output:
 
 .. _structure-ApiResponse:
 
-.. csv-table:: ``ApiResponse`` 
+.. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
-    
+
 |
 
 ----
@@ -1757,18 +1658,18 @@ Input:
    :widths: 20, 20, 30
 
    returnInventoryId, long_
-     
+
 |
 
 Output:
 
 .. _structure-ApiResponse:
 
-.. csv-table:: ``ApiResponse`` 
+.. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
-    
+
 |
 
 ----
@@ -1786,23 +1687,23 @@ Input:
 
 .. _structure-SearchRecallRequest:
 
-.. csv-table:: ``SearchRecallRequest`` 
+.. csv-table:: ``SearchRecallRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchRecallRequest.csv
-  
-      
+
+
 |
 
 Output:
 
 .. _structure-SearchRecallResponse:
 
-.. csv-table:: ``SearchRecallResponse`` 
+.. csv-table:: ``SearchRecallResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchRecallResponse.csv
-    
+
 |
 
 ----
@@ -1820,23 +1721,23 @@ Input:
 
 .. _structure-GetRefundListRequest:
 
-.. csv-table:: ``GetRefundListRequest`` 
+.. csv-table:: ``GetRefundListRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetRefundListRequest.csv
-  
-      
+
+
 |
 
 Output:
 
 .. _structure-RefundListResponse:
 
-.. csv-table:: ``RefundListResponse`` 
+.. csv-table:: ``RefundListResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/RefundListResponse.csv
-    
+
 |
 
 ----
@@ -2044,9 +1945,6 @@ Output:
 |
 
 ----
-
-Return Request
-================
 
 .. _method-createReturnRequest:
 
@@ -2316,10 +2214,6 @@ Output:
 
 ----
 
-
-Return Inventory
-================
-
 .. _method-SearchReturnInventory:
 
 SearchReturnInventory
@@ -2419,7 +2313,7 @@ Output:
 
 .. _structure-ReturnInventoryResponse:
 
-.. csv-table:: ``ReturnInventoryResponse`` 
+.. csv-table:: ``ReturnInventoryResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnInventory/SearchRmaResponse.csv
@@ -2552,9 +2446,6 @@ Output:
 |
 
 ----
-
-Resend
-======
 
 .. _method-CreateResend:
 
