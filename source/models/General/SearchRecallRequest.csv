@@ -1,0 +1,11 @@
+apiName, string_
+createFromStr, string_
+createToStr, string_
+trackingNumber, string_
+recallShipmentNumber, string_
+recallStatusCode, string_
+itemRma, string_
+recallInventoryStatusCode, string_
+pickUpTypeCode, string_
+pageSize, integer_
+offset, integer_

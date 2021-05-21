@@ -1,0 +1,13 @@
+apiName, string_
+createFromStr, string_
+createToStr, string_
+trackingNumber, string_
+receiveFromStr, string_
+receiveToStr, string_
+returnRequestNumber, string_
+shipmentRemarks, string_
+itemRma, string_
+handlingCode, string_
+handlingStatusCode, string_
+pageSize, integer_
+offset, integer_

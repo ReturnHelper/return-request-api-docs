@@ -1,0 +1,5 @@
+apiTransactionMetaId, long_
+apiTransactionId, long_
+metaType, string_
+headId, long_
+metaText, string_

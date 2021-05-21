@@ -1580,6 +1580,267 @@ Output:
 
 ----
 
+.. _method-CreateLabel:
+
+CreateLabel
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/Label/CreateLabel
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   shipmentId, long_
+       
+|
+
+Output:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
+    
+|
+
+----
+
+.. _method-CancelLabel:
+
+CancelLabel
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/Label/CancelLabel
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   labelId, long_
+       
+|
+
+Output:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
+    
+|
+
+----
+
+.. _method-createRecall:
+
+CreateRecall
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/recall/createRecall
+
+Input:
+
+.. _structure-CreateRecallRequest:
+
+.. csv-table:: ``CreateRecallRequest`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CreateRecallRequest.csv
+  
+     
+|
+
+Output:
+
+.. _structure-CreateRecallResponse:
+
+.. csv-table:: ``CreateRecallResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/CreateRecallResponse.csv
+    
+|
+
+----
+
+.. _method-cancelRecall:
+
+CancelRecall
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/recall/cancelRecall
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   recallId, long_
+     
+|
+
+Output:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
+    
+|
+----
+
+.. _method-createRecallByReturnInventoryId:
+
+CreateRecallByReturnInventoryId
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/recall/createRecallByReturnInventoryId
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   returnInventoryId, long_
+     
+|
+
+Output:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
+    
+|
+
+----
+
+.. _method-cancelRecallByReturnInventoryId:
+
+CancelRecallByReturnInventoryId
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/recall/cancelRecallByReturnInventoryId
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   returnInventoryId, long_
+     
+|
+
+Output:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
+    
+|
+
+----
+
+.. _method-searchRecall:
+
+SearchRecall
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/recall/searchRecall
+
+Input:
+
+.. _structure-SearchRecallRequest:
+
+.. csv-table:: ``SearchRecallRequest`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchRecallRequest.csv
+  
+      
+|
+
+Output:
+
+.. _structure-SearchRecallResponse:
+
+.. csv-table:: ``SearchRecallResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchRecallResponse.csv
+    
+|
+
+----
+
+.. _method-searchRefund:
+
+SearchRefund
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/Refund/searchRefund
+
+Input:
+
+.. _structure-GetRefundListRequest:
+
+.. csv-table:: ``GetRefundListRequest`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/GetRefundListRequest.csv
+  
+      
+|
+
+Output:
+
+.. _structure-RefundListResponse:
+
+.. csv-table:: ``RefundListResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/RefundListResponse.csv
+    
+|
+
+----
+
 
 .. _method-GetServiceTypeByFromToCountry:
 
@@ -1794,7 +2055,7 @@ CreateReturnRequest
 
 ::
 
-[POST] /returnrequest/createReturnRequest
+[POST]  <userapi-endpoint>/returnrequest/createReturnRequest
 
 Input:
 
@@ -1829,7 +2090,7 @@ CreateNonRrLabelReturnRequest
 
 ::
 
-[POST] /returnrequest/createNonRrLabelReturnRequest
+[POST]  <userapi-endpoint>/returnrequest/createNonRrLabelReturnRequest
 
 Input:
 
@@ -1862,7 +2123,7 @@ EditReturnRequest
 
 ::
 
-[POST] /returnrequest/editReturnRequest
+[POST]  <userapi-endpoint>/returnrequest/editReturnRequest
 
 Input:
 
@@ -1894,7 +2155,7 @@ GetReturnRequest
 
 ::
 
-[GET] /returnrequest/getReturnRequest
+[GET]  <userapi-endpoint>/returnrequest/getReturnRequest
 
 Input:
 
@@ -1926,7 +2187,7 @@ searchReturnRequest
 
 ::
 
-[GET] /returnrequest/searchReturnRequest
+[GET]  <userapi-endpoint>/returnrequest/searchReturnRequest
 
 Input:
 
@@ -1960,7 +2221,7 @@ UpdateReturnRequestHandling
 
 ::
 
-[POST] /returnrequest/updateReturnRequestHandling
+[POST]  <userapi-endpoint>/returnrequest/updateReturnRequestHandling
 
 Input:
 
@@ -1997,7 +2258,7 @@ CreateVas
 
 ::
 
-[POST] /returnrequest/createVas
+[POST]  <userapi-endpoint>/returnrequest/createVas
 
 Input:
 
@@ -2031,7 +2292,7 @@ UpdateRemark
 
 ::
 
-[POST] /returnrequest/updateRemark
+[POST]  <userapi-endpoint>/returnrequest/updateRemark
 
 Input:
 
@@ -2068,7 +2329,7 @@ Search for Return Inventory
 
 ::
 
-    [GET] /returninventory/searchReturnInventory
+    [GET]  <userapi-endpoint>/returninventory/searchReturnInventory
 
 Input: ``SearchReturnInventoryRequest``
 
@@ -2109,7 +2370,7 @@ Get Return Inventory
 
 ::
 
-    [GET] /returninventory/getReturnInventory
+    [GET]  <userapi-endpoint>/returninventory/getReturnInventory
 
 Input:
 
@@ -2134,6 +2395,39 @@ Output:
 
 ----
 
+.. _method-SearchRma:
+
+SearchRma
+-----------
+
+::
+
+    [GET] <userapi-endpoint>/returninventory/SearchRma
+
+Input:
+
+.. _structure-SearchRmaRequest:
+
+.. csv-table:: ``SearchRmaRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+   :file: models/ReturnInventory/SearchRmaRequest.csv
+
+|
+
+Output:
+
+.. _structure-ReturnInventoryResponse:
+
+.. csv-table:: ``ReturnInventoryResponse`` 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/ReturnInventory/SearchRmaResponse.csv
+
+|
+
+----
+
 .. _method-GetReturnInventoryByLineItemId:
 
 GetReturnInventoryByLineItemId
@@ -2141,7 +2435,7 @@ GetReturnInventoryByLineItemId
 
 ::
 
-[GET] /returninventory/getReturnInventoryByLineItemId
+[GET]  <userapi-endpoint>/returninventory/getReturnInventoryByLineItemId
 
 Input:
 
@@ -2171,7 +2465,7 @@ UpdateReturnInventoryHandling
 
 ::
 
-[POST] /returninventory/updateReturnInventoryHandling
+[POST]  <userapi-endpoint>/returninventory/updateReturnInventoryHandling
 
 Input:
 
@@ -2202,7 +2496,7 @@ CancelReturnInventoryHandling
 
 ::
 
-[POST] /returninventory/cancelReturnInventoryHandling
+[POST]  <userapi-endpoint>/returninventory/cancelReturnInventoryHandling
 
 Input:
 
@@ -2235,7 +2529,7 @@ AssignReturnInventorySku
 
 ::
 
-[POST] /returninventory/assignReturnInventorySku
+[POST]  <userapi-endpoint>/returninventory/assignReturnInventorySku
 
 Input:
 
@@ -2269,7 +2563,7 @@ CreateResend
 
 ::
 
-[POST] /resend/createResend
+[POST]  <userapi-endpoint>/resend/createResend
 
 Input:
 
@@ -2303,7 +2597,7 @@ GetResend
 
 ::
 
-[GET] /resend/getResend
+[GET]  <userapi-endpoint>/resend/getResend
 
 Input:
 
@@ -2335,7 +2629,7 @@ SearchResend
 
 ::
 
-[GET] /resend/searchResend
+[GET]  <userapi-endpoint>/resend/searchResend
 
 Input:
 
@@ -2369,7 +2663,7 @@ CancelResend
 
 ::
 
-[POST] /resend/cancelResend
+[POST]  <userapi-endpoint>/resend/cancelResend
 
 Input:
 

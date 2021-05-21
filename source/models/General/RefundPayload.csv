@@ -1,0 +1,14 @@
+refundId, long_
+apiId, integer_
+apiName, string_
+refundStatusCode, string_
+refundTransactionNumber, string_
+refundAmount, Decimal_
+currencyCode, string_
+originalTransactionNumber, string_
+originalAmount, Decimal_
+originalCreateOn, DateTime_
+refundOn, DateTime_
+originalCreateOnStr, string_
+refundOnStr, string_
+originalTransactionMetaList, List<:ref:`structure-originalTransactionMeta`>

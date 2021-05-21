@@ -1,0 +1,7 @@
+apiName, string_
+createFromStr, string_
+createToStr, string_
+refundStatusCode, string_
+originalTransactionNumber, string_
+pageSize, integer_
+offset, integer_

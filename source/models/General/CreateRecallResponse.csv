@@ -1,0 +1,4 @@
+correlationId, string_
+meta, :ref:`structure-ApiResponseMeta`
+recallId, long_
+recallNumber, string_

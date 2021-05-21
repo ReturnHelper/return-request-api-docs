@@ -1,0 +1,11 @@
+totalNumberOfRecords, integer_
+apiName, string_
+createOnStr, string_
+trackingNumber, string_
+receiveDateStr, string_
+returnRequestNumber, string_
+remarks, string_
+itemRma, string_
+handlingCode, string_
+handlingStatusCode, string_
+returnRequestLineItemNumber, string_

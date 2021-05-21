@@ -1,0 +1,10 @@
+recallId, long_
+apiName, string_
+createOnStr, string_
+recallInventoryStatusCode, string_
+trackingNumber, string_
+itemRma, string_
+pickUpCode, string_
+pickUpOn, string_
+remarks, string_
+courierTrackingNumber, string_
