@@ -1580,6 +1580,210 @@ Output:
 
 ----
 
+
+.. _method-GetServiceTypeByFromToCountry:
+
+GetServiceTypeByFromToCountry
+---------------
+
+::
+
+[GET] <userapi-endpoint>/warehouse/getServiceTypeByFromToCountry
+
+Input:
+
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fromCountry, string_
+
+Output:
+
+.. csv-table:: ``ServiceTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ServiceTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetServiceTypeByFromCountryAndWarehouse:
+
+GetServiceTypeByFromCountryAndWarehouse
+---------------
+
+::
+
+[GET] <userapi-endpoint>/warehouse/getServiceTypeByFromCountryAndWarehouse
+
+Input:
+
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fromCountry, string_
+   warehouseId, integer_
+
+Output:
+
+.. csv-table:: ``ServiceTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ServiceTypeListResponse.csv
+
+|
+
+----
+
+.. _method-SearchShipment:
+
+SearchShipment
+---------------
+
+::
+
+[GET] <userapi-endpoint>/warehouse/searchShipment
+
+Input:
+
+.. _structure-SearchShipmentRequest:
+
+.. csv-table:: ``SearchShipmentRequest``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchShipmentRequest.csv
+
+Output:
+
+.. _structure-SearchShipmentResponse:
+
+.. csv-table:: ``SearchShipmentResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchShipmentResponse.csv
+
+|
+
+----
+
+.. _method-GetAllWarehouse:
+
+GetAllWarehouse
+---------------
+
+::
+
+[Get] <userapi-endpoint>/warehouse/getAllWarehouse
+
+Input: No Input
+
+Output:
+
+.. _structure-WarehouseListResponse:
+
+.. csv-table:: ``WarehouseListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/WarehouseListResponse.csv
+
+|
+
+----
+
+.. _method-GetWarehouseByFromCountry:
+
+GetWarehouseByFromCountry
+-------------------------
+
+::
+
+[Get] <userapi-endpoint>/warehouse/getWarehouseByFromCountry
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   countryCode, string_
+
+Output:
+
+.. csv-table:: ``WarehouseListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/WarehouseListResponse.csv
+
+|
+
+----
+
+.. _method-GetWarehouse:
+
+GetWarehouse
+------------
+
+::
+
+[Get] <userapi-endpoint>/warehouse/getWarehouse
+
+Input:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   warehouseId, integer_
+
+Output:
+
+.. _structure-WarehouseResponse:
+
+.. csv-table:: ``WarehouseResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/WarehouseResponse.csv
+
+|
+
+----
+
+.. _method-SearchWarehouse:
+
+SearchWarehouse
+---------------
+
+::
+
+[POST] <userapi-endpoint>/warehouse/searchWarehouse
+
+Input:
+
+.. _structure-UserSearchWarehouseRequest:
+
+.. csv-table:: ``UserSearchWarehouseRequest``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/UserSearchWarehouseRequest.csv
+
+Output:
+
+.. _structure-UserSearchWarehouseResponse:
+
+.. csv-table:: ``UserSearchWarehouseResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/UserSearchWarehouseResponse.csv
+
+|
+
+----
+
 Return Request
 ================
 
