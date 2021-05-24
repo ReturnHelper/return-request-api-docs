@@ -32,26 +32,26 @@ Put authenication keys in your request header:
 API Endpoints
 -------------
 
-- Development
+- Sandbox
 
-+---------------------+----------------------------------------------+
-| UserAPI             | https://api.returnshelper.com/dev/user/api   |
-+---------------------+----------------------------------------------+
-| PublicAPI           | https://api.returnshelper.com/dev/public/api |
-+---------------------+----------------------------------------------+
-| User Web Portal URL | https://devusr.returnshelper.com/            |
-+---------------------+----------------------------------------------+
++----------------------+----------------------------------------------+
+|rh-api-user-endpoint  | https://api.returnshelper.com/dev/user/api   |
++----------------------+----------------------------------------------+
+|rh-api-public-endpoint| https://api.returnshelper.com/dev/public/api |
++----------------------+----------------------------------------------+
+| User Web Portal URL  | https://devusr.returnshelper.com/            |
++----------------------+----------------------------------------------+
 
 
 - Production
 
-+---------------------+--------------------------------------------------+
-| UserAPI             | https://api.returnhelpercentre.com/v1/user/api   |
-+---------------------+--------------------------------------------------+
-| PublicAPI           | https://api.returnhelpercentre.com/v1/public/api |
-+---------------------+--------------------------------------------------+
-| User Web Portal URL | http://user.returnhelpercentre.com/              |
-+---------------------+--------------------------------------------------+
++----------------------+--------------------------------------------------+
+|rh-api-user-endpoint  | https://api.returnhelpercentre.com/v1/user/api   |
++----------------------+--------------------------------------------------+
+|rh-api-public-endpoint| https://api.returnhelpercentre.com/v1/public/api |
++----------------------+--------------------------------------------------+
+| User Web Portal URL  | http://user.returnhelpercentre.com/              |
++----------------------+--------------------------------------------------+
 
 
 General Remarks
