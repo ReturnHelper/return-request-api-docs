@@ -7,5 +7,6 @@
    valueCurrencyCode, string_
    value, decimal_
    handlingCode, string_
+   itemRma, string_
    returnRequestLineItemImages, :ref:`structure-ReturnRequestLineItemImagePayload`
    returnRequestLineItemVasList, :ref:`structure-ReturnRequestLineItemVasPayload`

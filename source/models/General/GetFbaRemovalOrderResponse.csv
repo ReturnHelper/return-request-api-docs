@@ -2,7 +2,7 @@ fbaRemovalShipmentId, integer_
 warehouseId, integer_
 apiId, integer_
 fbaRemovalOrderId, integer_
-trackingNumber, string_
+trackingNumber, string_,Alphanumeric, hyphen and underscore, max length 50
 shipmentStatusCode, string_
 weight,decimal_
 weightUom, string_

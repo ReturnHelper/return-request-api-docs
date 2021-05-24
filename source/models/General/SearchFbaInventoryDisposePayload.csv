@@ -1,6 +1,6 @@
 apiName, string_
 removalOrderId, string_
-trackingNumber, string_
+trackingNumber, string_ ,Alphanumeric, hyphen and underscore, max length 50
 fnsku, string_
 fbaDisposeId, long_
 apiId, integer_
