@@ -1320,70 +1320,6 @@ Response:
 
 ----
 
-.. _method-CreateLabel:
-
-CreateLabel
----------------------------
-
-::
-
-[POST] <userapi-endpoint>/Label/CreateLabel
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   shipmentId, long_
-
-|
-
-Response:
-
-.. _structure-ApiResponse:
-
-.. csv-table:: ``ApiResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ApiResponse.csv
-
-|
-
-----
-
-.. _method-CancelLabel:
-
-CancelLabel
----------------------------
-
-::
-
-[POST] <userapi-endpoint>/Label/CancelLabel
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   labelId, long_
-
-|
-
-Response:
-
-.. _structure-ApiResponse:
-
-.. csv-table:: ``ApiResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ApiResponse.csv
-
-|
-
-----
-
 .. _method-createRecall:
 
 CreateRecall
@@ -1401,7 +1337,15 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/CreateRecallRequest.csv
+Sample:
 
+::
+
+   {
+      "returnInventoryIdList": [
+         2073
+      ]
+   }
 
 |
 
@@ -1741,7 +1685,86 @@ Parameters:
    shipment, :ref:`structure-ShipmentPayload`
    returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>
 
+Sample:
+
+::
+
+  {
+      "shipment":{
+      "shipmentId": shipmentId,
+      "returnRequestId":0,
+      "labelId":0,
+      "apiTransactionId":0,
+      "warehouseId":warehouseId,
+      "shipmentNumber":null,
+      "shipmentStatusCode":null,
+      "shipmentServiceType":"ups",
+      "shipmentCountryCode":"usa",
+      "shipmentName":"shipment_test",
+      "shipmentPhone":"1234567891",
+      "shipmentFax":null,
+      "shipmentEmail":"Email_Address",
+      "shipmentStreet1":"Street1",
+      "shipmentStreet2":"Street2",
+      "shipmentStreet3":"Street3",
+      "shipmentState":"NY",
+      "shipmentCity":"New York",
+      "shipmentPostalCode":"10001",
+      "costCurrencyCode":null,
+      "cost":1.0,
+      "boxType":"cus",
+      "weight":10.0,
+      "weightUom":"g",
+      "dimension1":1.0,
+      "dimension2":1.0,
+      "dimension3":1.0,
+      "dimensionUom":"cm",
+      "isRrLabel":false,
+      "receiveDateStr":"",
+      "modifyOn":"2021-05-24",
+      "modifyBy":"testApi01",
+      "modifyOnStr":"2021-05-24",
+      "createOn":"2021-05-24T01:00:00",
+      "createBy":"testApi01",
+      "createOnStr":"2021-05-24"
+      },
+      "returnRequestLineItems":[
+         {
+            "returnRequestLineItemId":0,
+            "returnRequestId":0,
+            "returnRequestLineItemNumber":null,
+            "description":"test",
+            "weight":12.0,
+            "weightUom":"g",
+            "valueCurrencyCode":"usd",
+            "value":11.0,
+            "handlingCode":null,
+            "itemRma":null,
+            "returnRequestLineItemImages":null,
+            "returnRequestLineItemVasList":null
+         }
+      ],
+      "returnRequestId":0,
+      "returnRequestNumber":"test202105241810",
+      "returnStatusCode":null,
+      "returnTitle":"112e",
+      "totalValue":11.0,
+      "totalValueCurrency":"usd",
+      "warehouseRma":null,
+      "remarks":"12312313123",
+      "isArchived":false,
+      "returnRequestFrom":"return-helper",
+      "modifyOn":"2021-05-24",
+      "modifyBy":null,
+      "modifyOnStr":null,
+      "createOn":"2021-05-24",
+      "createBy":null,
+      "createOnStr":null
+    
+  }
 |
+
+
 
 Response:
 
@@ -1753,6 +1776,7 @@ Response:
    :file: models/ReturnRequest/CreateReturnRequestResponse.csv
 
 |
+
 
 ----
 
@@ -1919,6 +1943,71 @@ Response:
 
    correlationId, string_
    meta, :ref:`structure-ApiResponseMeta`
+
+|
+
+----
+
+
+.. _method-CreateLabel:
+
+CreateLabel
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/Label/CreateLabel
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   shipmentId, long_
+
+|
+
+Response:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
+
+|
+
+----
+
+.. _method-CancelLabel:
+
+CancelLabel
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/Label/CancelLabel
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   labelId, long_
+
+|
+
+Response:
+
+.. _structure-ApiResponse:
+
+.. csv-table:: ``ApiResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ApiResponse.csv
 
 |
 
@@ -2255,6 +2344,31 @@ Parameters:
    :widths: 15, 10, 10, 30
 
    resendShipment, :ref:`structure-ResendShipmentPayload`
+
+Sample:
+
+::
+
+   {
+   "description": "OC56562326565",
+   "remarks": "remark",
+   "returnInventoryIdList": [
+       3474
+   ],
+   "resendShipment": {
+       "shipmentServiceType": "ups",
+       "shipmentCountryCode": "usa",
+       "shipmentState": "Hamburg",
+       "shipmentCity": "Uhlenhorst",
+       "shipmentStreet1": "Schrotteringksweg 16",
+       "shipmentStreet2": "",
+       "shipmentName": "Bach",
+       "shipmentPhone": "01768790672",
+       "shipmentEmail": "tes@returnhelper.com",
+       "shipmentPostalCode": "01",
+       "warehouseId": 1
+   }
+} 
 
 |
 

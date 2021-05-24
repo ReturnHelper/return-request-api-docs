@@ -311,7 +311,7 @@ CreateNonRrLabelShipmentRequest
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   trackingNumber, string_
+   trackingNumber, string_ ,Alphanumeric; hyphen and underscore; max length 50
    carrier, string_
 
 .. _structure-EditReturnRequestLineItemRequest:
