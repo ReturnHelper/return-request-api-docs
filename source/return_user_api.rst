@@ -337,7 +337,7 @@ Parameters:
    returnRequestFrom, string_, YES, Obtain from public api :ref:`method-getAllReturnRequestSourceTypes`
    returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>,YES,Must contains **ONE** item only. Details see below
 
-Shipment Object:
+Object ``ShipmentPayload``:
 
 .. csv-table::
   :header: "Name", "Type", "Required", "Remarks"
@@ -372,7 +372,9 @@ Shipment Object:
   referenceNumber, string_
 
 
-.. csv-table:: ``ReturnRequestLineItemPayload``
+Object ``ReturnRequestLineItemPayload``:
+
+.. csv-table::
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
