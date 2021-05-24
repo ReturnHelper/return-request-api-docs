@@ -627,8 +627,8 @@ UserSearchWarehousePayload
 --------------------------
 
 .. csv-table:: (inherit :ref:`structure-WarehouseResponse`)
-:header: "Name", "Type", "Remarks"
-:widths: 15, 10, 30
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
 
 apiName, string_
 

@@ -324,12 +324,65 @@ Parameters:
 
 .. _structure-CreateReturnRequestRequest:
 
-.. csv-table:: ``CreateReturnRequestRequest`` (inherit :ref:`structure-ReturnRequestPayload`)
+.. csv-table:: ``CreateReturnRequestRequest``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   shipment, :ref:`structure-ShipmentPayload`
-   returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>
+   shipment, :ref:`structure-ShipmentPayload`, YES, Details see below
+   returnRequestNumber, string_,,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted
+   returnTitle, string_, YES
+   totalValue, decimal_, YES, Must be greater than zero
+   totalValueCurrency, string_, YES, must be ``usd`` (case-sensitive)
+   remarks, string_
+   returnRequestFrom, string_, YES, Obtain from public api :ref:`method-getAllReturnRequestSourceTypes`
+   returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>,YES,Must contains **ONE** item only. Details see below
+
+Shipment Object:
+
+.. csv-table::
+  :header: "Name", "Type", "Required", "Remarks"
+  :widths: 15, 10, 10, 30
+
+
+  warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`getWarehouseByFromCountry`
+  shipmentNumber, string_
+  shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
+  shipmentCountryCode, string_ , YES, Obtain from public api :ref:`metohd-getAllFromCountries`
+  shipmentName, string_, YES
+  shipmentPhone, string_
+  shipmentFax, string_
+  shipmentEmail, string_
+  shipmentStreet1, string_, YES
+  shipmentStreet2, string_
+  shipmentStreet3, string_
+  shipmentState, string_
+  shipmentCity, string_
+  shipmentPostalCode, string_
+  costCurrencyCode, string_
+  cost, decimal_
+  boxType, string_, YES, Obtain from public api :ref:`method-getAllBoxTypes`
+  weight, decimal_ , YES
+  weightUom, string_,YES, Must be ``g``
+  dimension1, decimal_, YES, Greater than 0
+  dimension2, decimal_, YES, Greater than 0
+  dimension3, decimal_, YES, Greater than 0
+  dimensionUom, string_, YES, Must be ``cm``
+  isRrLabel, bool_
+  receiveDateStr, string_
+  referenceNumber, string_
+
+
+.. csv-table:: ``ReturnRequestLineItemPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50).
+   description, string_, YES
+   weight, decimal_, YES
+   weightUom, string_,YES, Must be ``g``
+   valueCurrencyCode, string_, YES, must be ``usd`` (case-sensitive)
+   value, decimal_, YES
+   itemRma, string_
 
 Sample:
 
@@ -338,7 +391,6 @@ Sample:
   {
       "shipment":{
       "shipmentId": shipmentId,
-      "returnRequestId":0,
       "labelId":0,
       "apiTransactionId":0,
       "warehouseId":warehouseId,
@@ -367,9 +419,6 @@ Sample:
       "dimensionUom":"cm",
       "isRrLabel":false,
       "receiveDateStr":"",
-      "modifyOn":"2021-05-24",
-      "modifyBy":"testApi01",
-      "modifyOnStr":"2021-05-24",
       "createOn":"2021-05-24T01:00:00",
       "createBy":"testApi01",
       "createOnStr":"2021-05-24"
@@ -377,7 +426,6 @@ Sample:
       "returnRequestLineItems":[
          {
             "returnRequestLineItemId":0,
-            "returnRequestId":0,
             "returnRequestLineItemNumber":null,
             "description":"test",
             "weight":12.0,
@@ -390,19 +438,12 @@ Sample:
             "returnRequestLineItemVasList":null
          }
       ],
-      "returnRequestId":0,
       "returnRequestNumber":"test202105241810",
-      "returnStatusCode":null,
       "returnTitle":"112e",
       "totalValue":11.0,
       "totalValueCurrency":"usd",
-      "warehouseRma":null,
       "remarks":"12312313123",
-      "isArchived":false,
       "returnRequestFrom":"return-helper",
-      "modifyOn":"2021-05-24",
-      "modifyBy":null,
-      "modifyOnStr":null,
       "createOn":"2021-05-24",
       "createBy":null,
       "createOnStr":null
