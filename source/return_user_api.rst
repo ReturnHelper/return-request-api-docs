@@ -344,10 +344,10 @@ Object ``ShipmentPayload``:
   :widths: 15, 10, 10, 30
 
 
-  warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`getWarehouseByFromCountry`
+  warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
   shipmentNumber, string_
   shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
-  shipmentCountryCode, string_ , YES, Obtain from public api :ref:`metohd-getAllFromCountries`
+  shipmentCountryCode, string_ , YES, Obtain from public api :ref:`method-getAllFromCountries`
   shipmentName, string_, YES
   shipmentPhone, string_
   shipmentFax, string_
