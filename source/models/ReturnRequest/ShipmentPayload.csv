@@ -28,3 +28,4 @@
    dimensionUom, string_
    isRrLabel, bool_
    receiveDateStr, string_
+   referenceNumber, string_
