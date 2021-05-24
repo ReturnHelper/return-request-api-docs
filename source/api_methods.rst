@@ -2168,6 +2168,21 @@ Input:
 
    createLineItemVasRequestList, List<:ref:`structure-ReturnRequestLineItemVasPayload`>
 
+Sample:
+
+::
+
+  {
+      "createLineItemVasRequestList": [
+      {
+        "returnRequestLineItemId": {{returnRequestLineItemId}},
+        "notes": "Split parcel into 3",
+        "vasCode": "split-parcel",
+        "metaQuantity": 3
+      }
+    ]
+  }
+
 |
 
 Output:

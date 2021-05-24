@@ -326,8 +326,8 @@ ReturnRequestLineItemVasPayload
 -------------------------------
 
 .. csv-table:: (inherit :ref:`structure-EditablePayload`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
    :file: models/ReturnRequest/ReturnRequestLineItemVasPayload.csv
 
 .. _structure-ReturnRequestLineItemPayload:

@@ -1,7 +1,7 @@
-returnRequestLineItemVasId, long_
-returnRequestLineItemId, long_
-vasCode, string_
-metaQuantity, integer_
+returnRequestLineItemVasId, long_,
+returnRequestLineItemId, long_, Required
+vasCode, string_, Required
+metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel`` ``req-pic``
 vasResult, string_
 notes, string_
 isFinished, bool_
