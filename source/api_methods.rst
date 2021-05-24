@@ -697,9 +697,6 @@ Response:
 
 ----
 
-FBA
-###
-
 .. _method-createFbaRemovalOrder:
 
 CreateFbaRemovalOrder

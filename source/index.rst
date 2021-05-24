@@ -29,8 +29,33 @@ Put authenication keys in your request header:
 
 ``API TOKEN`` is private and should never be shared to others.
 
-General Tips
-------------
+API Endpoints
+-------------
+
+- Development
+
++---------------------+----------------------------------------------+
+| UserAPI             | https://api.returnshelper.com/dev/user/api   |
++---------------------+----------------------------------------------+
+| PublicAPI           | https://api.returnshelper.com/dev/public/api |
++---------------------+----------------------------------------------+
+| User Web Portal URL | https://devusr.returnshelper.com/            |
++---------------------+----------------------------------------------+
+
+
+- Production
+
++---------------------+--------------------------------------------------+
+| UserAPI             | https://api.returnhelpercentre.com/v1/user/api   |
++---------------------+--------------------------------------------------+
+| PublicAPI           | https://api.returnhelpercentre.com/v1/public/api |
++---------------------+--------------------------------------------------+
+| User Web Portal URL | http://user.returnhelpercentre.com/              |
++---------------------+--------------------------------------------------+
+
+
+General Remarks
+---------------
 
 - Parameter ``dateTime`` must be ``ISO8601`` format, otherwise API won't be able to parse it.
 - Date string parameter e.g. ``createToStr``/ ``createFromStr`` (in search API) must be ISO8601 and time part is omitted by API.
@@ -43,12 +68,15 @@ All search functions support pagination.
 
 Please use the :ref:`structure-PaginationRequest` parameters in your request to enable it.
 
+|
+
 ----
 
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
 
+   Getting Started <getting_start>
    API Methods <api_methods>
    Data Structure <data_structure>
    Base Models <base_model>
