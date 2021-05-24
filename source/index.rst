@@ -11,9 +11,10 @@ About this documentation
 
 This documentation listed the functions of Return Request API.
 
-Each function is provided with input and output object definition (if exist).
-
+Each function is provided with request and response object definition (if exist).
 Some objects may have an inherit class that you can use the parameters from it.
+
+**Our API is only designed for Server to Server integration.**
 
 Authenication
 -------------
@@ -26,11 +27,28 @@ Put authenication keys in your request header:
     x-rr-apitoken: (your token)
     Content-Type: "application/json"
 
----
+``API TOKEN`` is private and should never be shared to others.
+
+General Tips
+------------
+
+- Parameter ``dateTime`` must be ``ISO8601`` format, otherwise API won't be able to parse it.
+- Date string parameter e.g. ``createToStr``/ ``createFromStr`` (in search API) must be ISO8601 and time part is omitted by API.
+- All time return is UTC.
+
+Pagination
+----------
+
+All search functions support pagination.
+
+Please use the :ref:`structure-PaginationRequest` parameters in your request to enable it.
+
+----
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: Contents:
 
    API Methods <api_methods>
    Data Structure <data_structure>
+   Base Models <base_model>

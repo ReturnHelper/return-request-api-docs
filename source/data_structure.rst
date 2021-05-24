@@ -249,56 +249,8 @@ EbayCountryResponse
    :widths: 15, 10, 30
    :file: models/General/EbayCountryResponse.csv
 
-.. _structure-PaginationRequest:
-
-PaginationRequest
------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/BaseClass/PaginationRequest.csv
-
-.. _structure-CreateOnlyPayload:
-
-CreateOnlyPayload
------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/BaseClass/CreateOnlyPayload.csv
-
-.. _structure-EditablePayload:
-
-EditablePayload
----------------
-
-.. csv-table:: (inherit :ref:`structure-CreateOnlyPayload`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/BaseClass/EditablePayload.csv
 
 
-.. _structure-PaginationResponse:
-
-PaginationResponse
-------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/BaseClass/PaginationResponse.csv
-
-.. _structure-ApiResponseMeta:
-
-ApiResponseMeta
----------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/BaseClass/ApiResponseMeta.csv
 
 .. _structure-ReturnInventoryPayload:
 
@@ -458,6 +410,17 @@ SearchResendPayload
    :widths: 15, 10, 30
    :file: models/Resend/SearchResendPayload.csv
 
+.. _structure-MarType:
+
+MarType
+-------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   MarType, Enum
+
 .. _structure-MarTypeResponse:
 
 MarTypeResponse
@@ -498,13 +461,13 @@ VasStatusResponse
    :widths: 15, 10, 30
    :file: models/General/VasStatusResponse.csv
 
-   
+
 .. _structure-ApiBalancePayload:
 
 ApiBalancePayload
 ------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiBalanceResponse.csv
@@ -514,7 +477,7 @@ ApiBalancePayload
 fbaRemovalShipmentPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaRemovalOrderResponse.csv
@@ -524,7 +487,7 @@ fbaRemovalShipmentPayload
 FbaRemovalOrderPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaRemovalOrderResponse.csv
@@ -534,17 +497,17 @@ FbaRemovalOrderPayload
 fbaInventoryRelabelPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryResponse.csv
-   
+
 .. _structure-fbaInventoryRecallPayload:
 
 fbaInventoryRecallPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryRecallPayload.csv
@@ -555,7 +518,7 @@ fbaInventoryRecallPayload
 fbaInventoryOthersPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryOthersPayload.csv
@@ -566,7 +529,7 @@ fbaInventoryOthersPayload
 fbaInventoryDisposePayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryDisposePayload.csv
@@ -576,7 +539,7 @@ fbaInventoryDisposePayload
 searchFbaInventoryPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaInventoryResponse.csv
@@ -587,29 +550,29 @@ searchFbaInventoryPayload
 SearchFbaInventoryRecallPayload
 --------------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryRecallResponse.csv
-   
+
 
 .. _structure-searchFbaInventoryOthersPayload:
 
 searchFbaInventoryOthersPayload
 -------------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaInventoryOthersPayload.csv
-   
+
 
 .. _structure-SearchFbaInventoryDisposePayload:
 
 SearchFbaInventoryDisposePayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaInventoryDisposePayload.csv
@@ -618,8 +581,8 @@ SearchFbaInventoryDisposePayload
 
 FbaInventoryRelabelShipmentPayload
 --------------------------
-   
-.. csv-table:: 
+
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelShipmentPayload.csv
@@ -627,37 +590,37 @@ FbaInventoryRelabelShipmentPayload
 
 
 .. _structure-fbaInventoryRelabelShipmentLabelPayload:
-   
+
 FbaInventoryRelabelShipmentLabelPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelShipmentLabelPayload.csv
-   
 
-   
+
+
 .. _structure-SearchFbaInventoryRelabelResultPayload:
-   
+
 SearchFbaInventoryRelabelResultPayload
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchFbaInventoryRelabelResultPayload.csv
-   
+
 .. _structure-fbaRelabelId:
 
 fbaRelabelId
 --------------------------
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/fbaRelabelId.csv
-   
+
 .. _structure-UserSearchWarehousePayload:
 
 UserSearchWarehousePayload
@@ -729,4 +692,3 @@ SearchRmaResultPayload
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnInventory/rmaList.csv
-   

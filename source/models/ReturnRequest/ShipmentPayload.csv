@@ -2,11 +2,11 @@
    returnRequestId, integer_
    labelId, long_
    apiTransactionId, long_
-   warehouseId, integer_
+   warehouseId, integer_ , Yes
    shipmentNumber, string_
    shipmentStatusCode, string_
-   shipmentServiceType, string_
-   shipmentCountryCode, string_
+   shipmentServiceType, string_ , Yes
+   shipmentCountryCode, string_ , Yes
    shipmentName, string_
    shipmentPhone, string_
    shipmentFax, string_
@@ -20,7 +20,7 @@
    costCurrencyCode, string_
    cost, decimal_
    boxType, string_
-   weight, decimal_
+   weight, decimal_ , Yes, in (g)
    weightUom, string_
    dimension1, decimal_
    dimension2, decimal_

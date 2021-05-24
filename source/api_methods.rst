@@ -14,9 +14,9 @@ GetApiInfo
 
 [GET] <publicapi-endpoint>/account/getApiInfo
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ApiInfoResponse:
 
@@ -24,30 +24,6 @@ Output:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiInfoResponse.csv
-
-|
-
-----
-
-.. _method-getAllApiTypes:
-
-GetAllApiTypes
---------------
-
-::
-
-[GET] <publicapi-endpoint>/apitype/getAllApiTypes
-
-Input: No Input
-
-Output:
-
-.. _structure-ApiTypeListResponse:
-
-.. csv-table:: ``ApiTypeListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ApiTypeListResponse.csv
 
 |
 
@@ -62,9 +38,9 @@ GetAllBoxTypes
 
 [GET] <publicapi-endpoint>/boxtype/getAllBoxTypes
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-BoxTypeListResponse:
 
@@ -86,9 +62,9 @@ GetAllCountries
 
 [GET] <publicapi-endpoint>/country/getAllCountries
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-CountryListResponse:
 
@@ -110,9 +86,9 @@ GetAllFromCountries
 
 [GET] <publicapi-endpoint>/country/getAllFromCountries
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 
 .. csv-table:: ``CountryListResponse``
@@ -133,9 +109,9 @@ GetAllCurrencies
 
 [GET] <publicapi-endpoint>/currency/getAllCurrencies
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-CurrencyListResponse:
 
@@ -157,9 +133,9 @@ GetAllDimensionUoms
 
 [GET] <publicapi-endpoint>/dimensionuom/getAllDimensionUoms
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-DimensionUomListResponse:
 
@@ -167,140 +143,6 @@ Output:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/DimensionUomListResponse.csv
-
-|
-
-----
-
-.. _method-GetPublicReadUrl:
-
-GetPublicReadUrl
-----------------
-
-::
-
-[GET] <publicapi-endpoint>/file/getPublicReadUrl
-
-Input:
-
-.. csv-table::
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   fileKey, string_
-
-|
-
-Output:
-
-.. _structure-ApiResponse:
-
-.. csv-table:: ``ApiResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   correlationId, string_
-   meta, :ref:`structure-ApiResponseMeta`
-
-|
-
-----
-
-.. _method-UploadFile:
-
-UploadFile
-----------
-
-::
-
-[POST] <publicapi-endpoint>/file/uploadFile
-
-Input:
-
-.. _structure-UploadFileRequest:
-
-.. csv-table:: ``UploadFileRequest``
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   filename, string_
-   file, File
-
-|
-
-Output:
-
-.. _structure-UploadFileResponse:
-
-.. csv-table:: ``UploadFileResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/UploadFileResponse.csv
-
-|
-
-----
-
-.. _method-GetFile:
-
-GetFile
--------
-
-::
-
-[GET] <publicapi-endpoint>/file/getFile
-
-Input:
-
-.. csv-table::
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   apiFileId, long_
-
-|
-
-Output:
-
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   file, File
-
-|
-
-----
-
-.. _method-GetPreSignedUploadUrl:
-
-GetPreSignedUploadUrl
----------------------
-
-::
-
-[GET] <publicapi-endpoint>/file/getPreSignedUploadUrl
-
-Input:
-
-.. _structure-GetPreSignedUrlRequest:
-
-.. csv-table:: ``GetPreSignedUrlRequest``
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-   :file: models/General/GetPreSignedUrlRequest.csv
-
-|
-
-Output:
-
-.. _structure-GetPreSignedUrlResponse:
-
-.. csv-table:: ``GetPreSignedUrlResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetPreSignedUrlResponse.csv
 
 |
 
@@ -315,9 +157,9 @@ GetAllHandlings
 
 [GET] <publicapi-endpoint>/handling/getAllHandlings
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-HandlingListResponse:
 
@@ -339,9 +181,9 @@ GetAllHandlingFeeTypes
 
 [GET] <publicapi-endpoint>/handlingfeetype/getAllHandlingFeeTypes
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-HandlingFeeTypeListResponse:
 
@@ -363,9 +205,9 @@ GetAllHandlingStatus
 
 [GET] <publicapi-endpoint>/handlingstatus/getAllHandlingStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-HandlingStatusListResponse:
 
@@ -387,9 +229,9 @@ GetAllLabelStatus
 
 [GET] <publicapi-endpoint>/labelstatus/getAllLabelStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-LabelStatusListResponse:
 
@@ -411,9 +253,9 @@ GetAllMarType
 
 [GET] <publicapi-endpoint>/martype/getAllMarType
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-MarTypeListResponse:
 
@@ -435,9 +277,9 @@ GetAllRecallInventoryStatus
 
 [GET] <publicapi-endpoint>/recallStatus/getAllRecallInventoryStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-RecallInventoryStatusListResponse:
 
@@ -459,9 +301,9 @@ GetAllPickUpTypeStatus
 
 [GET] <publicapi-endpoint>/recallStatus/getAllPickUpTypeStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-PickUpTypeStatusListResponse:
 
@@ -483,9 +325,9 @@ GetAllRecallServiceTypeStatus
 
 [GET] <publicapi-endpoint>/recallStatus/getAllRecallServiceTypeStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-RecallServiceTypeResponse:
 
@@ -507,9 +349,9 @@ GetAllRefundStatus
 
 [GET] <publicapi-endpoint>/refundstatus/getAllRefundStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-RefundStatusListResponse:
 
@@ -531,9 +373,9 @@ GetAllResendStatus
 
 [GET] <publicapi-endpoint>/resendstatus/getAllResendStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ResendStatusListResponse:
 
@@ -555,9 +397,9 @@ GetAllReturnRequestSourceTypes
 
 [GET] <publicapi-endpoint>/returnrequestsourcetype/getAllReturnRequestSourceTypes
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ReturnRequestSourceTypeListResponse:
 
@@ -579,9 +421,9 @@ GetAllReturnRequestStatus
 
 [GET] <publicapi-endpoint>/returnrequeststatus/getAllReturnRequestStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ReturnRequestStatusListResponse:
 
@@ -603,9 +445,9 @@ GetAllServiceType
 
 [GET] <publicapi-endpoint>/servicetype/getAllServiceType
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ServiceTypeListResponse:
 
@@ -627,9 +469,9 @@ GetAllShipmentStatus
 
 [GET] <publicapi-endpoint>/shipment/getAllShipmentStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ShipmentStatusListResponse:
 
@@ -651,18 +493,18 @@ CalculateBuyerShipmentCost
 
 [POST] <publicapi-endpoint>/shipment/calculateBuyerShipmentCost
 
-Input:
+Parameters:
 
 .. _structure-ShipmentPayload:
 
 .. csv-table:: ``ShipmentPayload`` (inherit :ref:`structure-EditablePayload`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10,10, 30
    :file: models/ReturnRequest/ShipmentPayload.csv
 
 |
 
-Output:
+Response:
 
 .. _structure-ShipmentCostResponse:
 
@@ -684,9 +526,9 @@ GetAllShipmentCostTypes
 
 [GET] <publicapi-endpoint>/shipment/getAllShipmentCostTypes
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-ShipmentCostTypeResponse:
 
@@ -708,9 +550,9 @@ GetAllTransactionType
 
 [GET] <publicapi-endpoint>/transactiontype/getAllTransactionType
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-TransactionTypeListResponse:
 
@@ -732,9 +574,9 @@ GetAllUnknownShipmentStatus
 
 [GET] <publicapi-endpoint>/unknownshipmentstatus/getAllUnknownShipmentStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-UnknownShipmentStatusListResponse:
 
@@ -756,9 +598,9 @@ GetAllVas
 
 [GET] <publicapi-endpoint>/vas/getAllVas
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-VasListResponse:
 
@@ -780,9 +622,9 @@ GetAllVasStatus
 
 [GET] <publicapi-endpoint>/vasStatus/getAllVasStatus
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-VasStatusListResponse:
 
@@ -804,9 +646,9 @@ GetAllWeightUom
 
 [GET] <publicapi-endpoint>/weightuom/getAllWeightUom
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-WeightUomListResponse:
 
@@ -831,7 +673,7 @@ GetApiBalance
 
 [GET] <userapi-endpoint>/ApiBalance/GetApiBalance
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -842,7 +684,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ApiBalanceListResponse:
 
@@ -867,7 +709,7 @@ CreateFbaRemovalOrder
 
 [POST] <userapi-endpoint>/fbaInventory/createFbaRemovalOrder
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -877,7 +719,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-CreateFbaRemovalOrderResponse:
 
@@ -899,7 +741,7 @@ CreateFbaRemovalShipment
 
 [POST] <userapi-endpoint>/fbaInventory/createFbaRemovalShipment
 
-Input:
+Parameters:
 
 .. _structure-CreateFbaRemovalShipmentRequest:
 
@@ -910,7 +752,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-CreateFbaRemovalShipmentResponse:
 
@@ -932,7 +774,7 @@ GetFbaRemovalOrder
 
 [Get] <userapi-endpoint>/fbaInventory/getFbaRemovalOrder
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -942,7 +784,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaRemovalOrderResponse:
 
@@ -964,7 +806,7 @@ SearchFbaRemovalOrder
 
 [Get] <userapi-endpoint>/fbaInventory/searchFbaRemovalOrder
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -975,7 +817,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-GetFbaRemovalOrderListResponse:
 
@@ -997,7 +839,7 @@ GetFbaInventory
 
 [Get] <userapi-endpoint>/fbaInventory/getFbaInventory
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1008,7 +850,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryResponse:
 
@@ -1030,7 +872,7 @@ SearchFbaInventory
 
 [Get] <userapi-endpoint>/fbaInventory/searchFbaInventory
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1041,7 +883,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-GetFbaInventoryListResponse:
 
@@ -1063,7 +905,7 @@ AssignFbaInventoryHandling
 
 [POST] <userapi-endpoint>/fbaInventory/assignFbaInventoryHandling
 
-Input:
+Parameters:
 
 .. _structure-AssignFbaInventoryHandlingRequest:
 
@@ -1073,7 +915,7 @@ Input:
    :file: models/General/AssignFbaInventoryHandlingRequest.csv
 |
 
-Output:
+Response:
 
 .. _structure-AssignFbaInventoryHandlingResponse:
 
@@ -1095,7 +937,7 @@ GetFbaInventoryRecall
 
 [Get] <userapi-endpoint>/fbaInventory/getFbaInventoryRecall
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1106,7 +948,7 @@ Input:
 |
 
 
-Output:
+Response:
 
 .. _structure-FbaInventoryRecallResponse:
 
@@ -1128,7 +970,7 @@ SarchFbaInventoryRecall
 
 [Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryRecall
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1139,7 +981,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-GetFbaInventoryRecallListResponse:
 
@@ -1161,7 +1003,7 @@ GetFbaInventoryOthers
 
 [Get] <userapi-endpoint>/fbaInventory/getFbaInventoryOthers
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1171,7 +1013,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryOthersResponse:
 
@@ -1193,7 +1035,7 @@ SearchFbaInventoryOthers
 
 [Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryOthers
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1204,7 +1046,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-GetFbaInventoryOthersListResponse:
 
@@ -1226,7 +1068,7 @@ GetFbaInventoryDispose
 
 [Get] <userapi-endpoint>/fbaInventory/getFbaInventoryDispose
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1236,7 +1078,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryDisposeResponse:
 
@@ -1258,7 +1100,7 @@ SearchFbaInventoryDispose
 
 [Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryDispose
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1269,7 +1111,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-GetFbaInventoryDisposeListResponse:
 
@@ -1291,7 +1133,7 @@ GetFbaInventoryRelabel
 
 [Get] <userapi-endpoint>/fbaInventory/getFbaInventoryRelabel
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1301,7 +1143,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryRelabelResponse:
 
@@ -1323,7 +1165,7 @@ SearchFbaInventoryRelabel
 
 [Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryRelabel
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1334,7 +1176,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-GetFbaInventoryRelabelListResponse:
 
@@ -1356,7 +1198,7 @@ AssignFbaInventoryRelabelFnsku
 
 [POST] <userapi-endpoint>/fbaInventory/assignFbaInventoryRelabelFnsku
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1367,7 +1209,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryRelabelResponse:
 
@@ -1389,7 +1231,7 @@ SearchAvailableRelabelForShipment
 
 [Get] <userapi-endpoint>/fbaInventory/searchAvailableRelabelForShipment
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1400,7 +1242,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-SearchAvailableRelabelForShipmentResponse:
 
@@ -1422,7 +1264,7 @@ CreateFbaInventoryRelabelShipment
 
 [Get] <userapi-endpoint>/fbaInventory/createFbaInventoryRelabelShipment
 
-Input:
+Parameters:
 
 .. _structure-CreateFbaInventoryRelabelShipmentRequest:
 
@@ -1434,7 +1276,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryRelabelShipmentResponse:
 
@@ -1456,7 +1298,7 @@ AddAddressLabel
 
 [POST] <userapi-endpoint>/fbaInventory/addAddressLabel
 
-Input:
+Parameters:
 
 .. _structure-AddFbaInventoryRelabelAddressLabelRequest:
 
@@ -1468,7 +1310,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-FbaInventoryRelabelShipmentResponse:
 
@@ -1490,7 +1332,7 @@ CreateLabel
 
 [POST] <userapi-endpoint>/Label/CreateLabel
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1500,7 +1342,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ApiResponse:
 
@@ -1522,7 +1364,7 @@ CancelLabel
 
 [POST] <userapi-endpoint>/Label/CancelLabel
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1532,7 +1374,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ApiResponse:
 
@@ -1554,7 +1396,7 @@ CreateRecall
 
 [POST] <userapi-endpoint>/recall/createRecall
 
-Input:
+Parameters:
 
 .. _structure-CreateRecallRequest:
 
@@ -1566,7 +1408,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-CreateRecallResponse:
 
@@ -1588,7 +1430,7 @@ CancelRecall
 
 [POST] <userapi-endpoint>/recall/cancelRecall
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1598,7 +1440,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ApiResponse:
 
@@ -1608,70 +1450,6 @@ Output:
    :file: models/General/ApiResponse.csv
 
 |
-----
-
-.. _method-createRecallByReturnInventoryId:
-
-CreateRecallByReturnInventoryId
----------------------------
-
-::
-
-[POST] <userapi-endpoint>/recall/createRecallByReturnInventoryId
-
-Input:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   returnInventoryId, long_
-
-|
-
-Output:
-
-.. _structure-ApiResponse:
-
-.. csv-table:: ``ApiResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ApiResponse.csv
-
-|
-
-----
-
-.. _method-cancelRecallByReturnInventoryId:
-
-CancelRecallByReturnInventoryId
----------------------------
-
-::
-
-[POST] <userapi-endpoint>/recall/cancelRecallByReturnInventoryId
-
-Input:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   returnInventoryId, long_
-
-|
-
-Output:
-
-.. _structure-ApiResponse:
-
-.. csv-table:: ``ApiResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ApiResponse.csv
-
-|
-
 ----
 
 .. _method-searchRecall:
@@ -1683,7 +1461,7 @@ SearchRecall
 
 [Get] <userapi-endpoint>/recall/searchRecall
 
-Input:
+Parameters:
 
 .. _structure-SearchRecallRequest:
 
@@ -1695,7 +1473,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-SearchRecallResponse:
 
@@ -1717,7 +1495,7 @@ SearchRefund
 
 [Get] <userapi-endpoint>/Refund/searchRefund
 
-Input:
+Parameters:
 
 .. _structure-GetRefundListRequest:
 
@@ -1729,7 +1507,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-RefundListResponse:
 
@@ -1752,7 +1530,7 @@ GetServiceTypeByFromToCountry
 
 [GET] <userapi-endpoint>/warehouse/getServiceTypeByFromToCountry
 
-Input:
+Parameters:
 
 
 .. csv-table::
@@ -1761,7 +1539,7 @@ Input:
 
    fromCountry, string_
 
-Output:
+Response:
 
 .. csv-table:: ``ServiceTypeListResponse``
    :header: "Name", "Type", "Remarks"
@@ -1781,7 +1559,7 @@ GetServiceTypeByFromCountryAndWarehouse
 
 [GET] <userapi-endpoint>/warehouse/getServiceTypeByFromCountryAndWarehouse
 
-Input:
+Parameters:
 
 
 .. csv-table::
@@ -1791,7 +1569,7 @@ Input:
    fromCountry, string_
    warehouseId, integer_
 
-Output:
+Response:
 
 .. csv-table:: ``ServiceTypeListResponse``
    :header: "Name", "Type", "Remarks"
@@ -1811,7 +1589,7 @@ SearchShipment
 
 [GET] <userapi-endpoint>/warehouse/searchShipment
 
-Input:
+Parameters:
 
 .. _structure-SearchShipmentRequest:
 
@@ -1820,7 +1598,7 @@ Input:
    :widths: 15, 10, 30
    :file: models/General/SearchShipmentRequest.csv
 
-Output:
+Response:
 
 .. _structure-SearchShipmentResponse:
 
@@ -1842,9 +1620,9 @@ GetAllWarehouse
 
 [Get] <userapi-endpoint>/warehouse/getAllWarehouse
 
-Input: No Input
+Parameters: No Input
 
-Output:
+Response:
 
 .. _structure-WarehouseListResponse:
 
@@ -1866,7 +1644,7 @@ GetWarehouseByFromCountry
 
 [Get] <userapi-endpoint>/warehouse/getWarehouseByFromCountry
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1874,7 +1652,7 @@ Input:
 
    countryCode, string_
 
-Output:
+Response:
 
 .. csv-table:: ``WarehouseListResponse``
    :header: "Name", "Type", "Remarks"
@@ -1894,7 +1672,7 @@ GetWarehouse
 
 [Get] <userapi-endpoint>/warehouse/getWarehouse
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -1902,7 +1680,7 @@ Input:
 
    warehouseId, integer_
 
-Output:
+Response:
 
 .. _structure-WarehouseResponse:
 
@@ -1924,7 +1702,7 @@ SearchWarehouse
 
 [POST] <userapi-endpoint>/warehouse/searchWarehouse
 
-Input:
+Parameters:
 
 .. _structure-UserSearchWarehouseRequest:
 
@@ -1933,7 +1711,7 @@ Input:
    :widths: 15, 10, 30
    :file: models/General/UserSearchWarehouseRequest.csv
 
-Output:
+Response:
 
 .. _structure-UserSearchWarehouseResponse:
 
@@ -1955,7 +1733,7 @@ CreateReturnRequest
 
 [POST]  <userapi-endpoint>/returnrequest/createReturnRequest
 
-Input:
+Parameters:
 
 .. _structure-CreateReturnRequestRequest:
 
@@ -1968,7 +1746,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-CreateReturnRequestResponse:
 
@@ -1990,7 +1768,7 @@ CreateNonRrLabelReturnRequest
 
 [POST]  <userapi-endpoint>/returnrequest/createNonRrLabelReturnRequest
 
-Input:
+Parameters:
 
 .. _structure-CreateNonRrLabelReturnRequest:
 
@@ -2003,7 +1781,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``CreateReturnRequestResponse``
    :header: "Name", "Type", "Remarks"
@@ -2023,7 +1801,7 @@ EditReturnRequest
 
 [POST]  <userapi-endpoint>/returnrequest/editReturnRequest
 
-Input:
+Parameters:
 
 .. _structure-EditReturnRequestRequest:
 
@@ -2035,7 +1813,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``CreateReturnRequestResponse``
    :header: "Name", "Type", "Remarks"
@@ -2055,7 +1833,7 @@ GetReturnRequest
 
 [GET]  <userapi-endpoint>/returnrequest/getReturnRequest
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Required", "Remarks"
@@ -2065,7 +1843,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ReturnRequestResponse:
 
@@ -2087,7 +1865,7 @@ searchReturnRequest
 
 [GET]  <userapi-endpoint>/returnrequest/searchReturnRequest
 
-Input:
+Parameters:
 
 .. _structure-GetReturnRequestListRequest:
 
@@ -2098,7 +1876,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ReturnRequestListResponse:
 
@@ -2121,7 +1899,7 @@ UpdateReturnRequestHandling
 
 [POST]  <userapi-endpoint>/returnrequest/updateReturnRequestHandling
 
-Input:
+Parameters:
 
 .. _structure-UpdateReturnRequestHandlingRequest:
 
@@ -2134,7 +1912,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ApiResponse:
 
@@ -2158,7 +1936,7 @@ CreateVas
 
 [POST]  <userapi-endpoint>/returnrequest/createVas
 
-Input:
+Parameters:
 
 .. _structure-CreateVasRequest:
 
@@ -2185,7 +1963,7 @@ Sample:
 
 |
 
-Output:
+Response:
 
 .. _structure-CreateVasResponse:
 
@@ -2207,7 +1985,7 @@ UpdateRemark
 
 [POST]  <userapi-endpoint>/returnrequest/updateRemark
 
-Input:
+Parameters:
 
 .. _structure-UpdateRemarkRequest:
 
@@ -2218,7 +1996,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``ReturnRequestResponse`` (inherit :ref:`structure-ReturnRequestPayload`)
    :header: "Name", "Type", "Remarks"
@@ -2240,7 +2018,7 @@ Search for Return Inventory
 
     [GET]  <userapi-endpoint>/returninventory/searchReturnInventory
 
-Input: ``SearchReturnInventoryRequest``
+Parameters: ``SearchReturnInventoryRequest``
 
 .. csv-table:: ``SearchReturnInventoryRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Required", "Remarks"
@@ -2249,7 +2027,7 @@ Input: ``SearchReturnInventoryRequest``
 
 |
 
-Output: ``SearchReturnInventoryResponse``
+Response: ``SearchReturnInventoryResponse``
 
 .. csv-table:: ``SearchReturnInventoryResponse`` (inherit :ref:`structure-PaginationResponse`)
    :header: "Name", "Type", "Remarks"
@@ -2281,7 +2059,7 @@ Get Return Inventory
 
     [GET]  <userapi-endpoint>/returninventory/getReturnInventory
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Required", "Remarks"
@@ -2291,7 +2069,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ReturnInventoryResponse:
 
@@ -2313,7 +2091,7 @@ SearchRma
 
     [GET] <userapi-endpoint>/returninventory/SearchRma
 
-Input:
+Parameters:
 
 .. _structure-SearchRmaRequest:
 
@@ -2324,7 +2102,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ReturnInventoryResponse:
 
@@ -2346,7 +2124,7 @@ GetReturnInventoryByLineItemId
 
 [GET]  <userapi-endpoint>/returninventory/getReturnInventoryByLineItemId
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Required", "Remarks"
@@ -2356,7 +2134,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``ReturnInventoryResponse`` (inherit :ref:`structure-ReturnInventoryPayload`)
    :header: "Name", "Type", "Remarks"
@@ -2376,7 +2154,7 @@ UpdateReturnInventoryHandling
 
 [POST]  <userapi-endpoint>/returninventory/updateReturnInventoryHandling
 
-Input:
+Parameters:
 
 .. _structure-UpdateReturnInventoryHandlingRequest:
 
@@ -2387,7 +2165,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
@@ -2407,7 +2185,7 @@ CancelReturnInventoryHandling
 
 [POST]  <userapi-endpoint>/returninventory/cancelReturnInventoryHandling
 
-Input:
+Parameters:
 
 .. _structure-CancelReturnInventoryHandlingRequest:
 
@@ -2419,7 +2197,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
@@ -2440,7 +2218,7 @@ AssignReturnInventorySku
 
 [POST]  <userapi-endpoint>/returninventory/assignReturnInventorySku
 
-Input:
+Parameters:
 
 .. _structure-AssignReturnInventorySkuRequest:
 
@@ -2451,7 +2229,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``ReturnInventoryResponse`` (inherit :ref:`structure-ReturnInventoryPayload`)
    :header: "Name", "Type", "Remarks"
@@ -2471,7 +2249,7 @@ CreateResend
 
 [POST]  <userapi-endpoint>/resend/createResend
 
-Input:
+Parameters:
 
 .. _structure-CreateResendRequest:
 
@@ -2483,7 +2261,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-CreateResendResponse:
 
@@ -2505,7 +2283,7 @@ GetResend
 
 [GET]  <userapi-endpoint>/resend/getResend
 
-Input:
+Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Required", "Remarks"
@@ -2515,7 +2293,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-ResendResponse:
 
@@ -2537,7 +2315,7 @@ SearchResend
 
 [GET]  <userapi-endpoint>/resend/searchResend
 
-Input:
+Parameters:
 
 .. _structure-GetResendListRequest:
 
@@ -2548,7 +2326,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. _structure-SearchResendListResponse:
 
@@ -2571,7 +2349,7 @@ CancelResend
 
 [POST]  <userapi-endpoint>/resend/cancelResend
 
-Input:
+Parameters:
 
 .. _structure-CancelResendRequest:
 
@@ -2583,7 +2361,7 @@ Input:
 
 |
 
-Output:
+Response:
 
 .. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"

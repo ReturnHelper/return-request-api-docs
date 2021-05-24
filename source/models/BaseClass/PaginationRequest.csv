@@ -1,2 +1,2 @@
-pageSize, integer_
-offset, integer_
+pageSize, integer_, Yes, max 50
+offset, integer_, Yes
