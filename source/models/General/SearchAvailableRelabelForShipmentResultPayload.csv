@@ -1,5 +1,5 @@
 removalOrderId, string_
-trackingNumber, string_
+trackingNumber, string_,Alphanumeric, hyphen and underscore, max length 50
 fnsku, string_
 fbaRelabelId, long_
 apiId, integer_

@@ -1,6 +1,6 @@
 apiName, string_
 fbaRemovalShipmentId, integer_
-trackingNumber, string_
+trackingNumber, string_,Alphanumeric, hyphen and underscore, max length 50
 deliverDateStr, string_
 shipmentStatusCode, string_
 fbaRemovalOrderId, integer_

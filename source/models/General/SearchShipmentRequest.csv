@@ -3,7 +3,7 @@
   shipmentNumber, string_
   shipmentStatusCode, string_
   warehouseId, integer_
-  trackingNumber, string_
+  trackingNumber, string_ , Alphanumeric; hyphen and underscore; max length 50
   returnRequestSourceType, string_
   createFromStr, string_
   createToStr, string_

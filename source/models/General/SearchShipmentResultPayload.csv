@@ -1,7 +1,7 @@
   returnRequestNumber, string_
   apiName, string_
   labelRequestStatusCode, string_
-  trackingNumber, string_
+  trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
   labelUrl, string_
   error, string_
   cbm, decimal_

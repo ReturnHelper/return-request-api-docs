@@ -4,7 +4,7 @@
    labelRequestId, long_
    labelRequestStatusCode, string_
    serviceType, string_
-   trackingNumber, string_
+   trackingNumber, string_ ,Alphanumeric; hyphen and underscore; max length 50
    labelUrl, string_
    error, string_
    fromCountryCode, string_
