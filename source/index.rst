@@ -77,6 +77,7 @@ Please use the :ref:`structure-PaginationRequest` parameters in your request to 
    :caption: Contents:
 
    Getting Started <getting_start>
-   API Methods <api_methods>
+   Return User Api <return_user_api>
+   Return Public Api <return_public_api>
    Data Structure <data_structure>
    Base Models <base_model>
