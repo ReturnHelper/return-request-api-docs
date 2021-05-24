@@ -17,11 +17,11 @@ GetApiBalance
 Parameters:
 
 .. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 20, 30
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10,10, 30
 
-   pageSize, integer_
-   offset, integer_
+   pageSize, integer_,Yes,max 50
+   offset, integer_,Yes
 
 |
 
@@ -41,7 +41,7 @@ Response:
 .. _method-GetServiceTypeByFromToCountry:
 
 GetServiceTypeByFromToCountry
----------------
+-----------------------------
 
 ::
 
@@ -70,7 +70,7 @@ Response:
 .. _method-GetServiceTypeByFromCountryAndWarehouse:
 
 GetServiceTypeByFromCountryAndWarehouse
----------------
+----------------------------------------
 
 ::
 
@@ -1266,8 +1266,8 @@ Parameters:
 .. _structure-CreateFbaRemovalShipmentRequest:
 
 .. csv-table:: ``CreateFbaRemovalShipmentRequest``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
+   :header: "Name", "Type", "Required","Remarks"
+   :widths: 15, 10,10, 30
    :file: models/General/CreateFbaRemovalShipmentRequest.csv
 
 |
@@ -1394,12 +1394,10 @@ SearchFbaInventory
 
 Parameters:
 
-.. csv-table::
+.. csv-table:: ``GetFbaInventoryListRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
+   :file: models/General/GetFbaInventoryListRequest.csv
 
 |
 
@@ -1483,7 +1481,7 @@ Response:
 
 .. _method-searchFbaInventoryRecall:
 
-SarchFbaInventoryRecall
+SearchFbaInventoryRecall
 ---------------------------
 
 ::
@@ -1492,12 +1490,10 @@ SarchFbaInventoryRecall
 
 Parameters:
 
-.. csv-table::
+.. csv-table::  ``GetFbaInventoryHandlingListRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
+   :file: models/General/GetFbaInventoryHandlingListRequest.csv
 
 |
 

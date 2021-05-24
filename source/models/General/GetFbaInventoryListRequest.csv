@@ -1,0 +1,9 @@
+apiName, string_
+removalOrderId, string_
+trackingNumber, string_
+fnsku, string_
+shipmentStatusCode, string_
+createFromStr, string_
+createToStr, string_
+deliverFromStr, string_
+deliverToStr, string_
