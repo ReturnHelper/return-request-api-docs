@@ -334,7 +334,7 @@ Parameters:
    totalValue, decimal_, YES, Must be greater than zero
    totalValueCurrency, string_, YES, must be ``usd`` (case-sensitive)
    remarks, string_
-   returnRequestFrom, string_, YES, Obtain from public api :ref:`method-getAllReturnRequestSourceTypes`
+   returnRequestFrom, string_, YES, Must be ``return-helper``
    returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>,YES,Must contains **ONE** item only. Details see below
 
 Object ``ShipmentPayload``:
@@ -342,7 +342,6 @@ Object ``ShipmentPayload``:
 .. csv-table::
   :header: "Name", "Type", "Required", "Remarks"
   :widths: 15, 10, 10, 30
-
 
   warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
   shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
@@ -409,7 +408,7 @@ Sample:
       },
       "returnRequestLineItems":[
          {
-            
+
             "description":"test",
             "weight":12.0,
             "weightUom":"g",
@@ -521,7 +520,7 @@ Object ``ReturnRequestLineItemPayload``:
 Sample:
 
 ::
-   
+
      {
          "shipment": {
          "boxType": "cus",
@@ -547,7 +546,7 @@ Sample:
       },
          "returnRequestLineItems":[
             {
-               
+
             "description": "item1",
             "quantity": 1,
             "refId": "",
@@ -562,10 +561,10 @@ Sample:
          "totalValueCurrency":"usd",
          "remarks":"testing03",
          "returnRequestFrom":"return-helper"
-   
+
      }
 |
-   
+
 
 Response:
 
@@ -730,20 +729,20 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   createLineItemVasRequestList, List<:ref:`structure-CreateReturnRequestLineItemVasRequest`>, YES
-
-.. _structure-CreateReturnRequestLineItemVasRequest:
+   createLineItemVasRequestList, List<:ref:`link-CreateReturnRequestLineItemVasRequest`>, YES
 
 Object ``CreateReturnRequestLineItemVasRequest``
+
+.. _link-CreateReturnRequestLineItemVasRequest:
 
 .. csv-table:: ``CreateReturnRequestLineItemVasRequest``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-    returnRequestLineItemId, long_, Required, Line Item must be ``On-hold`` in order to create Vas
-    vasCode, string_, Required, ``mobi-fmt``(Format Mobile phone) ``mobi-imei``(Check Mobile Phone IMEI) ``mobi-lock``(Check Mobile Phone Lock status) ``prd-inspec``(Product inspection) ``repack``(Repack) ``req-pic``(Take pictures) ``split-parcel``(Split Parcel)
-    metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel``(1-50) ``req-pic``(grater than 0)
-    notes, string_
+   returnRequestLineItemId, long_, Required, Line Item must be ``On-hold`` in order to create Vas
+   vasCode, string_, Required, ``mobi-fmt``(Format Mobile phone) ``mobi-imei``(Check Mobile Phone IMEI) ``mobi-lock``(Check Mobile Phone Lock status) ``prd-inspec``(Product inspection) ``repack``(Repack) ``req-pic``(Take pictures) ``split-parcel``(Split Parcel)
+   metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel``(1-50) ``req-pic``(grater than 0)
+   notes, string_
 
 Sample:
 
@@ -1058,11 +1057,37 @@ Parameters:
 
 .. _structure-CreateResendRequest:
 
-.. csv-table:: ``CreateResendRequest`` (inherit :ref:`structure-ResendPayload`)
+.. csv-table:: ``CreateResendRequest``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   resendShipment, :ref:`structure-ResendShipmentPayload`
+   returnInventoryIdList, List<long_>, YES, Obtain from user api :ref:`method-createReturnRequest` response
+   resendNumber, string_,,Auto generated if not submitted.
+   description, string_,
+   remarks, string_,
+   resendShipment, :ref:`link-ResendShipmentPayload`, YES, See below
+
+Object ``ResendShipmentPayload``
+
+.. _link-ResendShipmentPayload:
+
+.. csv-table:: ``ResendShipmentPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   resendShipmentNumber, string_,,Auto generated if not submitted.
+   shipmentServiceType, string_, YES, Obtain from: 1. user api :ref:`method-GetWarehouseByFromCountry` 2. user api :ref:`method-getServiceTypeByFromCountryAndWarehouse`
+   shipmentCountryCode, string_, YES, Obtain from public api :ref:`method-getAllCountries`
+   shipmentName, string_, YES, Max length 255
+   shipmentPhone, string_
+   shipmentFax, string_
+   shipmentEmail, string_
+   shipmentStreet1, string_, YES, Max length 255
+   shipmentStreet2, string_
+   shipmentStreet3, string_
+   shipmentState, string_
+   shipmentCity, string_, YES, Max length 50
+   shipmentPostalCode, string_, YES, Max length 50
 
 Sample:
 
@@ -1084,8 +1109,7 @@ Sample:
        "shipmentName": "Bach",
        "shipmentPhone": "01768790672",
        "shipmentEmail": "tes@returnhelper.com",
-       "shipmentPostalCode": "01",
-       "warehouseId": 1
+       "shipmentPostalCode": "01"
    }
 }
 
