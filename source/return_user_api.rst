@@ -392,52 +392,34 @@ Sample:
 
   {
       "shipment":{
-      "shipmentId": shipmentId,
-      "labelId":0,
-      "apiTransactionId":0,
-      "warehouseId":warehouseId,
-      "shipmentNumber":null,
-      "shipmentStatusCode":null,
+      "warehouseId":2,
       "shipmentServiceType":"ups",
       "shipmentCountryCode":"usa",
       "shipmentName":"shipment_test",
       "shipmentPhone":"1234567891",
-      "shipmentFax":null,
-      "shipmentEmail":"Email_Address",
+      "shipmentEmail":"abc@abc.com",
       "shipmentStreet1":"Street1",
       "shipmentStreet2":"Street2",
       "shipmentStreet3":"Street3",
       "shipmentState":"NY",
       "shipmentCity":"New York",
       "shipmentPostalCode":"10001",
-      "costCurrencyCode":null,
-      "cost":1.0,
       "boxType":"cus",
       "weight":10.0,
       "weightUom":"g",
       "dimension1":1.0,
       "dimension2":1.0,
       "dimension3":1.0,
-      "dimensionUom":"cm",
-      "isRrLabel":false,
-      "receiveDateStr":"",
-      "createOn":"2021-05-24T01:00:00",
-      "createBy":"testApi01",
-      "createOnStr":"2021-05-24"
+      "dimensionUom":"cm"
       },
       "returnRequestLineItems":[
          {
-            "returnRequestLineItemId":0,
-            "returnRequestLineItemNumber":null,
+            
             "description":"test",
             "weight":12.0,
             "weightUom":"g",
             "valueCurrencyCode":"usd",
-            "value":11.0,
-            "handlingCode":null,
-            "itemRma":null,
-            "returnRequestLineItemImages":null,
-            "returnRequestLineItemVasList":null
+            "value":11.0
          }
       ],
       "returnRequestNumber":"test202105241810",
@@ -445,10 +427,7 @@ Sample:
       "totalValue":11.0,
       "totalValueCurrency":"usd",
       "remarks":"12312313123",
-      "returnRequestFrom":"return-helper",
-      "createOn":"2021-05-24",
-      "createBy":null,
-      "createOnStr":null
+      "returnRequestFrom":"return-helper"
 
   }
 |
@@ -489,7 +468,54 @@ Parameters:
    shipment, :ref:`structure-CreateNonRrLabelShipmentRequest`
    returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>
 
+Sample:
+
+::
+   
+     {
+         "shipment": {
+         "boxType": "cus",
+         "shipmentCity": "city",
+         "shipmentCountryCode": "esp",
+         "shipmentServiceType": "nrhl",
+         "shipmentEmail": "email@email.com",
+         "shipmentName": "Shipment_sample02",
+         "shipmentPhone": "1234567890",
+         "shipmentStreet1": "street 1",
+         "shipmentStreet2": "street 2",
+         "shipmentStreet3": "street 3",
+         "shipmentPostalCode": "123",
+         "shipmentState": "M50 UE",
+         "dimension1": 20,
+         "dimension2": 20,
+         "dimension3": 22,
+         "dimensionUom": "cm",
+         "warehouseId": 3,
+         "weight": 150,
+         "weightUom": "g",
+         "trackingNumber": "20200319-005"
+      },
+         "returnRequestLineItems":[
+            {
+               
+            "description": "item1",
+            "quantity": 1,
+            "refId": "",
+            "value": 10,
+            "valueCurrencyCode": "usd",
+            "weight": 10,
+            "weightUom": "g"
+            }
+         ],
+         "returnTitle":"201800521-004",
+         "totalValue":11.0,
+         "totalValueCurrency":"usd",
+         "remarks":"testing03",
+         "returnRequestFrom":"return-helper"
+   
+     }
 |
+   
 
 Response:
 
