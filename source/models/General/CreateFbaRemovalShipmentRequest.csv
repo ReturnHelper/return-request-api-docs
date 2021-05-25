@@ -1,3 +1,3 @@
-   fbaRemovalOrderId, string_
+   fbaRemovalOrderId, string_, YES
    trackingNumber, string_,Yes,Alphanumeric; hyphen and underscore; max length 50
-   warehouseId, integer_
+   warehouseId, integer_, YES
