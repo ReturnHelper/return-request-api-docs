@@ -35,9 +35,9 @@ API Endpoints
 - Sandbox
 
 +----------------------+----------------------------------------------+
-|rh-api-user-endpoint  | https://api.returnshelper.com/dev/user/api   |
+|rh-api-user-endpoint  | https://api.returnshelper.com/uat/user/api   |
 +----------------------+----------------------------------------------+
-|rh-api-public-endpoint| https://api.returnshelper.com/dev/public/api |
+|rh-api-public-endpoint| https://api.returnshelper.com/uat/public/api |
 +----------------------+----------------------------------------------+
 | User Web Portal URL  | https://devusr.returnshelper.com/            |
 +----------------------+----------------------------------------------+
