@@ -297,8 +297,6 @@ Parameters:
 
 Response:
 
-.. _structure-ApiResponse:
-
 .. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
@@ -699,8 +697,6 @@ Parameters:
 
 Response:
 
-.. _structure-ApiResponse:
-
 .. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
@@ -904,8 +900,6 @@ Parameters:
 |
 
 Response:
-
-.. _structure-ReturnInventoryResponse:
 
 .. csv-table:: ``ReturnInventoryResponse``
    :header: "Name", "Type", "Remarks"
@@ -1291,8 +1285,6 @@ Parameters:
 |
 
 Response:
-
-.. _structure-ApiResponse:
 
 .. csv-table:: ``ApiResponse``
    :header: "Name", "Type", "Remarks"
@@ -1817,8 +1809,6 @@ Parameters:
 
 Response:
 
-.. _structure-FbaInventoryRelabelResponse:
-
 .. csv-table:: ``FbaInventoryRelabelResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
@@ -1983,8 +1973,6 @@ Parameters:
 |
 
 Response:
-
-.. _structure-FbaInventoryRelabelShipmentResponse:
 
 .. csv-table:: ``FbaInventoryRelabelShipmentResponse``
    :header: "Name", "Type", "Remarks"
