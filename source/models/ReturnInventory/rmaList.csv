@@ -1,7 +1,7 @@
 totalNumberOfRecords, integer_
 apiName, string_
 createOnStr, string_
-trackingNumber, string_, Alphanumeric, hyphen and underscore, max length 50
+trackingNumber, string_,  Alphanumeric; hyphen and underscore; max length 50
 receiveDateStr, string_
 returnRequestNumber, string_
 remarks, string_

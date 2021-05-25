@@ -2,7 +2,7 @@ recallId, long_
 apiName, string_
 createOnStr, string_
 recallInventoryStatusCode, string_
-trackingNumber, string_,Alphanumeric, hyphen and underscore, max length 50
+trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
 itemRma, string_
 pickUpCode, string_
 pickUpOn, string_

@@ -1,11 +1,8 @@
-apiName, string_
 createFromStr, string_
 createToStr, string_
-trackingNumber, string_, Alphanumeric, hyphen and underscore, max length 50
+trackingNumber, string_ , Alphanumeric; hyphen and underscore; max length 50
 recallShipmentNumber, string_
 recallStatusCode, string_
 itemRma, string_
 recallInventoryStatusCode, string_
 pickUpTypeCode, string_
-pageSize, integer_
-offset, integer_

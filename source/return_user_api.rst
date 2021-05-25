@@ -1192,7 +1192,7 @@ Response:
 .. _method-searchRecall:
 
 SearchRecall
----------------------------
+-------------
 
 ::
 
@@ -1202,9 +1202,9 @@ Parameters:
 
 .. _structure-SearchRecallRequest:
 
-.. csv-table:: ``SearchRecallRequest``
+.. csv-table::  ``SearchRecallRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
+   :widths: 20, 20, 30
    :file: models/General/SearchRecallRequest.csv
 
 
