@@ -1094,24 +1094,24 @@ Sample:
 ::
 
    {
-   "description": "OC56562326565",
-   "remarks": "remark",
-   "returnInventoryIdList": [
-       3474
-   ],
-   "resendShipment": {
-       "shipmentServiceType": "ups",
-       "shipmentCountryCode": "usa",
-       "shipmentState": "Hamburg",
-       "shipmentCity": "Uhlenhorst",
-       "shipmentStreet1": "Schrotteringksweg 16",
-       "shipmentStreet2": "",
-       "shipmentName": "Bach",
-       "shipmentPhone": "01768790672",
-       "shipmentEmail": "tes@returnhelper.com",
-       "shipmentPostalCode": "01"
-   }
-}
+       "description": "OC56562326565",
+       "remarks": "remark",
+       "returnInventoryIdList": [
+           3474
+       ],
+       "resendShipment": {
+           "shipmentServiceType": "ups",
+           "shipmentCountryCode": "usa",
+           "shipmentState": "Hamburg",
+           "shipmentCity": "Uhlenhorst",
+           "shipmentStreet1": "Schrotteringksweg 16",
+           "shipmentStreet2": "",
+           "shipmentName": "Bach",
+           "shipmentPhone": "01768790672",
+           "shipmentEmail": "tes@returnhelper.com",
+           "shipmentPostalCode": "01"
+       }
+    }
 
 |
 
