@@ -329,7 +329,7 @@ Parameters:
    :widths: 15, 10, 10, 30
 
    shipment, :ref:`structure-ShipmentPayload`, YES, Details see below
-   returnRequestNumber, string_,,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted
+   returnRequestNumber, string_,,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
    returnTitle, string_, YES
    totalValue, decimal_, YES, Must be greater than zero
    totalValueCurrency, string_, YES, must be ``usd`` (case-sensitive)
@@ -345,7 +345,7 @@ Object ``ShipmentPayload``:
 
 
   warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
-  shipmentNumber, string_
+  shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
   shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
   shipmentCountryCode, string_ , YES, Obtain from public api :ref:`method-getAllFromCountries`
   shipmentName, string_, YES
@@ -367,10 +367,6 @@ Object ``ShipmentPayload``:
   dimension2, decimal_, YES, Greater than 0
   dimension3, decimal_, YES, Greater than 0
   dimensionUom, string_, YES, Must be ``cm``
-  isRrLabel, bool_
-  receiveDateStr, string_
-  referenceNumber, string_
-
 
 Object ``ReturnRequestLineItemPayload``:
 
@@ -378,13 +374,12 @@ Object ``ReturnRequestLineItemPayload``:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50).
+   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50). (Must be unique)
    description, string_, YES
    weight, decimal_, YES
    weightUom, string_,YES, Must be ``g``
    valueCurrencyCode, string_, YES, must be ``usd`` (case-sensitive)
    value, decimal_, YES
-   itemRma, string_
 
 Sample:
 
@@ -461,12 +456,67 @@ Parameters:
 
 .. _structure-CreateNonRrLabelReturnRequest:
 
-.. csv-table:: ``CreateNonRrLabelReturnRequest`` (inherit :ref:`structure-ReturnRequestPayload`)
+.. csv-table:: ``CreateNonRrLabelReturnRequest``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   shipment, :ref:`structure-CreateNonRrLabelShipmentRequest`
-   returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>
+   shipment, :ref:`structure-CreateNonRrLabelShipmentRequest`, YES, Details see below
+   returnRequestNumber, string_,,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
+   returnTitle, string_, YES
+   totalValue, decimal_, YES, Must be greater than zero
+   totalValueCurrency, string_, YES, must be ``usd`` (case-sensitive)
+   remarks, string_
+   returnRequestFrom, string_, YES, Obtain from public api :ref:`method-getAllReturnRequestSourceTypes`
+   returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>,YES,Must contains **ONE** item only. Details see below
+
+.. _structure-CreateNonRrLabelShipmentRequest:
+
+Object ``CreateNonRrLabelShipmentRequest``:
+
+.. csv-table::
+  :header: "Name", "Type", "Required", "Remarks"
+  :widths: 15, 10, 10, 30
+
+  trackingNumber, string_, YES, Alphanumeric hyphen and underscore (max length 50).
+  carrier, string_, , Max length 225
+  warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
+  shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
+  shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
+  shipmentCountryCode, string_ , YES, Obtain from public api :ref:`method-getAllFromCountries`
+  shipmentName, string_, YES
+  shipmentPhone, string_
+  shipmentFax, string_
+  shipmentEmail, string_
+  shipmentStreet1, string_, YES
+  shipmentStreet2, string_
+  shipmentStreet3, string_
+  shipmentState, string_
+  shipmentCity, string_
+  shipmentPostalCode, string_
+  costCurrencyCode, string_
+  cost, decimal_
+  boxType, string_, YES, Obtain from public api :ref:`method-getAllBoxTypes`
+  weight, decimal_ , YES
+  weightUom, string_,YES, Must be ``g``
+  dimension1, decimal_, YES, Greater than 0
+  dimension2, decimal_, YES, Greater than 0
+  dimension3, decimal_, YES, Greater than 0
+  dimensionUom, string_, YES, Must be ``cm``
+
+
+Object ``ReturnRequestLineItemPayload``:
+
+.. csv-table::
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50). (Must be unique)
+   description, string_, YES
+   weight, decimal_, YES
+   weightUom, string_,YES, Must be ``g``
+   valueCurrencyCode, string_, YES, must be ``usd`` (case-sensitive)
+   value, decimal_, YES
+
 
 Sample:
 
@@ -680,7 +730,20 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   createLineItemVasRequestList, List<:ref:`structure-ReturnRequestLineItemVasPayload`>
+   createLineItemVasRequestList, List<:ref:`structure-CreateReturnRequestLineItemVasRequest`>, YES
+
+.. _structure-CreateReturnRequestLineItemVasRequest:
+
+Object ``CreateReturnRequestLineItemVasRequest``
+
+.. csv-table:: ``CreateReturnRequestLineItemVasRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+    returnRequestLineItemId, long_, Required, Line Item must be ``On-hold`` in order to create Vas
+    vasCode, string_, Required, ``mobi-fmt``(Format Mobile phone) ``mobi-imei``(Check Mobile Phone IMEI) ``mobi-lock``(Check Mobile Phone Lock status) ``prd-inspec``(Product inspection) ``repack``(Repack) ``req-pic``(Take pictures) ``split-parcel``(Split Parcel)
+    metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel``(1-50) ``req-pic``(grater than 0)
+    notes, string_
 
 Sample:
 
