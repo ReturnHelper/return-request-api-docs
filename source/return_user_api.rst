@@ -371,7 +371,7 @@ Object ``ReturnRequestLineItemPayload``:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50). (Must be unique)
+   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
    description, string_, YES
    weight, decimal_, YES
    weightUom, string_,YES, Must be ``g``
@@ -463,7 +463,7 @@ Parameters:
    totalValue, decimal_, YES, Must be greater than zero
    totalValueCurrency, string_, YES, must be ``usd`` (case-sensitive)
    remarks, string_
-   returnRequestFrom, string_, YES, Obtain from public api :ref:`method-getAllReturnRequestSourceTypes`
+   returnRequestFrom, string_, YES, Must be ``return-helper``
    returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>,YES,Must contains **ONE** item only. Details see below
 
 .. _structure-CreateNonRrLabelShipmentRequest:
@@ -474,7 +474,7 @@ Object ``CreateNonRrLabelShipmentRequest``:
   :header: "Name", "Type", "Required", "Remarks"
   :widths: 15, 10, 10, 30
 
-  trackingNumber, string_, YES, Alphanumeric hyphen and underscore (max length 50).
+  trackingNumber, string_, YES, Alphanumeric hyphen and underscore (max length 50). Cannot reuse within 92 days.
   carrier, string_, , Max length 225
   warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
   shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
@@ -583,6 +583,8 @@ EditReturnRequest
 ::
 
 [POST]  <userapi-endpoint>/returnrequest/editReturnRequest
+
+Only allow when shipment status equals to ``no-label`` ``lb-failed``
 
 Parameters:
 
