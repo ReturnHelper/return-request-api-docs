@@ -384,29 +384,28 @@ Sample:
 
   {
       "shipment":{
-      "warehouseId":2,
-      "shipmentServiceType":"ups",
-      "shipmentCountryCode":"usa",
-      "shipmentName":"shipment_test",
-      "shipmentPhone":"1234567891",
-      "shipmentEmail":"abc@abc.com",
-      "shipmentStreet1":"Street1",
-      "shipmentStreet2":"Street2",
-      "shipmentStreet3":"Street3",
-      "shipmentState":"NY",
-      "shipmentCity":"New York",
-      "shipmentPostalCode":"10001",
-      "boxType":"cus",
-      "weight":10.0,
-      "weightUom":"g",
-      "dimension1":1.0,
-      "dimension2":1.0,
-      "dimension3":1.0,
-      "dimensionUom":"cm"
+         "warehouseId":2,
+         "shipmentServiceType":"ups",
+         "shipmentCountryCode":"usa",
+         "shipmentName":"shipment_test",
+         "shipmentPhone":"1234567891",
+         "shipmentEmail":"abc@abc.com",
+         "shipmentStreet1":"Street1",
+         "shipmentStreet2":"Street2",
+         "shipmentStreet3":"Street3",
+         "shipmentState":"NY",
+         "shipmentCity":"New York",
+         "shipmentPostalCode":"10001",
+         "boxType":"cus",
+         "weight":10.0,
+         "weightUom":"g",
+         "dimension1":1.0,
+         "dimension2":1.0,
+         "dimension3":1.0,
+         "dimensionUom":"cm"
       },
       "returnRequestLineItems":[
          {
-
             "description":"test",
             "weight":12.0,
             "weightUom":"g",
@@ -521,37 +520,36 @@ Sample:
 
      {
          "shipment": {
-         "boxType": "cus",
-         "shipmentCity": "city",
-         "shipmentCountryCode": "esp",
-         "shipmentServiceType": "nrhl",
-         "shipmentEmail": "email@email.com",
-         "shipmentName": "Shipment_sample02",
-         "shipmentPhone": "1234567890",
-         "shipmentStreet1": "street 1",
-         "shipmentStreet2": "street 2",
-         "shipmentStreet3": "street 3",
-         "shipmentPostalCode": "123",
-         "shipmentState": "M50 UE",
-         "dimension1": 20,
-         "dimension2": 20,
-         "dimension3": 22,
-         "dimensionUom": "cm",
-         "warehouseId": 3,
-         "weight": 150,
-         "weightUom": "g",
-         "trackingNumber": "20200319-005"
-      },
+            "boxType": "cus",
+            "shipmentCity": "city",
+            "shipmentCountryCode": "esp",
+            "shipmentServiceType": "nrhl",
+            "shipmentEmail": "email@email.com",
+            "shipmentName": "Shipment_sample02",
+            "shipmentPhone": "1234567890",
+            "shipmentStreet1": "street 1",
+            "shipmentStreet2": "street 2",
+            "shipmentStreet3": "street 3",
+            "shipmentPostalCode": "123",
+            "shipmentState": "M50 UE",
+            "dimension1": 20,
+            "dimension2": 20,
+            "dimension3": 22,
+            "dimensionUom": "cm",
+            "warehouseId": 3,
+            "weight": 150,
+            "weightUom": "g",
+            "trackingNumber": "20200319-005"
+         },
          "returnRequestLineItems":[
             {
-
-            "description": "item1",
-            "quantity": 1,
-            "refId": "",
-            "value": 10,
-            "valueCurrencyCode": "usd",
-            "weight": 10,
-            "weightUom": "g"
+               "description": "item1",
+               "quantity": 1,
+               "refId": "",
+               "value": 10,
+               "valueCurrencyCode": "usd",
+               "weight": 10,
+               "weightUom": "g"
             }
          ],
          "returnTitle":"201800521-004",
@@ -748,12 +746,12 @@ Sample:
 
   {
       "createLineItemVasRequestList": [
-      {
-        "returnRequestLineItemId": {{returnRequestLineItemId}},
-        "notes": "Split parcel into 3",
-        "vasCode": "split-parcel",
-        "metaQuantity": 3
-      }
+         {
+         "returnRequestLineItemId": {{returnRequestLineItemId}},
+         "notes": "Split parcel into 3",
+         "vasCode": "split-parcel",
+         "metaQuantity": 3
+         }
     ]
   }
 
