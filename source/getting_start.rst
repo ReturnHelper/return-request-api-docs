@@ -14,6 +14,11 @@ Getting and editing return request
 
 - :ref:`method-EditReturnRequest` - with returnRequestId, returned in CreateReturnRequest response
 
+Creating return request without label (Non RR label)
+----------------------------------------------------
+
+- :ref:`method-createNonRrLabelReturnRequest` - with product, shipment information **AND** tracking number
+
 Getting return inventory
 ------------------------
 
