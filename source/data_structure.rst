@@ -703,4 +703,4 @@ SearchRmaResultPayload
    .. csv-table:: 
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: Notification.rst
+      :file:  models/Notification/LabelNotificationResponse.csv

@@ -275,7 +275,7 @@ Response:
 
 **support http notification**
 
-(inherit :ref:`structure-ReturnRequestPayload`)
+(inherit :ref:`structure-Notification`)
 
 |
 
