@@ -694,13 +694,46 @@ SearchRmaResultPayload
    :file: models/ReturnInventory/rmaList.csv
 
 
+.. _structure-NotificationRecallPayload:
 
-   .. _structure-Notification:
-
-   Notification
-   --------------------
+NotificationRecallPayload
+-------------------------
    
-   .. csv-table:: 
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationRecallPayload.csv
+
+
+.. _structure-NotificationResendPayload:
+
+NotificationResendPayload
+-------------------------
+      
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationResendPayload.csv
+
+
+.. _structure-NotificationResendShipmentPayload:
+
+NotificationResendShipmentPayload
+---------------------------------
+      
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationResendShipmentPayload.csv
+   
+.. _structure-NotificationShipmentPayload:
+
+ShipmentPayload
+---------------------------------
+         
+   .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file:  models/Notification/LabelNotificationResponse.csv
+      :file: models/Notification/NotificationShipmentPayload.csv
+      
+         

@@ -275,7 +275,7 @@ Response:
 
 **support http notification**
 
-(inherit :ref:`structure-Notification`)
+(inherit :ref:`notification-label`)
 
 |
 
@@ -1048,6 +1048,11 @@ Resend
 CreateResend
 ------------
 
+**support http notification**
+
+(inherit :ref:`notification-Resend`)
+
+
 ::
 
 [POST]  <userapi-endpoint>/resend/createResend
@@ -1232,6 +1237,9 @@ Recall
 
 CreateRecall
 ---------------------------
+**support http notification**
+
+(inherit :ref:`notification-Recall`)
 
 ::
 
