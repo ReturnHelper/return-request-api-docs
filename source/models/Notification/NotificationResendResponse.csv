@@ -4,6 +4,3 @@ resendShipmentList, List<:ref:`structure-NotificationResendShipmentPayload`>
 category, string_
 action, string_
 eventTime, string_
-
-
-
