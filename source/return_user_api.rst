@@ -272,6 +272,11 @@ Response:
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
 
+
+**support http notification**
+
+(inherit :ref:`structure-ReturnRequestPayload`)
+
 |
 
 ----
