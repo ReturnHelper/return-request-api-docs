@@ -1,0 +1,3 @@
+   timestamp, string_ , UTC now (ISO8601)
+   signature, string_ , 
+   content-type, string_ , application/json

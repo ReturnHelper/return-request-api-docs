@@ -1,4 +1,0 @@
-   timestamp, string_ , header
-   signature, string_ , header
-   content-type, string_ , header
-   message, string_ ,body ( Details see below) ; Json format

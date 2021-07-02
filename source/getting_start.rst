@@ -47,3 +47,11 @@ Adding VAS on return inventory
 
 - | :ref:`method-CreateVas` - with list of ReturnRequestLineItemVasPayload
   | every return inventory has its own returnRequestLineItemId (ref: :ref:`structure-returnInventoryPayload`)
+
+
+Notification
+------------
+
+- | :ref:`notification-label` - Label Notification
+- | :ref:`notification-Recall` - Recall Notification
+- | :ref:`notification-Resend` - Resend Notification

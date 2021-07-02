@@ -1,18 +1,31 @@
 ##################
-Notification
+Notification 
 ##################
 
+Notification Introduction
+-------------------------
 
-when notification respone code is 200, the notification will send out.
+- client need to provide endpoint to us setup.
+- The client receive message must need to send respone success code to us.
+- If client receive message no respone success code, will trigger retry mechanism (max 10 times).   
+- The notification have one header and one body to composition.
 
-You need to provided api Endport to us setup notification.
+**Notification respone header**
+
+- The signature is Use SHA256 HMAC to sign the data to byte array, than use ToBase64String convert to string.
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 40 
+   :file: models/Notification/HeaderResponse.csv
+|
+
+**Notification respone Body**
+
+- Body is Json format
+- Body has different message payload, detail see below.
 
 
-
-
-
-Http Notification
-=================
 
 .. _notification-label:
 
@@ -28,7 +41,7 @@ Response:
 .. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/LabelNotificationResponse.csv
+   :file: models/Notification/BodyResponse.csv
 
 |
 
@@ -200,8 +213,7 @@ Sample:
 
 .. _notification-Recall:
 
-
-Recall tracking number Notification
+Recall Notification
 -------------------
 
 ::
@@ -213,7 +225,7 @@ Response:
 .. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/LabelNotificationResponse.csv
+   :file: models/Notification/BodyResponse.csv
 
 |
 
@@ -266,7 +278,7 @@ Sample:
 
 .. _notification-Resend:
 
-Resend tracking number  Notification
+Resend Notification
 -------------------
 
 ::
@@ -278,7 +290,7 @@ Response:
 .. csv-table:: 
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/LabelNotificationResponse.csv
+   :file: models/Notification/BodyResponse.csv
 
 |
 

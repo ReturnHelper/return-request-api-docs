@@ -248,6 +248,9 @@ Label
 
 CreateLabel
 ---------------------------
+**Label result will callback by http notification**
+:ref:`notification-label`
+
 
 ::
 
@@ -271,11 +274,6 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/ApiResponse.csv
-
-
-**support http notification**
-
-(inherit :ref:`notification-label`)
 
 |
 
@@ -1048,9 +1046,7 @@ Resend
 CreateResend
 ------------
 
-**support http notification**
-
-(inherit :ref:`notification-Resend`)
+**Resend result callback by http notification** :ref:`notification-Resend`
 
 
 ::
@@ -1237,9 +1233,7 @@ Recall
 
 CreateRecall
 ---------------------------
-**support http notification**
-
-(inherit :ref:`notification-Recall`)
+**Recall result callback by http notification** :ref:`notification-Recall`
 
 ::
 
