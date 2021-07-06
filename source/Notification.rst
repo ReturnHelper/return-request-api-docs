@@ -709,7 +709,7 @@ Sample:
 
 .. _notification-changeLineItemImage:
 
-Change Line Item Image Notification
+Change line item image notification
 -----------------------------------
 
 This notification is sent when there is an image update on a line item. Adding, modifying and deleting any images are all considered as an update and would trigger this notification.

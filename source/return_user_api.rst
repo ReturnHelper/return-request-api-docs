@@ -622,6 +622,10 @@ Response:
 GetReturnRequest
 ----------------
 
+Get return request information.
+
+Clients can also receives :ref:`notification-changeLineItemImage` when we update any images of a line item.
+
 ::
 
 [GET]  <userapi-endpoint>/returnrequest/getReturnRequest
