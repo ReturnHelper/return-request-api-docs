@@ -736,4 +736,37 @@ ShipmentPayload
       :widths: 15, 10, 30
       :file: models/Notification/NotificationShipmentPayload.csv
       
+.. _structure-NotificationVasPayload:
+
+VasPayload
+-----------
          
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationVASUpdatePayload.csv
+
+
+.. _structure-VASStatus:
+
+VASStatus
+-----------
+         
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationVASStatus.csv
+
+
+.. _structure-NotificationShipmentSupplementPayload:
+
+ShipmentSupplementPayload
+-----------
+         
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationShipmentSupplementPayload.csv
+            
+      
+            

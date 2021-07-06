@@ -1,11 +1,6 @@
-recallList, List<:ref:`structure-NotificationRecallPayload`>
-rma, string_
-awb, string_
-pickUpDate, Datetime_
-courierTrackingNumber, string_
-remarks, string_
-weight, decimal_
-amount, decimal_
-listName, string_
+recallList, :ref:`structure-NotificationRecallPayload`
+trackingNumber, string_
 recallUpdateTypeStatus, bool_
-serviceType, string_
+category, string_
+action, string_
+eventTime, string_

@@ -1,3 +1,6 @@
 resend, :ref:`structure-ResendPayload`
-returnInventoryList,List<:ref:`structure-ReturnInventoryPayload`>
-resendShipmentList, List<:ref:`structure-NotificationResendShipmentPayload`>
+trackingNumber, string_
+failureReason, string_
+category, string_
+action, string_
+eventTime, string_

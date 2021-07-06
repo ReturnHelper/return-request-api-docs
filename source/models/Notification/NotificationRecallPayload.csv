@@ -4,7 +4,6 @@ warehouseId, long_
 recallNumber, string_
 recallStatusCode, long_
 warehouseRemarks, string_
-recallInventoryStatusCode, bool_
 modifyOn, DateTime_
 modifyBy, string_
 createOn, DateTime_
