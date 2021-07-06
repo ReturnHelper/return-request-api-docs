@@ -248,9 +248,14 @@ Label
 
 CreateLabel
 ---------------------------
-**Label result will callback by http notification**
-:ref:`notification-label`
 
+Submits a create label request.
+
+A success response only means the request is accepted. The requested label does not include in the response but instead it is sent via a notification once it is ready.
+
+For more details please check :ref:`notification-label`
+
+:ref:`notification-MarkReceived` is trigger when the shipment has been received in warehouse.
 
 ::
 
@@ -446,6 +451,8 @@ Response:
 
 CreateNonRrLabelReturnRequest
 -----------------------------
+
+:ref:`notification-MarkReceived` is trigger when the shipment has been received in warehouse.
 
 ::
 
@@ -644,7 +651,7 @@ Response:
 
 .. _method-searchReturnRequest:
 
-searchReturnRequest
+SearchReturnRequest
 -------------------
 
 ::
@@ -715,6 +722,12 @@ Response:
 
 CreateVas
 ---------
+
+Submits a Vas request.
+
+Success reponse means that the request is accept and the line item is pending for Vas action.
+
+Once there was a Vas status update, information is send by :ref:`notification-UpdateVas`
 
 ::
 
@@ -1046,7 +1059,10 @@ Resend
 CreateResend
 ------------
 
-**Resend result callback by http notification** :ref:`notification-Resend`
+This api creates a resend request. Successful request means that the inventory is pending for resend procedure.
+Further updates of the resend shipment(such as tracking number update) are sent via notification callback.
+
+Details please check :ref:`notification-Resend`.
 
 
 ::
@@ -1233,7 +1249,12 @@ Recall
 
 CreateRecall
 ---------------------------
-**Recall result callback by http notification** :ref:`notification-Recall`
+
+
+This api creates a recall request. Successful request means that the inventory is pending for recall procedure.
+Further updates of the recall shipment(such as tracking number/ AWB update) are sent via notification callback.
+
+Details please check :ref:`notification-Recall`.
 
 ::
 

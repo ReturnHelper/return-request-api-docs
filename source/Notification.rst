@@ -75,7 +75,7 @@ Below listed our supported notification types, data structure and samples.
 
 .. _notification-label:
 
-Label Result Notification
+Label result notification
 -------------------------
 
 This notification is sent to client once the label is ready after user called :ref:`method-CreateLabel`.
@@ -380,10 +380,10 @@ Sample:
 
 .. _notification-Recall:
 
-Recall tracking number (AWB) Notification
+Recall update status notification
 -----------------------------------------
 
-This notification is sent to client when the recall tracking AWB has been updated.
+This notification is sent to client when the recall status has been updated. For example, tracking number (AWB) update would trigger this notification.
 
 category: ``recall``
 
@@ -428,10 +428,10 @@ Sample:
 
 .. _notification-Resend:
 
-Resend Tracking Number Notification
+Resend update status notification
 -----------------------------------
 
-This notification is sent to client when the resend tracking number has been update.
+This notification is sent to client when the resend status has been update. For example, a tracking number update would trigger this notification.
 
 category: ``resend``
 
@@ -476,7 +476,7 @@ Sample:
 
 .. _notification-MarkReceived:
 
-Warehouse Mark Shipment Received Notification
+Warehouse mark shipment received notification
 ---------------------------------------------
 
 This notification is sent when warehouse receive a shipment.
@@ -664,10 +664,10 @@ Sample:
 
 .. _notification-UpdateVas:
 
-VAS Update Notification
+VAS update notification
 -----------------------
 
-This notification is sent when VAS has an update (such as complete).
+This notification is sent when VAS has an update (such as VAS complete).
 
 category: ``rrliv``
 
@@ -712,7 +712,7 @@ Sample:
 Change Line Item Image Notification
 -----------------------------------
 
-This notification is sent when VAS has an update (such as complete).
+This notification is sent when there is an image update on a line item. Adding, modifying and deleting any images are all considered as an update and would trigger this notification.
 
 category: ``rrli``
 
