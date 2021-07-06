@@ -1,62 +1,99 @@
 ##################
-Notification 
+Notification
 ##################
 
-Notification Introduction
+Introduction
 -------------------------
 
-- client need to provide endpoint to us setup.
-- The client receive message must need to send response success code to us.
-- If client receive message no response success code, will trigger retry mechanism (max 10 times).   
-- The notification have one header and one body to composition.
+For information that are not instantly available during an api call, notification callbacks are sent back to our clients once the information are ready.
+This page explains how notification works.
 
-**Notification response header**
+Endpoint
+********
 
-- The signature is Use SHA256 HMAC to sign the data to byte array, than use ToBase64String convert to string.
+Clients need to provide an endpoint as the notification destination when you setup an account. If you need help please contact us.
 
-.. csv-table:: 
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 40 
-   :file: models/Notification/HeaderResponse.csv
-|
+Signing Key
+***********
 
-**Notification response Body**
+Each client has a unique signing key which we provide on account setup. This key is used to sign the notification and generate a signature (Details please check below).
+Please store your key securely and never share to others.
 
-- Body is Json format
-- Body has different message payload, detail see below.
+Retry
+*****
 
+Only notification that are sent and response with a ``HTTP 200`` are considered as completed. Otherwise the notification is consider failed and it would be retied up to 10 times.
 
+Header
+******
 
-.. _notification-label:
-
-Label Notification
--------------------
-
-::
-
-Parameters: No Input
-
-Response:
-
-.. csv-table:: 
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Notification/BodyResponse.csv
-
-|
+Notification header contains a timestamp and a signature.
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 40
+
+   timestamp, string_ , UTC now (ISO8601)
+   signature, string_ , See ``Signature`` section
+
+Signature
+*********
+
+This section explains how signature are generated so clients can verify the authenticity and integrity of our notification message.
+**Clients should always verify the signature before processing the payload data.**
+
+To understand how signature are generated, consider the notification example below:
+
+.. code-block:: html
+
+  Action: POST
+  Endpoint: https://www.google.com
+  Timestamp: 2021-06-16T15:26:27Z
+  Payload: {"a": "b"}
+
+Signature are generate as:
+
+1. | **Concat a string for sign as: *Action+Notification endpoint+Timestamp+Payload*.**
+   | Example: ``POSThttps://www.google.com2021-06-16T15:26:27Z{"a":"b"}``
+2. | **Getbytes by UTF-8 encoding, then convert to a Base64 string.**
+   | Example: ``UE9TVGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20yMDIxLTA2LTE2VDE1OjI2OjI3WiJ7XCJhXCI6XCJiXCJ9Ig==``
+3. | **Getbytes by UTF-8 encoding with the above result string.**
+4. | **Decode signing key as a Base64 string, which gives a byte array**
+5. | **Sign the byte array in step 3 with the byte array in step 4 as signing key.**
+6. | **Convert the result byte to Base64 string with UTF-8 encoding, which gives the signature string**
+   | Example: ``CKdaJK2mYpZgchBzBZ4U+j9qKfhhGS+r5JeO13jx/z8=``
+
+A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
+
+Body
+****
+
+``category`` and ``action`` are two common properties in every notification body.
+These are enums that used to identify the notification type which clients can make use of when processing the message.
+
+Below listed our supported notification types, data structure and samples.
+
+.. _notification-label:
+
+Label Result Notification
+-------------------------
+
+This notification is sent to client once the label is ready after user called :ref:`method-CreateLabel`.
+
+category: ``labelGenerated``
+
+action: ``labelGenerated``
+
+.. csv-table:: Label Result Notification
+   :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/NotificationGenLabelResponse.csv
-
-
+   :file: models/Notification/NotificationGenLabel.csv
 
 Sample:
 
-::
-  
-   {
+.. code-block:: json
+
+  {
    "statusDto":{
       "label":{
          "labelId":3989,
@@ -208,39 +245,31 @@ Sample:
 
 |
 
-
 ----
 
 .. _notification-Recall:
 
-Recall Notification
--------------------
+Recall tracking number (AWB) Notification
+-----------------------------------------
 
-::
+This notification is sent to client when the recall tracking AWB has been updated.
 
-Parameters: No Input
+category: ``recall``
 
-Response:
+action: ``recallUpdateStatus``
 
-.. csv-table:: 
+
+.. csv-table:: Recall tracking number (AWB) Notification
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/BodyResponse.csv
-
-|
-
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Notification/NotificationRecallResponse.csv
+   :file: models/Notification/NotificationRecall.csv
 
 |
 
 Sample:
 
-::
-  
+.. code-block:: json
+
    {
       "recallList":[
          {
@@ -278,32 +307,25 @@ Sample:
 
 .. _notification-Resend:
 
-Resend Notification
--------------------
+Resend Tracking Number Notification
+-----------------------------------
 
-::
+This notification is sent to client when the resend tracking number has been update.
 
-Parameters: No Input
+category: ``resend``
 
-Response:
-
-.. csv-table:: 
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Notification/BodyResponse.csv
-
-|
+action": ``updateResendTrackingNumber``
 
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/NotificationResendResponse.csv
+   :file: models/Notification/NotificationResend.csv
 
 Sample:
 
-::
-      
+.. code-block:: json
+
    {
       "resend":{
          "resendId":296,
@@ -359,20 +381,20 @@ Sample:
 
 .. _notification-MarkReceived:
 
-Mark Received Notification
--------------------
+Warehouse Mark Shipment Received Notification
+---------------------------------------------
 
-::
+This notification is sent when warehouse receive a shipment.
 
-Parameters: No Input
+category: ``rsl``
 
-Response:
+action: ``markShipmentArrive``
 
 
 Sample:
 
-::
-      
+.. code-block:: json
+
    {
    "returnRequest":{
       "returnRequestId":5514,
@@ -498,20 +520,20 @@ Sample:
 
 .. _notification-UpdateVas:
 
-Update Vas Notification
--------------------
+VAS Update Notification
+-----------------------
 
-::
+This notification is sent when VAS has an update (such as complete).
 
-Parameters: No Input
+category: ``rrliv``
 
-Response:
+action: ``vasUpdated``
 
 
 Sample:
 
-::
-      
+.. code-block:: json
+
    {
       "returnRequestLineItemId":6909,
       "returnRequestLineItemVasList":[

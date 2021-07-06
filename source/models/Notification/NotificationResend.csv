@@ -1,0 +1,3 @@
+resend, :ref:`structure-ResendPayload`
+returnInventoryList,List<:ref:`structure-ReturnInventoryPayload`>
+resendShipmentList, List<:ref:`structure-NotificationResendShipmentPayload`>
