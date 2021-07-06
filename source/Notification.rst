@@ -6,11 +6,11 @@ Notification Introduction
 -------------------------
 
 - client need to provide endpoint to us setup.
-- The client receive message must need to send respone success code to us.
-- If client receive message no respone success code, will trigger retry mechanism (max 10 times).   
+- The client receive message must need to send response success code to us.
+- If client receive message no response success code, will trigger retry mechanism (max 10 times).   
 - The notification have one header and one body to composition.
 
-**Notification respone header**
+**Notification response header**
 
 - The signature is Use SHA256 HMAC to sign the data to byte array, than use ToBase64String convert to string.
 
@@ -20,7 +20,7 @@ Notification Introduction
    :file: models/Notification/HeaderResponse.csv
 |
 
-**Notification respone Body**
+**Notification response Body**
 
 - Body is Json format
 - Body has different message payload, detail see below.
@@ -350,6 +350,198 @@ Sample:
       "eventTime":"2021-01-06T03:35:02.6958984Z"
    }
 
+
+|
+
+
+----
+
+
+.. _notification-MarkReceived:
+
+Mark Received Notification
+-------------------
+
+::
+
+Parameters: No Input
+
+Response:
+
+
+Sample:
+
+::
+      
+   {
+   "returnRequest":{
+      "returnRequestId":5514,
+      "apiId":2,
+      "returnRequestNumber":"R210106-0000008",
+      "returnStatusCode":0,
+      "returnTitle":"1840427529019",
+      "totalValue":100.000,
+      "totalValueCurrency":"usd",
+      "remarks":null,
+      "warehouseRma":"26c49bcf-e9f8-4974-a340-c54cf8ed74d0",
+      "isArchived":false,
+      "returnRequestSourceType":1,
+      "modifyOn":"2021-01-06T06:11:20.595572Z",
+      "modifyBy":"2",
+      "createOn":"2021-01-06T06:11:10",
+      "createBy":"2"
+   },
+   "shipment":{
+      "shipmentId":5572,
+      "apiId":2,
+      "returnRequestId":5514,
+      "labelId":6099,
+      "apiTransactionId":0,
+      "warehouseId":1,
+      "shipmentNumber":"S210106-0000018",
+      "shipmentStatusCode":6,
+      "shipmentServiceType":10,
+      "shipmentCountryCode":"esp",
+      "shipmentName":"Francisco Jose Rodriguez Elias",
+      "shipmentPhone":"656834261",
+      "shipmentFax":null,
+      "shipmentEmail":"test@test.com",
+      "shipmentStreet1":"AV/ Doctor Sanchez Malo  Bloque3",
+      "shipmentStreet2":"2planta derecha",
+      "shipmentStreet3":null,
+      "shipmentState":"Andalucía",
+      "shipmentCity":"Ecija",
+      "shipmentPostalCode":"41400",
+      "costCurrencyCode":"usd",
+      "cost":0.000,
+      "boxType":"cus",
+      "weight":700.000,
+      "weightUom":"g",
+      "dimension1":22.000,
+      "dimension2":15.000,
+      "dimension3":5.000,
+      "dimensionUom":"cm",
+      "isRrLabel":false,
+      "receiveDate":"2021-01-06T06:11:20.5965368Z",
+      "modifyOn":"2021-01-06T06:11:20.5965521Z",
+      "modifyBy":"2",
+      "createOn":"2021-01-06T06:11:11",
+      "createBy":"2"
+   },
+   "label":{
+      "labelId":6099,
+      "shipmentId":5572,
+      "apiId":2,
+      "refKey":"674282f9-3932-46f9-ac47-ee7ea84e539f",
+      "labelRequestId":0,
+      "labelRequestStatusCode":3,
+      "serviceType":"nrhl",
+      "trackingNumber":"A123",
+      "labelUrl":null,
+      "error":null,
+      "fromCountryCode":"esp",
+      "fromName":"Francisco Jose Rodriguez Elias",
+      "fromPhone":null,
+      "fromFax":null,
+      "fromEmail":null,
+      "fromStreet1":"AV/ Doctor Sanchez Malo  Bloque3",
+      "fromStreet2":null,
+      "fromStreet3":null,
+      "fromState":null,
+      "fromCity":null,
+      "fromPostalCode":null,
+      "toCountryCode":"esp",
+      "toName":"Francisco Jose Rodriguez Elias",
+      "toPhone":null,
+      "toFax":null,
+      "toEmail":null,
+      "toStreet1":"AV/ Doctor Sanchez Malo  Bloque3",
+      "toStreet2":null,
+      "toStreet3":null,
+      "toState":null,
+      "toCity":null,
+      "toPostalCode":null,
+      "toCompany":null,
+      "fromCompany":null,
+      "carrier":""
+   },
+   "lineItems":[
+      {
+         "returnRequestLineItemId":6914,
+         "apiId":2,
+         "returnRequestId":5514,
+         "returnRequestLineItemNumber":"RL210106-0000020",
+         "description":"Nuevo Apple iPad Mini 5 256GB Wifi - Space Grey Gris espacial",
+         "quantity":1,
+         "weight":100.000,
+         "weightUom":"g",
+         "valueCurrencyCode":"usd",
+         "value":463.000,
+         "handlingCode":0,
+         "isDeleted":false,
+         "itemRma":"26c49bcf-e9f8-4974-a340-c54cf8ed74d0"
+      }
+   ],
+   "sequenceNumber":0,
+   "category":"rsl",
+   "action":"markShipmentArrive",
+   "eventTime":"2021-01-06T06:11:23.21237Z"
+   }
+
+
+|
+
+
+----
+
+
+
+.. _notification-UpdateVas:
+
+Update Vas Notification
+-------------------
+
+::
+
+Parameters: No Input
+
+Response:
+
+
+Sample:
+
+::
+      
+   {
+      "returnRequestLineItemId":6909,
+      "returnRequestLineItemVasList":[
+         {
+            "returnRequestLineItemVasId":1400,
+            "apiId":2,
+            "returnRequestLineItemId":6909,
+            "vasCode":3,
+            "metaQuantity":0,
+            "vasResult":"apiTestResult1",
+            "notes":"product inspection",
+            "vasStatusCode":1,
+            "modifyOn":"2021-01-06T05:45:08",
+            "modifyBy":"3",
+            "createOn":"2021-01-06T05:45:08",
+            "createBy":"2"
+         }
+      ],
+      "updateLineItemVasRequestList":[
+         {
+            "returnRequestLineItemVasId":1400,
+            "vasResult":"apiTestResult1",
+            "returnRequestLineItemImageIdList":null,
+            "vasStatusCode":"successful"
+         }
+      ],
+      "category":"rrliv",
+      "action":"vasUpdated",
+      "eventTime":"2021-01-06T05:46:00.4884171Z"
+   }
 
 |
 
