@@ -18,8 +18,8 @@ Webhooks handling session
 
 **Handle duplicate events**
 
-Webhook endpoints might occasionally receive the same event more than once. 
-We advise you to guard against duplicated event receipts by making your event processing idempotent. 
+Webhook endpoints might occasionally receive the same event more than once.
+We advise you to guard against duplicated event receipts by making your event processing idempotent.
 One way of doing this is logging the events you’ve processed, and then not processing already-logged events.
 
 **Order of events**
@@ -70,8 +70,8 @@ To understand how signature are generated, consider the notification example bel
 
   Header
   Signature: xxxxx
-  Timestamp: 2021-06-16T15:26:27Z 
-  
+  Timestamp: 2021-06-16T15:26:27Z
+
   Body
   `{"a": "b"}`
 
@@ -80,7 +80,7 @@ Verifying signatures:
 
 1. | **Extracting the Timestamp and Signature from the header**
 2. | **Preparing the string_to_sign**
-   | The string_to_sign string is created by concatenating: 
+   | The string_to_sign string is created by concatenating:
    |  - HTTP action (which always be POST)
    |  - Notification endpoint
    |  - The timestamp (as a string)
@@ -93,17 +93,17 @@ Verifying signatures:
    |   1. Decode UTF8 string_to_sign to byte array
    |   2. Decode base64 signing key to byte array
    |   3. Generating signature from 1 and 2
-   |   4. Convert Signature to Base64 
+   |   4. Convert Signature to Base64
 4. | **Compare the signatures**
    | Compare the signature generated from Step 3 with Step 1
 
 A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
 
-PS: 
-You should not process a notification with eventTime significantly different (15 minutes) 
+PS:
+You should not process a notification with eventTime significantly different (15 minutes)
 that the receiving machie’s clock to help prevent replay attacks.
 
-To protect against timing attacks, 
+To protect against timing attacks,
 use a constant-time string comparison to compare the expected signature.
 
 Body
@@ -115,25 +115,25 @@ Body
 These are enums that used to identify the notification type which clients can make use of when processing the message.
 
 | List of ``categories``:
-| ``rsl`` - returnrequest, shipment, label 
-| ``lr`` - labelrefund 
+| ``rsl`` - returnrequest, shipment, label
+| ``lr`` - labelrefund
 | ``rrli`` - returnrequestlineitem
 | ``rinv`` - returninventory including complete and cancel handling
-| ``resend`` 
+| ``resend``
 | ``sr`` - special request
 | ``fbaro`` - fba removal order and shipment
 | ``fbai`` - fba inventory
-| ``labelGenerated`` 
+| ``labelGenerated``
 | ``rrliv`` - ReturnRequestLineItemVas, returninventory, ReturnRequestLineItemImage
 | ``recall``
 | ``lineItemVasReturnInventoryLineItem``
 | ``transaction``
 
 | List of ``action``:
-| ``markShipmentArrive`` ``assignUnknown`` ``userCancelLabel`` ``userAddVas`` ``userChangeHandling`` ``userCreateResend`` 
-| ``completeInventoryHandling`` ``cancelInventoryHandling`` ``createSpecialRequest`` ``markFbaDeliver`` ``receiveFbaInventory`` 
-| ``completeFbaRecall`` ``completeFbaOthers`` ``completeFbaDispose`` ``completeFbaRelabel`` ``assignFbaRelabelFnsku`` ``createFbaRelabelShipment`` 
-| ``completeFbaRelabelRepack`` ``addAddressOnly`` ``addAddressAndLabel`` ``markFbaRelabelShipmentShip`` ``labelGenerated`` ``changeLineItemImage`` 
+| ``markShipmentArrive`` ``assignUnknown`` ``userCancelLabel`` ``userAddVas`` ``userChangeHandling`` ``userCreateResend``
+| ``completeInventoryHandling`` ``cancelInventoryHandling`` ``createSpecialRequest`` ``markFbaDeliver`` ``receiveFbaInventory``
+| ``completeFbaRecall`` ``completeFbaOthers`` ``completeFbaDispose`` ``completeFbaRelabel`` ``assignFbaRelabelFnsku`` ``createFbaRelabelShipment``
+| ``completeFbaRelabelRepack`` ``addAddressOnly`` ``addAddressAndLabel`` ``markFbaRelabelShipmentShip`` ``labelGenerated`` ``changeLineItemImage``
 | ``vasUpdated`` ``updateResendTrackingNumber`` ``recallUpdateStatus`` ``splitLineItem`` ``forceCancelResend`` ``addTransaction``
 List of supported notification
 ------------------------------
@@ -157,6 +157,7 @@ action: ``labelGenerated``
 Sample:
 
 .. code-block:: json
+   :emphasize-lines: 12
 
       {
          "statusDto":{

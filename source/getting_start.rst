@@ -56,6 +56,7 @@ For a normal response, ``status`` code must be ``200``. Any other status code me
 Below shows an example of a success :ref:`method-GetApiBalance` response
 
 .. code-block:: json
+  :emphasize-lines: 11
 
   {
     "apiBalances": [
@@ -78,6 +79,7 @@ Below shows an example of a success :ref:`method-GetApiBalance` response
 Below shows a example of a fail :ref:`method-GetWarehouse` response (invalid ``warehouseId``)
 
 .. code-block:: json
+  :emphasize-lines: 4,6,8
 
   {
     "correlationId": "0HM9VIKSKH2CF:00000002",
