@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Return Request API'
+project = 'Return Helper API'
 copyright = '2020, Return Helper Limited'
 author = 'Return Helper Limited'
 master_doc = 'index'
