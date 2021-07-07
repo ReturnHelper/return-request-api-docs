@@ -1,6 +1,51 @@
 Getting Started
 ===============
 
+Getting return label
+--------------------
+
+1. :ref:`method-CreateReturnRequest` - create Return Request with product and shipment information. If Return Request is created successfully, ``shipmentId`` will be returned in the response message
+2. :ref:`method-CreateLabel` - request label by ``shipmentId``.
+3. :ref:`notification-label` - label request result will be notified through callback URL
+
+Cancelling return label
+-----------------------
+
+:ref:`method-CancelLabel` - cancel label from its linked return request.
+Cancel label by ``labelId``, which is expected in the Label result notification.
+
+Getting and editing return request
+----------------------------------
+
+:ref:`method-EditReturnRequest` - with returnRequestId, returned in CreateReturnRequest response
+
+Return inventory at return arrival
+----------------------------------
+
+:ref:`notification-MarkReceived` - when the return arrives at the warehouse, it will be marked received.
+Notification will be sent to your callback URL. Return inventory payload (returnInventoryId is included) will be included in the notification payload.
+
+Disposing return inventory
+--------------------------
+
+:ref:`method-UpdateReturnInventoryHandling` - update handling by returnInventoryId, with dispose handling
+
+:ref:`method-CancelReturnInventoryHandling` - cancel handling by returnInventoryId
+
+Creating recall and resend
+--------------------------
+
+- | :ref:`method-CreateRecall` - with list of returnInventoryId
+  | Recall tracking number will be notified by callback
+- | :ref:`method-CreateResend` - with list of returnInventoryId
+  | Resend tracking number will be notified by callback
+
+Adding VAS on return inventory
+------------------------------
+
+- | :ref:`method-CreateVas` - with list of ReturnRequestLineItemVasPayload
+  | every return inventory has its own returnRequestLineItemId (ref: :ref:`structure-returnInventoryPayload`)
+
 Response Meta
 -------------
 
@@ -45,58 +90,3 @@ Below shows a example of a fail :ref:`method-GetWarehouse` response (invalid ``w
       }
     }
   }
-
-Getting and canceling label
----------------------------------
-
-- :ref:`method-CreateReturnRequest` - with product and shipment information
-- :ref:`method-CreateLabel` with shipmentId, returned in CreateReturnRequest response
-- Label result callback - result will be notified via callback URL provided in advanced
-- :ref:`method-CancelLabel` with labelId - included in the label result callback
-
-Getting and editing return request
-----------------------------------
-
-- :ref:`method-EditReturnRequest` - with returnRequestId, returned in CreateReturnRequest response
-
-Creating return request without label (Non RR label)
-----------------------------------------------------
-
-- :ref:`method-createNonRrLabelReturnRequest` - with product, shipment information **AND** tracking number
-
-Getting return inventory
-------------------------
-
-- Return inventory will be created after return request’s shipment is received by the warehouse
-- Using :ref:`method-SearchReturnInventory` and/or :ref:`method-SearchRma`
-
-Updating and canceling return inventory handling
-------------------------------------------------
-
-- | :ref:`method-UpdateReturnInventoryHandling` (only for dispose handling) - with returnInventoryId
-  | For recall and resend, multiple return inventories can be recalled/ resent in a batch - with list of returnInventoryId
-
-- | :ref:`method-CancelReturnInventoryHandling` (only for dispose handling) - with returnInventoryId
-  | For recall and resend, need to cancel recall or cancel resend
-
-Creating recall and resend
---------------------------
-
-- | :ref:`method-CreateRecall` - with list of returnInventoryId
-  | Recall tracking number will be notified by callback
-- | :ref:`method-CreateResend` - with list of returnInventoryId
-  | Resend tracking number will be notified by callback
-
-Adding VAS on return inventory
-------------------------------
-
-- | :ref:`method-CreateVas` - with list of ReturnRequestLineItemVasPayload
-  | every return inventory has its own returnRequestLineItemId (ref: :ref:`structure-returnInventoryPayload`)
-
-
-Notification
-------------
-
-- | :ref:`notification-label` - Label Notification
-- | :ref:`notification-Recall` - Recall Notification
-- | :ref:`notification-Resend` - Resend Notification
