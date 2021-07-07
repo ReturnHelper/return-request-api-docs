@@ -1,50 +1,62 @@
 Getting Started
 ===============
 
-Getting return label
---------------------
+Get return label
+----------------
 
-1. :ref:`method-CreateReturnRequest` - create Return Request with product and shipment information. If Return Request is created successfully, ``shipmentId`` will be returned in the response message
-2. :ref:`method-CreateLabel` - request label by ``shipmentId``.
-3. :ref:`notification-label` - label request result will be notified through callback URL
+1. :ref:`method-CreateReturnRequest` - create Return Request with product and shipment information. If Return Request is created successfully, ``shipmentId`` will be returned in the response message.
+2. :ref:`method-CreateLabel` - request label by ``shipmentId``
+3. :ref:`notification-label` - label request result will be sent to your notification endpoint
 
-Cancelling return label
------------------------
+Cancel return label
+-------------------
 
-:ref:`method-CancelLabel` - cancel label from its linked return request.
-Cancel label by ``labelId``, which is expected in the Label result notification.
-
-Getting and editing return request
-----------------------------------
-
-:ref:`method-EditReturnRequest` - with returnRequestId, returned in CreateReturnRequest response
+:ref:`method-CancelLabel` - cancel label from its linked return request
+Cancel label by ``labelId``, which is expected in the :ref:`notification-label`.
 
 Return inventory at return arrival
 ----------------------------------
 
-:ref:`notification-MarkReceived` - when the return arrives at the warehouse, it will be marked received.
-Notification will be sent to your callback URL. Return inventory payload (returnInventoryId is included) will be included in the notification payload.
+- | When the return arrives at the warehouse, it will be marked received.
+- | :ref:`notification-MarkReceived` will be sent to your notification endpoint. Return inventory payload, will be included in the notification payload. ``returnInventoryId`` is expected in it.
 
-Disposing return inventory
---------------------------
+Image of the return uploaded
+----------------------------
 
-:ref:`method-UpdateReturnInventoryHandling` - update handling by returnInventoryId, with dispose handling
+- | When images of the return have been uploaded (or any changes in the image list), :ref:`notification-changeLineItemImage` will be sent to your notification endpoint. Image list is expected in it.
+- | Return inventory has another nickname: line item, and image list belongs to return inventory.
 
-:ref:`method-CancelReturnInventoryHandling` - cancel handling by returnInventoryId
+Dispose return inventory
+------------------------
 
-Creating recall and resend
---------------------------
+:ref:`method-UpdateReturnInventoryHandling` - update handling by ``returnInventoryId``, with dispose handling
 
-- | :ref:`method-CreateRecall` - with list of returnInventoryId
-  | Recall tracking number will be notified by callback
-- | :ref:`method-CreateResend` - with list of returnInventoryId
-  | Resend tracking number will be notified by callback
+:ref:`method-CancelReturnInventoryHandling` - cancel handling by ``returnInventoryId``
 
-Adding VAS on return inventory
-------------------------------
+On-hold return inventory
+------------------------
 
-- | :ref:`method-CreateVas` - with list of ReturnRequestLineItemVasPayload
-  | every return inventory has its own returnRequestLineItemId (ref: :ref:`structure-returnInventoryPayload`)
+:ref:`method-UpdateReturnInventoryHandling` - update handling by ``returnInventoryId``, with on-hold handling
+
+Create recall and cancel recall
+-------------------------------
+
+- | :ref:`method-CreateRecall` - Create recall with list of ``returnInventoryId``, to instruct which return inventories need to be recalled.
+- | AWB will be sent to your notification endpoint, :ref:`notification-Recall`. AWB will be included in the notification payload.
+- | :ref:`method-CancelRecall` - cancel the recall you have requested
+
+Create resend and cancel resend
+-------------------------------
+
+- | :ref:`method-CreateResend` - Create resend with list of ``returnInventoryId``, to instruct which return inventories need to be resent.
+- | Resend tracking number will be sent to your notification endpoint, :ref:`notification-Resend`. Resend tracking number will be included in the notification payload.
+- | :ref:`method-CancelResend` - cancel the resend you have requested
+
+Add VAS on return inventory
+---------------------------
+
+- | :ref:`method-CreateVas` - Add VAS to a return inventory to instruct what VAS needed for the specific return inventory.
+- | When the specific VAS is finished, the VAS result will be sent to your notification endpoint, :ref:`notification-UpdateVas`. VAS result will be included in the notification payload.
 
 Response Meta
 -------------

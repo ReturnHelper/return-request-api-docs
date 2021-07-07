@@ -8,8 +8,8 @@ Introduction
 For information that are not instantly available during an api call, notification callbacks are sent back to our clients once the information are ready.
 This page explains how notification works.
 
-Endpoint
-********
+Notification Endpoint
+*********************
 
 Clients need to provide an endpoint as the notification destination when you setup an account. If you need help please contact us.
 
