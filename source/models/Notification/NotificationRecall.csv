@@ -1,0 +1,6 @@
+recallList, :ref:`structure-NotificationRecallPayload`
+trackingNumber, string_
+recallUpdateTypeStatus, integer_, See below table
+category, string_
+action, string_
+eventTime, string_

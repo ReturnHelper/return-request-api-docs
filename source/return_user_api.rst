@@ -249,6 +249,14 @@ Label
 CreateLabel
 ---------------------------
 
+Submits a create label request.
+
+A success response only means the request is accepted. The requested label does not include in the response but instead it is sent via a notification once it is ready.
+
+For more details please check :ref:`notification-label`
+
+:ref:`notification-MarkReceived` is trigger when the shipment has been received in warehouse.
+
 ::
 
 [POST] <userapi-endpoint>/Label/CreateLabel
@@ -444,6 +452,8 @@ Response:
 CreateNonRrLabelReturnRequest
 -----------------------------
 
+:ref:`notification-MarkReceived` is trigger when the shipment has been received in warehouse.
+
 ::
 
 [POST]  <userapi-endpoint>/returnrequest/createNonRrLabelReturnRequest
@@ -612,6 +622,10 @@ Response:
 GetReturnRequest
 ----------------
 
+Get return request information.
+
+Clients can also receives :ref:`notification-changeLineItemImage` when we update any images of a line item.
+
 ::
 
 [GET]  <userapi-endpoint>/returnrequest/getReturnRequest
@@ -641,7 +655,7 @@ Response:
 
 .. _method-searchReturnRequest:
 
-searchReturnRequest
+SearchReturnRequest
 -------------------
 
 ::
@@ -712,6 +726,12 @@ Response:
 
 CreateVas
 ---------
+
+Submits a Vas request.
+
+Success reponse means that the request is accept and the line item is pending for Vas action.
+
+Once there was a Vas status update, information is send by :ref:`notification-UpdateVas`
 
 ::
 
@@ -1043,6 +1063,12 @@ Resend
 CreateResend
 ------------
 
+This api creates a resend request. Successful request means that the inventory is pending for resend procedure.
+Further updates of the resend shipment(such as tracking number update) are sent via notification callback.
+
+Details please check :ref:`notification-Resend`.
+
+
 ::
 
 [POST]  <userapi-endpoint>/resend/createResend
@@ -1227,6 +1253,12 @@ Recall
 
 CreateRecall
 ---------------------------
+
+
+This api creates a recall request. Successful request means that the inventory is pending for recall procedure.
+Further updates of the recall shipment(such as tracking number/ AWB update) are sent via notification callback.
+
+Details please check :ref:`notification-Recall`.
 
 ::
 

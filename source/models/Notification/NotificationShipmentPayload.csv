@@ -1,0 +1,32 @@
+   shipmentId, long_
+   returnRequestId, integer_
+   apiId, integer_
+   labelId, long_
+   apiTransactionId, long_
+   warehouseId, integer_ , Yes
+   shipmentNumber, string_
+   shipmentStatusCode, string_
+   shipmentServiceType, string_ , Yes
+   shipmentCountryCode, string_ , Yes
+   shipmentName, string_
+   shipmentPhone, string_
+   shipmentFax, string_
+   shipmentEmail, string_
+   shipmentStreet1, string_
+   shipmentStreet2, string_
+   shipmentStreet3, string_
+   shipmentState, string_
+   shipmentCity, string_
+   shipmentPostalCode, string_
+   costCurrencyCode, string_
+   cost, decimal_
+   boxType, string_
+   weight, decimal_ , Yes, in (g)
+   weightUom, string_
+   dimension1, decimal_
+   dimension2, decimal_
+   dimension3, decimal_
+   dimensionUom, string_
+   isRrLabel, bool_
+   receiveDateStr, string_
+   referenceNumber, string_

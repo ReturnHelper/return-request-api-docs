@@ -1,0 +1,10 @@
+returnRequestLineItemVasId, long_
+vasResult, string_
+weight, decimal_
+weightUom, string_
+dimension1, decimal_
+dimension2, decimal_
+dimension3, decimal_
+dimensionUom, string_
+vasStatusCode, :ref:`structure-VASStatus`
+imageUrlList, List<string_>

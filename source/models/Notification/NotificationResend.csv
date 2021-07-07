@@ -1,0 +1,6 @@
+resend, :ref:`structure-ResendPayload`
+trackingNumber, string_
+failureReason, string_
+category, string_
+action, string_
+eventTime, string_

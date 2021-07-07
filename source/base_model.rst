@@ -71,3 +71,14 @@ EditablePayload
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/BaseClass/EditablePayload.csv
+
+
+.. _structure-Notification:
+
+Notification
+---------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/LabelNotificationResponse.csv

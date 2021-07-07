@@ -1,0 +1,5 @@
+imageUrlList, List<string_>
+returnRequestLineItem, :ref:`structure-ReturnRequestLineItemPayload`
+category, string_
+action, string_
+eventTime, string_

@@ -692,3 +692,81 @@ SearchRmaResultPayload
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnInventory/rmaList.csv
+
+
+.. _structure-NotificationRecallPayload:
+
+NotificationRecallPayload
+-------------------------
+   
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationRecallPayload.csv
+
+
+.. _structure-NotificationResendPayload:
+
+NotificationResendPayload
+-------------------------
+      
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationResendPayload.csv
+
+
+.. _structure-NotificationResendShipmentPayload:
+
+NotificationResendShipmentPayload
+---------------------------------
+      
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationResendShipmentPayload.csv
+   
+.. _structure-NotificationShipmentPayload:
+
+ShipmentPayload
+---------------------------------
+         
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationShipmentPayload.csv
+      
+.. _structure-NotificationVasPayload:
+
+VasPayload
+-----------
+         
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationVASUpdatePayload.csv
+
+
+.. _structure-VASStatus:
+
+VASStatus
+-----------
+         
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationVASStatus.csv
+
+
+.. _structure-NotificationShipmentSupplementPayload:
+
+ShipmentSupplementPayload
+-----------
+         
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Notification/NotificationShipmentSupplementPayload.csv
+            
+      
+            

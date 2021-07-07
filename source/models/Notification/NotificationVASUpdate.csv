@@ -1,0 +1,4 @@
+returnInventoryList,List<:ref:`structure-NotificationVasPayload`>
+category, string_
+action, string_
+eventTime, string_

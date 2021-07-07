@@ -1,0 +1,10 @@
+recallId, long_
+apiId, long_
+warehouseId, long_
+recallNumber, string_
+recallStatusCode, long_
+warehouseRemarks, string_
+modifyOn, DateTime_
+modifyBy, string_
+createOn, DateTime_
+createBy, string_

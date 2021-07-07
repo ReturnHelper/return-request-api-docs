@@ -1,0 +1,12 @@
+shipmentSupplementId, long_
+shipmentId, long_
+actualWeight, decimal_
+actualWeightUom, string_
+actualDimension1, decimal_
+actualDimension2, decimal_
+actualDimension3, decimal_
+actualDimensionUom, string_
+modifyOn, DateTime_
+modifyBy, string_
+createOn, DateTime_
+createBy, string_
