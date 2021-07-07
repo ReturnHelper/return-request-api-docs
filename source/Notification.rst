@@ -13,6 +13,28 @@ Endpoint
 
 Clients need to provide an endpoint as the notification destination when you setup an account. If you need help please contact us.
 
+Webhooks handling session
+*************************
+
+**Handle duplicate events**
+
+Webhook endpoints might occasionally receive the same event more than once. 
+We advise you to guard against duplicated event receipts by making your event processing idempotent. 
+One way of doing this is logging the events you’ve processed, and then not processing already-logged events.
+
+**Order of events**
+
+RH does not guarantee delivery of events in the order in which they are generated
+For example warehouse receive the parcel and upload images
+
+* :ref:`notification-MarkReceived`
+* :ref:`notification-changeLineItemImage`
+
+Your endpoint should not expect delivery of these events in this order and should handle this accordingly. You can also use the API to fetch any missing objects.
+
+
+Each event also includes ``eventTime``
+
 Signing Key
 ***********
 
@@ -46,37 +68,80 @@ To understand how signature are generated, consider the notification example bel
 
 .. code-block:: html
 
-  Action: POST
-  Endpoint: https://www.google.com
-  Timestamp: 2021-06-16T15:26:27Z
-  Payload: {"a": "b"}
+  Header
+  Signature: xxxxx
+  Timestamp: 2021-06-16T15:26:27Z 
+  
+  Body
+  `{"a": "b"}`
 
-Signature are generate as:
 
-1. | **Concat a string for sign as: *Action+Notification endpoint+Timestamp+Payload*.**
+Verifying signatures:
+
+1. | **Extracting the Timestamp and Signature from the header**
+2. | **Preparing the string_to_sign**
+   | The string_to_sign string is created by concatenating: 
+   |  - HTTP action (which always be POST)
+   |  - Notification endpoint
+   |  - The timestamp (as a string)
+   |  - The actual JSON payload (aka the request body)
    | Example: ``POSThttps://www.google.com2021-06-16T15:26:27Z{"a":"b"}``
-2. | **Getbytes by UTF-8 encoding, then convert to a Base64 string.**
+   |
+   | Encode the UTF8 string to Base64
    | Example: ``UE9TVGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20yMDIxLTA2LTE2VDE1OjI2OjI3WiJ7XCJhXCI6XCJiXCJ9Ig==``
-3. | **Getbytes by UTF-8 encoding with the above result string.**
-4. | **Decode signing key as a Base64 string, which gives a byte array**
-5. | **Sign the byte array in step 3 with the byte array in step 4 as signing key.**
-6. | **Convert the result byte to Base64 string with UTF-8 encoding, which gives the signature string**
-   | Example: ``CKdaJK2mYpZgchBzBZ4U+j9qKfhhGS+r5JeO13jx/z8=``
+3. | **Computing HMAC with SHA256 hash function**
+   |   1. Decode UTF8 string_to_sign to byte array
+   |   2. Decode base64 signing key to byte array
+   |   3. Generating signature from 1 and 2
+   |   4. Convert Signature to Base64 
+4. | **Compare the signatures**
+   | Compare the signature generated from Step 3 with Step 1
 
 A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
+
+PS: 
+You should not process a notification with eventTime significantly different (15 minutes) 
+that the receiving machie’s clock to help prevent replay attacks.
+
+To protect against timing attacks, 
+use a constant-time string comparison to compare the expected signature.
 
 Body
 ****
 
+``eventTime`` is in ISO8601 format.
+
 ``category`` and ``action`` are two common properties in every notification body.
 These are enums that used to identify the notification type which clients can make use of when processing the message.
 
-Below listed our supported notification types, data structure and samples.
+| List of ``categories``:
+| ``rsl`` - returnrequest, shipment, label 
+| ``lr`` - labelrefund 
+| ``rrli`` - returnrequestlineitem
+| ``rinv`` - returninventory including complete and cancel handling
+| ``resend`` 
+| ``sr`` - special request
+| ``fbaro`` - fba removal order and shipment
+| ``fbai`` - fba inventory
+| ``labelGenerated`` 
+| ``rrliv`` - ReturnRequestLineItemVas, returninventory, ReturnRequestLineItemImage
+| ``recall``
+| ``lineItemVasReturnInventoryLineItem``
+| ``transaction``
+
+| List of ``action``:
+| ``markShipmentArrive`` ``assignUnknown`` ``userCancelLabel`` ``userAddVas`` ``userChangeHandling`` ``userCreateResend`` 
+| ``completeInventoryHandling`` ``cancelInventoryHandling`` ``createSpecialRequest`` ``markFbaDeliver`` ``receiveFbaInventory`` 
+| ``completeFbaRecall`` ``completeFbaOthers`` ``completeFbaDispose`` ``completeFbaRelabel`` ``assignFbaRelabelFnsku`` ``createFbaRelabelShipment`` 
+| ``completeFbaRelabelRepack`` ``addAddressOnly`` ``addAddressAndLabel`` ``markFbaRelabelShipmentShip`` ``labelGenerated`` ``changeLineItemImage`` 
+| ``vasUpdated`` ``updateResendTrackingNumber`` ``recallUpdateStatus`` ``splitLineItem`` ``forceCancelResend`` ``addTransaction``
+List of supported notification
+------------------------------
 
 .. _notification-label:
 
 Label result notification
--------------------------
+*************************
 
 This notification is sent to client once the label is ready after user called :ref:`method-CreateLabel`.
 
@@ -373,12 +438,12 @@ Sample:
       "eventTime":"2021-07-06T10:42:50.2103062Z"
    }
 
-
 |
 
-Fail Sample:
+This is a label create fail example, please check the highlight area:
 
 .. code-block:: json
+   :emphasize-lines: 12-16
 
       {
          "statusDto": {
@@ -663,18 +728,14 @@ Fail Sample:
          "eventTime": "2021-07-06T15:09:18.2081063Z"
       }
 
-
 |
-
-
-
 
 ----
 
 .. _notification-Recall:
 
 Recall update status notification
------------------------------------------
+**********************************
 
 This notification is sent to client when the recall status has been updated. For example, tracking number (AWB) update would trigger this notification.
 
@@ -687,6 +748,18 @@ action: ``recallUpdateStatus``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/Notification/NotificationRecall.csv
+
+List of ``recallUpdateTypeStatus`` values
+
+.. csv-table::
+   :header: "Value", "Remarks"
+   :widths: 30, 30
+
+   0, recallUpdateTrackingNumber
+   1, recallMarkReadyToPickUp
+   2, recallPickUpToSelfPickUp
+   3, recallPickUpToCourierPickUp
+   4, recallPickUpToOthers
 
 |
 
@@ -722,7 +795,7 @@ Sample:
 .. _notification-Resend:
 
 Resend update status notification
------------------------------------
+*********************************
 
 This notification is sent to client when the resend status has been update. For example, a tracking number update would trigger this notification.
 
@@ -770,7 +843,7 @@ Sample:
 .. _notification-MarkReceived:
 
 Warehouse mark shipment received notification
----------------------------------------------
+*********************************************
 
 This notification is sent when warehouse receive a shipment.
 
@@ -958,7 +1031,7 @@ Sample:
 .. _notification-UpdateVas:
 
 VAS update notification
------------------------
+***********************
 
 This notification is sent when VAS has an update (such as VAS complete).
 
@@ -1003,7 +1076,7 @@ Sample:
 .. _notification-changeLineItemImage:
 
 Change line item image notification
------------------------------------
+***********************************
 
 This notification is sent when there is an image update on a line item. Adding, modifying and deleting any images are all considered as an update and would trigger this notification.
 

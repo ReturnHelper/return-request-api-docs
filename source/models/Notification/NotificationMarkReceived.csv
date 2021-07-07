@@ -4,7 +4,7 @@ returnRequest, :ref:`structure-ReturnRequestPayload`
 shipment,   :ref:`structure-NotificationShipmentPayload`
 label, :ref:`structure-LabelPayload`
 returnRequestLineItem, List<:ref:`structure-ReturnRequestLineItemPayload`>
-sequenceNumber, bool_
+sequenceNumber, long_
 category, string_
 action, string_
 eventTime, string_

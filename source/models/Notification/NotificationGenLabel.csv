@@ -4,6 +4,3 @@ returnRequest, :ref:`structure-ReturnRequestPayload`
 updateLabelResult, List<:ref:`structure-LabelPayload`>
 updateShipmentResult,List<:ref:`structure-NotificationShipmentPayload`>
 updateReturnRequestResult,List<:ref:`structure-ReturnRequestPayload`>
-category, string_
-action, string_
-eventTime, string_

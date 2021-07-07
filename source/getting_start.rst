@@ -1,6 +1,51 @@
 Getting Started
 ===============
 
+Response Meta
+-------------
+
+All response contains a ``meta`` property for clients to identify the status of the message.
+
+For a normal response, ``status`` code must be ``200``. Any other status code means that the request cannot complete successfully.
+
+Below shows an example of a success :ref:`method-GetApiBalance` response
+
+.. code-block:: json
+
+  {
+    "apiBalances": [
+      {
+        "apiBalanceId": 7,
+        "currencyCode": "usd",
+        "balance": 2044.233
+      }
+    ],
+    "correlationId": "0HM9VIKSKH2CB:00000002",
+    "meta": {
+      "status": 200,
+      "data": {},
+      "errorCode": null,
+      "error": {}
+    },
+    "totalNumberOfRecords": 1
+  }
+
+Below shows a example of a fail :ref:`method-GetWarehouse` response (invalid ``warehouseId``)
+
+.. code-block:: json
+
+  {
+    "correlationId": "0HM9VIKSKH2CF:00000002",
+    "meta": {
+      "status": 400,
+      "data": {},
+      "errorCode": "VALIDATION_FAILED",
+      "error": {
+        "warehouseId": "The value 'invalid' is not valid."
+      }
+    }
+  }
+
 Getting and canceling label
 ---------------------------------
 
