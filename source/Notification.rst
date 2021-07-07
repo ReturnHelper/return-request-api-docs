@@ -55,7 +55,7 @@ Notification header contains a timestamp and a signature.
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 40
 
-   timestamp, string_ , UTC now (ISO8601)
+   timestamp, string_ , ISO8601
    signature, string_ , See ``Signature`` section
 
 Signature
