@@ -380,7 +380,7 @@ Fail Sample:
 
 .. code-block:: json
 
-         {
+      {
          "statusDto": {
          "label": {
             "labelId": 9690,
@@ -394,7 +394,7 @@ Fail Sample:
             "labelUrl": null,
             "error": {
                "path":"data.shipment.ship_to.state",
-               "info":"data.shipment.ship_to.state should be one of [\"Alaska\",\"Alabama\",\"Arkansas\",\"American Samoa\",\"Arizona\",\"California\",\"Colorado\",\"Connecticut\",\"District of Columbia\",\"Delaware\",\"Florida\",\"Georgia\",\"Guam\",\"Hawaii\",\"Iowa\",\"Idaho\",\"Illinois\",\"Indiana\",\"Kansas\",\"Commonwealth of Kentucky\",\"Kentucky\",\"Louisiana\",\"Commonwealth of Massachusetts\",\"Massachusetts\",\"Maryland\",\"Maine\",\"Michigan\",\"Minnesota\",\"Missouri\",\"CNMI\",\"Commonwealth of the Northern Mariana Islands\",\"Northern Mariana Islands\",\"Mississippi\",\"Montana\",\"North Carolina\",\"North Dakota\",\"Nebraska\",\"New Hampshire\",\"New Jersey\",\"New Mexico\",\"Nevada\",\"New York\",\"Ohio\",\"Oklahoma\",\"Oregon\",\"Commonwealth of Pennsylvania\",\"Pennsylvania\",\"Commonwealth of Puerto Rico\",\"Puerto Rico\",\"Rhode Island\",\"State of Rhode Island and Providence Plantations\",\"South Carolina\",\"South Dakota\",\"Tennessee\",\"Texas\",\"United States Minor Outlying Islands\",\"Utah\",\"Commonwealth of Virginia\",\"Virginia\",\"American Virgin Islands\",\"U.S. Virgin Islands\",\"United States Virgin Islands\",\"USVI\",\"Virgin Islands\",\"Virgin Islands of the United States\",\"Virgin Islands, U.S.\",\"Vermont\",\"District of Columbia\",\"the District\",\"Washington\",\"Washington, D.C.\",\"Wisconsin\",\"West Virginia\",\"Wyoming\"] or its 2-letter code."
+               "info":"data.shipment.ship_to.state should be one of [Alaska,Alabama,Arkansas,American Samoa,Arizona,California,Colorado,Connecticut,District of Columbia,Delaware,Florida,Georgia,Guam,Hawaii,Iowa,Idaho,Illinois,Indiana,Kansas,Commonwealth of Kentucky,Kentucky,Louisiana,Commonwealth of Massachusetts,Massachusetts,Maryland,Maine,Michigan,Minnesota,Missouri,CNMI,Commonwealth of the Northern Mariana Islands,Northern Mariana Islands,Mississippi,Montana,North Carolina,North Dakota,Nebraska,New Hampshire,New Jersey,New Mexico,Nevada,New York,Ohio,Oklahoma,Oregon,Commonwealth of Pennsylvania,Pennsylvania,Commonwealth of Puerto Rico,Puerto Rico,Rhode Island,State of Rhode Island and Providence Plantations,South Carolina,South Dakota,Tennessee,Texas,United States Minor Outlying Islands,Utah,Commonwealth of Virginia,Virginia,American Virgin Islands,U.S. Virgin Islands,United States Virgin Islands,USVI,Virgin Islands,Virgin Islands of the United States,Virgin Islands, U.S.,Vermont,District of Columbia,the District,Washington,Washington, D.C.,Wisconsin,West Virginia,Wyoming] or its 2-letter code."
             },
             "fromCountryCode": "usa",
             "fromName": "Thomas R Stanton",
