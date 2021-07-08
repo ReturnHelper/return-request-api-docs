@@ -8,6 +8,8 @@ Introduction
 For information that are not instantly available during an api call, notification callbacks are sent back to our clients once the information are ready.
 This page explains how notification works.
 
+.. _notification_endpoint:
+
 Notification Endpoint
 *********************
 
