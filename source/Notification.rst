@@ -1139,6 +1139,185 @@ Sample:
 
 ----
 
+.. _notification-assignUnknown:
+
+Assign unknown shipment notification
+************************************
+
+This notification is sent when a warehouse recognize a shipment (which has no return request record) ownership, and assign to that client.
+
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationAssignShipment.csv
+
+Sample:
+
+.. code-block:: json
+
+   {
+   "ocSequenceNumber": 9,
+   "returnRequest": {
+      "returnRequestId": 9324,
+      "apiId": 21,
+      "returnRequestNumber": "UN210708-0000012",
+      "returnStatusCode": 0,
+      "returnTitle": "tf2021070801",
+      "totalValue": 10,
+      "totalValueCurrency": "usd",
+      "remarks": "Created by Warehouse",
+      "warehouseRma": "tf2021070801",
+      "isArchived": false,
+      "returnRequestSourceType": 0,
+      "modifyOn": "2021-07-08T14:30:48",
+      "modifyBy": "3",
+      "createOn": "2021-07-08T14:30:48",
+      "createBy": "3"
+   },
+   "shipment": {
+      "shipmentId": 9265,
+      "apiId": 21,
+      "returnRequestId": 9324,
+      "labelId": 9768,
+      "apiTransactionId": 0,
+      "warehouseId": 8,
+      "shipmentNumber": "UN210708-0000012",
+      "shipmentStatusCode": 6,
+      "shipmentServiceType": 9,
+      "shipmentCountryCode": "fra",
+      "shipmentName": "name",
+      "shipmentPhone": "phone",
+      "shipmentFax": null,
+      "shipmentEmail": "email",
+      "shipmentStreet1": "street",
+      "shipmentStreet2": null,
+      "shipmentStreet3": null,
+      "shipmentState": "state",
+      "shipmentCity": "city",
+      "shipmentPostalCode": "code",
+      "costCurrencyCode": "usd",
+      "cost": 0,
+      "boxType": "cus",
+      "weight": 10,
+      "weightUom": "g",
+      "dimension1": 10,
+      "dimension2": 10,
+      "dimension3": 10,
+      "dimensionUom": "cm",
+      "isRrLabel": false,
+      "receiveDate": "2021-07-08T14:30:48",
+      "referenceNumber": null,
+      "modifyOn": "2021-07-08T14:30:48",
+      "modifyBy": "3",
+      "createOn": "2021-07-08T14:30:48",
+      "createBy": "3"
+   },
+   "label": {
+      "labelId": 9768,
+      "shipmentId": 9265,
+      "apiId": 21,
+      "refKey": "UN210708-0000012",
+      "labelRequestId": 0,
+      "labelRequestStatusCode": 3,
+      "serviceType": "unkwn",
+      "trackingNumber": "tf2021070801",
+      "labelUrl": "N/A",
+      "error": null,
+      "fromCountryCode": "fra",
+      "fromName": "name",
+      "fromPhone": "phone",
+      "fromFax": null,
+      "fromEmail": "email",
+      "fromStreet1": "street",
+      "fromStreet2": null,
+      "fromStreet3": null,
+      "fromState": "state",
+      "fromCity": "city",
+      "fromPostalCode": "code",
+      "toCountryCode": "fra",
+      "toName": "name",
+      "toPhone": "phone",
+      "toFax": null,
+      "toEmail": "email",
+      "toStreet1": "street",
+      "toStreet2": null,
+      "toStreet3": null,
+      "toState": "state",
+      "toCity": "city",
+      "toPostalCode": "code",
+      "toCompany": null,
+      "fromCompany": null,
+      "carrier": null,
+      "referenceNumber": null
+   },
+   "shipmentSupplement": {
+      "shipmentSupplementId": 3294,
+      "shipmentId": 9265,
+      "actualWeight": 10,
+      "actualWeightUom": "g",
+      "actualDimension1": 10,
+      "actualDimension2": 10,
+      "actualDimension3": 10,
+      "actualDimensionUom": "cm",
+      "modifyOn": "2021-07-08T14:30:48",
+      "modifyBy": "3",
+      "createOn": "2021-07-08T14:30:48",
+      "createBy": "3"
+   },
+   "returnInventoryList": [
+      {
+         "returnInventoryId": 3929,
+         "warehouseId": 8,
+         "returnRequestLineItemId": 10866,
+         "apiId": 21,
+         "returnRequestId": 9324,
+         "returnRequestLineItemNumber": "UNL210708-0000017",
+         "description": "tf2021070801",
+         "quantity": 1,
+         "weight": 10,
+         "weightUom": "g",
+         "valueCurrencyCode": "usd",
+         "value": 10,
+         "handlingCode": 0,
+         "handlingStatusCode": 0,
+         "completeBy": null,
+         "completeOn": null,
+         "warehouseRemarks": null,
+         "handlingUpdatedOn": null,
+         "stopAgingOn": null,
+         "sku": null,
+         "itemRma": "tf2021070801",
+         "modifyOn": "2021-07-08T14:30:48",
+         "modifyBy": "3",
+         "createOn": "2021-07-08T14:30:48",
+         "createBy": "3"
+      }
+   ],
+   "returnRequestLineItemIncludeImageList": [
+      {
+         "imageUrlList": [],
+         "returnRequestLineItem": {
+         "returnRequestLineItemId": 10866,
+         "apiId": 21,
+         "returnRequestId": 9324,
+         "returnRequestLineItemNumber": "UNL210708-0000017",
+         "description": "tf2021070801",
+         "quantity": 1,
+         "weight": 10,
+         "weightUom": "g",
+         "valueCurrencyCode": "usd",
+         "value": 10,
+         "handlingCode": 0,
+         "isDeleted": false,
+         "itemRma": "tf2021070801"
+         }
+      }
+   ],
+   "category": "rsl",
+   "action": "assignUnknown",
+   "eventTime": "2021-07-08T14:30:48.6330846Z"
+   }
 
 .. reference definition goes here
 

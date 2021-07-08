@@ -1,0 +1,7 @@
+ocSequenceNumber, long_
+returnRequest, :ref:`structure-ReturnRequestPayload`
+shipment, :ref:`structure-NotificationShipmentPayload`
+label, :ref:`structure-LabelPayload`
+shipmentSupplement, :ref:`structure-NotificationShipmentSupplementPayload`
+returnInventoryList, List<:ref:`structure-ReturnInventoryPayload`>
+returnRequestLineItemIncludeImageList, :ref:`structure-ReturnRequestLineItemIncludeImage`

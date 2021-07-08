@@ -698,7 +698,7 @@ SearchRmaResultPayload
 
 NotificationRecallPayload
 -------------------------
-   
+
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
@@ -709,7 +709,7 @@ NotificationRecallPayload
 
 NotificationResendPayload
 -------------------------
-      
+
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
@@ -720,27 +720,27 @@ NotificationResendPayload
 
 NotificationResendShipmentPayload
 ---------------------------------
-      
+
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/Notification/NotificationResendShipmentPayload.csv
-   
+
 .. _structure-NotificationShipmentPayload:
 
 ShipmentPayload
 ---------------------------------
-         
+
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
       :file: models/Notification/NotificationShipmentPayload.csv
-      
+
 .. _structure-NotificationVasPayload:
 
 VasPayload
 -----------
-         
+
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
@@ -751,7 +751,7 @@ VasPayload
 
 VASStatus
 -----------
-         
+
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
@@ -761,12 +761,22 @@ VASStatus
 .. _structure-NotificationShipmentSupplementPayload:
 
 ShipmentSupplementPayload
------------
-         
+-------------------------
+
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
       :file: models/Notification/NotificationShipmentSupplementPayload.csv
-            
-      
-            
+
+
+.. _structure-ReturnRequestLineItemIncludeImage:
+
+ReturnRequestLineItemIncludeImage
+---------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+
+      imageUrlList, List<string_>
+      returnRequestLineItem, :ref:`structure-ReturnRequestLineItemPayload`
