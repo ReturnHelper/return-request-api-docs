@@ -6,7 +6,7 @@ Get return label
 
 1. :ref:`method-CreateReturnRequest` - create Return Request with product and shipment information. If Return Request is created successfully, ``shipmentId`` will be returned in the response message.
 2. :ref:`method-CreateLabel` - request label by ``shipmentId``
-3. :ref:`notification-label` - label request result will be sent to your notification endpoint
+3. :ref:`notification-label` - label request result will be sent to your :ref:`notification_endpoint`
 
 Cancel return label
 -------------------
