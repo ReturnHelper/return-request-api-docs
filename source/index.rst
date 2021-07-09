@@ -1,15 +1,15 @@
-.. Return Request API documentation master file, created by
+.. Return Helper API documentation master file, created by
    sphinx-quickstart on Tue May  5 23:54:44 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Return Request API
+Return Helper API
 ==================
 
 About this documentation
 ------------------------
 
-This documentation listed the functions of Return Request API.
+This documentation listed the functions of Return Helper API.
 
 Each function is provided with request and response object definition (if exist).
 Some objects may have an inherit class that you can use the parameters from it.

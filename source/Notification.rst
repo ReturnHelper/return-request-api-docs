@@ -5,7 +5,7 @@ Notification
 Introduction
 -------------------------
 
-For information that are not instantly available during an api call, notification callbacks are sent back to our clients once the information are ready.
+For information that are not instantly available during an api call, notification callbacks are sent to our clients once the information are ready.
 This page explains how notification works.
 
 .. _notification_endpoint:
@@ -13,7 +13,7 @@ This page explains how notification works.
 Notification Endpoint
 *********************
 
-Clients need to provide an endpoint as the notification destination when you setup an account. If you need help please contact us.
+It is an endpoint as the notification destination. Return Helper API notify client's system about data update or result of request. It must be setup by Return Helper team. Please contact support@returnhelper.com for support.
 
 Webhooks handling session
 *************************
