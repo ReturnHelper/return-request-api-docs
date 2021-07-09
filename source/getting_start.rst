@@ -17,8 +17,14 @@ Cancel label by ``labelId``, which is expected in the :ref:`notification-label`.
 Return inventory at return arrival
 ----------------------------------
 
-- | When the return arrives at the warehouse, it will be marked received.
+When the return arrives at the warehouse, it will be marked received.
+Thus, it will become return inventory for seller's further management.
+There are two types of return arrival:
+
+- | Type 1: Initiated by seller and label is provided by Return Helper. Return Request has been created upon seller's request. 
 - | :ref:`notification-MarkReceived` will be sent to your notification endpoint. Return inventory payload, will be included in the notification payload. ``returnInventoryId`` is expected in it.
+- | Type 2: Not initiated by seller but Return Helper identifies that it belongs to a specific seller. Return Request record will be created when arrives warehouse and then assign to the seller.
+- | :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId`` and ``returnRequestId`` are expected in it.
 
 Image of the return uploaded
 ----------------------------
