@@ -68,36 +68,36 @@ This section explains how signature are generated so clients can verify the auth
 
 To understand how signature are generated, consider the notification example below:
 
-.. code-block::
+::
 
-  Header
-  Signature: xxxxx
-  Timestamp: 2021-06-16T15:26:27Z
+   Header
+   Signature: xxxxx
+   Timestamp: 2021-06-16T15:26:27Z
 
-  Body
-  HTTP/1.1 200 OK
-  Date: Tue, 20 Jul 2021 05:22:11 GMT
-  Content-Type: application/json; charset=utf-8
-  Transfer-Encoding: chunked
-  Connection: close
-  timestamp: 2021-07-21T13:58:40.2794872Z
-  x-amzn-RequestId: e2f86064-48f0-45ea-af8e-4f3d2882588c
-  x-amzn-Remapped-Connection: keep-alive
-  x-amz-apigw-id: CwOMeFdvSQ0FRcw=
-  x-amzn-Remapped-Server: nginx/1.18.0
-  x-amzn-Remapped-Date: Tue, 20 Jul 2021 05:22:11 GMT
-  X-Cache: Miss from cloudfront
-  Via: 1.1 02d36a84a910749e0e01cf16e7e1a02b.cloudfront.net (CloudFront)
-  X-Amz-Cf-Pop: SIN5-C1
-  X-Amz-Cf-Id: 7N1ksOia5K-EC4m9VrU3FwK849piH0HKouajMwdHqt0wSOwfLLIbcg==
-  signature: ZgQ6fX4p0WL8UhCiueSadjD1Ye1Hw5clL3pekiMir34=
-  CF-Cache-Status: DYNAMIC
-  Server: cloudflare
-  CF-RAY: 6719c0106c5e561a-SIN
-  content-length: 468
-  alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
+   Body
+   HTTP/1.1 200 OK
+   Date: Tue, 20 Jul 2021 05:22:11 GMT
+   Content-Type: application/json; charset=utf-8
+   Transfer-Encoding: chunked
+   Connection: close
+   timestamp: 2021-07-21T13:58:40.2794872Z
+   x-amzn-RequestId: e2f86064-48f0-45ea-af8e-4f3d2882588c
+   x-amzn-Remapped-Connection: keep-alive
+   x-amz-apigw-id: CwOMeFdvSQ0FRcw=
+   x-amzn-Remapped-Server: nginx/1.18.0
+   x-amzn-Remapped-Date: Tue, 20 Jul 2021 05:22:11 GMT
+   X-Cache: Miss from cloudfront
+   Via: 1.1 02d36a84a910749e0e01cf16e7e1a02b.cloudfront.net (CloudFront)
+   X-Amz-Cf-Pop: SIN5-C1
+   X-Amz-Cf-Id: 7N1ksOia5K-EC4m9VrU3FwK849piH0HKouajMwdHqt0wSOwfLLIbcg==
+   signature: ZgQ6fX4p0WL8UhCiueSadjD1Ye1Hw5clL3pekiMir34=
+   CF-Cache-Status: DYNAMIC
+   Server: cloudflare
+   CF-RAY: 6719c0106c5e561a-SIN
+   content-length: 468
+   alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
 
-  {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
+   {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
 
 
 Verifying signatures:
