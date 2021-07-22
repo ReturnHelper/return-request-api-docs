@@ -68,14 +68,36 @@ This section explains how signature are generated so clients can verify the auth
 
 To understand how signature are generated, consider the notification example below:
 
-.. code-block:: html
+.. code-block::
 
   Header
   Signature: xxxxx
   Timestamp: 2021-06-16T15:26:27Z
 
   Body
-  `{"a": "b"}`
+  HTTP/1.1 200 OK
+  Date: Tue, 20 Jul 2021 05:22:11 GMT
+  Content-Type: application/json; charset=utf-8
+  Transfer-Encoding: chunked
+  Connection: close
+  timestamp: 2021-07-21T13:58:40.2794872Z
+  x-amzn-RequestId: e2f86064-48f0-45ea-af8e-4f3d2882588c
+  x-amzn-Remapped-Connection: keep-alive
+  x-amz-apigw-id: CwOMeFdvSQ0FRcw=
+  x-amzn-Remapped-Server: nginx/1.18.0
+  x-amzn-Remapped-Date: Tue, 20 Jul 2021 05:22:11 GMT
+  X-Cache: Miss from cloudfront
+  Via: 1.1 02d36a84a910749e0e01cf16e7e1a02b.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: SIN5-C1
+  X-Amz-Cf-Id: 7N1ksOia5K-EC4m9VrU3FwK849piH0HKouajMwdHqt0wSOwfLLIbcg==
+  signature: ZgQ6fX4p0WL8UhCiueSadjD1Ye1Hw5clL3pekiMir34=
+  CF-Cache-Status: DYNAMIC
+  Server: cloudflare
+  CF-RAY: 6719c0106c5e561a-SIN
+  content-length: 468
+  alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
+
+  {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
 
 
 Verifying signatures:
@@ -87,10 +109,10 @@ Verifying signatures:
    |  - Notification endpoint
    |  - The timestamp (as a string)
    |  - The actual JSON payload (aka the request body)
-   | Example: ``POSThttps://www.google.com2021-06-16T15:26:27Z{"a":"b"}``
+   | Example: ``POSThttps://callback.free.beeceptor.com2021-07-21T13:58:40.2794872Z{"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}``
    |
    | Encode the UTF8 string to Base64
-   | Example: ``UE9TVGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20yMDIxLTA2LTE2VDE1OjI2OjI3WiJ7XCJhXCI6XCJiXCJ9Ig==``
+   | Example: ``UE9TVGh0dHBzOi8vY2FsbGJhY2suZnJlZS5iZWVjZXB0b3IuY29tMjAyMS0wNy0yMVQxMzo1ODo0MC4yNzk0ODcyWnsicmVzZW5kIjp7InJlc2VuZElkIjoyOTUsImFwaUlkIjoyLCJyZXNlbmROdW1iZXIiOiJSU0QyMTAxMDYtMDAwMDAwMSIsInJlc2VuZFN0YXR1c0NvZGUiOjEsImRlc2NyaXB0aW9uIjoicmVzdC1jbGllbnQtdGVzdC1hcGktZmxvdyIsInJlbWFya3MiOiJyZXN0LWNsaWVudC10ZXN0LWFwaS1mbG93Iiwid2FyZWhvdXNlUmVtYXJrcyI6InN0YW5sZXktdGVzdC0xMi0xNyIsIm1vZGlmeU9uIjoiMjAyMS0wMS0wNlQwMzoyODoxNS4zMDA0MDgyWiIsIm1vZGlmeUJ5IjoiMiIsImNyZWF0ZU9uIjoiMjAyMS0wMS0wNlQwMzoyNDowOCIsImNyZWF0ZUJ5IjoiMiJ9LCJ0cmFja2luZ051bWJlciI6bnVsbCwiZmFpbHVyZVJlYXNvbiI6InN0YW5sZXktdGVzdC0xMi0xNyIsImNhdGVnb3J5IjoicmVzZW5kIiwiYWN0aW9uIjoiZm9yY2VDYW5jZWxSZXNlbmQiLCJldmVudFRpbWUiOiIyMDIxLTA3LTIxVDEzOjU4OjQwLjI3OTMyOVoifQ==``
 3. | **Computing HMAC with SHA256 hash function**
    |   1. Decode UTF8 string_to_sign to byte array
    |   2. Decode base64 signing key to byte array
