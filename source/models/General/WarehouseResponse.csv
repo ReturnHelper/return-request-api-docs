@@ -1,6 +1,6 @@
  correlationId, string_
    meta, :ref:`structure-ApiResponseMeta`
-   warehouseId, integer_
+   warehouseId, string_,Max Length 35
    countryCode, string_
    contactName, string_
    companyName, string_

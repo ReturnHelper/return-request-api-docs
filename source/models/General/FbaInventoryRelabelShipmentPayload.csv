@@ -1,5 +1,5 @@
-fbaRelabelShipmentId, long_
-apiId, integer_
+fbaRelabelShipmentId, string_,,Max Length 35
+apiId, string_,,Max Length 35
 shipmentNumber, string_
 newShipmentId, string_
 newShipmentWeight, Decimal_

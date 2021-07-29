@@ -1,5 +1,5 @@
-   returnRequestLineItemId, long_
-   returnRequestId, integer_
+   returnRequestLineItemId, string_,Max Length 35
+   returnRequestId, string_,Max Length 35
    returnRequestLineItemNumber, string_
    description, string_
    weight, decimal_

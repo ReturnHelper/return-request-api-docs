@@ -1,5 +1,5 @@
    correlationId, string_
    meta, :ref:`structure-ApiResponseMeta`
-   resendId, long_
+   resendId, string_,Max Length 35
    resendNumber, string_
-   resendShipmentId, long_
+   resendShipmentId, string_,Max Length 35

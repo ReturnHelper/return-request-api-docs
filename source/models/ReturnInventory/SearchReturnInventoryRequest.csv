@@ -4,7 +4,7 @@
 "handlingCode", string_, ""
 "handlingStatusCode", string_, ""
 "shipmentNumber", string_, ""
-"warehouseId", integer_, ""
+"warehouseId", string_,"Max Length 35"
 "createFromStr", string_, ""
 "createToStr", string_, ""
 "warehouseRma", string_, ""

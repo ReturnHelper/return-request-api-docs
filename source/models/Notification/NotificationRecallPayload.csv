@@ -1,8 +1,8 @@
-recallId, long_
-apiId, long_
-warehouseId, long_
+recallId, string_,Max Length 35
+apiId, string_,Max Length 35
+warehouseId, string_,Max Length 35
 recallNumber, string_
-recallStatusCode, long_
+recallStatusCode, string_,Max Length 35
 warehouseRemarks, string_
 modifyOn, DateTime_
 modifyBy, string_

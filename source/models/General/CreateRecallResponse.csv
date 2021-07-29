@@ -1,4 +1,4 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
-recallId, long_
+recallId, string_,,Max Length 35
 recallNumber, string_

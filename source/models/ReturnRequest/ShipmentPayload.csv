@@ -1,8 +1,8 @@
-   shipmentId, long_
-   returnRequestId, integer_
-   labelId, long_
-   apiTransactionId, long_
-   warehouseId, integer_ , Yes
+   shipmentId, string_,,Max Length 35
+   returnRequestId, string_,,Max Length 35
+   labelId, string_,,Max Length 35
+   apiTransactionId, string_,,Max Length 35
+   warehouseId, string_,YES,Max Length 35
    shipmentNumber, string_
    shipmentStatusCode, string_
    shipmentServiceType, string_ , Yes

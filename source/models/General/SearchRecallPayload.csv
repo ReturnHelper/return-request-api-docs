@@ -1,4 +1,4 @@
-recallId, long_
+recallId, string_,Max Length 35
 apiName, string_
 createOnStr, string_
 recallInventoryStatusCode, string_

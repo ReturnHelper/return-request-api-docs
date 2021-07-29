@@ -1,5 +1,5 @@
-returnRequestLineItemImageId, long_
-returnRequestLineItemId, long_
+returnRequestLineItemImageId, string_,Max Length 35
+returnRequestLineItemId, string_,Max Length 35
 filename, string_
 fileExt, string_
 s3OriginalFileKey, string_

@@ -1,11 +1,11 @@
    apiName, string_
-   warehouseId, integer_
-   returnRequestLineItemId, long_
+   warehouseId, string_,Max Length 35
+   returnRequestLineItemId, string_,Max Length 35
    returnRequestLineItemNumber, string_
    returnRequestNumber, string_
    shipmentNumber, string_
    warehouseRma, string_
    returnRequestRemarks, string_
-   shipmentId, long_
+   shipmentId, string_,Max Length 35
    actualWeight, decimal_
    actualWeightUom, string_

@@ -1,5 +1,5 @@
-   resendId, long_
-   returnInventoryId, long_
+   resendId, string_,Max Length 35
+   returnInventoryId, string_,Max Length 35
    resendNumber, string_
    resendStatusCode, string_
    description, string_

@@ -1,6 +1,6 @@
-   resendShipmentId, long_
-   resendId, long_
-   warehouseId, integer_
+   resendShipmentId, string_,Max Length 35
+   resendId, string_,Max Length 35
+   warehouseId, string_,Max Length 35
    resendShipmentNumber, string_
    shipmentServiceType, string_
    shipmentCountryCode, string_

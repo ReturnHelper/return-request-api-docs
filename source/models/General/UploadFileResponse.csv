@@ -1,5 +1,5 @@
    correlationId, string_
    meta, :ref:`structure-ApiResponseMeta`
-   apiFileId, long_
+   apiFileId, string_,Max Length 35
    filename, string_
    fileKey, string_

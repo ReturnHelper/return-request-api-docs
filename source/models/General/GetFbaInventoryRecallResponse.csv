@@ -2,9 +2,9 @@ apiName, string_
 removalOrderId, string_
 trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
 fnsku, string_
-fbaRecallId, long_
-apiId, integer_
-fbaInventoryId, long_
+fbaRecallId, string_,,Max Length 35
+apiId, string_,,Max Length 35
+fbaInventoryId, string_,,Max Length 35
 quantity, integer_
 handlingStatusCode, string_
 recallTrackingNumber, string_

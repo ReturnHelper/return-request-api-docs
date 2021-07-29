@@ -1,8 +1,8 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
-fbaOthersId ,long_
-apiId, integer_
-fbaInventoryId, long_
+fbaOthersId ,string_,,Max Length 35
+apiId, string_,,Max Length 35
+fbaInventoryId, string_,,Max Length 35
 quantity, integer_
 handlingStatusCode, string_
 warehouseRemarks, string_

@@ -1,6 +1,6 @@
    correlationId, string_
    meta, :ref:`structure-ApiResponseMeta`
-   warehouseId, integer_
-   returnRequestLineItemId, long_
+   warehouseId, string_,Max Length 35
+   returnRequestLineItemId, string_,Max Length 35
    returnRequestLineItemNumber, string_
    resendShipmentList, List<:ref:`structure-ResendShipmentPayload`>

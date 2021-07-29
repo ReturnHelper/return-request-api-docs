@@ -1,7 +1,7 @@
-resendShipmentId, long_
-apiId, long_
-resendId, long_
-warehouseId, long_
+resendShipmentId, string_,Max Length 35
+apiId, string_,Max Length 35
+resendId, string_,Max Length 35
+warehouseId, string_,Max Length 35
 resendShipmentNumber, string_
 shipmentServiceType, integer_
 shipmentCountryCode, string_

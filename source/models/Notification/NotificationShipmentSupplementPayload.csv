@@ -1,5 +1,5 @@
-shipmentSupplementId, long_
-shipmentId, long_
+shipmentSupplementId, string_,Max Length 35
+shipmentId, string_,Max Length 35
 actualWeight, decimal_
 actualWeightUom, string_
 actualDimension1, decimal_

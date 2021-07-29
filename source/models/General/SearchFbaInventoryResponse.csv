@@ -10,10 +10,10 @@ dimension2, decimal_
 dimension3, decimal_
 dimensionUom, string_
 stockAge, double_
-fbaInventoryId, long_
-apiId, integer_
-fbaRemovalOrderId, long_
-fbaRemovalShipmentId, long_
+fbaInventoryId, string_,Max Length 35
+apiId, string_,Max Length 35
+fbaRemovalOrderId, string_,Max Length 35
+fbaRemovalShipmentId, string_,Max Length 35
 fnsku, string_
 quantity, integer_
 availableQuantity, integer_
