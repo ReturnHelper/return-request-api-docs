@@ -1,6 +1,6 @@
-fbaRelabelShipmentLabelId, string_,,Max Length 35
-apiId, string_,,Max Length 35
-fbaRelabelShipmentId, string_,,Max Length 35
+fbaRelabelShipmentLabelId, string_,Max Length 35
+apiId, string_,Max Length 35
+fbaRelabelShipmentId, string_,Max Length 35
 filename, string_
 fileExt, string_
 s3OriginalFileKey, string_

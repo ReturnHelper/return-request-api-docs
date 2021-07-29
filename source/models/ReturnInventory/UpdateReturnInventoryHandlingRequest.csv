@@ -1,2 +1,2 @@
-   returnInventoryId, string_,Max Length 35
+   returnInventoryId, string_,,Max Length 35
    handlingCode, string_

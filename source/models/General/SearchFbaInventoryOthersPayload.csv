@@ -1,5 +1,5 @@
 apiName, string_
-removalOrderId, string_
+removalOrderId, string_,Max Length 35
 trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
 fnsku, string_
 fbaOthersId, string_,Max Length 35

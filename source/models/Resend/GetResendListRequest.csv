@@ -3,7 +3,7 @@
    resendStatusCode, string_
    shipmentName, string_
    shipmentCountryCode, string_
-   warehouseId, string_,Max Length 35
+   warehouseId, string_,,Max Length 35
    createFromStr, string_
    createToStr, string_
    returnRequestNumber, string_

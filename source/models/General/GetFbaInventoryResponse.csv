@@ -1,11 +1,11 @@
-fbaRelabelId , string_,,Max Length 35
-apiId , string_,,Max Length 35
-fbaInventoryId , string_,,Max Length 35
+fbaRelabelId , string_,Max Length 35
+apiId , string_,Max Length 35
+fbaInventoryId , string_,Max Length 35
 newFnsku , string_
 quantity , integer_
 handlingStatusCode, string_
 repackStatusCode, string_
-fbaRelabelShipmentId,  string_,,Max Length 35
+fbaRelabelShipmentId,  string_,Max Length 35
 modifyOn, DateTime_
 modifyBy, string_
 modifyOnStr, string_

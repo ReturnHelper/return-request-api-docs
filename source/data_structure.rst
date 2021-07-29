@@ -630,7 +630,7 @@ UserSearchWarehousePayload
   :header: "Name", "Type", "Remarks"
   :widths: 15, 10, 30
 
-apiName, string_
+  apiName, string_
 
 .. _structure-SearchShipmentResultPayload:
 
@@ -731,10 +731,10 @@ NotificationResendShipmentPayload
 ShipmentPayload
 ---------------------------------
 
-   .. csv-table::
-      :header: "Name", "Type", "Remarks"
-      :widths: 15, 10, 30
-      :file: models/Notification/NotificationShipmentPayload.csv
+.. csv-table::
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 30,30
+   :file: models/Notification/NotificationShipmentPayload.csv
 
 .. _structure-NotificationVasPayload:
 

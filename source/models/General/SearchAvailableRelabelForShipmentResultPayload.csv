@@ -1,4 +1,4 @@
-removalOrderId, string_
+removalOrderId, string_,Max Length 35
 trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
 fnsku, string_
 fbaRelabelId, string_,,Max Length 35

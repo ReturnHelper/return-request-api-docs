@@ -1,7 +1,7 @@
-   labelId, string_,,Max Length 35
-   shipmentId, string_,,Max Length 35
+   labelId, string_,Max Length 35
+   shipmentId, string_,Max Length 35
    refKey, string_
-   labelRequestId, string_,,Max Length 35
+   labelRequestId, string_,Max Length 35
    labelRequestStatusCode, string_
    serviceType, string_
    trackingNumber, string_ ,Alphanumeric; hyphen and underscore; max length 50

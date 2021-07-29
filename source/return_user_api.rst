@@ -636,7 +636,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestId, string_,Max Length 35
+   returnRequestId, string_,,Max Length 35
 
 |
 
@@ -882,7 +882,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryId, string_,Max Length 35
+   returnInventoryId, string_,,Max Length 35
 
 |
 
@@ -945,7 +945,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   lineItemId, string_,Max Length 35
+   lineItemId, string_,,Max Length 35
 
 |
 
@@ -1008,7 +1008,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryId, string_,Max Length 35
+   returnInventoryId, string_,,Max Length 35
 
 |
 
@@ -1231,7 +1231,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   resendId, string_,Max Length 35
+   resendId, string_,,Max Length 35
 
 |
 
@@ -1415,7 +1415,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 20, 30
 
-   removalOrderId, string_
+   removalOrderId, string_,Max Length 35
 
 |
 
@@ -1480,7 +1480,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 20, 30
 
-   fbaRemovalOrderId, string_
+   fbaRemovalOrderId, string_,Max Length 35
 
 |
 
