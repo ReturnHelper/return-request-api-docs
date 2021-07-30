@@ -1,5 +1,5 @@
-returnRequestLineItemVasId, long_,
-returnRequestLineItemId, long_, Required
+returnRequestLineItemVasId, string_,,Max Length 35
+returnRequestLineItemId, string_, Required,Max Length 35
 vasCode, string_, Required
 metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel`` ``req-pic``
 vasResult, string_

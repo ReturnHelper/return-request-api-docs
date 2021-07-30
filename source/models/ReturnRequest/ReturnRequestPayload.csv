@@ -1,4 +1,4 @@
-   returnRequestId, integer_
+   returnRequestId, string_,Max Length 35
    returnRequestNumber, string_
    returnStatusCode, string_
    returnTitle, string_

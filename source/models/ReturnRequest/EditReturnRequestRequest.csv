@@ -1,4 +1,4 @@
-   returnRequestId, integer_
+   returnRequestId, string_,,Max Length 35
    returnTitle, string_
    totalValue, decimal_
    totalValueCurrency, string_

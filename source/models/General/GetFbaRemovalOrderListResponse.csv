@@ -1,8 +1,8 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
-fbaRemovalOrderId, integer_
-apiId, integer_
-removalOrderId, string_
+fbaRemovalOrderId, string_,Max Length 35
+apiId, string_,Max Length 35
+removalOrderId, string_,Max Length 35
 modifyOn, Datetime_
 modifyBy, string_
 modifyOnStr, string_

@@ -84,7 +84,7 @@ Parameters:
    :widths: 15, 10, 30
 
    fromCountry, string_
-   warehouseId, integer_
+   warehouseId, string_,Max Length 35
 
 Response:
 
@@ -195,7 +195,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   warehouseId, integer_
+   warehouseId, string_,Max Length 35
 
 Response:
 
@@ -267,7 +267,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   shipmentId, long_
+   shipmentId, string_,Max Length 35
 
 |
 
@@ -299,7 +299,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   labelId, long_
+   labelId, string_,Max Length 35
 
 |
 
@@ -349,7 +349,7 @@ Object ``ShipmentPayload``:
   :header: "Name", "Type", "Required", "Remarks"
   :widths: 15, 10, 10, 30
 
-  warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
+  warehouseId, string_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
   shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
   shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
   shipmentCountryCode, string_ , YES, Obtain from public api :ref:`method-getAllFromCountries`
@@ -485,7 +485,7 @@ Object ``CreateNonRrLabelShipmentRequest``:
 
   trackingNumber, string_, YES, Alphanumeric hyphen and underscore (max length 50). Cannot reuse within 92 days.
   carrier, string_, , Max length 225
-  warehouseId, integer_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
+  warehouseId, string_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
   shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
   shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
   shipmentCountryCode, string_ , YES, Obtain from public api :ref:`method-getAllFromCountries`
@@ -636,7 +636,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestId, integer_
+   returnRequestId, string_,,Max Length 35
 
 |
 
@@ -704,7 +704,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestId, integer_
+   returnRequestId, string_,,Max Length 35
    returnRequestLineItemHandling, List<:ref:`structure-UpdateReturnRequestLineItemHandlingRequest`>
 
 |
@@ -755,7 +755,7 @@ Object ``CreateReturnRequestLineItemVasRequest``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestLineItemId, long_, Required, Line Item must be ``On-hold`` in order to create Vas
+   returnRequestLineItemId, string_, Required, Line Item must be ``On-hold`` in order to create Vas
    vasCode, string_, Required, ``mobi-fmt``(Format Mobile phone) ``mobi-imei``(Check Mobile Phone IMEI) ``mobi-lock``(Check Mobile Phone Lock status) ``prd-inspec``(Product inspection) ``repack``(Repack) ``req-pic``(Take pictures) ``split-parcel``(Split Parcel)
    metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel``(1-50) ``req-pic``(grater than 0)
    notes, string_
@@ -882,7 +882,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryId, long_
+   returnInventoryId, string_,,Max Length 35
 
 |
 
@@ -945,7 +945,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   lineItemId, long_
+   lineItemId, string_,,Max Length 35
 
 |
 
@@ -1008,7 +1008,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryId, long_
+   returnInventoryId, string_,,Max Length 35
 
 |
 
@@ -1081,7 +1081,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryIdList, List<long_>, YES, Obtain from user api :ref:`method-createReturnRequest` response
+   returnInventoryIdList, List<string_>, YES, Obtain from user api :ref:`method-createReturnRequest` response
    resendNumber, string_,,Auto generated if not submitted.
    description, string_,
    remarks, string_,
@@ -1163,7 +1163,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   resendId, integer_
+   resendId, string_,,Max Length 35
 
 |
 
@@ -1231,7 +1231,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   resendId, long_
+   resendId, string_,,Max Length 35
 
 |
 
@@ -1312,7 +1312,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   recallId, long_
+   recallId, string_,Max Length 35
 
 |
 
@@ -1415,7 +1415,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 20, 30
 
-   removalOrderId, string_
+   removalOrderId, string_,Max Length 35
 
 |
 
@@ -1480,7 +1480,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 20, 30
 
-   fbaRemovalOrderId, string_
+   fbaRemovalOrderId, string_,Max Length 35
 
 |
 
@@ -1641,7 +1641,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaRecallId, integer_
+   fbaRecallId, string_,Max Length 35
 
 |
 
@@ -1705,7 +1705,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaOthersId, long_
+   fbaOthersId, string_,Max Length 35
 
 |
 
@@ -1770,7 +1770,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaDisposeId, long_
+   fbaDisposeId, string_,Max Length 35
 
 |
 
@@ -1835,7 +1835,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaRelabelId, long_
+   fbaRelabelId, string_,Max Length 35
 
 |
 
@@ -1898,7 +1898,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaRelabelId, long_
+   fbaRelabelId, string_,Max Length 35
    newFnsku, string_
 
 |

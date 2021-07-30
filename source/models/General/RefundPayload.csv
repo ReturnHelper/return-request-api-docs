@@ -1,4 +1,4 @@
-refundId, long_
+refundId, string_,Max Length 35
 apiId, integer_
 apiName, string_
 refundStatusCode, string_

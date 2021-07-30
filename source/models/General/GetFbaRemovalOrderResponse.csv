@@ -1,7 +1,7 @@
-fbaRemovalShipmentId, integer_
-warehouseId, integer_
-apiId, integer_
-fbaRemovalOrderId, integer_
+fbaRemovalShipmentId, string_,Max Length 35
+warehouseId, string_,Max Length 35
+apiId, string_,Max Length 35
+fbaRemovalOrderId, string_,Max Length 35
 trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
 shipmentStatusCode, string_
 weight,decimal_

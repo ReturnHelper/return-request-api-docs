@@ -1,4 +1,4 @@
-returnRequestLineItemVasId, long_
+returnRequestLineItemVasId, string_,Max Length 35
 vasResult, string_
 weight, decimal_
 weightUom, string_

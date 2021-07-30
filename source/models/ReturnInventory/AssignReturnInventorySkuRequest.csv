@@ -1,2 +1,2 @@
-   returnInventoryId, long_
+   returnInventoryId, string_,,Max Length 35
    sku, string_

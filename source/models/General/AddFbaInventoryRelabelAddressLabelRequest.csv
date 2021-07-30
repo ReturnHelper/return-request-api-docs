@@ -1,5 +1,5 @@
-fbaRelabelShipmentId, long_
-newShipmentId, string_
+fbaRelabelShipmentId, string_,,Max Length 35
+newShipmentId, string_,,Max Length 35
 provideLabel, bool_
 newShipmentFbaName, string_
 newShipmentStreet1, string_

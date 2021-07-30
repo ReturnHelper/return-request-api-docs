@@ -1,4 +1,4 @@
-   returnRequestLineItemId, long_
+   returnRequestLineItemId, string_,Max Length 35
    description, string_
    weight, decimal_
    weightUom, string_

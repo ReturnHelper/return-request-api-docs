@@ -2,7 +2,7 @@
   returnRequestNumber, string_
   shipmentNumber, string_
   shipmentStatusCode, string_
-  warehouseId, integer_
+  warehouseId, string_,Max Length 35
   trackingNumber, string_ , Alphanumeric; hyphen and underscore; max length 50
   returnRequestSourceType, string_
   createFromStr, string_

@@ -4,6 +4,6 @@
 "vasCount", integer_, ""
 "warehouseRma", string_, ""
 "returnRequestRemarks", string_, ""
-"shipmentId", long_, ""
+"shipmentId", string_,"Max Length 35"
 "actualWeight", decimal_, ""
 "cbm", decimal_, ""

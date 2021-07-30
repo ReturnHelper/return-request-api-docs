@@ -1,5 +1,5 @@
-apiTransactionMetaId, long_
-apiTransactionId, long_
+apiTransactionMetaId, string_,Max Length 35
+apiTransactionId, string_,Max Length 35
 metaType, string_
-headId, long_
+headId, string_,Max Length 35
 metaText, string_

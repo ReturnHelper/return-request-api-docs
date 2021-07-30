@@ -1,14 +1,14 @@
-removalOrderId, string_
+removalOrderId, string_,Max Length 35
 trackingNumber, string_, Alphanumeric; hyphen and underscore; max length 50
 fnsku, string_
-fbaRelabelId, long_
-apiId, integer_
-fbaInventoryId, long_
+fbaRelabelId, string_,,Max Length 35
+apiId, string_,Max Length 35
+fbaInventoryId, string_,,Max Length 35
 newFnsku, string_
 quantity, integer_
 handlingStatusCode, string_
 repackStatusCode, string_
-fbaRelabelShipmentId, long_
+fbaRelabelShipmentId, string_,,Max Length 35
 modifyOn, DateTime_
 modifyBy, string_
 modifyOnStr, string_
