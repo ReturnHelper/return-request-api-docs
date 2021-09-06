@@ -13,7 +13,7 @@ This page explains how notification works.
 Notification Endpoint
 *********************
 
-It is an endpoint as the notification destination. Return Helper API notify client's system about data update or result of request. It must be setup by Return Helper team. Please contact support@returnhelper.com for support.
+It is an endpoint as the notification destination. Return Helper API notifies client's system about data update or result of request. It must be setup by Return Helper team. Please contact support@returnhelper.com for support.
 
 Webhooks handling session
 *************************
@@ -26,13 +26,13 @@ One way of doing this is logging the events you’ve processed, and then not pro
 
 **Order of events**
 
-RH does not guarantee delivery of events in the order in which they are generated
+RH does not guarantee delivery of events in the order in which they are generated.
 For example warehouse receive the parcel and upload images
 
 * :ref:`notification-MarkReceived`
 * :ref:`notification-changeLineItemImage`
 
-Your endpoint should not expect delivery of these events in this order and should handle this accordingly. You can also use the API to fetch any missing objects.
+Your endpoint should not expect delivery of these events in this order and should handle it accordingly. You can also use the API to fetch any missing objects.
 
 
 Each event also includes ``eventTime``
@@ -40,13 +40,13 @@ Each event also includes ``eventTime``
 Signing Key
 ***********
 
-Each client has a unique signing key which we provide on account setup. This key is used to sign the notification and generate a signature (Details please check below).
-Please store your key securely and never share to others.
+Each client has an unique signing key provided by Return Helper during account setup. This key is used to sign the notification and generate a signature (please check more details below).
+Please store your key securely and never disclose. **The signing key is in Base64(ASCII).**
 
 Retry
 *****
 
-Only notification that are sent and response with a ``HTTP 200`` are considered as completed. Otherwise the notification is consider failed and it would be retied up to 10 times.
+Only response with a ``HTTP 200`` for every sent notification is considered as completed. Otherwise the notification is considered as failed. It will retry up to 10 times.
 
 Header
 ******
@@ -63,69 +63,51 @@ Notification header contains a timestamp and a signature.
 Signature
 *********
 
-This section explains how signature are generated so clients can verify the authenticity and integrity of our notification message.
+This section explains how a signature is generated so clients can verify the authenticity and integrity of our notification message.
 **Clients should always verify the signature before processing the payload data.**
 
-To understand how signature are generated, consider the notification example below:
+To understand how signature is generated, consider the example below:
 
 ::
 
-   Header
-   Signature: xxxxx
-   Timestamp: 2021-06-16T15:26:27Z
-
-   Body
-   HTTP/1.1 200 OK
-   Date: Tue, 20 Jul 2021 05:22:11 GMT
+   Header:
    Content-Type: application/json; charset=utf-8
-   Transfer-Encoding: chunked
-   Connection: close
    timestamp: 2021-07-21T13:58:40.2794872Z
-   x-amzn-RequestId: e2f86064-48f0-45ea-af8e-4f3d2882588c
-   x-amzn-Remapped-Connection: keep-alive
-   x-amz-apigw-id: CwOMeFdvSQ0FRcw=
-   x-amzn-Remapped-Server: nginx/1.18.0
-   x-amzn-Remapped-Date: Tue, 20 Jul 2021 05:22:11 GMT
-   X-Cache: Miss from cloudfront
-   Via: 1.1 02d36a84a910749e0e01cf16e7e1a02b.cloudfront.net (CloudFront)
-   X-Amz-Cf-Pop: SIN5-C1
-   X-Amz-Cf-Id: 7N1ksOia5K-EC4m9VrU3FwK849piH0HKouajMwdHqt0wSOwfLLIbcg==
    signature: ZgQ6fX4p0WL8UhCiueSadjD1Ye1Hw5clL3pekiMir34=
-   CF-Cache-Status: DYNAMIC
-   Server: cloudflare
-   CF-RAY: 6719c0106c5e561a-SIN
-   content-length: 468
-   alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
 
+   Body:
    {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
 
 
-Verifying signatures:
+Reminder: The payload is in Base64(UTF8).
 
-1. | **Extracting the Timestamp and Signature from the header**
-2. | **Preparing the string_to_sign**
-   | The string_to_sign string is created by concatenating:
-   |  1. HTTP action (which always be POST)
-   |  2. Notification endpoint
-   |  3. The timestamp (as a string)
-   |  4. The actual JSON payload (aka the request body)
+How to verify signature:
+
+1. | **Extract the signature from header comparing with the generated signature**
+2. | **Extract the timestamp from header for generating signature**
+3. | **Prepare string_to_sign**
+   | Concatenate the following data as string in the following order:
+   |  3-1. HTTP action (always to be POST)
+   |  3-2. Your notification endpoint (e.g. https://callback.free.beeceptor.com)
+   |  3-3. The timestamp (extracted from header)
+   |  3-4. The actual JSON payload (aka body)
    |     Example: ``POSThttps://callback.free.beeceptor.com2021-07-21T13:58:40.2794872Z{"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}``
-   |
-   |  5. Encode the UTF8 string to Base64
+   | Then, convert the concantenated string to Base64
    |     Example: ``UE9TVGh0dHBzOi8vY2FsbGJhY2suZnJlZS5iZWVjZXB0b3IuY29tMjAyMS0wNy0yMVQxMzo1ODo0MC4yNzk0ODcyWnsicmVzZW5kIjp7InJlc2VuZElkIjoyOTUsImFwaUlkIjoyLCJyZXNlbmROdW1iZXIiOiJSU0QyMTAxMDYtMDAwMDAwMSIsInJlc2VuZFN0YXR1c0NvZGUiOjEsImRlc2NyaXB0aW9uIjoicmVzdC1jbGllbnQtdGVzdC1hcGktZmxvdyIsInJlbWFya3MiOiJyZXN0LWNsaWVudC10ZXN0LWFwaS1mbG93Iiwid2FyZWhvdXNlUmVtYXJrcyI6InN0YW5sZXktdGVzdC0xMi0xNyIsIm1vZGlmeU9uIjoiMjAyMS0wMS0wNlQwMzoyODoxNS4zMDA0MDgyWiIsIm1vZGlmeUJ5IjoiMiIsImNyZWF0ZU9uIjoiMjAyMS0wMS0wNlQwMzoyNDowOCIsImNyZWF0ZUJ5IjoiMiJ9LCJ0cmFja2luZ051bWJlciI6bnVsbCwiZmFpbHVyZVJlYXNvbiI6InN0YW5sZXktdGVzdC0xMi0xNyIsImNhdGVnb3J5IjoicmVzZW5kIiwiYWN0aW9uIjoiZm9yY2VDYW5jZWxSZXNlbmQiLCJldmVudFRpbWUiOiIyMDIxLTA3LTIxVDEzOjU4OjQwLjI3OTMyOVoifQ==``
-3. | **Computing HMAC with SHA256 hash function**
-   |   1. Decode UTF8 string_to_sign to byte array
-   |   2. Decode base64 signing key to byte array
-   |   3. Generating signature from 1 and 2
-   |   4. Convert Signature to Base64
-4. | **Compare the signatures**
-   | Compare the signature generated from Step 3 with Step 1
+4. | **Sign the string_to_sign**
+   | Signature is computed by using HMAC with SHA256 hash function:
+   |   4-1. Convert string_to_sign to byte array with UTF8 encoding
+   |   4-2. Decode Base64 signing key to byte array
+   |   4-3. Generate signature (byte array) from 4-1 and 4-2 (example: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/)
+   |   4-4. Encode signature (byte array) to Base64
+5. | **Compare the signatures**
+   | Compare the signature generated from Step 4 with Step 1
 
 A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
 
 PS:
 You should not process a notification with eventTime significantly different (15 minutes)
-that the receiving machie’s clock to help prevent replay attacks.
+that the receiving machine’s clock to help prevent replay attacks.
 
 To protect against timing attacks,
 use a constant-time string comparison to compare the expected signature.
