@@ -13,7 +13,7 @@ This page explains how notification works.
 Notification Endpoint
 *********************
 
-It is an endpoint as the notification destination. Return Helper API notify client's system about data update or result of request. It must be setup by Return Helper team. Please contact support@returnhelper.com for support.
+It is an endpoint as the notification destination. Return Helper API notifies client's system about data update or result of request. It must be setup by Return Helper team. Please contact support@returnhelper.com for support.
 
 Webhooks handling session
 *************************
@@ -26,13 +26,13 @@ One way of doing this is logging the events you’ve processed, and then not pro
 
 **Order of events**
 
-RH does not guarantee delivery of events in the order in which they are generated
+RH does not guarantee delivery of events in the order in which they are generated.
 For example warehouse receive the parcel and upload images
 
 * :ref:`notification-MarkReceived`
 * :ref:`notification-changeLineItemImage`
 
-Your endpoint should not expect delivery of these events in this order and should handle this accordingly. You can also use the API to fetch any missing objects.
+Your endpoint should not expect delivery of these events in this order and should handle it accordingly. You can also use the API to fetch any missing objects.
 
 
 Each event also includes ``eventTime``
@@ -40,13 +40,13 @@ Each event also includes ``eventTime``
 Signing Key
 ***********
 
-Each client has a unique signing key which we provide on account setup. This key is used to sign the notification and generate a signature (Details please check below).
-Please store your key securely and never share to others.
+Each client has an unique signing key provided by Return Helper during account setup. This key is used to sign the notification and generate a signature (please check more details below).
+Please store your key securely and never disclose. **The signing key is in Base64(ASCII).**
 
 Retry
 *****
 
-Only notification that are sent and response with a ``HTTP 200`` are considered as completed. Otherwise the notification is consider failed and it would be retied up to 10 times.
+Only response with a ``HTTP 200`` for every sent notification is considered as completed. Otherwise the notification is considered as failed. It will retry up to 10 times.
 
 Header
 ******
@@ -63,69 +63,51 @@ Notification header contains a timestamp and a signature.
 Signature
 *********
 
-This section explains how signature are generated so clients can verify the authenticity and integrity of our notification message.
+This section explains how a signature is generated so clients can verify the authenticity and integrity of our notification message.
 **Clients should always verify the signature before processing the payload data.**
 
-To understand how signature are generated, consider the notification example below:
+To understand how signature is generated, consider the example below:
 
 ::
 
-   Header
-   Signature: xxxxx
-   Timestamp: 2021-06-16T15:26:27Z
-
-   Body
-   HTTP/1.1 200 OK
-   Date: Tue, 20 Jul 2021 05:22:11 GMT
+   Header:
    Content-Type: application/json; charset=utf-8
-   Transfer-Encoding: chunked
-   Connection: close
    timestamp: 2021-07-21T13:58:40.2794872Z
-   x-amzn-RequestId: e2f86064-48f0-45ea-af8e-4f3d2882588c
-   x-amzn-Remapped-Connection: keep-alive
-   x-amz-apigw-id: CwOMeFdvSQ0FRcw=
-   x-amzn-Remapped-Server: nginx/1.18.0
-   x-amzn-Remapped-Date: Tue, 20 Jul 2021 05:22:11 GMT
-   X-Cache: Miss from cloudfront
-   Via: 1.1 02d36a84a910749e0e01cf16e7e1a02b.cloudfront.net (CloudFront)
-   X-Amz-Cf-Pop: SIN5-C1
-   X-Amz-Cf-Id: 7N1ksOia5K-EC4m9VrU3FwK849piH0HKouajMwdHqt0wSOwfLLIbcg==
    signature: ZgQ6fX4p0WL8UhCiueSadjD1Ye1Hw5clL3pekiMir34=
-   CF-Cache-Status: DYNAMIC
-   Server: cloudflare
-   CF-RAY: 6719c0106c5e561a-SIN
-   content-length: 468
-   alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
 
+   Body:
    {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
 
 
-Verifying signatures:
+Reminder: The payload is in Base64(UTF8).
 
-1. | **Extracting the Timestamp and Signature from the header**
-2. | **Preparing the string_to_sign**
-   | The string_to_sign string is created by concatenating:
-   |  1. HTTP action (which always be POST)
-   |  2. Notification endpoint
-   |  3. The timestamp (as a string)
-   |  4. The actual JSON payload (aka the request body)
+How to verify signature:
+
+1. | **Extract the signature from header comparing with the generated signature**
+2. | **Extract the timestamp from header for generating signature**
+3. | **Prepare string_to_sign**
+   | Concatenate the following data as string in the following order:
+   |  3-1. HTTP action (always to be POST)
+   |  3-2. Your notification endpoint (e.g. https://callback.free.beeceptor.com)
+   |  3-3. The timestamp (extracted from header)
+   |  3-4. The actual JSON payload (aka body)
    |     Example: ``POSThttps://callback.free.beeceptor.com2021-07-21T13:58:40.2794872Z{"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}``
-   |
-   |  5. Encode the UTF8 string to Base64
+   | Then, convert the concantenated string to Base64
    |     Example: ``UE9TVGh0dHBzOi8vY2FsbGJhY2suZnJlZS5iZWVjZXB0b3IuY29tMjAyMS0wNy0yMVQxMzo1ODo0MC4yNzk0ODcyWnsicmVzZW5kIjp7InJlc2VuZElkIjoyOTUsImFwaUlkIjoyLCJyZXNlbmROdW1iZXIiOiJSU0QyMTAxMDYtMDAwMDAwMSIsInJlc2VuZFN0YXR1c0NvZGUiOjEsImRlc2NyaXB0aW9uIjoicmVzdC1jbGllbnQtdGVzdC1hcGktZmxvdyIsInJlbWFya3MiOiJyZXN0LWNsaWVudC10ZXN0LWFwaS1mbG93Iiwid2FyZWhvdXNlUmVtYXJrcyI6InN0YW5sZXktdGVzdC0xMi0xNyIsIm1vZGlmeU9uIjoiMjAyMS0wMS0wNlQwMzoyODoxNS4zMDA0MDgyWiIsIm1vZGlmeUJ5IjoiMiIsImNyZWF0ZU9uIjoiMjAyMS0wMS0wNlQwMzoyNDowOCIsImNyZWF0ZUJ5IjoiMiJ9LCJ0cmFja2luZ051bWJlciI6bnVsbCwiZmFpbHVyZVJlYXNvbiI6InN0YW5sZXktdGVzdC0xMi0xNyIsImNhdGVnb3J5IjoicmVzZW5kIiwiYWN0aW9uIjoiZm9yY2VDYW5jZWxSZXNlbmQiLCJldmVudFRpbWUiOiIyMDIxLTA3LTIxVDEzOjU4OjQwLjI3OTMyOVoifQ==``
-3. | **Computing HMAC with SHA256 hash function**
-   |   1. Decode UTF8 string_to_sign to byte array
-   |   2. Decode base64 signing key to byte array
-   |   3. Generating signature from 1 and 2
-   |   4. Convert Signature to Base64
-4. | **Compare the signatures**
-   | Compare the signature generated from Step 3 with Step 1
+4. | **Sign the string_to_sign**
+   | Signature is computed by using HMAC with SHA256 hash function:
+   |   4-1. Convert string_to_sign to byte array with UTF8 encoding
+   |   4-2. Decode Base64 signing key to byte array
+   |   4-3. Generate signature (byte array) from 4-1 and 4-2 (example: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/)
+   |   4-4. Encode signature (byte array) to Base64
+5. | **Compare the signatures**
+   | Compare the signature generated from Step 4 with Step 1
 
 A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
 
 PS:
 You should not process a notification with eventTime significantly different (15 minutes)
-that the receiving machie’s clock to help prevent replay attacks.
+that the receiving machine’s clock to help prevent replay attacks.
 
 To protect against timing attacks,
 use a constant-time string comparison to compare the expected signature.
@@ -173,601 +155,62 @@ category: ``labelGenerated``
 
 action: ``labelGenerated``
 
-.. csv-table:: Label Result Notification
+.. csv-table:: LabelResponse
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Notification/NotificationGenLabel.csv
+   :file: models/ReturnRequest/LabelResponse.csv
 
 Sample:
 
 .. code-block:: json
-   :emphasize-lines: 12
+   :emphasize-lines: 12,13
 
-      {
-         "statusDto":{
-            "label":{
-               "labelId":9714,
-               "shipmentId":9204,
-               "apiId":21,
-               "refKey":"S210707-0000017",
-               "labelRequestId":3501,
-               "labelRequestStatusCode":3,
-               "serviceType":"ucss",
-               "trackingNumber":"6A21511647263",
-               "labelUrl":"https://label-service-dev-files.returnshelper.com/label/202107/3501-S210707-0000017-iy35wrnxkyk.pdf",
-               "error":null,
-               "fromCountryCode":"fra",
-               "fromName":"Test",
-               "fromPhone":"1234567890",
-               "fromFax":null,
-               "fromEmail":"test@returnhelper.com",
-               "fromStreet1":"Paris",
-               "fromStreet2":"Paris",
-               "fromStreet3":"Paris",
-               "fromState":"Paris",
-               "fromCity":"Paris",
-               "fromPostalCode":"75000",
-               "toCountryCode":"fra",
-               "toName":"RH21",
-               "toPhone":"0171563428",
-               "toFax":"0188321897",
-               "toEmail":"roy@techinthebasket.com",
-               "toStreet1":"80 Quai du Parc",
-               "toStreet2":null,
-               "toStreet3":null,
-               "toState":"Saint Maur",
-               "toCity":"Saint Maur",
-               "toPostalCode":"94100",
-               "toCompany":"BLEUCIEL FRANCE LOGISTIC",
-               "fromCompany":"Return Helper Service",
-               "carrier":null,
-               "referenceNumber":null
-            },
-            "shipment":{
-               "shipmentId":9204,
-               "apiId":21,
-               "returnRequestId":9263,
-               "labelId":9714,
-               "apiTransactionId":0,
-               "warehouseId":8,
-               "shipmentNumber":"S210707-0000017",
-               "shipmentStatusCode":2,
-               "shipmentServiceType":5,
-               "shipmentCountryCode":"fra",
-               "shipmentName":"Stanley",
-               "shipmentPhone":"1234567890",
-               "shipmentFax":null,
-               "shipmentEmail":"test@returnhelper.com",
-               "shipmentStreet1":"Paris",
-               "shipmentStreet2":"Paris",
-               "shipmentStreet3":"Paris",
-               "shipmentState":"Paris",
-               "shipmentCity":"Paris",
-               "shipmentPostalCode":"75000",
-               "costCurrencyCode":"usd",
-               "cost":19.38,
-               "boxType":"cus",
-               "weight":4000.0,
-               "weightUom":"g",
-               "dimension1":15.0,
-               "dimension2":15.0,
-               "dimension3":15.0,
-               "dimensionUom":"cm",
-               "isRrLabel":true,
-               "receiveDate":null,
-               "referenceNumber":null,
-               "modifyOn":"2021-07-07T05:53:28.6347145Z",
-               "modifyBy":"21",
-               "createOn":"2021-07-07T05:53:10",
-               "createBy":"21"
-            },
-            "returnRequest":{
-               "returnRequestId":9263,
-               "apiId":21,
-               "returnRequestNumber":"e0bca915-413a-4f92-b5d9-a1734195f206",
-               "returnStatusCode":3,
-               "returnTitle":"Test2021070701",
-               "totalValue":100.0,
-               "totalValueCurrency":"usd",
-               "remarks":"Test2021070701",
-               "warehouseRma":null,
-               "isArchived":false,
-               "returnRequestSourceType":0,
-               "modifyOn":"2021-07-07T05:53:28.6347547Z",
-               "modifyBy":"21",
-               "createOn":"2021-07-07T05:53:10",
-               "createBy":"21"
-            },
-            "updateLabelResult":{
-               "Item1":true,
-               "Item2":{
-                  "labelId":9714,
-                  "shipmentId":9204,
-                  "apiId":21,
-                  "refKey":"S210707-0000017",
-                  "labelRequestId":3501,
-                  "labelRequestStatusCode":1,
-                  "serviceType":"ucss",
-                  "trackingNumber":null,
-                  "labelUrl":null,
-                  "error":null,
-                  "fromCountryCode":"fra",
-                  "fromName":"Stanley",
-                  "fromPhone":"1234567890",
-                  "fromFax":null,
-                  "fromEmail":"test@returnhelper.com",
-                  "fromStreet1":"Paris",
-                  "fromStreet2":"Paris",
-                  "fromStreet3":"Paris",
-                  "fromState":"Paris",
-                  "fromCity":"Paris",
-                  "fromPostalCode":"75000",
-                  "toCountryCode":"fra",
-                  "toName":"RH21",
-                  "toPhone":"0171563428",
-                  "toFax":"0188321897",
-                  "toEmail":"roy@techinthebasket.com",
-                  "toStreet1":"80 Quai du Parc",
-                  "toStreet2":null,
-                  "toStreet3":null,
-                  "toState":"Saint Maur",
-                  "toCity":"Saint Maur",
-                  "toPostalCode":"94100",
-                  "toCompany":"BLEUCIEL FRANCE LOGISTIC",
-                  "fromCompany":"Return Helper Service",
-                  "carrier":null,
-                  "referenceNumber":null
-               },
-               "Item3":{
-                  "labelId":9714,
-                  "shipmentId":9204,
-                  "apiId":21,
-                  "refKey":"S210707-0000017",
-                  "labelRequestId":3501,
-                  "labelRequestStatusCode":3,
-                  "serviceType":"ucss",
-                  "trackingNumber":"6A21511647263",
-                  "labelUrl":"https://label-service-dev-files.returnshelper.com/label/202107/3501-S210707-0000017-iy35wrnxkyk.pdf",
-                  "error":null,
-                  "fromCountryCode":"fra",
-                  "fromName":"Stanley",
-                  "fromPhone":"1234567890",
-                  "fromFax":null,
-                  "fromEmail":"test@returnhelper.com",
-                  "fromStreet1":"Paris",
-                  "fromStreet2":"Paris",
-                  "fromStreet3":"Paris",
-                  "fromState":"Paris",
-                  "fromCity":"Paris",
-                  "fromPostalCode":"75000",
-                  "toCountryCode":"fra",
-                  "toName":"RH21",
-                  "toPhone":"0171563428",
-                  "toFax":"0188321897",
-                  "toEmail":"roy@techinthebasket.com",
-                  "toStreet1":"80 Quai du Parc",
-                  "toStreet2":null,
-                  "toStreet3":null,
-                  "toState":"Saint Maur",
-                  "toCity":"Saint Maur",
-                  "toPostalCode":"94100",
-                  "toCompany":"BLEUCIEL FRANCE LOGISTIC",
-                  "fromCompany":"Return Helper Service",
-                  "carrier":null,
-                  "referenceNumber":null
-               }
-            },
-            "updateShipmentResult":{
-               "Item1":true,
-               "Item2":{
-                  "shipmentId":9204,
-                  "apiId":21,
-                  "returnRequestId":9263,
-                  "labelId":9714,
-                  "apiTransactionId":0,
-                  "warehouseId":8,
-                  "shipmentNumber":"S210707-0000017",
-                  "shipmentStatusCode":3,
-                  "shipmentServiceType":5,
-                  "shipmentCountryCode":"fra",
-                  "shipmentName":"Stanley",
-                  "shipmentPhone":"1234567890",
-                  "shipmentFax":null,
-                  "shipmentEmail":"test@returnhelper.com",
-                  "shipmentStreet1":"Paris",
-                  "shipmentStreet2":"Paris",
-                  "shipmentStreet3":"Paris",
-                  "shipmentState":"Paris",
-                  "shipmentCity":"Paris",
-                  "shipmentPostalCode":"75000",
-                  "costCurrencyCode":"usd",
-                  "cost":19.38,
-                  "boxType":"cus",
-                  "weight":4000.0,
-                  "weightUom":"g",
-                  "dimension1":15.0,
-                  "dimension2":15.0,
-                  "dimension3":15.0,
-                  "dimensionUom":"cm",
-                  "isRrLabel":true,
-                  "receiveDate":null,
-                  "referenceNumber":null,
-                  "modifyOn":"2021-07-07T05:53:22",
-                  "modifyBy":"21",
-                  "createOn":"2021-07-07T05:53:10",
-                  "createBy":"21"
-               },
-               "Item3":{
-                  "shipmentId":9204,
-                  "apiId":21,
-                  "returnRequestId":9263,
-                  "labelId":9714,
-                  "apiTransactionId":0,
-                  "warehouseId":8,
-                  "shipmentNumber":"S210707-0000017",
-                  "shipmentStatusCode":2,
-                  "shipmentServiceType":5,
-                  "shipmentCountryCode":"fra",
-                  "shipmentName":"Stanley",
-                  "shipmentPhone":"1234567890",
-                  "shipmentFax":null,
-                  "shipmentEmail":"test@returnhelper.com",
-                  "shipmentStreet1":"Paris",
-                  "shipmentStreet2":"Paris",
-                  "shipmentStreet3":"Paris",
-                  "shipmentState":"Paris",
-                  "shipmentCity":"Paris",
-                  "shipmentPostalCode":"75000",
-                  "costCurrencyCode":"usd",
-                  "cost":19.38,
-                  "boxType":"cus",
-                  "weight":4000.0,
-                  "weightUom":"g",
-                  "dimension1":15.0,
-                  "dimension2":15.0,
-                  "dimension3":15.0,
-                  "dimensionUom":"cm",
-                  "isRrLabel":true,
-                  "receiveDate":null,
-                  "referenceNumber":null,
-                  "modifyOn":"2021-07-07T05:53:28.6347145Z",
-                  "modifyBy":"21",
-                  "createOn":"2021-07-07T05:53:10",
-                  "createBy":"21"
-               }
-            },
-            "updateReturnRequestResult":{
-               "Item1":true,
-               "Item2":{
-                  "returnRequestId":9263,
-                  "apiId":21,
-                  "returnRequestNumber":"e0bca915-413a-4f92-b5d9-a1734195f206",
-                  "returnStatusCode":4,
-                  "returnTitle":"Test2021070701",
-                  "totalValue":100.0,
-                  "totalValueCurrency":"usd",
-                  "remarks":"Test2021070701",
-                  "warehouseRma":null,
-                  "isArchived":false,
-                  "returnRequestSourceType":0,
-                  "modifyOn":"2021-07-07T05:53:10",
-                  "modifyBy":"21",
-                  "createOn":"2021-07-07T05:53:10",
-                  "createBy":"21"
-               },
-               "Item3":{
-                  "returnRequestId":9263,
-                  "apiId":21,
-                  "returnRequestNumber":"e0bca915-413a-4f92-b5d9-a1734195f206",
-                  "returnStatusCode":3,
-                  "returnTitle":"Test2021070701",
-                  "totalValue":100.0,
-                  "totalValueCurrency":"usd",
-                  "remarks":"Test2021070701",
-                  "warehouseRma":null,
-                  "isArchived":false,
-                  "returnRequestSourceType":0,
-                  "modifyOn":"2021-07-07T05:53:28.6347547Z",
-                  "modifyBy":"21",
-                  "createOn":"2021-07-07T05:53:10",
-                  "createBy":"21"
-               }
-            }
-         },
-         "category":"labelGenerated",
-         "action":"labelGenerated",
-         "eventTime":"2021-07-07T05:53:28.8015698Z"
-      }
+   {
+    "label": {
+        "correlationId": null,
+        "meta": null,
+        "labelId": 11345,
+        "shipmentId": 10825,
+        "apiId": 21,
+        "refKey": "S210904-0000202",
+        "labelRequestId": 3778,
+        "labelRequestStatusCode": "success",
+        "serviceType": "usps",
+        "trackingNumber": "9201994884299101400710",
+        "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202109/3778-S210904-0000202-zn5uhgdezop.pdf",
+        "error": null
+    },
+    "category": "labelGenerated",
+    "action": "labelGenerated",
+    "eventTime": "2021-09-04T17:03:15.8888073Z"
+}
 
 |
 
 This is a label create fail example, please check the highlight area:
 
 .. code-block:: json
-   :emphasize-lines: 12-16
+   :emphasize-lines: 12-14
 
-      {
-         "statusDto": {
-         "label": {
-            "labelId": 9690,
-            "shipmentId": 9180,
-            "apiId": 2,
-            "refKey": "S210706-0000022",
-            "labelRequestId": 3497,
-            "labelRequestStatusCode": 0,
-            "serviceType": "usps",
-            "trackingNumber": null,
-            "labelUrl": null,
-            "error": {
-               "path":"data.shipment.ship_to.state",
-               "info":"data.shipment.ship_to.state should be one of [Alaska,Alabama,Arkansas,American Samoa,Arizona,California,Colorado,Connecticut,District of Columbia,Delaware,Florida,Georgia,Guam,Hawaii,Iowa,Idaho,Illinois,Indiana,Kansas,Commonwealth of Kentucky,Kentucky,Louisiana,Commonwealth of Massachusetts,Massachusetts,Maryland,Maine,Michigan,Minnesota,Missouri,CNMI,Commonwealth of the Northern Mariana Islands,Northern Mariana Islands,Mississippi,Montana,North Carolina,North Dakota,Nebraska,New Hampshire,New Jersey,New Mexico,Nevada,New York,Ohio,Oklahoma,Oregon,Commonwealth of Pennsylvania,Pennsylvania,Commonwealth of Puerto Rico,Puerto Rico,Rhode Island,State of Rhode Island and Providence Plantations,South Carolina,South Dakota,Tennessee,Texas,United States Minor Outlying Islands,Utah,Commonwealth of Virginia,Virginia,American Virgin Islands,U.S. Virgin Islands,United States Virgin Islands,USVI,Virgin Islands,Virgin Islands of the United States,Virgin Islands, U.S.,Vermont,District of Columbia,the District,Washington,Washington, D.C.,Wisconsin,West Virginia,Wyoming] or its 2-letter code."
-            },
-            "fromCountryCode": "usa",
-            "fromName": "Thomas R Stanton",
-            "fromPhone": "2164851626",
-            "fromFax": null,
-            "fromEmail": "8gftuk2r4jb@temporary-mail.net",
-            "fromStreet1": "2638  Peaceful Lane",
-            "fromStreet2": null,
-            "fromStreet3": null,
-            "fromState": "OH",
-            "fromCity": "Cleveland",
-            "fromPostalCode": "44109",
-            "toCountryCode": "usa",
-            "toName": "RH2",
-            "toPhone": "8554377467",
-            "toFax": "7327187923",
-            "toEmail": null,
-            "toStreet1": "2A Corn Road",
-            "toStreet2": null,
-            "toStreet3": null,
-            "toState": "NJ",
-            "toCity": "Dayton",
-            "toPostalCode": "08810",
-            "toCompany": "IDS Online Corp",
-            "fromCompany": "Return Helper Service",
-            "carrier": null,
-            "referenceNumber": null
-         },
-         "shipment": {
-            "shipmentId": 9180,
-            "apiId": 2,
-            "returnRequestId": 9239,
-            "labelId": 9690,
-            "apiTransactionId": 0,
-            "warehouseId": 2,
-            "shipmentNumber": "S210706-0000022",
-            "shipmentStatusCode": 1,
-            "shipmentServiceType": 2,
-            "shipmentCountryCode": "usa",
-            "shipmentName": "Thomas R Stanton",
-            "shipmentPhone": "2164851626",
-            "shipmentFax": null,
-            "shipmentEmail": "8gftuk2r4jb@temporary-mail.net",
-            "shipmentStreet1": "2638  Peaceful Lane",
-            "shipmentStreet2": null,
-            "shipmentStreet3": null,
-            "shipmentState": "OH",
-            "shipmentCity": "Cleveland",
-            "shipmentPostalCode": "44109",
-            "costCurrencyCode": "usd",
-            "cost": 12.89,
-            "boxType": "cus",
-            "weight": 1234,
-            "weightUom": "g",
-            "dimension1": 10,
-            "dimension2": 10,
-            "dimension3": 10,
-            "dimensionUom": "cm",
-            "isRrLabel": true,
-            "receiveDate": null,
-            "referenceNumber": null,
-            "modifyOn": "2021-07-06T15:09:18.0323391Z",
-            "modifyBy": "2",
-            "createOn": "2021-07-06T15:09:08",
-            "createBy": "2"
-         },
-         "returnRequest": {
-            "returnRequestId": 9239,
-            "apiId": 2,
-            "returnRequestNumber": "R210706-0000011",
-            "returnStatusCode": 4,
-            "returnTitle": "lkjsdfsdf",
-            "totalValue": 122,
-            "totalValueCurrency": "usd",
-            "remarks": null,
-            "warehouseRma": null,
-            "isArchived": false,
-            "returnRequestSourceType": 0,
-            "modifyOn": "2021-07-06T15:09:08",
-            "modifyBy": "2",
-            "createOn": "2021-07-06T15:09:08",
-            "createBy": "2"
-         },
-         "updateLabelResult": {
-            "Item1": true,
-            "Item2": {
-               "labelId": 9690,
-               "shipmentId": 9180,
-               "apiId": 2,
-               "refKey": "S210706-0000022",
-               "labelRequestId": 3497,
-               "labelRequestStatusCode": 1,
-               "serviceType": "usps",
-               "trackingNumber": null,
-               "labelUrl": null,
-               "error": null,
-               "fromCountryCode": "usa",
-               "fromName": "Thomas R Stanton",
-               "fromPhone": "2164851626",
-               "fromFax": null,
-               "fromEmail": "8gftuk2r4jb@temporary-mail.net",
-               "fromStreet1": "2638  Peaceful Lane",
-               "fromStreet2": null,
-               "fromStreet3": null,
-               "fromState": "OH",
-               "fromCity": "Cleveland",
-               "fromPostalCode": "44109",
-               "toCountryCode": "usa",
-               "toName": "RH2",
-               "toPhone": "8554377467",
-               "toFax": "7327187923",
-               "toEmail": null,
-               "toStreet1": "2A Corn Road",
-               "toStreet2": null,
-               "toStreet3": null,
-               "toState": "NJ",
-               "toCity": "Dayton",
-               "toPostalCode": "08810",
-               "toCompany": "IDS Online Corp",
-               "fromCompany": "Return Helper Service",
-               "carrier": null,
-               "referenceNumber": null
-            },
-            "Item3": {
-               "labelId": 9690,
-               "shipmentId": 9180,
-               "apiId": 2,
-               "refKey": "S210706-0000022",
-               "labelRequestId": 3497,
-               "labelRequestStatusCode": 0,
-               "serviceType": "usps",
-               "trackingNumber": null,
-               "labelUrl": null,
-               "error": "[]",
-               "fromCountryCode": "usa",
-               "fromName": "Thomas R Stanton",
-               "fromPhone": "2164851626",
-               "fromFax": null,
-               "fromEmail": "8gftuk2r4jb@temporary-mail.net",
-               "fromStreet1": "2638  Peaceful Lane",
-               "fromStreet2": null,
-               "fromStreet3": null,
-               "fromState": "OH",
-               "fromCity": "Cleveland",
-               "fromPostalCode": "44109",
-               "toCountryCode": "usa",
-               "toName": "RH2",
-               "toPhone": "8554377467",
-               "toFax": "7327187923",
-               "toEmail": null,
-               "toStreet1": "2A Corn Road",
-               "toStreet2": null,
-               "toStreet3": null,
-               "toState": "NJ",
-               "toCity": "Dayton",
-               "toPostalCode": "08810",
-               "toCompany": "IDS Online Corp",
-               "fromCompany": "Return Helper Service",
-               "carrier": null,
-               "referenceNumber": null
-            }
-         },
-         "updateShipmentResult": {
-            "Item1": true,
-            "Item2": {
-               "shipmentId": 9180,
-               "apiId": 2,
-               "returnRequestId": 9239,
-               "labelId": 9690,
-               "apiTransactionId": 0,
-               "warehouseId": 2,
-               "shipmentNumber": "S210706-0000022",
-               "shipmentStatusCode": 3,
-               "shipmentServiceType": 2,
-               "shipmentCountryCode": "usa",
-               "shipmentName": "Thomas R Stanton",
-               "shipmentPhone": "2164851626",
-               "shipmentFax": null,
-               "shipmentEmail": "8gftuk2r4jb@temporary-mail.net",
-               "shipmentStreet1": "2638  Peaceful Lane",
-               "shipmentStreet2": null,
-               "shipmentStreet3": null,
-               "shipmentState": "OH",
-               "shipmentCity": "Cleveland",
-               "shipmentPostalCode": "44109",
-               "costCurrencyCode": "usd",
-               "cost": 12.89,
-               "boxType": "cus",
-               "weight": 1234,
-               "weightUom": "g",
-               "dimension1": 10,
-               "dimension2": 10,
-               "dimension3": 10,
-               "dimensionUom": "cm",
-               "isRrLabel": true,
-               "receiveDate": null,
-               "referenceNumber": null,
-               "modifyOn": "2021-07-06T15:09:17",
-               "modifyBy": "2",
-               "createOn": "2021-07-06T15:09:08",
-               "createBy": "2"
-            },
-            "Item3": {
-               "shipmentId": 9180,
-               "apiId": 2,
-               "returnRequestId": 9239,
-               "labelId": 9690,
-               "apiTransactionId": 0,
-               "warehouseId": 2,
-               "shipmentNumber": "S210706-0000022",
-               "shipmentStatusCode": 1,
-               "shipmentServiceType": 2,
-               "shipmentCountryCode": "usa",
-               "shipmentName": "Thomas R Stanton",
-               "shipmentPhone": "2164851626",
-               "shipmentFax": null,
-               "shipmentEmail": "8gftuk2r4jb@temporary-mail.net",
-               "shipmentStreet1": "2638  Peaceful Lane",
-               "shipmentStreet2": null,
-               "shipmentStreet3": null,
-               "shipmentState": "OH",
-               "shipmentCity": "Cleveland",
-               "shipmentPostalCode": "44109",
-               "costCurrencyCode": "usd",
-               "cost": 12.89,
-               "boxType": "cus",
-               "weight": 1234,
-               "weightUom": "g",
-               "dimension1": 10,
-               "dimension2": 10,
-               "dimension3": 10,
-               "dimensionUom": "cm",
-               "isRrLabel": true,
-               "receiveDate": null,
-               "referenceNumber": null,
-               "modifyOn": "2021-07-06T15:09:18.0323391Z",
-               "modifyBy": "2",
-               "createOn": "2021-07-06T15:09:08",
-               "createBy": "2"
-            }
-         },
-         "updateReturnRequestResult": {
-            "Item1": false,
-            "Item2": {
-               "returnRequestId": 9239,
-               "apiId": 2,
-               "returnRequestNumber": "R210706-0000011",
-               "returnStatusCode": 4,
-               "returnTitle": "lkjsdfsdf",
-               "totalValue": 122,
-               "totalValueCurrency": "usd",
-               "remarks": null,
-               "warehouseRma": null,
-               "isArchived": false,
-               "returnRequestSourceType": 0,
-               "modifyOn": "2021-07-06T15:09:08",
-               "modifyBy": "2",
-               "createOn": "2021-07-06T15:09:08",
-               "createBy": "2"
-            },
-            "Item3": null
-         }
-         },
-         "category": "labelGenerated",
-         "action": "labelGenerated",
-         "eventTime": "2021-07-06T15:09:18.2081063Z"
-      }
+   {
+    "label": {
+        "correlationId": null,
+        "meta": null,
+        "labelId": 11352,
+        "shipmentId": 10833,
+        "apiId": 103,
+        "refKey": "S210906-0000085",
+        "labelRequestId": 3782,
+        "labelRequestStatusCode": "fail",
+        "serviceType": "ap",
+        "trackingNumber": null,
+        "labelUrl": null,
+        "error": "\"{\\\"errors\\\":[{\\\"code\\\":\\\"400\\\",\\\"name\\\":\\\"Bad Request\\\",\\\"message\\\":\\\"Your combination of suburb, state & postcode doesn't match. Please review and try again.\\\",\\\"field\\\":\\\"shipments[0].from.origin\\\"}]}\""
+    },
+    "category": "labelGenerated",
+    "action": "labelGenerated",
+    "eventTime": "2021-09-06T08:16:33.4674332Z"
+   }
 
 |
 

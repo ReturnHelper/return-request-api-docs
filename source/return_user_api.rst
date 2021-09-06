@@ -273,12 +273,12 @@ Parameters:
 
 Response:
 
-.. _structure-ApiResponse:
+.. _structure-LabelResponse:
 
-.. csv-table:: ``ApiResponse``
+.. csv-table:: ``LabelResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/ApiResponse.csv
+   :file: models/ReturnRequest/LabelResponse.csv
 
 |
 
