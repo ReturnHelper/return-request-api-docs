@@ -1,0 +1,12 @@
+correlationId, string_
+meta, :ref:`structure-ApiResponseMeta`
+labelId, long_
+shipmentId, long_
+apiId, integer_
+refKey, string_
+labelRequestId, long_
+labelRequestStatusCode, string_, Enum: ``canceled`` ``queue`` ``fail`` ``started`` ``success``
+serviceType, string_
+trackingNumber, string_, Only available for label status ``success``
+labelUrl, string_, Only available for label status ``success``
+error, string_
