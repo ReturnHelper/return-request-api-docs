@@ -122,6 +122,7 @@ These are enums that used to identify the notification type which clients can ma
 
 .. list-table::
    :widths: 15 25
+   :header-rows: 1
 
    * - ``category`` code
      - Data object
@@ -150,7 +151,10 @@ These are enums that used to identify the notification type which clients can ma
 
 .. list-table::
    :widths: 15 25
+   :header-rows: 1
 
+   * - ``action`` code
+     - event description
    * - ``markShipmentArrive``
      - Shipment arrive notification event
    * - ``assignUnknown``
