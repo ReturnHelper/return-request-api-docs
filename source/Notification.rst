@@ -41,7 +41,7 @@ Signing Key
 ***********
 
 Each client has an unique signing key provided by Return Helper during account setup. This key is used to sign the notification and generate a signature (please check more details below).
-Please store your key securely and never disclose. **The signing key is Base64 endcoded.**
+Please store your key securely and never disclose. **The signing key is Base64 encoded.**
 
 Retry
 *****
