@@ -79,8 +79,6 @@ To understand how signature is generated, consider the example below:
    {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
 
 
-Reminder: The payload is in Base64(UTF8).
-
 How to verify signature:
 
 1. | **Extract the signature from header comparing with the generated signature**
@@ -136,6 +134,8 @@ These are enums that used to identify the notification type which clients can ma
      - returninventory (including complete and cancel handling)
    * - ``resend``
      - resend
+   * - ``sr``
+     - special request
    * - ``fbaro``
      - fba removal order and shipment
    * - ``fbai``
@@ -201,6 +201,8 @@ These are enums that used to identify the notification type which clients can ma
      - Fba relabel (replenish) mark ship event
    * - ``completeFbaRelabel``
      - Complete Fba Relabel (replenish) event
+   * - ``createSpecialRequest``
+     - Create special request event
    * - ``addAddressOnly``
      - Add address event
    * - ``addAddressAndLabel``
