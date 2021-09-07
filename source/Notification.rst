@@ -120,27 +120,95 @@ Body
 ``category`` and ``action`` are two common properties in every notification body.
 These are enums that used to identify the notification type which clients can make use of when processing the message.
 
-| List of ``categories``:
-| ``rsl`` - returnrequest, shipment, label
-| ``lr`` - labelrefund
-| ``rrli`` - returnrequestlineitem
-| ``rinv`` - returninventory including complete and cancel handling
-| ``resend``
-| ``sr`` - special request
-| ``fbaro`` - fba removal order and shipment
-| ``fbai`` - fba inventory
-| ``labelGenerated``
-| ``rrliv`` - ReturnRequestLineItemVas, returninventory, ReturnRequestLineItemImage
-| ``recall``
-| ``lineItemVasReturnInventoryLineItem``
-| ``transaction``
+.. list-table::
+   :widths: 15 25
 
-| List of ``action``:
-| ``markShipmentArrive`` ``assignUnknown`` ``userCancelLabel`` ``userAddVas`` ``userChangeHandling`` ``userCreateResend``
-| ``completeInventoryHandling`` ``cancelInventoryHandling`` ``createSpecialRequest`` ``markFbaDeliver`` ``receiveFbaInventory``
-| ``completeFbaRecall`` ``completeFbaOthers`` ``completeFbaDispose`` ``completeFbaRelabel`` ``assignFbaRelabelFnsku`` ``createFbaRelabelShipment``
-| ``completeFbaRelabelRepack`` ``addAddressOnly`` ``addAddressAndLabel`` ``markFbaRelabelShipmentShip`` ``labelGenerated`` ``changeLineItemImage``
-| ``vasUpdated`` ``updateResendTrackingNumber`` ``recallUpdateStatus`` ``splitLineItem`` ``forceCancelResend`` ``addTransaction``
+   * - ``category`` code
+     - Data object
+   * - ``rsl``
+     - returnrequest, shipment, label
+   * - ``lr``
+     - labelrefund
+   * - ``rrli``
+     - returnrequestlineitem
+   * - ``rinv``
+     - returninventory (including complete and cancel handling)
+   * - ``resend``
+     - resend
+   * - ``fbaro``
+     - fba removal order and shipment
+   * - ``fbai``
+     - fba inventory
+   * - ``labelGenerated``
+     - label gererated object. Check :ref:`method-CreateLabel` for more details
+   * - ``rrliv``
+     - ReturnRequestLineItemVas, returninventory, ReturnRequestLineItemImage
+   * - ``lineItemVasReturnInventoryLineItem``
+     - VAS object. Check :ref:`method-CreateVas` for more details
+   * - ``transaction``
+     - Transaction
+
+.. list-table::
+   :widths: 15 25
+
+   * - ``markShipmentArrive``
+     - Shipment arrive notification event
+   * - ``assignUnknown``
+     - Assign unknown shipment event. Triggers when warehouse assign a package to user that has not been registered.
+   * - ``userCancelLabel``
+     - User cancel label event
+   * - ``userAddVas``
+     - Add VAS event
+   * - ``vasUpdated``
+     - Update VAS event
+   * - ``userChangeHandling``
+     - User change handling event
+   * - ``labelGenerated``
+     - label gererated event. Check :ref:`method-CreateLabel` for more details
+   * - ``changeLineItemImage``
+     - Update line item image event
+   * - ``userCreateResend``
+     - User create resend event
+   * - ``updateResendTrackingNumber``
+     - Update resend tracking number event
+   * - ``forceCancelResend``
+     - Force cancel resend event
+   * - ``completeInventoryHandling``
+     - Complete handling event
+   * - ``cancelInventoryHandling``
+     - Cancel handling event
+   * - ``markFbaDeliver``
+     - Fba deliver event
+   * - ``completeFbaRecall``
+     - Fba complete recall event
+   * - ``completeFbaOthers``
+     - Fba others handling event
+   * - ``completeFbaDispose``
+     - Fba dispose complete event
+   * - ``receiveFbaInventory``
+     - Receive Fba inventory event
+   * - ``createFbaRelabelShipment``
+     - Create Fba relabel (replenish) shipment event
+   * - ``completeFbaRelabelRepack``
+     - Complete Fba relabel (replenish) repack event
+   * - ``assignFbaRelabelFnsku``
+     - Assign Fba Relabel (replenish) event
+   * - ``markFbaRelabelShipmentShip``
+     - Fba relabel (replenish) mark ship event
+   * - ``completeFbaRelabel``
+     - Complete Fba Relabel (replenish) event
+   * - ``addAddressOnly``
+     - Add address event
+   * - ``addAddressAndLabel``
+     - Add address and label event
+   * - ``recallUpdateStatus``
+     - Update recall status event
+   * - ``splitLineItem``
+     - Split line item event result event
+   * - ``addTransaction``
+     - Add transaction event
+
+
 List of supported notification
 ------------------------------
 
