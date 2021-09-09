@@ -45,7 +45,7 @@ GetServiceTypeByFromToCountry
 
 ::
 
-[GET] <userapi-endpoint>/warehouse/getServiceTypeByFromToCountry
+[GET] <userapi-endpoint>/servicetype/getServiceTypeByFromToCountry
 
 Parameters:
 
@@ -55,6 +55,7 @@ Parameters:
    :widths: 15, 10, 30
 
    fromCountry, string_
+   toCountry, string_
 
 Response:
 
@@ -74,7 +75,7 @@ GetServiceTypeByFromCountryAndWarehouse
 
 ::
 
-[GET] <userapi-endpoint>/warehouse/getServiceTypeByFromCountryAndWarehouse
+[GET] <userapi-endpoint>/servicetype/getServiceTypeByFromCountryAndWarehouse
 
 Parameters:
 
