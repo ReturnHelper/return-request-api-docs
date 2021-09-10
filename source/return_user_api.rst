@@ -105,7 +105,7 @@ SearchShipment
 
 ::
 
-[GET] <userapi-endpoint>/warehouse/searchShipment
+[GET] <userapi-endpoint>/shipment/searchShipment
 
 Parameters:
 
