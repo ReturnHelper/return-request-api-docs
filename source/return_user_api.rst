@@ -654,40 +654,6 @@ Response:
 
 ----
 
-.. _method-searchReturnRequest:
-
-SearchReturnRequest
--------------------
-
-::
-
-[GET]  <userapi-endpoint>/returnrequest/searchReturnRequest
-
-Parameters:
-
-.. _structure-GetReturnRequestListRequest:
-
-.. csv-table:: ``GetReturnRequestListRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-   :file: models/ReturnRequest/GetReturnRequestListRequest.csv
-
-|
-
-Response:
-
-.. _structure-ReturnRequestListResponse:
-
-.. csv-table:: ``ReturnRequestListResponse`` (inherit :ref:`structure-PaginationResponse`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   returnRequests, List<:ref:`structure-ReturnRequestPayload`>
-
-|
-
-----
-
 .. _method-UpdateReturnRequestHandling:
 
 UpdateReturnRequestHandling
