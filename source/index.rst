@@ -25,6 +25,7 @@ Put authenication keys in your request header:
 
     x-rr-apikey: (your key)
     x-rr-apitoken: (your token)
+    x-api-key: (your api key)
     Content-Type: "application/json"
 
 ``API TOKEN`` is private and should never be shared to others.
