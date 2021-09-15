@@ -81,8 +81,8 @@ To understand how signature is generated, consider the example below:
 
 How to verify signature:
 
-1. | **Extract the signature from header comparing with the generated signature**
-2. | **Extract the timestamp from header for generating signature**
+1. | **Extract the signature from header, for comparing with the generated signature later**
+2. | **Extract the timestamp from header, for generating signature**
 3. | **Prepare string_to_sign**
    | Concatenate the following data as string in the following order:
    |  3-1. HTTP action (always to be POST)
@@ -99,7 +99,7 @@ How to verify signature:
    |   4-3. Generate signature (byte array) from 4-1 and 4-2 (example: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/)
    |   4-4. Encode signature (byte array) to Base64
 5. | **Compare the signatures**
-   | Compare the signature generated from Step 4 with Step 1
+   | Compare the signature generated from Step 4 with the signature extracted from Step 1
 
 A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
 
