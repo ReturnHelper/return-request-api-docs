@@ -98,37 +98,6 @@ Response:
 
 ----
 
-.. _method-SearchShipment:
-
-SearchShipment
----------------
-
-::
-
-[GET] <userapi-endpoint>/shipment/searchShipment
-
-Parameters:
-
-.. _structure-SearchShipmentRequest:
-
-.. csv-table:: ``SearchShipmentRequest``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchShipmentRequest.csv
-
-Response:
-
-.. _structure-SearchShipmentResponse:
-
-.. csv-table:: ``SearchShipmentResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchShipmentResponse.csv
-
-|
-
-----
-
 .. _method-GetAllWarehouse:
 
 GetAllWarehouse
@@ -783,6 +752,37 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnRequest/ReturnRequestResponse.csv
+
+|
+
+----
+
+.. _method-SearchShipment:
+
+SearchShipment
+---------------
+
+::
+
+[GET] <userapi-endpoint>/shipment/searchShipment
+
+Parameters:
+
+.. _structure-SearchShipmentRequest:
+
+.. csv-table:: ``SearchShipmentRequest``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchShipmentRequest.csv
+
+Response:
+
+.. _structure-SearchShipmentResponse:
+
+.. csv-table:: ``SearchShipmentResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/SearchShipmentResponse.csv
 
 |
 
