@@ -96,7 +96,7 @@ How to verify signature:
    | Signature is computed by using HMAC with SHA256 hash function:
    |   4-1. Decode Base64 string_to_sign to byte array
    |   4-2. Decode Base64 signing key to byte array
-   |   4-3. Generate signature (byte array) from 4-1 and 4-2 (example: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/)
+   |   4-3. Generate signature (byte array) from 4-1 and 4-2
    |   4-4. Encode signature (byte array) to Base64
 5. | **Compare the signatures**
    | Compare the signature generated from Step 4 with the signature extracted from Step 1
