@@ -248,7 +248,18 @@ Response:
 .. csv-table:: ``LabelResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/ReturnRequest/LabelResponse.csv
+
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   labelId, long_
+   shipmentId, long_
+   apiId, integer_
+   refKey, string_
+   labelRequestId, long_
+   labelRequestStatusCode, string_, Enum: ``canceled`` ``queue`` ``fail`` ``started`` ``success``
+   serviceType, string_
+   error, string_
+
 
 |
 
