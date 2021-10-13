@@ -193,7 +193,7 @@ Parameters:
 
 .. _structure-UserSearchWarehouseRequest:
 
-.. csv-table:: ``UserSearchWarehouseRequest``
+.. csv-table:: ``UserSearchWarehouseRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/UserSearchWarehouseRequest.csv
@@ -202,7 +202,7 @@ Response:
 
 .. _structure-UserSearchWarehouseResponse:
 
-.. csv-table:: ``UserSearchWarehouseResponse``
+.. csv-table:: ``UserSearchWarehouseResponse`` (inherit :ref:`structure-PaginationResponse`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/UserSearchWarehouseResponse.csv
@@ -781,7 +781,7 @@ Parameters:
 
 .. _structure-SearchShipmentRequest:
 
-.. csv-table:: ``SearchShipmentRequest``
+.. csv-table:: ``SearchShipmentRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchShipmentRequest.csv
@@ -790,12 +790,34 @@ Response:
 
 .. _structure-SearchShipmentResponse:
 
-.. csv-table:: ``SearchShipmentResponse``
+.. csv-table:: ``SearchShipmentResponse`` (inherit :ref:`structure-PaginationResponse`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchShipmentResponse.csv
 
 |
+
+
+Request samples:
+****************
+
+Getting the latest shipments:
+
+``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=0&pagesize=50``
+
+Getting the next 50 latest shipments:
+
+``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=50&pagesize=50``
+
+Getting shipments from ``2021-01-01`` to ``2021-01-30``:
+
+``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=0&pagesize=50&createFromStr=2021-01-01&createToStr=2021-01-30``
+
+Getting shipment with a specific shipment number:
+
+``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=0&pagesize=50&shipmentNumber=<insert shipment number>``
+
+
 
 ----
 
@@ -890,7 +912,7 @@ Parameters:
 
 .. _structure-SearchRmaRequest:
 
-.. csv-table:: ``SearchRmaRequest``
+.. csv-table:: ``SearchRmaRequest`` (inherit :ref:`structure-PaginationRequest`)
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
    :file: models/ReturnInventory/SearchRmaRequest.csv
@@ -899,7 +921,7 @@ Parameters:
 
 Response:
 
-.. csv-table:: ``ReturnInventoryResponse``
+.. csv-table:: ``ReturnInventoryResponse`` (inherit :ref:`structure-PaginationResponse`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnInventory/SearchRmaResponse.csv
@@ -1329,7 +1351,7 @@ Response:
 
 .. _structure-SearchRecallResponse:
 
-.. csv-table:: ``SearchRecallResponse``
+.. csv-table:: ``SearchRecallResponse`` (inherit :ref:`structure-PaginationResponse`)
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/SearchRecallResponse.csv
