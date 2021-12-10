@@ -1081,7 +1081,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryIdList, List<string_>, YES, Obtain from user api :ref:`method-createReturnRequest` response
+   returnInventoryIdList, List<string_>, YES, Obtain from :ref:`notification-MarkReceived` and :ref:`notification-assignUnknown` - see :ref:`gettingstarted-ReturnArrival` for more detail
    resendNumber, string_,,Auto generated if not submitted.
    description, string_,
    remarks, string_,
@@ -1099,13 +1099,13 @@ Object ``ResendShipmentPayload``
    shipmentServiceType, string_, YES, Obtain from: 1. user api :ref:`method-GetWarehouseByFromCountry` 2. user api :ref:`method-getServiceTypeByFromCountryAndWarehouse`
    shipmentCountryCode, string_, YES, Obtain from public api :ref:`method-getAllCountries`
    shipmentName, string_, YES, Max length 255
-   shipmentPhone, string_
-   shipmentFax, string_
-   shipmentEmail, string_
+   shipmentPhone, string_, YES
+   shipmentFax, string_, YES
+   shipmentEmail, string_, YES
    shipmentStreet1, string_, YES, Max length 255
-   shipmentStreet2, string_
+   shipmentStreet2, string_, YES
    shipmentStreet3, string_
-   shipmentState, string_
+   shipmentState, string_, YES
    shipmentCity, string_, YES, Max length 50
    shipmentPostalCode, string_, YES, Max length 50
 
