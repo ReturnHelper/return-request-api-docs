@@ -7,15 +7,17 @@ Get return label
 1. :ref:`method-CreateReturnRequest` - create Return Request with product and shipment information. If Return Request is created successfully, ``shipmentId`` will be returned in the response message.
 2. :ref:`method-CreateLabel` - request label by ``shipmentId``
 3. :ref:`notification-label` - label request result will be sent to your :ref:`notification_endpoint`
-4. If result is received, ``shipmentId`` is included. ``shipmentId`` is the one you used to request create label. 
-5. If label is created successfully, label (file url) will be found in the result. Otherwise, error info will be found instead. 
+4. If result is received, ``shipmentId`` is included. ``shipmentId`` is the one you used to request create label.
+5. If label is created successfully, label (file url) will be found in the result. Otherwise, error info will be found instead.
 
 Cancel return label
 -------------------
 
 1.  If label is created successfully, it will be linked with the return request and corresponding shipment.
-2.  However, in somehow, it is no longer needed. You have to cancel label in system. 
+2.  However, in somehow, it is no longer needed. You have to cancel label in system.
 3.  :ref:`method-CancelLabel` - Cancel label by ``labelId``, which is expected in the :ref:`notification-label`.
+
+.. _gettingstarted-ReturnArrival:
 
 Return inventory at the return arrival
 --------------------------------------
@@ -26,7 +28,7 @@ There are two types of return arrival:
 
 `Type 1:`
 
-1.  Initiated by seller and label is provided by Return Helper. Return Request has been created upon seller's request. 
+1.  Initiated by seller and label is provided by Return Helper. Return Request has been created upon seller's request.
 2.  :ref:`notification-MarkReceived` will be sent to your notification endpoint. Return inventory payload, will be included in the notification payload. ``returnInventoryId`` is expected in it.
 
 `Type 2:`
@@ -37,8 +39,8 @@ There are two types of return arrival:
 Relationship between Return inventory and Return request line item
 ------------------------------------------------------------------
 
-1. Return inventory has another nickname, called `return request line item`. 
-2. Line item is created together with return request. Return inventory is created from `return request line item`. So, an unique ``returnRequestLineItemId`` will be inherited. 
+1. Return inventory has another nickname, called `return request line item`.
+2. Line item is created together with return request. Return inventory is created from `return request line item`. So, an unique ``returnRequestLineItemId`` will be inherited.
 
 Image of the return
 ----------------------------
