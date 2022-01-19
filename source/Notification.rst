@@ -237,8 +237,9 @@ action: ``labelGenerated``
 Sample:
 
 .. code-block:: json
-   :emphasize-lines: 12,13
+   :emphasize-lines: 13,14,16,36,37
 
+   (USPS)
    {
     "label": {
         "correlationId": null,
@@ -250,14 +251,39 @@ Sample:
         "labelRequestId": 3778,
         "labelRequestStatusCode": "success",
         "serviceType": "usps",
-        "trackingNumber": "9201994884299101400710",
-        "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202109/3778-S210904-0000202-zn5uhgdezop.pdf",
-        "error": null
+        "trackingNumber": "9201994884299101443342",
+        "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202112/4495-S211229-0000037-attc2xihut0.pdf",
+        "error": null,
+        "qrcodeUrl": "https://label-service-dev-files.returnshelper.com/label/202112/4495-S211229-0000037-qrebtcjpxne.png",
+        "qrcodeError": null
     },
     "category": "labelGenerated",
     "action": "labelGenerated",
     "eventTime": "2021-09-04T17:03:15.8888073Z"
-}
+   }
+
+   (non-USPS)
+   {
+    "label": {
+        "correlationId": null,
+        "meta": null,
+        "labelId": 11345,
+        "shipmentId": 10825,
+        "apiId": 21,
+        "refKey": "S210904-0000202",
+        "labelRequestId": 3779,
+        "labelRequestStatusCode": "success",
+        "serviceType": "sdhl",
+        "trackingNumber": "222201040017141511",
+        "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202111/4084-BRS211122-0000018-r1o1xeci30x.pdf",
+        "error": null,
+        "qrcodeUrl": null,
+        "qrcodeError": null
+    },
+    "category": "labelGenerated",
+    "action": "labelGenerated",
+    "eventTime": "2021-09-04T17:03:15.8888073Z"
+   }
 
 |
 
