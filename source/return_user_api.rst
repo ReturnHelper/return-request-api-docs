@@ -344,7 +344,7 @@ Object ``ShipmentPayload``:
   shipmentState, string_
   shipmentCity, string_
   shipmentPostalCode, string_
-  costCurrencyCode, string_
+  costCurrencyCode, string_, YES
   cost, decimal_
   boxType, string_, YES, Obtain from public api :ref:`method-getAllBoxTypes`
   weight, decimal_ , YES
@@ -480,7 +480,7 @@ Object ``CreateNonRrLabelShipmentRequest``:
   shipmentState, string_
   shipmentCity, string_
   shipmentPostalCode, string_
-  costCurrencyCode, string_
+  costCurrencyCode, string_, YES
   cost, decimal_
   boxType, string_, YES, Obtain from public api :ref:`method-getAllBoxTypes`
   weight, decimal_ , YES
