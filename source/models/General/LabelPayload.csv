@@ -7,8 +7,8 @@
    trackingNumber, string_ ,Alphanumeric; hyphen and underscore; max length 50
    labelUrl, string_
    error, string_
-   qrcodeUrl, string_, Only for usps service type
-   qrcodeError, string_, Only for usps service type
+   qrcodeUrl, string_, Only for usps service type. See :ref:`others_usps_qr_code`
+   qrcodeError, string_, Only for usps service type. See :ref:`others_usps_qr_code`
    fromCountryCode, string_
    fromName, string_
    fromPhone, string_
