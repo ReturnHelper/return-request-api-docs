@@ -9,4 +9,6 @@ labelRequestStatusCode, string_, Enum: ``canceled`` ``queue`` ``fail`` ``started
 serviceType, string_
 trackingNumber, string_, Only available for label status ``success``
 labelUrl, string_, Only available for label status ``success``
+qrcodeUrl, string_, Only for usps service type. See :ref:`others_usps_qr_code`
+qrcodeError, string_, Only for usps service type. See :ref:`others_usps_qr_code`
 error, string_
