@@ -307,6 +307,8 @@ CreateReturnRequest
 
 [POST]  <userapi-endpoint>/returnrequest/createReturnRequest
 
+**IMPORTANT NOTE**: returnRequestLineItems can contains one item only
+
 Parameters:
 
 .. _structure-CreateReturnRequestRequest:
