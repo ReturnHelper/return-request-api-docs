@@ -295,6 +295,8 @@ Response:
 
 ----
 
+.. _section-ReturnRequest:
+
 Return Request
 ==============
 
@@ -822,6 +824,8 @@ Getting shipment with a specific shipment number:
 
 
 ----
+
+.. _section-ReturnInventory:
 
 Return Inventory
 ================
