@@ -19,11 +19,15 @@ Cancel return label
 
 .. _gettingstarted-ReturnArrival:
 
-Return inventory at the return arrival
+Return Inventory at the return arrival
 --------------------------------------
 
-When the return shipment arrives a warehouse, it will be marked received.
-Thus, it will become return inventory for seller's further management.
+When the return shipment arrives a warehouse,
+it will be marked received and converted into Return Inventory for seller's further management. (See :ref:`section-ReturnInventory`)
+
+It is very important to note that **the whole shipment will be handled as a single Return Inventory** when converting :ref:`section-ReturnRequest` into :ref:`section-ReturnInventory`.
+
+
 There are two types of return arrival:
 
 `Type 1:`
@@ -35,12 +39,6 @@ There are two types of return arrival:
 
 1.  Not initiated by seller but Return Helper identifies that it belongs to a specific seller. Return Request record will be created when arrives warehouse and then assign to the seller.
 2.  :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId`` and ``returnRequestId`` are expected in it.
-
-Relationship between Return inventory and Return request line item
-------------------------------------------------------------------
-
-1. Return inventory has another nickname, called `return request line item`.
-2. Line item is created together with return request. Return inventory is created from `return request line item`. So, an unique ``returnRequestLineItemId`` will be inherited.
 
 Image of the return
 ----------------------------
