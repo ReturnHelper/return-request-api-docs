@@ -345,6 +345,17 @@ List of ``recallUpdateTypeStatus`` values
    3, recallPickUpToCourierPickUp
    4, recallPickUpToOthers
 
+List of ``recallStatusCode`` values
+
+.. csv-table::
+   :header: "Value", "Remarks"
+   :widths: 30, 30
+
+   0, pending
+   1, inProgress
+   2, completed
+   3, canceled
+
 |
 
 Sample:
