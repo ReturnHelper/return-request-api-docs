@@ -295,6 +295,8 @@ Response:
 
 ----
 
+.. _section-ReturnRequest:
+
 Return Request
 ==============
 
@@ -823,6 +825,8 @@ Getting shipment with a specific shipment number:
 
 ----
 
+.. _section-ReturnInventory:
+
 Return Inventory
 ================
 
@@ -1260,7 +1264,13 @@ CreateRecall
 This api creates a recall request. Successful request means that the inventory is pending for recall procedure.
 Further updates of the recall shipment(such as tracking number/ AWB update) are sent via notification callback.
 
-Details please check :ref:`notification-Recall`.
+For details about notification, please check :ref:`notification-Recall`.
+
+Each request can take a list of return intventory ids as input. It is very important to note that this function
+works in All-or-Nothing approach. Means that any of the id that fails to create as a recall inventory, would
+cause the entire request fail.
+
+Duplicated request on a same return inventory are rejected.
 
 ::
 
@@ -1296,7 +1306,6 @@ Response:
    :file: models/General/CreateRecallResponse.csv
 
 |
-
 ----
 
 .. _method-cancelRecall:
