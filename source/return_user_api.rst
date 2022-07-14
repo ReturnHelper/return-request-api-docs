@@ -1308,22 +1308,26 @@ Response:
 |
 ----
 
-.. _method-cancelRecall:
+.. _method-cancelRecallByReturnInventoryId:
 
-CancelRecall
----------------------------
+CancelRecallByReturnInventoryId
+-------------------------------
+
+Remove an inventory in a Recall.
+
+Note that only the given inventory(s) are cancelled, other inventories with the same `recallId` are not affected.
 
 ::
 
-[POST] <userapi-endpoint>/recall/cancelRecall
+[POST] <userapi-endpoint>/recall/cancelRecallByReturnInventoryId
 
 Parameters:
 
-.. csv-table::
+.. csv-table:: ``CancelRecallByReturnInventoryIdRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   recallId, string_,Max Length 35
+   returnInventoryId, string_,Max Length 35
 
 |
 
