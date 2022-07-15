@@ -1,10 +1,10 @@
-recallId, string_,Max Length 35
+resendId, string_,Max Length 35
 apiId, string_,Max Length 35
 warehouseId, string_,Max Length 35
-recallNumber, string_
-recallStatusCode, long_
+resendNumber, string_
+resendStatusCode, long_
 warehouseRemarks, string_
-recallInventoryStatusCode, bool_
+resendInventoryStatusCode, bool_
 modifyOn, DateTime_
 modifyBy, string_
 createOn, DateTime_
