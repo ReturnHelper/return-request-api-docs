@@ -431,16 +431,6 @@ MarTypeResponse
    :widths: 15, 10, 30
    :file: models/General/MarTypeResponse.csv
 
-.. _structure-RecallInventoryStatusResponse:
-
-RecallInventoryStatusResponse
------------------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/RecallInventoryStatusResponse.csv
-
 .. _structure-PickUpTypeStatusResponse:
 
 PickUpTypeStatusResponse
@@ -642,16 +632,6 @@ SearchShipmentResultPayload
    :widths: 15, 10, 30
    :file: models/General/SearchShipmentResultPayload.csv
 
-.. _structure-returnInventoryId:
-
-returnInventoryId
------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/CreateRecallPayload.csv
-
 .. _structure-RefundPayload:
 
 RefundPayload
@@ -661,17 +641,6 @@ RefundPayload
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/RefundPayload.csv
-
-.. _structure-SearchRecallPayload:
-
-SearchRecallPayload
------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchRecallPayload.csv
-
 
 .. _structure-originalTransactionMeta:
 
@@ -692,18 +661,6 @@ SearchRmaResultPayload
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnInventory/rmaList.csv
-
-
-.. _structure-NotificationRecallPayload:
-
-NotificationRecallPayload
--------------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Notification/NotificationRecallPayload.csv
-
 
 .. _structure-NotificationResendPayload:
 
