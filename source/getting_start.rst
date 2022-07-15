@@ -57,13 +57,6 @@ On-hold return inventory
 
 :ref:`method-UpdateReturnInventoryHandling` - update handling by ``returnInventoryId``, with on-hold handling.
 
-Create recall and cancel recall
--------------------------------
-
-1. :ref:`method-CreateRecall` - Create recall with a list of ``returnInventoryId``, to instruct which return inventories need to be recalled.
-2. AWB will be sent to your notification endpoint, :ref:`notification-Recall`. AWB will be included in the notification payload.
-3. :ref:`method-CancelRecall` - cancel the recall you have requested.
-
 Create resend and cancel resend
 -------------------------------
 
