@@ -707,8 +707,8 @@ Object ``CreateReturnRequestLineItemVasRequest``
    :widths: 15, 10, 10, 30
 
    returnRequestLineItemId, string_, Required, Line Item must be ``On-hold`` in order to create Vas
-   vasCode, string_, Required, ``mobi-fmt``(Format Mobile phone) ``mobi-imei``(Check Mobile Phone IMEI) ``mobi-lock``(Check Mobile Phone Lock status) ``prd-inspec``(Product inspection) ``repack``(Repack) ``req-pic``(Take pictures) ``split-parcel``(Split Parcel)
-   metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel``(1-50) ``req-pic``(grater than 0)
+   vasCode, string_, Required, ``mobi-fmt`` (Format Mobile phone) ``mobi-imei`` (Check Mobile Phone IMEI) ``mobi-lock`` (Check Mobile Phone Lock status) ``prd-inspec`` (Product inspection) ``repack`` (Repack) ``req-pic`` (Take pictures) ``split-parcel`` (Split Parcel)
+   metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel`` (1-50) ``req-pic`` (grater than 0)
    notes, string_
 
 Sample:
@@ -1249,6 +1249,135 @@ Response:
    :file: models/BaseClass/ApiResponse.csv
 
 |
+
+----
+
+Recall
+======
+
+.. _method-CreateRecallByReturnInventoryId:
+
+CreateRecallByReturnInventoryId
+-------------------------------
+
+Create recalls with at least one return inventory (max 100 inventories).
+
+::
+
+[POST] <userapi-endpoint>/Recall/createRecallByReturnInventoryId
+
+
+Parameters:
+
+.. csv-table:: ``GetRecallByReturnInventoryIdRequest``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   returnInventoryIdList,List<string_>, Max 100 ids for each call
+
+|
+
+Sample:
+
+::
+
+   {
+    "returnInventoryIdList":[1001,1002]
+   }
+
+Response:
+
+.. csv-table:: ``GetRecallByReturnInventoryIdResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   recallList,List<:ref:`structure-RecallResponse`>
+
+.. _structure-RecallResponse:
+
+.. csv-table:: ``RecallResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   recall,:ref:`structure-Recall`,
+   recallInventoryList,List<:ref:`structure-RecallInventory`>,
+
+.. _structure-Recall:
+
+.. csv-table:: ``RecallDao``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Recall/RecallDao.csv
+
+.. _structure-RecallInventory:
+
+.. csv-table:: ``RecallInventory``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Recall/RecallInventory.csv
+
+
+Sample:
+
+::
+
+   {
+      "correlationId": "0HMJ3U7AU3UVP:00000002",
+      "meta": {
+         "status": 200,
+         "data": {},
+         "errorCode": null,
+         "error": {}
+      },
+      "recallList": [
+         {
+               "recall": {
+                  "recallId": 1001,
+                  "recallNumber": "RT1001",
+                  "recallStatusCode": "in-progress",
+                  "warehosueRemarks": ""
+               },
+               "recallInventoryList": [
+                  {
+                     "recallInventoryId": 1001,
+                     "returnInventoryId": 2001,
+                     "recallInventoryStatusCode": "in-progress",
+                     "pickUpCode": "",
+                     "trackingNumber": "123456789",
+                     "listName": "sample",
+                     "weight": 10,
+                     "amount": 10,
+                     "pickUpOn": "",
+                     "courierTrackingNumber": "",
+                     "recallServiceType": "dhl"
+                  }
+               ]
+         },
+         {
+               "recall": {
+                  "recallId": 1002,
+                  "recallNumber": "RT1002",
+                  "recallStatusCode": "in-progress",
+                  "warehosueRemarks": ""
+               },
+               "recallInventoryList": [
+                  {
+                     "recallInventoryId": 1002,
+                     "returnInventoryId": 2002,
+                     "recallInventoryStatusCode": "in-progress",
+                     "pickUpCode": "",
+                     "trackingNumber": "223456789",
+                     "listName": "sample",
+                     "weight": 20,
+                     "amount": 20,
+                     "pickUpOn": "",
+                     "courierTrackingNumber": "",
+                     "recallServiceType": "dhl"
+                  }
+               ]
+         }
+      ]
+   }
 
 ----
 

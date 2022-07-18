@@ -1,0 +1,4 @@
+recallId,string_,
+recallNumber, string_,
+recallStatusCode, string_,  ``canceled`` ``completed`` ``in-progress`` ``pending``
+warehosueRemarks, string_
