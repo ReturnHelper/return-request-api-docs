@@ -360,6 +360,68 @@ Sample:
 
 |
 
+----
+
+.. _notification-Recall:
+
+Recall update status notification
+*********************************
+
+This notification is sent to client once the recall has one of the following status update:
+
+
+category: ``recall``
+
+action: ``recallUpdateStatus``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    recall, :ref:`structure-Recall`
+    recallInventoryList, :ref:`structure-RecallInventory`
+    recallUpdateTypeStatus, string_, see below table
+
+.. csv-table:: ``values of recallUpdateTypeStatus``
+  :header: "Status code", "Description"
+  :widths: 15, 30
+
+  ``updateTrackingNumber``, Tracking number update
+  ``readyToPickUp``, Inventory is ready to pickup
+  ``pickupBySelf``, Inventory is picked up by customer
+  ``pickupByCourier``, Inventory is picked up by local courier (from recall destination to seller)
+  ``pickupByOthers``, Inventory is picked up by none of the above entities
+
+
+
+Sample:
+
+::
+
+  {
+    "recall": {
+        "recallId": 1001,
+        "recallNumber": "R1001",
+        "recallStatusCode": "in-progress",
+        "warehouseRemarks": ""
+    },
+    "recallInventoryList": [{
+        "recallInventoryId": 2001,
+        "returnInventoryId": 3001,
+        "recallInventoryStatusCode": "in-progress",
+        "pickUpCode": "courier-pick-up",
+        "trackingNumber": "123456",
+        "listName": "recall item name",
+        "weight": 10,
+        "amount": 10,
+        "pickUpOn": "",
+        "courierTrackingNumber": "c123456",
+        "remarks": "",
+        "recallServiceType": "dhl"
+    }],
+    "recallUpdateTypeStatus": "pickupByCourier"
+}
+
 
 ----
 
