@@ -420,7 +420,7 @@ Sample:
         "recallServiceType": "dhl"
     }],
     "recallUpdateTypeStatus": "pickupByCourier"
-}
+  }
 
 
 ----
