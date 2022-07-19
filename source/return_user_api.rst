@@ -1269,7 +1269,7 @@ Create recalls with at least one return inventory (max 100 inventories).
 
 Parameters:
 
-.. csv-table:: ``GetRecallByReturnInventoryIdRequest``
+.. csv-table:: ``CreateRecallByReturnInventoryIdRequest``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
@@ -1287,7 +1287,7 @@ Sample:
 
 Response:
 
-.. csv-table:: ``GetRecallByReturnInventoryIdResponse``
+.. csv-table:: ``CreateRecallByReturnInventoryIdResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
