@@ -1304,10 +1304,10 @@ Response:
 
 .. _structure-Recall:
 
-.. csv-table:: ``RecallDao``
+.. csv-table:: ``Recall``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/Recall/RecallDao.csv
+   :file: models/Recall/Recall.csv
 
 .. _structure-RecallInventory:
 
