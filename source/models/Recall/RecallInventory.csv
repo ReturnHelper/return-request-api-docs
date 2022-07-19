@@ -1,0 +1,11 @@
+recallInventoryId, string_,
+returnInventoryId, string_,
+recallInventoryStatusCode, string_, ``canceled`` ``in-progress`` ``in-transit`` ``picked-up`` ``ready-to-pick-up``
+pickUpCode, string_, ``courier-pick-up`` ``pending`` ``self-pick-up`` ``others``
+trackingNumber, string_,
+listName, string_,
+weight, decimal_,
+amount, decimal_,
+pickUpOn, Datetime_
+courierTrackingNumber,string_,
+recallServiceType, string_,
