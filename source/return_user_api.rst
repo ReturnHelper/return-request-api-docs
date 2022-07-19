@@ -1341,7 +1341,7 @@ Sample:
                   {
                      "recallInventoryId": 1001,
                      "returnInventoryId": 2001,
-                     "recallInventoryStatusCode": "in-progress",
+                     "recallInventoryStatusCode": "in-transit",
                      "pickUpCode": "",
                      "trackingNumber": "123456789",
                      "listName": "sample",
@@ -1364,7 +1364,7 @@ Sample:
                   {
                      "recallInventoryId": 1002,
                      "returnInventoryId": 2002,
-                     "recallInventoryStatusCode": "in-progress",
+                     "recallInventoryStatusCode": "in-transit",
                      "pickUpCode": "",
                      "trackingNumber": "223456789",
                      "listName": "sample",
