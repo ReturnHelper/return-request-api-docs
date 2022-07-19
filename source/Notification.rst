@@ -408,7 +408,7 @@ Sample:
     "recallInventoryList": [{
         "recallInventoryId": 2001,
         "returnInventoryId": 3001,
-        "recallInventoryStatusCode": "in-progress",
+        "recallInventoryStatusCode": "picked-up",
         "pickUpCode": "courier-pick-up",
         "trackingNumber": "123456",
         "listName": "recall item name",
