@@ -402,7 +402,7 @@ Sample:
     "recall": {
         "recallId": 1001,
         "recallNumber": "R1001",
-        "recallStatusCode": "in-progress",
+        "recallStatusCode": "completed",
         "warehouseRemarks": ""
     },
     "recallInventoryList": [{
