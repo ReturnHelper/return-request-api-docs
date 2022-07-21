@@ -64,6 +64,12 @@ Create resend and cancel resend
 2. Resend tracking number will be sent to your notification endpoint, :ref:`notification-Resend`. Resend tracking number will be included in the notification payload.
 3. :ref:`method-CancelResend` - cancel the resend you have requested.
 
+Create recall
+-------------
+
+1. :ref:`method-createrecallbyreturninventoryid` - Create recall with a list of ``returnInventoryId``. Each recall request can contains a maximum of 100 return inventories.
+2. Any updates such as tracking update, pick up status change, are sent back via notification - :ref:`notification-recall`
+
 Add VAS on return inventory
 ---------------------------
 
