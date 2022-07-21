@@ -1291,16 +1291,7 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   recallList,List<:ref:`structure-RecallResponse`>
-
-.. _structure-RecallResponse:
-
-.. csv-table:: ``RecallResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   recall,:ref:`structure-Recall`,
-   recallInventoryList,List<:ref:`structure-RecallInventory`>,
+   recallList,List<:ref:`structure-Recall`>
 
 .. _structure-Recall:
 
@@ -1331,50 +1322,46 @@ Sample:
       },
       "recallList": [
          {
-               "recall": {
-                  "recallId": 1001,
-                  "recallNumber": "RT1001",
-                  "recallStatusCode": "in-progress",
-                  "warehosueRemarks": ""
-               },
-               "recallInventoryList": [
-                  {
-                     "recallInventoryId": 1001,
-                     "returnInventoryId": 2001,
-                     "recallInventoryStatusCode": "in-transit",
-                     "pickUpCode": "",
-                     "trackingNumber": "123456789",
-                     "listName": "sample",
-                     "weight": 10,
-                     "amount": 10,
-                     "pickUpOn": "",
-                     "courierTrackingNumber": "",
-                     "recallServiceType": "dhl"
-                  }
-               ]
+            "recallId": 1001,
+            "recallNumber": "RT1001",
+            "recallStatusCode": "in-progress",
+            "warehosueRemarks": ""
+            "recallInventoryList": [
+               {
+                  "recallInventoryId": 1001,
+                  "returnInventoryId": 2001,
+                  "recallInventoryStatusCode": "in-transit",
+                  "pickUpCode": "",
+                  "trackingNumber": "123456789",
+                  "listName": "sample",
+                  "weight": 10,
+                  "amount": 10,
+                  "pickUpOn": "",
+                  "courierTrackingNumber": "",
+                  "recallServiceType": "dhl"
+               }
+            ]
          },
          {
-               "recall": {
-                  "recallId": 1002,
-                  "recallNumber": "RT1002",
-                  "recallStatusCode": "in-progress",
-                  "warehosueRemarks": ""
-               },
-               "recallInventoryList": [
-                  {
-                     "recallInventoryId": 1002,
-                     "returnInventoryId": 2002,
-                     "recallInventoryStatusCode": "in-transit",
-                     "pickUpCode": "",
-                     "trackingNumber": "223456789",
-                     "listName": "sample",
-                     "weight": 20,
-                     "amount": 20,
-                     "pickUpOn": "",
-                     "courierTrackingNumber": "",
-                     "recallServiceType": "dhl"
-                  }
-               ]
+            "recallId": 1002,
+            "recallNumber": "RT1002",
+            "recallStatusCode": "in-progress",
+            "warehosueRemarks": ""
+            "recallInventoryList": [
+               {
+                  "recallInventoryId": 1002,
+                  "returnInventoryId": 2002,
+                  "recallInventoryStatusCode": "in-transit",
+                  "pickUpCode": "",
+                  "trackingNumber": "223456789",
+                  "listName": "sample",
+                  "weight": 20,
+                  "amount": 20,
+                  "pickUpOn": "",
+                  "courierTrackingNumber": "",
+                  "recallServiceType": "dhl"
+               }
+            ]
          }
       ]
    }

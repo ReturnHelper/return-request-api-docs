@@ -379,7 +379,6 @@ action: ``recallUpdateStatus``
    :widths: 15, 10, 30
 
     recall, :ref:`structure-Recall`
-    recallInventoryList, :ref:`structure-RecallInventory`
     recallUpdateTypeStatus, string_, see below table
 
 .. csv-table:: ``values of recallUpdateTypeStatus``
@@ -392,20 +391,17 @@ action: ``recallUpdateStatus``
   ``pickupByCourier``, Inventory is picked up by local courier (from recall destination to seller)
   ``pickupByOthers``, Inventory is picked up by none of the above entities
 
-
-
 Sample:
 
 ::
 
   {
-    "recall": {
-        "recallId": 1001,
-        "recallNumber": "R1001",
-        "recallStatusCode": "completed",
-        "warehouseRemarks": ""
-    },
-    "recallInventoryList": [{
+    "recallId": 1001,
+    "recallNumber": "R1001",
+    "recallStatusCode": "completed",
+    "warehouseRemarks": ""
+    "recallInventoryList": [
+      {
         "recallInventoryId": 2001,
         "returnInventoryId": 3001,
         "recallInventoryStatusCode": "picked-up",
@@ -418,7 +414,8 @@ Sample:
         "courierTrackingNumber": "c123456",
         "remarks": "",
         "recallServiceType": "dhl"
-    }],
+      }
+    ],
     "recallUpdateTypeStatus": "pickupByCourier"
   }
 
