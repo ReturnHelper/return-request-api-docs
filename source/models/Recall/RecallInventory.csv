@@ -2,10 +2,10 @@ recallInventoryId, string_,
 returnInventoryId, string_,
 recallInventoryStatusCode, string_, ``canceled`` ``in-progress`` ``in-transit`` ``picked-up`` ``ready-to-pick-up``
 pickUpCode, string_, ``courier-pick-up`` ``pending`` ``self-pick-up`` ``others``
-trackingNumber, string_,
+trackingNumber, string_, AWB from overseas to local
 listName, string_,
 weight, decimal_,
 amount, decimal_,
 pickUpOn, Datetime_
-courierTrackingNumber,string_,
+courierTrackingNumber,string_, Courier tracking from local warehouse to local destination
 recallServiceType, string_,
