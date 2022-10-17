@@ -1,0 +1,5 @@
+returnRequest, :ref:`structure-ReturnRequestPayload`
+returnInventory, List<:ref:`structure-ReturnInventoryPayload`>
+category, string_
+action, string_
+eventTime, string_

@@ -1,5 +1,5 @@
-ShipmentSupplement, :ref:`structure-NotificationShipmentSupplementPayload`
-ReturnInventory, List<:ref:`structure-ReturnInventoryPayload`>
+shipmentSupplement, :ref:`structure-NotificationShipmentSupplementPayload`
+returnInventory, List<:ref:`structure-ReturnInventoryPayload`>
 returnRequest, :ref:`structure-ReturnRequestPayload`
 shipment,   :ref:`structure-NotificationShipmentPayload`
 label, :ref:`structure-LabelPayload`

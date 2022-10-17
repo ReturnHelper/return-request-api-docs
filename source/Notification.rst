@@ -609,7 +609,193 @@ Sample:
 
 ----
 
+.. _notification-warehouseUpdateRemarks:
 
+Warehouse update remarks on return request notification
+*******************************************************
+
+This notification is sent when a warehouse updates remark details on a return request
+
+----
+
+category: ``warehouseUpdateWarehouseRemarks``
+
+action: ``warehouseUpdateWarehouseRemarks``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationWarehouseUpdateRemarks.csv
+
+
+Sample:
+
+.. code-block:: json
+
+  {
+    "returnRequest": {
+        "returnRequestId": 54521,
+        "returnRequestNumber": "WUS220808-0000003",
+        "returnStatusCode": "0",
+        "returnTitle": "TEST0902-317496",
+        "totalValue": 96.0,
+        "totalValueCurrency": "usd",
+        "warehouseRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
+        "remarks": "Created by Warehouse",
+        "isArchived": false,
+        "returnRequestFrom": "return-helper",
+        "modifyOn": "2022-08-09T08:36:58",
+        "modifyBy": "3",
+        "modifyOnStr": null,
+        "createOn": "2022-08-09T08:36:58",
+        "createBy": "3",
+        "createOnStr": null
+      },
+    "shipment":{
+        "shipmentId": 23549,
+        "returnRequestId": 54521,
+        "labelId": 24227,
+        "apiTransactionId": 0,
+        "warehouseId": 3,
+        "shipmentNumber": "WUS220808-0000003",
+        "shipmentStatusCode": "6",
+        "shipmentServiceType": "9",
+        "shipmentCountryCode": "usa",
+        "shipmentName": "name",
+        "shipmentPhone": "phone",
+        "shipmentFax": "",
+        "shipmentEmail": "email",
+        "shipmentStreet1": "street",
+        "shipmentStreet2": "",
+        "shipmentStreet3": "",
+        "shipmentState": "state",
+        "shipmentCity": "city",
+        "shipmentPostalCode": "code",
+        "costCurrencyCode": "usd",
+        "cost": 0.0,
+        "boxType": "cus",
+        "weight": 74.0,
+        "weightUom": "g",
+        "dimension1": 17.5,
+        "dimension2": 18.9,
+        "dimension3": 11.6,
+        "dimensionUom": "cm",
+        "isRrLabel": false,
+        "receiveDateStr": null,
+        "referenceNumber": null,
+        "modifyOn": "2022-08-09T08:36:58",
+        "modifyBy": "3",
+        "modifyOnStr": null,
+        "createOn": "2022-08-09T08:36:58",
+        "createBy": "3",
+        "createOnStr": null
+      },
+    "returnInventory": {
+        "returnInventoryId": 13790,
+        "warehouseId": 3,
+        "stockAge": 64.92858255985765,
+        "returnRequestLineItemId": 27320,
+        "returnRequestId": 54521,
+        "returnRequestLineItemNumber": "WUSL220808-0000003",
+        "description": "TEST0902-317496",
+        "weight": 74.000,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 96.000,
+        "handlingCode": "rtn",
+        "handlingStatusCode": "completed",
+        "warehouseRemarks": "cool",
+        "handlingUpdatedOnStr": "2022-08-09 08:54:59.8219",
+        "sku": null,
+        "itemRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
+        "modifyOn": "0001-01-01T00:00:00",
+        "modifyBy": null,
+        "modifyOnStr": null,
+        "createOn": "0001-01-01T00:00:00",
+        "createBy": null,
+        "createOnStr": null
+      },
+    "category": "warehouseUpdateWarehouseRemarks",
+    "action": "warehouseUpdateWarehouseRemarks",
+    "eventTime": "2022-10-14T10:10:24.866958Z"
+  }
+
+|
+
+----
+
+.. _notification-UserUpdateInventorySKU:
+
+User update inventory SKU Notification
+**************************************
+
+This notification is sent when users (sellers) update SKU information of a Return Inventory
+
+category: ``userUpdateReturnInventorySku``
+
+action: ``userUpdateReturnInventorySku``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationUpdateInventorySku.csv
+
+Sample:
+
+.. code-block:: json
+
+  {
+    "returnRequest": {
+        "returnRequestId": 54521,
+        "returnRequestNumber": "WUS220808-0000003",
+        "returnStatusCode": "0",
+        "returnTitle": "TEST0902-317496",
+        "totalValue": 96.0,
+        "totalValueCurrency": "usd",
+        "warehouseRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
+        "remarks": "Created by Warehouse",
+        "isArchived": false,
+        "returnRequestFrom": "return-helper",
+        "modifyOn": "2022-08-09T08:36:58",
+        "modifyBy": "3",
+        "modifyOnStr": null,
+        "createOn": "2022-08-09T08:36:58",
+        "createBy": "3",
+        "createOnStr": null
+    },
+    "returnInventory": {
+        "returnInventoryId": 13790,
+        "warehouseId": 3,
+        "stockAge": 64.92858255985765,
+        "returnRequestLineItemId": 27320,
+        "returnRequestId": 54521,
+        "returnRequestLineItemNumber": "WUSL220808-0000003",
+        "description": "TEST0902-317496",
+        "weight": 74.000,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 96.000,
+        "handlingCode": "rtn",
+        "handlingStatusCode": "completed",
+        "warehouseRemarks": "cool",
+        "handlingUpdatedOnStr": "2022-08-09 08:54:59.8219",
+        "sku": "AAAA",
+        "itemRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
+        "modifyOn": "0001-01-01T00:00:00",
+        "modifyBy": null,
+        "modifyOnStr": null,
+        "createOn": "0001-01-01T00:00:00",
+        "createBy": null,
+        "createOnStr": null
+    },
+    "category": "userUpdateReturnInventorySku",
+    "action": "userUpdateReturnInventorySku",
+    "eventTime": "2022-10-14T10:18:57.213238Z"
+  }
+
+|
+
+----
 
 .. _notification-UpdateVas:
 
@@ -701,7 +887,6 @@ Sample:
       }
 
 |
-
 
 ----
 

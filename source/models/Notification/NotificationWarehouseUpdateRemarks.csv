@@ -1,0 +1,6 @@
+returnRequest, :ref:`structure-ReturnRequestPayload`
+shipment,   :ref:`structure-NotificationShipmentPayload`
+returnInventory, List<:ref:`structure-ReturnInventoryPayload`>
+category, string_
+action, string_
+eventTime, string_
