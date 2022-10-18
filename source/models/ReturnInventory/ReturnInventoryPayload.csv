@@ -1,6 +1,5 @@
 "returnInventoryId", string_,"Max Length 35"
 "warehouseId", string_,"Max Length 35"
-"stockAge", double_, ""
 "returnRequestLineItemId", string_,"Max Length 35"
 "returnRequestId", string_,"Max Length 35"
 "description", string_, ""
