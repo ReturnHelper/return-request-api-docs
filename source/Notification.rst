@@ -693,7 +693,6 @@ Sample:
     "returnInventory": {
         "returnInventoryId": 13790,
         "warehouseId": 3,
-        "stockAge": 64.92858255985765,
         "returnRequestLineItemId": 27320,
         "returnRequestId": 54521,
         "returnRequestLineItemNumber": "WUSL220808-0000003",
@@ -766,7 +765,6 @@ Sample:
     "returnInventory": {
         "returnInventoryId": 13790,
         "warehouseId": 3,
-        "stockAge": 64.92858255985765,
         "returnRequestLineItemId": 27320,
         "returnRequestId": 54521,
         "returnRequestLineItemNumber": "WUSL220808-0000003",
