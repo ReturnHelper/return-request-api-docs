@@ -66,6 +66,10 @@ Signature
 This section explains how a signature is generated so clients can verify the authenticity and integrity of our notification message.
 **Clients should always verify the signature before processing the payload data.**
 
+
+**You must always require the raw body of the request to perform signature verification. If you’re using a framework, make sure it doesn’t manipulate the raw body. Any manipulation to the raw body of the request causes the verification to fail.**
+
+
 To understand how signature is generated, consider the example below:
 
 ::
