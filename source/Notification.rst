@@ -229,6 +229,14 @@ Label result notification
 
 This notification is sent to client once the label is ready after user called :ref:`method-CreateLabel`.
 
+**You should always use ``shipmentId`` to map your label with shipment in your integration. DO NOT use ``labelId``.**
+
+In some rare case of third parties system failure, we may not able to get a valid shipping label even if we successfully registered your label request.
+This may result in a successful :ref:`method-CreateLabel` request followed by a failed :ref:`notification-label`.
+In special cases like this, fail labels are re-sent to third parties once we detect their service resumed. However these new labels
+have a new ``labelId``(s) that can only matched with ``shipmentId``.  Otherwise, customers may need extra workloads to
+re-create all their labels affected in third parties service downtime.
+
 category: ``labelGenerated``
 
 action: ``labelGenerated``

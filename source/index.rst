@@ -16,6 +16,18 @@ Some objects may have an inherit class that you can use the parameters from it.
 
 **Our API is only designed for Server to Server integration.**
 
+Changlog
+========
+
+.. list-table:: 
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Version
+     - Description
+   * - 2023-03
+     - Add description about ``label_id`` in :ref:`notification-label`
+
 Authenication
 -------------
 
