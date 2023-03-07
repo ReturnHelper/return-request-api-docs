@@ -46,7 +46,9 @@ Please store your key securely and never disclose. **The signing key is Base64 e
 Retry
 *****
 
-Only response with a ``HTTP 200`` for every sent notification is considered as completed. Otherwise the notification is considered as failed. It will retry up to 10 times.
+When notification received at your end, 
+please respond with status code ``2xx`` (``200`` - ``299``). Our retry mechanism is based on the status code in your response. If it is not 2xx, retrial will be triggered.
+
 
 Header
 ******
