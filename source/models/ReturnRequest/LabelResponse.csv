@@ -1,6 +1,6 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
-labelId, long_
+labelId, long_,
 shipmentId, long_
 apiId, integer_
 refKey, string_

@@ -1415,7 +1415,7 @@ CreateFbaRemovalOrder
 
 ::
 
-[POST] <userapi-endpoint>/fbaInventory/createFbaRemovalOrder
+[POST] <userapi-endpoint>/Fba/fbaInventory/createFbaRemovalOrder
 
 Parameters:
 
@@ -1447,7 +1447,7 @@ CreateFbaRemovalShipment
 
 ::
 
-[POST] <userapi-endpoint>/fbaInventory/createFbaRemovalShipment
+[POST] <userapi-endpoint>/Fba/fbaInventory/createFbaRemovalShipment
 
 Parameters:
 
@@ -1480,7 +1480,7 @@ GetFbaRemovalOrder
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/getFbaRemovalOrder
+[Get] <userapi-endpoint>/Fba/fbaInventory/getFbaRemovalOrder
 
 Parameters:
 
@@ -1512,7 +1512,7 @@ SearchFbaRemovalOrder
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchFbaRemovalOrder
+[Get] <userapi-endpoint>/Fba/fbaInventory/searchFbaRemovalOrder
 
 Parameters:
 
@@ -1545,7 +1545,7 @@ GetFbaInventory
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/getFbaInventory
+[Get] <userapi-endpoint>/Fba/fbaInventory/getFbaInventory
 
 Parameters:
 
@@ -1578,7 +1578,7 @@ SearchFbaInventory
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchFbaInventory
+[Get] <userapi-endpoint>/Fba/fbaInventory/searchFbaInventory
 
 Parameters:
 
@@ -1609,7 +1609,7 @@ AssignFbaInventoryHandling
 
 ::
 
-[POST] <userapi-endpoint>/fbaInventory/assignFbaInventoryHandling
+[POST] <userapi-endpoint>/Fba/fbaInventory/assignFbaInventoryHandling
 
 Parameters:
 
@@ -1641,7 +1641,7 @@ GetFbaInventoryRecall
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryRecall
+[Get] <userapi-endpoint>/Fba/FbaInventoryRecall/getFbaInventoryRecall
 
 Parameters:
 
@@ -1674,7 +1674,7 @@ SearchFbaInventoryRecall
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryRecall
+[Get] <userapi-endpoint>/Fba/FbaInventoryRecall/searchFbaInventoryRecall
 
 Parameters:
 
@@ -1705,7 +1705,7 @@ GetFbaInventoryOthers
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryOthers
+[Get] <userapi-endpoint>/Fba/FbaInventoryOthers/getFbaInventoryOthers
 
 Parameters:
 
@@ -1737,7 +1737,7 @@ SearchFbaInventoryOthers
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryOthers
+[Get] <userapi-endpoint>/Fba/FbaInventoryOthers/searchFbaInventoryOthers
 
 Parameters:
 
@@ -1770,7 +1770,7 @@ GetFbaInventoryDispose
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryDispose
+[Get] <userapi-endpoint>/Fba/FbaInventoryDispose/getFbaInventoryDispose
 
 Parameters:
 
@@ -1802,7 +1802,7 @@ SearchFbaInventoryDispose
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryDispose
+[Get] <userapi-endpoint>/Fba/FbaInventoryDispose/searchFbaInventoryDispose
 
 Parameters:
 
@@ -1835,7 +1835,7 @@ GetFbaInventoryRelabel
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/getFbaInventoryRelabel
+[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/getFbaInventoryRelabel
 
 Parameters:
 
@@ -1865,7 +1865,7 @@ SearchFbaInventoryRelabel
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchFbaInventoryRelabel
+[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/searchFbaInventoryRelabel
 
 Parameters:
 
@@ -1898,7 +1898,7 @@ AssignFbaInventoryRelabelFnsku
 
 ::
 
-[POST] <userapi-endpoint>/fbaInventory/assignFbaInventoryRelabelFnsku
+[POST] <userapi-endpoint>/Fba/FbaInventoryRelabel/assignFbaInventoryRelabelFnsku
 
 Parameters:
 
@@ -1931,7 +1931,7 @@ SearchAvailableRelabelForShipment
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/searchAvailableRelabelForShipment
+[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/searchAvailableRelabelForShipment
 
 Parameters:
 
@@ -1964,7 +1964,7 @@ CreateFbaInventoryRelabelShipment
 
 ::
 
-[Get] <userapi-endpoint>/fbaInventory/createFbaInventoryRelabelShipment
+[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/createFbaInventoryRelabelShipment
 
 Parameters:
 
@@ -1998,7 +1998,7 @@ AddAddressLabel
 
 ::
 
-[POST] <userapi-endpoint>/fbaInventory/addAddressLabel
+[POST] <userapi-endpoint>/Fba/FbaInventoryRelabel/addAddressLabel
 
 Parameters:
 
