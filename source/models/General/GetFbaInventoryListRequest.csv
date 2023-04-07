@@ -2,7 +2,7 @@ apiName, string_
 removalOrderId, string_,Max Length 35
 trackingNumber, string_
 fnsku, string_
-shipmentStatusCode, string_
+stockStatus, string_,in_stock or out_of_stock
 createFromStr, string_
 createToStr, string_
 deliverFromStr, string_
