@@ -221,6 +221,8 @@ GetShippingFeeListByFromShippingOption
 
 Get service type fee list by fromCountry and fromPostalCode. Responses are sorted by shipping fee in ascending order.
 
+To get the lowest fee service type, please set ``limit=1``.
+
 ::
 
 [GET] <userapi-endpoint>/Shipment/getShippingFeeListByFromShippingOption
