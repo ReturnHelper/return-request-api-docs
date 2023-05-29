@@ -278,7 +278,7 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   warehouseId, integer_
+   warehouseId, integer_, Assign this value to shipment ``warehouseId`` when calling :ref:`method-createReturnRequest`
    countryCode, string_
    contactName, string_
    companyName, string_
@@ -524,6 +524,8 @@ Parameters:
    remarks, string_
    returnRequestFrom, string_, YES, Must be ``return-helper``
    returnRequestLineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>,YES,Must contains **ONE** item only. Details see below
+
+.. _structure-CreateReturnRequestRequestShipmentPayload:
 
 Object ``ShipmentPayload``:
 
