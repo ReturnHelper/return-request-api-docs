@@ -211,6 +211,203 @@ Response:
 
 ----
 
+Service Type
+============
+
+.. _method-GetServiceType:
+
+GetShippingFeeListByFromShippingOption
+---------------------------------------
+
+Get service type fee list by fromCountry and fromPostalCode. Responses are sorted by shipping fee in ascending order.
+
+To get the lowest fee service type, please set ``limit=1``.
+
+::
+
+[GET] <userapi-endpoint>/Shipment/getShippingFeeListByFromShippingOption
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fromCountry, string_, Required
+   fromPostalCode, string_, Required
+   weight, decimal_, Required
+   limit, integer_, Optional. Number of service types to be responsed. Default value is 0 (Return all usable service types).
+
+Response:
+
+.. _structure-ShippingFeeSummaryReply:
+
+.. csv-table:: ``ShippingFeeSummaryReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   correlationId, string_
+   meta, :ref:`structure-ApiResponseMeta`
+   shippingFeeDetailList, List<:ref:`structure-ShippingFeeDetailReply`>
+
+.. _structure-ShippingFeeDetailReply:
+
+.. csv-table:: ``ShippingFeeDetailReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   serviceTypeCode, string_
+   countryCode , string_
+   postalCodePair, :ref:`structure-ShippingFeeSummaryPostalCodePairReply`
+   currencyCode, string_
+   fee, decimal_
+   warehouseList, List<WarehouseReply>
+
+.. _structure-ShippingFeeSummaryPostalCodePairReply:
+
+.. csv-table:: ``ShippingFeeSummaryPostalCodePairReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   from, string_
+   to, string_
+
+.. _structure-WarehouseReply:
+
+.. csv-table:: ``WarehouseReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   warehouseId, integer_
+   countryCode, string_
+   contactName, string_
+   companyName, string_
+   phone, string_
+   email, string_
+   fax, string_
+   street1, string_
+   street2, string_
+   street3, string_
+   state, string_
+   city, string_
+   postalCode, string_
+   addressType, string_
+   description, string_
+
+Sample:
+
+::
+
+[GET] {{rh-api-user-endpoint}}/Shipment/getShippingFeeListByFromShippingOption?fromCountryCode=usa&fromPostalCode=08810&weight=500&limit=3
+
+.. code-block:: json
+
+   {
+   "data": {
+      "shippingFeeDetailList": [
+         {
+         "serviceTypeCode": "RETURN_DHL_PARCEL_GROUND_WA",
+         "countryCode": "usa",
+         "postalCodePair": {
+            "from": "08810",
+            "to": "98188"
+         },
+         "currencyCode": "usd",
+         "fee": 5.76,
+         "warehouseList": [
+            {
+               "warehouseId": 1034,
+               "countryCode": "usa",
+               "contactName": "Return Helper Service",
+               "companyName": "Return Helper",
+               "phone": "8554377467",
+               "email": "usa-warehouse@test-mail.com",
+               "fax": "7327187923",
+               "street1": "1007 Industry Drive Building33",
+               "street2": null,
+               "street3": null,
+               "state": "WA",
+               "city": "Tukwila",
+               "postalCode": "98188",
+               "addressType": "business",
+               "description": "1034-United States-WA"
+            }
+         ]
+         },
+         {
+         "serviceTypeCode": "RETURN_USPS_BROKER_NJ",
+         "countryCode": "usa",
+         "postalCodePair": {
+            "from": "08810",
+            "to": "08817"
+         },
+         "currencyCode": "usd",
+         "fee": 6.64,
+         "warehouseList": [
+            {
+               "warehouseId": 2,
+               "countryCode": "usa",
+               "contactName": "Return Helper Service",
+               "companyName": "Return Helper",
+               "phone": "8554377467",
+               "email": "usa-warehouse@test-mail.com",
+               "fax": "7327187923",
+               "street1": "18 Distribution Blvd",
+               "street2": null,
+               "street3": null,
+               "state": "NJ",
+               "city": "Edison",
+               "postalCode": "08817",
+               "addressType": "business",
+               "description": "2-United States - NJ (DEV)"
+            }
+         ]
+         },
+         {
+         "serviceTypeCode": "usps",
+         "countryCode": "usa",
+         "postalCodePair": {
+            "from": "08810",
+            "to": "08817"
+         },
+         "currencyCode": "usd",
+         "fee": 6.64,
+         "warehouseList": [
+            {
+               "warehouseId": 2,
+               "countryCode": "usa",
+               "contactName": "Return Helper Service",
+               "companyName": "Return Helper",
+               "phone": "8554377467",
+               "email": "usa-warehouse@test-mail.com",
+               "fax": "7327187923",
+               "street1": "18 Distribution Blvd",
+               "street2": null,
+               "street3": null,
+               "state": "NJ",
+               "city": "Edison",
+               "postalCode": "08817",
+               "addressType": "business",
+               "description": "2-United States - NJ (DEV)"
+            }
+         ]
+         }
+      ]
+   },
+   "correlationId": "0HMR01Q6CJNHL:00000001",
+   "meta": {
+      "status": 200,
+      "data": {},
+      "errorCode": null,
+      "error": {}
+   }
+   }
+
+
+
+
+----
+
 Label
 =====
 
@@ -511,7 +708,7 @@ Object ``ReturnRequestLineItemPayload``:
 
 Sample:
 
-::
+.. code-block:: json
 
      {
          "shipment": {
@@ -1117,7 +1314,7 @@ Object ``ResendShipmentPayload``
 
 Sample:
 
-::
+.. code-block:: json
 
    {
        "description": "OC56562326565",
@@ -1310,7 +1507,7 @@ Response:
 
 Sample:
 
-::
+.. code-block:: json
 
    {
       "correlationId": "0HMJ3U7AU3UVP:00000002",
