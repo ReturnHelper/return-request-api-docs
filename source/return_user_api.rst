@@ -219,8 +219,9 @@ Service Type
 GetShippingFeeListByFromShippingOption
 ---------------------------------------
 
-Get service type fee list by fromCountry and fromPostalCode. Responses are sorted by shipping fee in ascending order.
+This API is for getting **RETURN** service types only. For resend service types please check :ref:`method-getAvailableShipmentServiceType`.
 
+Get service type fee list by fromCountry and fromPostalCode. Responses are sorted by shipping fee in ascending order.
 To get the lowest fee service type, please set ``limit=1``.
 
 ::
@@ -407,6 +408,50 @@ Sample:
 
 
 ----
+
+.. _method-getAvailableShipmentServiceType:
+
+GetAvailableShipmentServiceType
+-------------------------------
+
+Get service types for :ref:`method-CreateResend`.
+
+This API is for getting **RESEND** service types only. For return service types please check :ref:`method-GetServiceType`.
+
+There is a custom service type named ``others`` in the response payload. Customers who need special handling should contact our Customer Service before using this service type.
+
+::
+
+[GET] <userapi-endpoint>/Shipment/getAvailableShipmentServiceType
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   toCountry, string_, Required
+   warehouseId, string_, Required
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   data, List<:ref:`structure-ShipmentServiceTypeReply`>
+
+.. _structure-ShipmentServiceTypeReply:
+
+.. csv-table:: ``ShipmentServiceTypeReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   serviceTypeCode, string_, Service type code. You should use this when calling :ref:`method-CreateResend`.
+   serviceType, string_, Description of the service type
+   isEnabled, bool_
+   warehouseList,List<:ref:`structure-WarehouseResponse`>
+
 
 Label
 =====
@@ -1273,6 +1318,7 @@ Further updates of the resend shipment(such as tracking number update) are sent 
 
 Details please check :ref:`notification-Resend`.
 
+For Resend service type please check :ref:`method-getAvailableShipmentServiceType`.
 
 ::
 
@@ -1301,7 +1347,7 @@ Object ``ResendShipmentPayload``
    :widths: 15, 10, 10, 30
 
    resendShipmentNumber, string_,,Auto generated if not submitted.
-   shipmentServiceType, string_, YES, Obtain from: 1. user api :ref:`method-GetWarehouseByFromCountry` 2. user api :ref:`method-getServiceTypeByFromCountryAndWarehouse`
+   shipmentServiceType, string_, YES, Obtain from :ref:`method-getAvailableShipmentServiceType`
    shipmentCountryCode, string_, YES, Obtain from public api :ref:`method-getAllCountries`
    shipmentName, string_, YES, Max length 255
    shipmentPhone, string_, YES
