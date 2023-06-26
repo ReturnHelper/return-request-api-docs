@@ -27,6 +27,8 @@ Changelog
      - Description
    * - 2023-03
      - Add description about ``label_id`` in :ref:`notification-label`
+   * - 2023-06
+     - Add API endpoint for China user
 
 Authenication
 -------------
