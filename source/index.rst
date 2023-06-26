@@ -19,7 +19,7 @@ Some objects may have an inherit class that you can use the parameters from it.
 Changelog
 ========
 
-.. list-table:: 
+.. list-table::
    :widths: 25 75
    :header-rows: 1
 
@@ -58,13 +58,15 @@ API Endpoints
 
 - Production
 
-+----------------------+--------------------------------------------------+
-|rh-api-user-endpoint  | https://api.returnhelpercentre.com/v1/user/api   |
-+----------------------+--------------------------------------------------+
-|rh-api-public-endpoint| https://api.returnhelpercentre.com/v1/public/api |
-+----------------------+--------------------------------------------------+
-| User Web Portal URL  | http://user.returnhelpercentre.com/              |
-+----------------------+--------------------------------------------------+
++-------------------------------+--------------------------------------------------+
+|rh-api-user-endpoint           | https://api.returnhelpercentre.com/v1/user/api   |
++-------------------------------+--------------------------------------------------+
+|rh-api-user-endpoint for China | https://api.returnhelperchina.com/user/          |
++-------------------------------+--------------------------------------------------+
+|rh-api-public-endpoint         | https://api.returnhelpercentre.com/v1/public/api |
++-------------------------------+--------------------------------------------------+
+| User Web Portal URL           | http://user.returnhelpercentre.com/              |
++-------------------------------+--------------------------------------------------+
 
 
 General Remarks
