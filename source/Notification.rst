@@ -37,6 +37,7 @@ Your endpoint should not expect delivery of these events in this order and shoul
 
 Each event also includes ``eventTime``
 
+
 Signing Key
 ***********
 
@@ -46,9 +47,13 @@ Please store your key securely and never disclose. **The signing key is Base64 e
 Retry
 *****
 
-When notification received at your end, 
+When notification received at your end,
 please respond with status code ``2xx`` (``200`` - ``299``). Our retry mechanism is based on the status code in your response. If it is not 2xx, retrial will be triggered.
 
+Fail delivery
+*************
+
+After 10 fail notfication deliveries, we will suspend the notification delivery to the specific endpoint for 24 hours.
 
 Header
 ******
