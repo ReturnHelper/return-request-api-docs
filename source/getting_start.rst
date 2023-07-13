@@ -4,11 +4,16 @@ Getting Started
 Get return label
 ----------------
 
-1. :ref:`method-CreateReturnRequest` - create Return Request with product and shipment information. If Return Request is created successfully, ``shipmentId`` will be returned in the response message.
-2. :ref:`method-CreateLabel` - request label by ``shipmentId``
-3. :ref:`notification-label` - label request result will be sent to your :ref:`notification_endpoint`
-4. If result is received, ``shipmentId`` is included. ``shipmentId`` is the one you used to request create label.
-5. If label is created successfully, label (file url) will be found in the result. Otherwise, error info will be found instead.
+.. warning::
+  We are combining :ref:`method-CreateReturnRequest` and :ref:`method-CreateLabel` into a new single API :ref:`method-createreturnshipment`.
+
+  The old flow of creating return request and label separately will be deprecated on 2024-12-31.
+
+  Any new integrations should use :ref:`method-createreturnshipment` instead of :ref:`method-createreturnrequest` and :ref:`method-createlabel`. Steps shown below.
+
+
+1. :ref:`method-createreturnshipment` - create a return shipment and queue a return label request
+2. :ref:`notification-label` - label request result will be sent to your :ref:`notification_endpoint`
 
 Cancel return label
 -------------------

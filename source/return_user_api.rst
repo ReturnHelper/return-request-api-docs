@@ -38,66 +38,6 @@ Response:
 
 ----
 
-.. _method-GetServiceTypeByFromToCountry:
-
-GetServiceTypeByFromToCountry
------------------------------
-
-::
-
-[GET] <userapi-endpoint>/servicetype/getServiceTypeByFromToCountry
-
-Parameters:
-
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   fromCountry, string_
-   toCountry, string_
-
-Response:
-
-.. csv-table:: ``ServiceTypeListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ServiceTypeListResponse.csv
-
-|
-
-----
-
-.. _method-GetServiceTypeByFromCountryAndWarehouse:
-
-GetServiceTypeByFromCountryAndWarehouse
-----------------------------------------
-
-::
-
-[GET] <userapi-endpoint>/servicetype/getServiceTypeByFromCountryAndWarehouse
-
-Parameters:
-
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   fromCountry, string_
-   warehouseId, string_,Max Length 35
-
-Response:
-
-.. csv-table:: ``ServiceTypeListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/ServiceTypeListResponse.csv
-
-|
-
-----
-
 .. _method-GetAllWarehouse:
 
 GetAllWarehouse
@@ -409,49 +349,95 @@ Sample:
 
 ----
 
-.. _method-getAvailableShipmentServiceType:
+.. _method-GetAllReturnServiceType:
 
-GetAvailableShipmentServiceType
--------------------------------
+GetAllReturnServiceType
+-----------------------
 
-Get service types for :ref:`method-CreateResend`.
-
-This API is for getting **RESEND** service types only. For return service types please check :ref:`method-GetServiceType`.
-
-There is a custom service type named ``others`` in the response payload. Customers who need special handling should contact our Customer Service before using this service type.
+Get all return service type.
 
 ::
 
-[GET] <userapi-endpoint>/Shipment/getAvailableShipmentServiceType
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   toCountry, string_, Required
-   warehouseId, string_, Required
+[GET] <userapi-endpoint>/ServiceType/getAllReturnServiceType
 
 Response:
 
 .. csv-table::
+   :header: "Name", "Type"
+   :widths: 15, 10
+
+   availableReturnServiceTypeList, List<:ref:`structure-availableReturnServiceType`>
+
+.. _structure-availableReturnServiceType:
+
+.. csv-table:: `availableReturnServiceType`
    :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
+   :widths: 15, 10, 30
 
-   data, List<:ref:`structure-ShipmentServiceTypeReply`>
+   serviceTypeCode, _string,
+   serviceType, _string, Name of the service type
 
-.. _structure-ShipmentServiceTypeReply:
+----
 
-.. csv-table:: ``ShipmentServiceTypeReply``
+.. _method-GetServiceTypeByFromToCountry:
+
+GetServiceTypeByFromToCountry
+-----------------------------
+
+::
+
+[GET] <userapi-endpoint>/servicetype/getServiceTypeByFromToCountry
+
+Parameters:
+
+
+.. csv-table::
    :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
+   :widths: 15, 10, 30
 
-   serviceTypeCode, string_, Service type code. You should use this when calling :ref:`method-CreateResend`.
-   serviceType, string_, Description of the service type
-   isEnabled, bool_
-   warehouseList,List<:ref:`structure-WarehouseResponse`>
+   fromCountry, string_
+   toCountry, string_
 
+Response:
+
+.. csv-table:: ``ServiceTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ServiceTypeListResponse.csv
+
+|
+
+----
+
+.. _method-GetServiceTypeByFromCountryAndWarehouse:
+
+GetServiceTypeByFromCountryAndWarehouse
+----------------------------------------
+
+::
+
+[GET] <userapi-endpoint>/servicetype/getServiceTypeByFromCountryAndWarehouse
+
+Parameters:
+
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fromCountry, string_
+   warehouseId, string_,Max Length 35
+
+Response:
+
+.. csv-table:: ``ServiceTypeListResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/General/ServiceTypeListResponse.csv
+
+|
+
+----
 
 Label
 =====
@@ -460,6 +446,13 @@ Label
 
 CreateLabel
 ---------------------------
+
+.. warning::
+   We are combining :ref:`method-createreturnrequest` and :ref:`method-createlabel` into :ref:`method-createreturnshipment`
+
+   All new integrations should use :ref:`method-createreturnshipment` instead of :ref:`method-createreturnrequest` and :ref:`method-createlabel`.
+
+   Any existing integrations must migrate to :ref:`method-createreturnshipment` before 2024-12-31
 
 Submits a create label request.
 
@@ -542,10 +535,192 @@ Response:
 Return Request
 ==============
 
+.. _method-CreateReturnShipment:
+
+CreateReturnShipment
+--------------------
+
+.. note::
+   This new API will be replacing :ref:`method-createreturnrequest` and :ref:`method-createlabel`.
+   All new integrations should use this API for getting return labels.
+
+   We are deprecating :ref:`method-createreturnrequest` and :ref:`method-createlabel` on 2024-12-31.
+
+Create a return shipment and queue a return label request. The return label will be sent via a notification once it is ready. Please check :ref:`notification-label` for more details.
+
+Note that a return shipment is not editable once it is created. If you need to change the return shipment, you can cancel the label and create a new one. To cancel a label please check :ref:`method-CancelLabel`.
+
+::
+
+[POST] <userapi-endpoint>/ReturnShipment/createReturnShipment
+
+.. csv-table:: ``CreateReturnShipmentRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   serviceTypeCode, string_, YES, Service type code. You can get the service type code from :ref:`method-getallreturnservicetype`
+   orderTitle, string_, YES
+   remarks, string_,
+   totalValue, decimal_, YES, Must be greater than zero and equals to the sum of all items' value
+   totalValueCurrency, string_, YES, only accepts ``usd``
+   orderNumber, string_, YES,
+   shipment, :ref:`structure_ReturnShipmentPayload`, YES, Details see below
+
+.. _structure_ReturnShipmentPayload:
+
+.. csv-table:: ``ReturnShipmentPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   shipFrom, :ref:`structure-ShipFromPayload`, YES, Details see below
+   shipToWarehouseId, integer_, YES, Warehouse ID
+   boxType, string_, YES, see :ref:`method-getallboxtype`
+   parcel, :ref:`structure-ParcelPayload`, YES, Details see below
+
+.. _structure-ShipFromPayload:
+
+.. csv-table:: ``ShipFromPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   country, string_, YES, ISO3 country code
+   contactName, string_, YES,
+   phone, string_, YES,
+   email, string_, YES,
+   fax, string_,
+   street1, string_, YES,
+   street2, string_, YES
+   street3, string_,
+   state, string_, YES,
+   city, string_, YES,
+   postalCode, string_, YES,
+
+.. _structure-ParcelPayload:
+
+.. csv-table:: ``ParcelPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   weight, decimal_, YES, Must equal to the sum of all items' weight
+   weightUnit, string_, YES, only accepts ``g``
+   length, decimal_, YES, Must be greater than zero
+   width, decimal_, YES, Must be greater than zero
+   height, decimal_, YES, Must be greater than zero
+   dimensionUnit, string_, YES, only accepts ``cm``
+   items, List<:ref:`structure_ItemPayload`>,YES, Only the first item will be convert to Return Inventory when warehouse receive the parcel
+
+.. csv-table:: ``ItemPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   description, string_, YES,
+   weight, decimal_, YES, Must be greater than zero
+   value, decimal_, YES, Must be greater than zero
+   weightUom, string_, YES, only accepts ``g``
+   valueCurrencyCode, string_, YES, only accepts ``usd``
+
+Sample:
+
+::
+
+   {
+    "serviceTypeCode": "endicia",
+    "orderTitle": "Return Label Title",
+    "remarks": "Sendle label test remarks",
+    "totalValue": 300.99,
+    "totalValueCurrency": "usd",
+    "orderNumber": "ORDERNUMBER20230711",
+    "shipment":{
+        "shipFrom":{
+            "country": "usa",
+            "contactName": "Not real Saprai",
+            "phone": 5306172015,
+            "email": "manveer@rh.com",
+            "fax": "5306172016",
+            "street1": "88 Waratah St Line 1",
+            "street2": "88 Waratah St Line 2",
+            "state": "NY",
+            "city": "New York",
+            "postalCode": "10002"
+        },
+        "shipToWarehouseId": 1009,
+        "boxType": "cus",
+        "parcel":{
+            "weight": 150,
+            "weightUnit": "g",
+            "length": 10,
+            "width": 10,
+            "height": 10,
+            "dimensionUnit": "cm",
+            "items":[
+                {
+                    "description": "abc",
+                    "weight": 150,
+                    "value": 300.99,
+                    "weightUom": "g",
+                    "valueCurrencyCode": "usd"
+                }
+            ]
+        }
+      }
+   }
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   returnRequestId, integer_, Return request ID
+   returnRequestNumber, string_, Return request number
+   shipmentId, integer_, Shipment ID
+   referenceNumber, string_, Reference number
+   labelId, integer_, Label ID
+   labelRequestId, integer_, Label request ID
+   labelRequestStatusCode, string_, Label request status code
+   cost, decimal_, Cost
+   costCurrencyCode, string_, Cost currency code
+
+Sample:
+
+::
+
+   {
+      "data": {
+         "apiId": 202,
+         "returnRequestId": 59398,
+         "returnRequestNumber": "R230711-0000015",
+         "shipmentId": 28407,
+         "referenceNumber": "ORDERNUMBER2307111539",
+         "labelId": 29020,
+         "labelRequestId": 9170,
+         "labelRequestStatusCode": "queued",
+         "refKey": "S230711-0000028",
+         "cost": 4.6,
+         "costCurrencyCode": "usd"
+      },
+      "correlationId": "0HMS24AUSFN6I:00000001",
+      "meta": {
+         "status": 200,
+         "data": {},
+         "errorCode": null,
+         "error": {}
+      }
+   }
+
+----
+
 .. _method-createReturnRequest:
 
 CreateReturnRequest
 -------------------
+
+.. warning::
+   We are combining :ref:`method-createreturnrequest` and :ref:`method-createlabel` into :ref:`method-createreturnshipment`
+
+   All new integrations should use :ref:`method-createreturnshipment` instead of :ref:`method-createreturnrequest` and :ref:`method-createlabel`.
+
+   Any existing integrations must migrate to :ref:`method-createreturnshipment` before 2024-12-31
 
 ::
 
@@ -821,7 +996,9 @@ EditReturnRequest
 
 [POST]  <userapi-endpoint>/returnrequest/editReturnRequest
 
-Only allow when shipment status equals to ``no-label`` ``lb-failed``
+Only allow when shipment status equals to ``no-label`` ``lb-failed``.
+
+Return Shipments created by :ref:`method-createreturnshipment` cannot be edited.
 
 Parameters:
 
@@ -1347,7 +1524,7 @@ Object ``ResendShipmentPayload``
    :widths: 15, 10, 10, 30
 
    resendShipmentNumber, string_,,Auto generated if not submitted.
-   shipmentServiceType, string_, YES, Obtain from :ref:`method-getAvailableShipmentServiceType`
+   shipmentServiceType, string_, YES, Obtain from :ref:`method-getservicetypebyfromcountryandwarehouse`
    shipmentCountryCode, string_, YES, Obtain from public api :ref:`method-getAllCountries`
    shipmentName, string_, YES, Max length 255
    shipmentPhone, string_, YES
