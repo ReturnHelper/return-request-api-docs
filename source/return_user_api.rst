@@ -573,7 +573,7 @@ Note that a return shipment is not editable once it is created. If you need to c
    :widths: 15, 10, 10, 30
 
    shipFrom, :ref:`structure-ShipFromPayload`, YES, Details see below
-   shipToWarehouseId, integer_, YES, Warehouse ID
+   shipToWarehouseId, integer_, YES,  Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
    boxType, string_, YES, see :ref:`method-getallboxtype`
    parcel, :ref:`structure-ParcelPayload`, YES, Details see below
 
@@ -583,7 +583,7 @@ Note that a return shipment is not editable once it is created. If you need to c
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   country, string_, YES, ISO3 country code
+   country, string_, YES, ISO3 country code. Obtain from public api :ref:`method-getAllFromCountries`
    contactName, string_, YES,
    phone, string_, YES,
    email, string_, YES,
