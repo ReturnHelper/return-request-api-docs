@@ -607,7 +607,9 @@ Note that a return shipment is not editable once it is created. If you need to c
    width, decimal_, YES, Must be greater than zero
    height, decimal_, YES, Must be greater than zero
    dimensionUnit, string_, YES, only accepts ``cm``
-   items, List<:ref:`structure_ItemPayload`>,YES, Only the first item will be convert to Return Inventory when warehouse receive the parcel
+   items, List<:ref:`structure-ItemPayload`>,YES, Only the first item will be convert to Return Inventory when warehouse receive the parcel
+
+.. _structure-ItemPayload:
 
 .. csv-table:: ``ItemPayload``
    :header: "Name", "Type", "Required", "Remarks"
