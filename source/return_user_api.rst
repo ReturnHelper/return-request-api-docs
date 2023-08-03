@@ -574,7 +574,7 @@ Note that a return shipment is not editable once it is created. If you need to c
 
    shipFrom, :ref:`structure-ShipFromPayload`, YES, Details see below
    shipToWarehouseId, integer_, YES,  Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
-   boxType, string_, YES, see :ref:`method-getallboxtype`
+   boxType, string_, YES, Use ``cus`` or obtain from :ref:`method-GetAllBoxTypes`
    parcel, :ref:`structure-ParcelPayload`, YES, Details see below
 
 .. _structure-ShipFromPayload:
@@ -771,7 +771,7 @@ Object ``ShipmentPayload``:
   shipmentPostalCode, string_
   costCurrencyCode, string_, YES
   cost, decimal_
-  boxType, string_, YES, Obtain from public api :ref:`method-getAllBoxTypes`
+  boxType, string_, YES, Use ``cus`` or obtain from :ref:`method-GetAllBoxTypes`
   weight, decimal_ , YES
   weightUom, string_,YES, Must be ``g``
   dimension1, decimal_, YES, Greater than 0
@@ -907,7 +907,7 @@ Object ``CreateNonRrLabelShipmentRequest``:
   shipmentPostalCode, string_
   costCurrencyCode, string_, YES
   cost, decimal_
-  boxType, string_, YES, Obtain from public api :ref:`method-getAllBoxTypes`
+  boxType, string_, YES, Use ``cus`` or obtain from :ref:`method-GetAllBoxTypes`
   weight, decimal_ , YES
   weightUom, string_,YES, Must be ``g``
   dimension1, decimal_, YES, Greater than 0
