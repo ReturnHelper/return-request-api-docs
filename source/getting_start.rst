@@ -1,8 +1,17 @@
 Getting Started
 ===============
 
-Get return label
-----------------
+Brief Introduction
+------------------
+
+There are three main parts for a return flow: 
+
+1. Before arriving warehouse. Request a return label, then ship the return to warehouse. 
+2. Arrives warehouse. Image of the return will be uploaded when it is received. 
+3. Leave warehouse. Instructs how to handle the return by assigning a handling to the return inventory. 
+
+Request a return label
+----------------------
 
 .. warning::
   We are combining :ref:`method-CreateReturnRequest` and :ref:`method-CreateLabel` into a new single API :ref:`method-createreturnshipment`.
@@ -35,20 +44,28 @@ It is very important to note that **the whole shipment will be handled as a sing
 
 There are two types of return arrival:
 
-`Type 1:`
+`Type 1 - Return Shipment:`
 
 1.  Initiated by seller and label is provided by Return Helper. Return Request has been created upon seller's request.
 2.  :ref:`notification-MarkReceived` will be sent to your notification endpoint. Return inventory payload, will be included in the notification payload. ``returnInventoryId`` is expected in it.
+3.  It is an action of Putaway. Image of the return will be uploaded in the next step. Please expect :ref:`notification-changeLineItemImage` later.
 
-`Type 2:`
+`Type 2 - Unknown Shipment:`
 
 1.  Not initiated by seller but Return Helper identifies that it belongs to a specific seller. Return Request record will be created when arrives warehouse and then assign to the seller.
 2.  :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId`` and ``returnRequestId`` are expected in it.
+3.  Before assigning to the seller, image of shipment has been uploaded. So, this notificaion will also include the image list. 
+4.  However, if there is any change on the image list, you will be also notified by :ref:`notification-changeLineItemImage`.
 
 Image of the return
-----------------------------
+-------------------
 
 When images of the return inventory have been uploaded (or any changes in the image list), :ref:`notification-changeLineItemImage` will be sent to your notification endpoint. Image (url) list is expected in it.
+
+Instruct how to handle the return inventory
+-------------------------------------------
+
+The following section is describing how to instruct the warehouse to handle the return inventory. i.e. Dispose, on-hold, resend, recall and others. Or requesting VAS on the return inventory. 
 
 Dispose return inventory
 ------------------------
