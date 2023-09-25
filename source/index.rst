@@ -77,17 +77,8 @@ General Remarks
 ---------------
 
 - Parameter ``dateTime`` must be ``ISO8601`` format, otherwise API won't be able to parse it.
-- Date string parameter e.g. ``createToStr``/ ``createFromStr`` (in search API) must be ISO8601 and time part is omitted by API.
+- Date string parameter e.g. ``createToStr``/ ``createFromStr`` must be ISO8601 and time part is omitted by API.
 - All time return is UTC.
-
-Pagination
-----------
-
-All search functions support pagination.
-
-Please use the :ref:`structure-PaginationRequest` parameters in your request to enable it.
-
-|
 
 ----
 
