@@ -120,37 +120,6 @@ Response:
 
 ----
 
-.. _method-SearchWarehouse:
-
-SearchWarehouse
----------------
-
-::
-
-[POST] <userapi-endpoint>/warehouse/searchWarehouse
-
-Parameters:
-
-.. _structure-UserSearchWarehouseRequest:
-
-.. csv-table:: ``UserSearchWarehouseRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/UserSearchWarehouseRequest.csv
-
-Response:
-
-.. _structure-UserSearchWarehouseResponse:
-
-.. csv-table:: ``UserSearchWarehouseResponse`` (inherit :ref:`structure-PaginationResponse`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/UserSearchWarehouseResponse.csv
-
-|
-
-----
-
 Service Type
 ============
 
@@ -1195,104 +1164,10 @@ Response:
 
 ----
 
-.. _method-SearchShipment:
-
-SearchShipment
----------------
-
-::
-
-[GET] <userapi-endpoint>/shipment/searchShipment
-
-Parameters:
-
-.. _structure-SearchShipmentRequest:
-
-.. csv-table:: ``SearchShipmentRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchShipmentRequest.csv
-
-Response:
-
-.. _structure-SearchShipmentResponse:
-
-.. csv-table:: ``SearchShipmentResponse`` (inherit :ref:`structure-PaginationResponse`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchShipmentResponse.csv
-
-|
-
-
-Request samples:
-****************
-
-Getting the latest shipments:
-
-``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=0&pagesize=50``
-
-Getting the next 50 latest shipments:
-
-``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=50&pagesize=50``
-
-Getting shipments from ``2021-01-01`` to ``2021-01-30``:
-
-``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=0&pagesize=50&createFromStr=2021-01-01&createToStr=2021-01-30``
-
-Getting shipment with a specific shipment number:
-
-``[GET] <userapi-endpoint>/shipment/SearchShipment?offset=0&pagesize=50&shipmentNumber=<insert shipment number>``
-
-
-
-----
-
 .. _section-ReturnInventory:
 
 Return Inventory
 ================
-
-.. _method-SearchReturnInventory:
-
-SearchReturnInventory
----------------------
-
-Search for Return Inventory
-
-::
-
-    [GET]  <userapi-endpoint>/returninventory/searchReturnInventory
-
-Parameters: ``SearchReturnInventoryRequest``
-
-.. csv-table:: ``SearchReturnInventoryRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-   :file: models/ReturnInventory/SearchReturnInventoryRequest.csv
-
-|
-
-Response: ``SearchReturnInventoryResponse``
-
-.. csv-table:: ``SearchReturnInventoryResponse`` (inherit :ref:`structure-PaginationResponse`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/ReturnInventory/SearchReturnInventoryResponse.csv
-
-|
-
-.. _structure-SearchReturnInventoryResultPayload:
-
-.. csv-table:: ``SearchReturnInventoryResultPayload``
-     (inherit :ref:`structure-ReturnInventoryPayload`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/ReturnInventory/SearchReturnInventoryResultPayload.csv
-
-|
-
-----
 
 .. _method-GetReturnInventory:
 
@@ -1323,37 +1198,6 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/ReturnInventory/ReturnInventoryResponse.csv
-
-|
-
-----
-
-.. _method-SearchRma:
-
-SearchRma
------------
-
-::
-
-    [GET] <userapi-endpoint>/returninventory/SearchRma
-
-Parameters:
-
-.. _structure-SearchRmaRequest:
-
-.. csv-table:: ``SearchRmaRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-   :file: models/ReturnInventory/SearchRmaRequest.csv
-
-|
-
-Response:
-
-.. csv-table:: ``ReturnInventoryResponse`` (inherit :ref:`structure-PaginationResponse`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/ReturnInventory/SearchRmaResponse.csv
 
 |
 
@@ -1610,40 +1454,6 @@ Response:
 
 ----
 
-.. _method-SearchResend:
-
-SearchResend
-------------
-
-::
-
-[GET]  <userapi-endpoint>/resend/searchResend
-
-Parameters:
-
-.. _structure-GetResendListRequest:
-
-.. csv-table:: ``GetResendListRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-   :file: models/Resend/GetResendListRequest.csv
-
-|
-
-Response:
-
-.. _structure-SearchResendListResponse:
-
-.. csv-table:: ``SearchResendListResponse`` (inherit :ref:`structure-PaginationResponse`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   searchResendPayloadList, List<:ref:`structure-SearchResendPayload`>
-
-|
-
-----
-
 .. _method-CancelResend:
 
 CancelResend
@@ -1795,40 +1605,6 @@ Sample:
 Refund
 ======
 
-.. _method-searchRefund:
-
-SearchRefund
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Refund/searchRefund
-
-Parameters:
-
-.. _structure-GetRefundListRequest:
-
-.. csv-table:: ``GetRefundListRequest``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetRefundListRequest.csv
-
-
-|
-
-Response:
-
-.. _structure-RefundListResponse:
-
-.. csv-table:: ``RefundListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/RefundListResponse.csv
-
-|
-
-----
-
 FBA
 ===
 
@@ -1929,39 +1705,6 @@ Response:
 
 ----
 
-.. _method-searchFbaRemovalOrder:
-
-SearchFbaRemovalOrder
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/fbaInventory/searchFbaRemovalOrder
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
-
-|
-
-Response:
-
-.. _structure-GetFbaRemovalOrderListResponse:
-
-.. csv-table:: ``GetFbaRemovalOrderListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchFbaRemovalOrderListResponse.csv
-
-|
-
-----
-
 .. _method-getFbaInventory:
 
 GetFbaInventory
@@ -1990,37 +1733,6 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/GetFbaInventoryListResponse.csv
-
-|
-
-----
-
-.. _method-searchFbaInventory:
-
-SearchFbaInventory
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/fbaInventory/searchFbaInventory
-
-Parameters:
-
-.. csv-table:: ``GetFbaInventoryListRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-   :file: models/General/GetFbaInventoryListRequest.csv
-
-|
-
-Response:
-
-.. _structure-GetFbaInventoryListResponse:
-
-.. csv-table:: ``GetFbaInventoryListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchFbaInventoryListResponse.csv
 
 |
 
@@ -2091,37 +1803,6 @@ Response:
 
 ----
 
-.. _method-searchFbaInventoryRecall:
-
-SearchFbaInventoryRecall
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryRecall/searchFbaInventoryRecall
-
-Parameters:
-
-.. csv-table::  ``GetFbaInventoryHandlingListRequest`` (inherit :ref:`structure-PaginationRequest`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-   :file: models/General/GetFbaInventoryHandlingListRequest.csv
-
-|
-
-Response:
-
-.. _structure-GetFbaInventoryRecallListResponse:
-
-.. csv-table:: ``GetFbaInventoryRecallListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryRecallListResponse.csv
-
-|
-
-----
-
 .. _method-getFbaInventoryOthers:
 
 GetFbaInventoryOthers
@@ -2149,39 +1830,6 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryOthersResponse.csv
-
-|
-
-----
-
-.. _method-searchFbaInventoryOthers:
-
-SearchFbaInventoryOthers
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryOthers/searchFbaInventoryOthers
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
-
-|
-
-Response:
-
-.. _structure-GetFbaInventoryOthersListResponse:
-
-.. csv-table:: ``GetFbaInventoryOthersListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryOthersListResponse.csv
 
 |
 
@@ -2219,39 +1867,6 @@ Response:
 
 ----
 
-.. _method-searchFbaInventoryDispose:
-
-SearchFbaInventoryDispose
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryDispose/searchFbaInventoryDispose
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
-
-|
-
-Response:
-
-.. _structure-GetFbaInventoryDisposeListResponse:
-
-.. csv-table:: ``GetFbaInventoryDisposeListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryDisposeListResponse.csv
-
-|
-
-----
-
 .. _method-getFbaInventoryRelabel:
 
 GetFbaInventoryRelabel
@@ -2277,39 +1892,6 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/General/FbaInventoryRelabelResponse.csv
-
-|
-
-----
-
-.. _method-searchFbaInventoryRelabel:
-
-SearchFbaInventoryRelabel
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/searchFbaInventoryRelabel
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
-
-|
-
-Response:
-
-.. _structure-GetFbaInventoryRelabelListResponse:
-
-.. csv-table:: ``GetFbaInventoryRelabelListResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryRelabelListResponse.csv
 
 |
 
@@ -2348,43 +1930,10 @@ Response:
 
 ----
 
-.. _method-searchAvailableRelabelForShipment:
-
-SearchAvailableRelabelForShipment
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/searchAvailableRelabelForShipment
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
-
-|
-
-Response:
-
-.. _structure-SearchAvailableRelabelForShipmentResponse:
-
-.. csv-table:: ``SearchAvailableRelabelForShipmentResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/SearchAvailableRelabelForShipmentResultPayloadList.csv
-
-|
-
-----
-
 .. _method-createFbaInventoryRelabelShipment:
 
 CreateFbaInventoryRelabelShipment
----------------------------
+---------------------------------
 
 ::
 
