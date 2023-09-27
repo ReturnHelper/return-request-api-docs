@@ -1660,8 +1660,8 @@ Parameters:
 .. csv-table::
    :header: "Name", "Type","Remarks"
    :widths: 15, 10, 30
-   
-   fbaShipmentId, guid_
+
+   fbaShipmentId, Guid
 
 |
 
@@ -1826,6 +1826,26 @@ Parameters:
    :file: models/Fba/CreateFbaInstructionRequest.csv
 
 |
+
+.. list-table::
+   :widths: 15 25
+   :header-rows: 1
+
+   * - ``fbaInstrictionHandlingCode`` code
+     - Description
+   * - ``RSK``
+     - Restock
+   * - ``RCL``
+     - Recall
+   * - ``RLB``
+     - Relabel
+   * - ``RPS``
+     - Replenish
+   * - ``OTH``
+     - Others
+   * - ``DIS``
+     - Dispose
+
 
 Response:
 
@@ -2004,121 +2024,122 @@ Response:
 
 ----
 
-.. _method-assignFbaInstructionReplenishNewFnsku:
+..
+   .. _method-assignFbaInstructionReplenishNewFnsku:
 
-AssignFbaInstructionReplenishNewFnsku
---------------------------------------
+   AssignFbaInstructionReplenishNewFnsku
+   --------------------------------------
 
-::
+   ::
 
-[POST] <userapi-endpoint>/Fba/FbaInstructionReplenish/assignNewFnsku
+   [POST] <userapi-endpoint>/Fba/FbaInstructionReplenish/assignNewFnsku
 
-Parameters:
+   Parameters:
 
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 20, 20, 30
 
-   fbaInstructionId, guid_
-   assignNewFnskuPayloadList, List<:ref:`structure-AssignNewFnskuPayload`>
+      fbaInstructionId, guid_
+      assignNewFnskuPayloadList, List<:ref:`structure-AssignNewFnskuPayload`>
 
-|
+   |
 
-Response:
+   Response:
 
-.. _structure-FbaInventoryRelabelResponse:
+   .. _structure-FbaInventoryRelabelResponse:
 
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/AssignFbaInstructionReplenishNewFnskuResponse.csv
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/AssignFbaInstructionReplenishNewFnskuResponse.csv
 
-|
+   |
 
-.. csv-table:: ``AssignNewFnskuReply``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/AssignNewFnskuReply.csv
+   .. csv-table:: ``AssignNewFnskuReply``
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/AssignNewFnskuReply.csv
 
-|
+   |
 
-----
+   ----
 
-.. _method-updateFbaInstructionReplenishShippingInfo:
+   .. _method-updateFbaInstructionReplenishShippingInfo:
 
-UpdateFbaInstructionReplenishShippingInfo
-------------------------------------------
+   UpdateFbaInstructionReplenishShippingInfo
+   ------------------------------------------
 
-::
+   ::
 
-[Get] <userapi-endpoint>/Fba/FbaInstructionReplenish/updateShippingInfo
+   [Get] <userapi-endpoint>/Fba/FbaInstructionReplenish/updateShippingInfo
 
-Parameters:
+   Parameters:
 
-.. _structure-UpdateFbaInstructionReplenishShippingInfoRequest:
+   .. _structure-UpdateFbaInstructionReplenishShippingInfoRequest:
 
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoRequest.csv
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoRequest.csv
 
-Sample (with label):
+   Sample (with label):
 
-.. code-block:: json
-   
-   {
-      "fbaInstructionId": "92e5d29c-c0b0-4f49-a0f6-913fbf99ed78",
-      "provideLabel": true,
-      "newShipmentFbaName": "Example Name",
-      "newShipmentStreet1": "Example Street 1",
-      "newShipmentStreet2": "Example Street 2",
-      "newShipmentStreet3": "Example Street 3",
-      "newShipmentState": "Example State",
-      "newShipmentCity": "Example City",
-      "newShipmentPostalCode": "900100",
-      "newShipmentCountryCode": "usa",
-      "newShipmentReferenceId": "REF-S0000000001",
-      "filename": "T2300001487.pdf",
-      "fileKey": "rr/api/files/2023/21/038758fc-0446-4be1-9b1b-4adb04d96305/T2300001487.pdf"
-   }
+   .. code-block:: json
 
-Sample (without label):
+      {
+         "fbaInstructionId": "92e5d29c-c0b0-4f49-a0f6-913fbf99ed78",
+         "provideLabel": true,
+         "newShipmentFbaName": "Example Name",
+         "newShipmentStreet1": "Example Street 1",
+         "newShipmentStreet2": "Example Street 2",
+         "newShipmentStreet3": "Example Street 3",
+         "newShipmentState": "Example State",
+         "newShipmentCity": "Example City",
+         "newShipmentPostalCode": "900100",
+         "newShipmentCountryCode": "usa",
+         "newShipmentReferenceId": "REF-S0000000001",
+         "filename": "T2300001487.pdf",
+         "fileKey": "rr/api/files/2023/21/038758fc-0446-4be1-9b1b-4adb04d96305/T2300001487.pdf"
+      }
 
-.. code-block:: json
+   Sample (without label):
 
-   {
-      "fbaInstructionId": "5c779604-b317-4cc8-8f3f-7470982c4965",
-      "provideLabel": false,
-      "newShipmentFbaName": "Example Name",
-      "newShipmentStreet1": "Example Street 1",
-      "newShipmentStreet2": "Example Street 2",
-      "newShipmentStreet3": "Example Street 3",
-      "newShipmentState": "Example State",
-      "newShipmentCity": "Example City",
-      "newShipmentPostalCode": "900100",
-      "newShipmentCountryCode": "usa",
-      "newShipmentReferenceId": "REF-S0000000002"
-   }
+   .. code-block:: json
 
-|
+      {
+         "fbaInstructionId": "5c779604-b317-4cc8-8f3f-7470982c4965",
+         "provideLabel": false,
+         "newShipmentFbaName": "Example Name",
+         "newShipmentStreet1": "Example Street 1",
+         "newShipmentStreet2": "Example Street 2",
+         "newShipmentStreet3": "Example Street 3",
+         "newShipmentState": "Example State",
+         "newShipmentCity": "Example City",
+         "newShipmentPostalCode": "900100",
+         "newShipmentCountryCode": "usa",
+         "newShipmentReferenceId": "REF-S0000000002"
+      }
 
-Response:
+   |
 
-.. _structure-UpdateFbaInstructionReplenishShippingInfoResponse:
+   Response:
 
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoResponse.csv
+   .. _structure-UpdateFbaInstructionReplenishShippingInfoResponse:
 
-|
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoResponse.csv
 
-.. csv-table:: ``UpdateShippingInfoReply``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/UpdateShippingInfoReply.csv
+   |
 
-|
+   .. csv-table:: ``UpdateShippingInfoReply``
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/UpdateShippingInfoReply.csv
+
+   |
 
 ----
 
@@ -2138,7 +2159,7 @@ Parameters:
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   
+
    fbaInstructionId, guid_
 
 |
