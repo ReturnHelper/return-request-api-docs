@@ -148,7 +148,7 @@ Below shows a example of a fail :ref:`method-GetWarehouse` response (invalid ``w
 FBA Return
 ----------
 
-Customers can send their FBA products to Return Helper warehouse. After the products are received, customers can apply instructions such as restock, replenish, relabel, recall, dispose and others.
+Customers can send their FBA products to Return Helper warehouse. After the products are received, customers can apply instructions such as restock, replenish, recall, dispose and others.
 
 Here is an example workflow of FBA return:
 

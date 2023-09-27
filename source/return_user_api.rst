@@ -1837,8 +1837,6 @@ Parameters:
      - Restock
    * - ``RCL``
      - Recall
-   * - ``RLB``
-     - Relabel
    * - ``RPS``
      - Replenish
    * - ``OTH``
