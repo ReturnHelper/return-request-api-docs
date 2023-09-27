@@ -11,4 +11,4 @@ returnInventoryId, long_
 createOn, DateTime_
 modifyOn, DateTime_
 cancelRemarks, string_
-fbaInstructionRestockItemList, :ref:`structure-GetFbaInstructionRestockItemReply`
+fbaInstructionRestockItemList, List<:ref:`structure-GetFbaInstructionRestockItemReply`>

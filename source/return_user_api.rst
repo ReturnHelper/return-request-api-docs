@@ -1661,7 +1661,7 @@ Parameters:
    :header: "Name", "Type","Remarks"
    :widths: 15, 10, 30
    
-   fbaShipmentId, Guid
+   fbaShipmentId, guid_
 
 |
 
@@ -1862,7 +1862,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   fbaInstructionId, Guid
+   fbaInstructionId, guid_
 
 |
 

@@ -10,4 +10,4 @@ warehouseApiId, integer_
 createOn, Datetime_
 modifyOn, Datetime_
 cancelRemarks, string_
-fbaInstructionDisposeItemList, :ref:`structure-GetFbaInstructionDisposeItemReply`
+fbaInstructionDisposeItemList, List<:ref:`structure-GetFbaInstructionDisposeItemReply`>
