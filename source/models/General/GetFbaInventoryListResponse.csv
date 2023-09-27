@@ -1,7 +1,0 @@
-correlationId, string_
-meta, :ref:`structure-ApiResponseMeta`
-totalNumberOfRecords, integer_
-fbaInventoryRelabelPayloadList, List<:ref:`structure-fbaInventoryRelabelPayload`>
-fbaInventoryRecallPayloadList, List<:ref:`structure-fbaInventoryRecallPayload`>
-fbaInventoryOthersPayloadList, List<:ref:`structure-fbaInventoryOthersPayload`>
-fbaInventoryDisposePayloadList, List<:ref:`structure-fbaInventoryDisposePayload`>

@@ -1,0 +1,3 @@
+warehouseId, integer_
+fnsku, string_
+quantity, integer_

@@ -1,0 +1,10 @@
+warehouseId, integer_
+removalOrderId, string_
+trackingNumber, string_
+referenceNumber, string_
+fnsku, string_
+lastPutawayFromStr, string_
+lastPutawayToStr, string_
+stockStatus, string_, ``IN-STOCK`` ``OUT-OF-STOCK``
+pageSize, integer_
+offset, integer_

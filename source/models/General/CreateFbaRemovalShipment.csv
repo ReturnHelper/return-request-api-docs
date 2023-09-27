@@ -1,3 +1,0 @@
-correlationId, string_
-meta, :ref:`structure-ApiResponseMeta`
-fbaRemovalShipmentId, string_,Max Length 35

@@ -4,11 +4,11 @@ Getting Started
 Brief Introduction
 ------------------
 
-There are three main parts for a return flow: 
+There are three main parts for a return flow:
 
-1. Before arriving warehouse. Request a return label, then ship the return to warehouse. 
-2. Arrives warehouse. Image of the return will be uploaded when it is received. 
-3. Leave warehouse. Instructs how to handle the return by assigning a handling to the return inventory. 
+1. Before arriving warehouse. Request a return label, then ship the return to warehouse.
+2. Arrives warehouse. Image of the return will be uploaded when it is received.
+3. Leave warehouse. Instructs how to handle the return by assigning a handling to the return inventory.
 
 Request a return label
 ----------------------
@@ -54,7 +54,7 @@ There are two types of return arrival:
 
 1.  Not initiated by seller but Return Helper identifies that it belongs to a specific seller. Return Request record will be created when arrives warehouse and then assign to the seller.
 2.  :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId`` and ``returnRequestId`` are expected in it.
-3.  Before assigning to the seller, image of shipment has been uploaded. So, this notificaion will also include the image list. 
+3.  Before assigning to the seller, image of shipment has been uploaded. So, this notificaion will also include the image list.
 4.  However, if there is any change on the image list, you will be also notified by :ref:`notification-changeLineItemImage`.
 
 Image of the return
@@ -65,7 +65,7 @@ When images of the return inventory have been uploaded (or any changes in the im
 Instruct how to handle the return inventory
 -------------------------------------------
 
-The following section is describing how to instruct the warehouse to handle the return inventory. i.e. Dispose, on-hold, resend, recall and others. Or requesting VAS on the return inventory. 
+The following section is describing how to instruct the warehouse to handle the return inventory. i.e. Dispose, on-hold, resend, recall and others. Or requesting VAS on the return inventory.
 
 Dispose return inventory
 ------------------------
@@ -144,3 +144,17 @@ Below shows a example of a fail :ref:`method-GetWarehouse` response (invalid ``w
       }
     }
   }
+
+FBA Return
+----------
+
+Customers can send their FBA products to Return Helper warehouse. After the products are received, customers can apply instructions such as restock, replenish, relabel, recall, dispose and others.
+
+Here is an example workflow of FBA return:
+
+1.  Customer acknownledge RH by :ref:`method-createfbashipment` and sends FBA products to Return Helper warehouse.
+2.  The shipment is received and putaway as a FBA inventory with ``fnsku`` and ``quantity``.
+3.  Customers checks their FBA inventory with :ref:`method-searchfbainventory`, this API will return the FBA inventory list with ``fnsku`` and ``quantity``.
+4.  Customers create a FBA instructions by :ref:`method-createfbainstruction`. (Replehishment requires additional shipping information which is currently not supported in API.)
+5.  RH will process the instruction and notify customers the results by notifications.
+6.  Customer can also check the instruction status by :ref:`method-getfbainstructionrecall`, :ref:`method-getfbainstructiondispose`, :ref:`method-getfbainstructionrestock`, :ref:`method-getfbainstructionothers`.

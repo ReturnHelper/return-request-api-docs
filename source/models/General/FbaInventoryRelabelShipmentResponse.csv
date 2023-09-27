@@ -1,4 +1,0 @@
-correlationId, string_
-meta, :ref:`structure-ApiResponseMeta`
-totalNumberOfRecords, integer_
-fbaInventoryRelabelShipmentLabelPayload, :ref:`structure-FbaInventoryRelabelShipmentLabelPayload`

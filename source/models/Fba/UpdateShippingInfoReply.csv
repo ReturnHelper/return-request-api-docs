@@ -1,0 +1,16 @@
+fbaInstructionReplenishId, guid_
+fbaInstructionId, guid_
+handlingStatusCode, string_
+replenishStatusCode, string_
+provideLabel, bool_
+newShipmentFbaName, string_
+newShipmentStreet1, string_
+newShipmentStreet2, string_
+newShipmentStreet3, string_
+newShipmentState, string_
+newShipmentCity, string_
+newShipmentPostalCode, string_
+newShipmentCountryCode, string_
+newShipmentReferenceId, string_
+filename, string_
+fileKey, string_

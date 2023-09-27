@@ -1,0 +1,8 @@
+fbaShipmentId, guid_
+apiId, integer_
+warehouseId, integer_
+fbaShipmentStatusCode, string_, ``PENDING`` ``ARRIVED`` ``CANCELED``
+removalOrderId, string_
+trackingNumber, string_
+arrivalOn, Datetime_
+createOn, Datetime_

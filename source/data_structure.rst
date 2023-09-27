@@ -5,6 +5,7 @@
 .. _double: https://docs.microsoft.com/en-us/dotnet/api/system.double?view=netcore-3.1
 .. _Datetime: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
 .. _bool: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool
+.. _guid: https://learn.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1
 
 Data Structure
 ==============
@@ -452,90 +453,215 @@ ApiBalancePayload
    :widths: 15, 10, 30
    :file: models/General/ApiBalanceResponse.csv
 
-.. _structure-fbaRemovalShipmentPayload:
+.. _structure-CreateFbaShipmentPayload:
 
-fbaRemovalShipmentPayload
+CreateFbaShipmentPayload
 --------------------------
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/GetFbaRemovalOrderResponse.csv
+   :file: models/Fba/CreateFbaShipmentPayload.csv
 
-.. _structure-fbaInventoryRelabelPayload:
+.. _structure-CreateFbaShipmentReply:
 
-fbaInventoryRelabelPayload
+CreateFbaShipmentReply
 --------------------------
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryResponse.csv
+   :file: models/Fba/CreateFbaShipmentReply.csv
 
-.. _structure-fbaInventoryRecallPayload:
+.. _structure-GetFbaShipmentReply:
 
-fbaInventoryRecallPayload
+GetFbaShipmentReply
 --------------------------
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryRecallPayload.csv
+   :file: models/Fba/GetFbaShipmentReply.csv
 
+.. _structure-AssignFbaInventoryReferenceNumberReply:
 
-.. _structure-fbaInventoryOthersPayload:
-
-fbaInventoryOthersPayload
---------------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryOthersPayload.csv
-
-
-.. _structure-fbaInventoryDisposePayload:
-
-fbaInventoryDisposePayload
---------------------------
+AssignFbaInventoryReferenceNumberReply
+------------------------------------------
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryDisposePayload.csv
+   :file: models/Fba/AssignFbaInventoryReferenceNumberReply.csv
 
-.. _structure-fbaInventoryRelabelShipmentPayload:
+.. _structure-UpdateFbaInventoryRemarkReply:
 
-FbaInventoryRelabelShipmentPayload
---------------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRelabelShipmentPayload.csv
-
-
-
-.. _structure-fbaInventoryRelabelShipmentLabelPayload:
-
-FbaInventoryRelabelShipmentLabelPayload
----------------------------------------
+UpdateFbaInventoryRemarkReply
+------------------------------
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRelabelShipmentLabelPayload.csv
+   :file: models/Fba/UpdateFbaInventoryRemarkReply.csv
 
+.. _structure-SearchFbaInventoryReply:
 
-.. _structure-fbaRelabelId:
-
-fbaRelabelId
---------------------------
+SearchFbaInventoryReply
+------------------------------
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/fbaRelabelId.csv
+   :file: models/Fba/SearchFbaInventoryReply.csv
+
+.. _structure-CreateFbaInstructionSkuPayload:
+
+CreateFbaInstructionSkuPayload
+------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaInstructionSkuPayload.csv
+
+.. _structure-CreateFbaInstructionReply:
+
+CreateFbaInstructionReply
+------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaInstructionReply.csv
+
+.. _structure-GetFbaInstructionDisposeReply:
+
+GetFbaInstructionDisposeReply
+------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionDisposeReply.csv
+
+.. _structure-GetFbaInstructionDisposeItemReply:
+
+GetFbaInstructionDisposeItemReply
+----------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionDisposeItemReply.csv
+
+.. _structure-GetFbaInstructionOthersReply:
+
+GetFbaInstructionOthersReply
+----------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionOthersReply.csv
+
+.. _structure-GetFbaInstructionOthersItemReply:
+
+GetFbaInstructionOthersItemReply
+----------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionOthersItemReply.csv
+
+.. _structure-GetFbaInstructionRecallReply:
+
+GetFbaInstructionRecallReply
+----------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRecallReply.csv
+
+.. _structure-GetFbaInstructionRecallItemReply:
+
+GetFbaInstructionRecallItemReply
+----------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRecallItemReply.csv
+
+.. _structure-GetFbaInstructionReplenishReply:
+
+GetFbaInstructionReplenishReply
+----------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionReplenishReply.csv
+
+.. _structure-GetFbaInstructionReplenishItemReply:
+
+GetFbaInstructionReplenishItemReply
+------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionReplenishItemReply.csv
+
+.. _structure-AssignNewFnskuPayload:
+
+AssignNewFnskuPayload
+------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/AssignNewFnskuPayload.csv
+
+.. _structure-AssignNewFnskuReply:
+
+AssignNewFnskuReply
+------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/AssignNewFnskuReply.csv
+
+.. _structure-UpdateShippingInfoReply:
+
+UpdateShippingInfoReply
+------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/UpdateShippingInfoReply.csv
+
+.. _structure-GetFbaInstructionRestockReply:
+
+GetFbaInstructionRestockReply
+------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRestockReply.csv
+
+.. _structure-GetFbaInstructionRestockItemReply:
+
+GetFbaInstructionRestockItemReply
+------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRestockItemReply.csv
 
 .. _structure-RefundPayload:
 
