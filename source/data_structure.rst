@@ -503,6 +503,16 @@ UpdateFbaInventoryRemarkReply
    :widths: 15, 10, 30
    :file: models/Fba/UpdateFbaInventoryRemarkReply.csv
 
+.. _structure-SearchFbaInventoryReply:
+
+SearchFbaInventoryReply
+------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/SearchFbaInventoryReply.csv
+
 .. _structure-CreateFbaInstructionSkuPayload:
 
 CreateFbaInstructionSkuPayload

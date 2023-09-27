@@ -1770,6 +1770,46 @@ Response:
 
 ----
 
+.. _method-searchFbaInventory:
+
+SearchFbaInventory
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/Fba/FbaWarehouseInventory/search
+
+Parameters:
+
+.. _structure-SearchFbaInventoryRequest:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/SearchFbaInventoryRequest.csv
+
+|
+
+Response:
+
+.. _structure-SearchFbaInventoryResponse:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/SearchFbaInventoryResponse.csv
+
+|
+
+.. csv-table:: ``SearchFbaInventoryReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/SearchFbaInventoryReply.csv
+
+|
+
+----
+
 .. _method-createFbaInstruction:
 
 CreateFbaInstruction
