@@ -1602,9 +1602,6 @@ Sample:
 
 ----
 
-Refund
-======
-
 FBA
 ===
 
@@ -2064,6 +2061,44 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
    :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoRequest.csv
+
+Sample (with label):
+
+.. code-block:: json
+   
+   {
+      "fbaInstructionId": "92e5d29c-c0b0-4f49-a0f6-913fbf99ed78",
+      "provideLabel": true,
+      "newShipmentFbaName": "Example Name",
+      "newShipmentStreet1": "Example Street 1",
+      "newShipmentStreet2": "Example Street 2",
+      "newShipmentStreet3": "Example Street 3",
+      "newShipmentState": "Example State",
+      "newShipmentCity": "Example City",
+      "newShipmentPostalCode": "900100",
+      "newShipmentCountryCode": "usa",
+      "newShipmentReferenceId": "REF-S0000000001",
+      "filename": "T2300001487.pdf",
+      "fileKey": "rr/api/files/2023/21/038758fc-0446-4be1-9b1b-4adb04d96305/T2300001487.pdf"
+   }
+
+Sample (without label):
+
+.. code-block:: json
+
+   {
+      "fbaInstructionId": "5c779604-b317-4cc8-8f3f-7470982c4965",
+      "provideLabel": false,
+      "newShipmentFbaName": "Example Name",
+      "newShipmentStreet1": "Example Street 1",
+      "newShipmentStreet2": "Example Street 2",
+      "newShipmentStreet3": "Example Street 3",
+      "newShipmentState": "Example State",
+      "newShipmentCity": "Example City",
+      "newShipmentPostalCode": "900100",
+      "newShipmentCountryCode": "usa",
+      "newShipmentReferenceId": "REF-S0000000002"
+   }
 
 |
 
