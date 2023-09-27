@@ -1,0 +1,2 @@
+fbaInstructionHandlingCode, string_
+fnskuList, List<:ref:`structure-CreateFbaInstructionSkuPayload`>

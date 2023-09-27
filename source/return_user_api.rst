@@ -1608,14 +1608,14 @@ Refund
 FBA
 ===
 
-.. _method-createFbaRemovalOrder:
+.. _method-createFbaShipment:
 
-CreateFbaRemovalOrder
+CreateFbaShipment
 ---------------------------
 
 ::
 
-[POST] <userapi-endpoint>/Fba/fbaInventory/createFbaRemovalOrder
+[POST] <userapi-endpoint>/Fba/FbaShipment/create
 
 Parameters:
 
@@ -1623,161 +1623,120 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 20, 30
 
-   removalOrderId, string_,Max Length 35
+   createFbaShipmentPayloadList, List<:ref:`structure-CreateFbaShipmentPayload`>
 
 |
 
 Response:
 
-.. _structure-CreateFbaRemovalOrderResponse:
+.. _structure-CreateFbaShipmentResponse:
 
-.. csv-table:: ``CreateFbaRemovalOrderResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/CreateFbaRemovalOrder.csv
+   :file: models/Fba/CreateFbaShipmentResponse.csv
+
+|
+
+.. csv-table:: ``CreateFbaShipmentReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaShipmentReply.csv
 
 |
 
 ----
 
-.. _method-createFbaRemovalShipment:
+.. _method-getFbaShipment:
 
-CreateFbaRemovalShipment
+GetFbaShipment
 ---------------------------
 
 ::
 
-[POST] <userapi-endpoint>/Fba/fbaInventory/createFbaRemovalShipment
+[POST] <userapi-endpoint>/Fba/FbaShipment/get
 
 Parameters:
 
-.. _structure-CreateFbaRemovalShipmentRequest:
+.. _structure-GetFbaShipmentRequest:
 
-.. csv-table:: ``CreateFbaRemovalShipmentRequest``
-   :header: "Name", "Type", "Required","Remarks"
-   :widths: 15, 10,10, 30
-   :file: models/General/CreateFbaRemovalShipmentRequest.csv
+.. csv-table::
+   :header: "Name", "Type","Remarks"
+   :widths: 15, 10, 30
+   
+   fbaShipmentId, Guid
 
 |
 
 Response:
 
-.. _structure-CreateFbaRemovalShipmentResponse:
+.. _structure-GetFbaShipmentResponse:
 
-.. csv-table:: ``CreateFbaRemovalShipmentResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/CreateFbaRemovalShipment.csv
+   :file: models/Fba/GetFbaShipmentResponse.csv
+
+|
+
+.. csv-table:: ``GetFbaShipmentReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaShipmentReply.csv
 
 |
 
 ----
 
-.. _method-getFbaRemovalOrder:
+.. _method-assignFbaInventoryReferenceNumber:
 
-GetFbaRemovalOrder
----------------------------
+AssignFbaInventoryReferenceNumber
+-----------------------------------
 
 ::
 
-[Get] <userapi-endpoint>/Fba/fbaInventory/getFbaRemovalOrder
+[Get] <userapi-endpoint>/Fba/FbaWarehouseInventory/assignReferenceNumber
 
 Parameters:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
-   :widths: 15, 20, 30
+   :widths: 15, 10, 30
 
-   fbaRemovalOrderId, string_,Max Length 35
+   warehouseId, integer_
+   fnsku, string_
+   referenceNumber, string_
 
 |
 
 Response:
 
-.. _structure-FbaRemovalOrderResponse:
-
-.. csv-table:: ``FbaRemovalOrderResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/GetFbaRemovalOrderListResponse.csv
-
-|
-
-----
-
-.. _method-getFbaInventory:
-
-GetFbaInventory
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/fbaInventory/getFbaInventory
-
-Parameters:
+.. _structure-AssignFbaInventoryReferenceNumberResponse:
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   pageSize, integer_
-   offset, integer_
+   :widths: 15, 10, 30
+   :file: models/Fba/AssignFbaInventoryReferenceNumberResponse.csv
 
 |
 
-Response:
-
-.. _structure-FbaInventoryResponse:
-
-.. csv-table:: ``FbaInventoryResponse``
+.. csv-table:: ``AssignFbaInventoryReferenceNumberReply``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/GetFbaInventoryListResponse.csv
+   :file: models/Fba/AssignFbaInventoryReferenceNumberReply.csv
 
 |
 
 ----
 
-.. _method-assignFbaInventoryHandling:
+.. _method-updateFbaInventoryRemark:
 
-AssignFbaInventoryHandling
+UpdateFbaInventoryRemark
 ---------------------------
 
 ::
 
-[POST] <userapi-endpoint>/Fba/fbaInventory/assignFbaInventoryHandling
-
-Parameters:
-
-.. _structure-AssignFbaInventoryHandlingRequest:
-
-.. csv-table:: ``AssignFbaInventoryHandlingRequest``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/AssignFbaInventoryHandlingRequest.csv
-|
-
-Response:
-
-.. _structure-AssignFbaInventoryHandlingResponse:
-
-.. csv-table:: ``AssignFbaInventoryHandlingResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/AssignFbaInventoryHandlingResponse.csv
-
-|
-
-----
-
-.. _method-getFbaInventoryRecall:
-
-GetFbaInventoryRecall
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryRecall/getFbaInventoryRecall
+[Get] <userapi-endpoint>/Fba/FbaWarehouseInventory/updateRemark
 
 Parameters:
 
@@ -1785,32 +1744,198 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaRecallId, string_,Max Length 35
+   warehouseId, integer_
+   fnsku, string_
+   remark, string_
+
+|
+
+Response:
+
+.. _structure-UpdateFbaInventoryRemarkResponse:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/UpdateFbaInventoryRemarkResponse.csv
+
+|
+
+.. csv-table:: ``UpdateFbaInventoryRemarkReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/UpdateFbaInventoryRemarkReply.csv
+
+|
+
+----
+
+.. _method-createFbaInstruction:
+
+CreateFbaInstruction
+---------------------------
+
+::
+
+[POST] <userapi-endpoint>/Fba/FbaInstruction/create
+
+Parameters:
+
+.. _structure-CreateFbaInstructionRequest:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaInstructionRequest.csv
+
+|
+
+Response:
+
+.. _structure-CreateFbaInstructionResponse:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaInstructionResponse.csv
+
+|
+
+.. csv-table:: ``CreateFbaInstructionReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/CreateFbaInstructionReply.csv
+
+|
+
+----
+
+.. _method-getFbaInstructionDispose:
+
+GetFbaInstructionDispose
+-------------------------
+
+::
+
+[Get] <userapi-endpoint>/Fba/FbaInstructionDispose/get
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fbaInstructionId, Guid
 
 |
 
 
 Response:
 
-.. _structure-FbaInventoryRecallResponse:
+.. _structure-GetFbaInstructionDisposeResponse:
 
-.. csv-table:: ``FbaInventoryRecallResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRecallResponse.csv
+   :file: models/Fba/GetFbaInstructionDisposeResponse.csv
+
+|
+
+.. csv-table:: ``GetFbaInstructionDisposeReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionDisposeReply.csv
 
 |
 
 ----
 
-.. _method-getFbaInventoryOthers:
+.. _method-getFbaInstructionOthers:
 
-GetFbaInventoryOthers
+GetFbaInstructionOthers
 ---------------------------
 
 ::
 
-[Get] <userapi-endpoint>/Fba/FbaInventoryOthers/getFbaInventoryOthers
+[Get] <userapi-endpoint>/Fba/FbaInstructionOthers/get
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fbaInstructionId, guid_
+
+|
+
+Response:
+
+.. _structure-GetFbaInstructionOthersResponse:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionOthersResponse.csv
+
+|
+
+.. csv-table:: ``GetFbaInstructionOthersReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionOthersReply.csv
+
+|
+
+----
+
+.. _method-getFbaInstructionRecall:
+
+GetFbaInstructionRecall
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/Fba/FbaInstructionRecall/get
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fbaInstructionId, guid_
+
+|
+
+Response:
+
+.. _structure-GetFbaInstructionRecallResponse:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRecallResponse.csv
+
+|
+
+.. csv-table:: ``GetFbaInstructionRecallReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRecallReply.csv
+
+|
+
+----
+
+.. _method-getFbaInstructionReplenish:
+
+GetFbaInstructionReplenish
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/Fba/FbaInstructionReplenish/get
 
 Parameters:
 
@@ -1818,31 +1943,38 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaOthersId, string_,Max Length 35
+   fbaInstructionId, guid_
 
 |
 
 Response:
 
-.. _structure-FbaInventoryOthersResponse:
+.. _structure-GetFbaInstructionReplenishResponse:
 
-.. csv-table:: ``FbaInventoryOthersResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/FbaInventoryOthersResponse.csv
+   :file: models/Fba/GetFbaInstructionReplenishResponse.csv
+
+|
+
+.. csv-table:: ``GetFbaInstructionReplenishReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionReplenishReply.csv
 
 |
 
 ----
 
-.. _method-getFbaInventoryDispose:
+.. _method-assignFbaInstructionReplenishNewFnsku:
 
-GetFbaInventoryDispose
----------------------------
+AssignFbaInstructionReplenishNewFnsku
+--------------------------------------
 
 ::
 
-[Get] <userapi-endpoint>/Fba/FbaInventoryDispose/getFbaInventoryDispose
+[POST] <userapi-endpoint>/Fba/FbaInstructionReplenish/assignNewFnsku
 
 Parameters:
 
@@ -1850,70 +1982,8 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   fbaDisposeId, string_,Max Length 35
-
-|
-
-Response:
-
-.. _structure-FbaInventoryDisposeResponse:
-
-.. csv-table:: ``FbaInventoryDisposeResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/FbaInventoryDisposeResponse.csv
-
-|
-
-----
-
-.. _method-getFbaInventoryRelabel:
-
-GetFbaInventoryRelabel
----------------------------
-
-::
-
-[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/getFbaInventoryRelabel
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   fbaRelabelId, string_,Max Length 35
-
-|
-
-Response:
-
-.. csv-table:: ``FbaInventoryRelabelResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRelabelResponse.csv
-
-|
-
-----
-
-.. _method-assignFbaInventoryRelabelFnsku:
-
-AssignFbaInventoryRelabelFnsku
----------------------------
-
-::
-
-[POST] <userapi-endpoint>/Fba/FbaInventoryRelabel/assignFbaInventoryRelabelFnsku
-
-Parameters:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
-
-   fbaRelabelId, string_,Max Length 35
-   newFnsku, string_
+   fbaInstructionId, guid_
+   assignNewFnskuPayloadList, List<:ref:`structure-AssignNewFnskuPayload`>
 
 |
 
@@ -1921,76 +1991,96 @@ Response:
 
 .. _structure-FbaInventoryRelabelResponse:
 
-.. csv-table:: ``FbaInventoryRelabelResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRelabelResponse.csv
+   :file: models/Fba/AssignFbaInstructionReplenishNewFnskuResponse.csv
+
+|
+
+.. csv-table:: ``AssignNewFnskuReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/AssignNewFnskuReply.csv
 
 |
 
 ----
 
-.. _method-createFbaInventoryRelabelShipment:
+.. _method-updateFbaInstructionReplenishShippingInfo:
 
-CreateFbaInventoryRelabelShipment
----------------------------------
+UpdateFbaInstructionReplenishShippingInfo
+------------------------------------------
 
 ::
 
-[Get] <userapi-endpoint>/Fba/FbaInventoryRelabel/createFbaInventoryRelabelShipment
+[Get] <userapi-endpoint>/Fba/FbaInstructionReplenish/updateShippingInfo
 
 Parameters:
 
-.. _structure-CreateFbaInventoryRelabelShipmentRequest:
+.. _structure-UpdateFbaInstructionReplenishShippingInfoRequest:
 
-.. csv-table:: ``CreateFbaInventoryRelabelShipmentRequest``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/CreateFbaInventoryRelabelShipmentRequest.csv
-
+   :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoRequest.csv
 
 |
 
 Response:
 
-.. _structure-FbaInventoryRelabelShipmentResponse:
+.. _structure-UpdateFbaInstructionReplenishShippingInfoResponse:
 
-.. csv-table:: ``FbaInventoryRelabelShipmentResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRelabelShipmentResponse.csv
+   :file: models/Fba/UpdateFbaInstructionReplenishShippingInfoResponse.csv
+
+|
+
+.. csv-table:: ``UpdateShippingInfoReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/UpdateShippingInfoReply.csv
 
 |
 
 ----
 
-.. _method-addAddressLabel:
+.. _method-getFbaInstructionRestock:
 
-AddAddressLabel
+GetFbaInstructionRestock
 ---------------------------
 
 ::
 
-[POST] <userapi-endpoint>/Fba/FbaInventoryRelabel/addAddressLabel
+[POST] <userapi-endpoint>/Fba/FbaInstructionRestock/get
 
 Parameters:
 
-.. _structure-AddFbaInventoryRelabelAddressLabelRequest:
+.. _structure-GetFbaInstructionRestockRequest:
 
-.. csv-table:: ``AddFbaInventoryRelabelAddressLabelRequest``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/AddFbaInventoryRelabelAddressLabelRequest.csv
-
+   
+   fbaInstructionId, guid_
 
 |
 
 Response:
 
-.. csv-table:: ``FbaInventoryRelabelShipmentResponse``
+.. csv-table::
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
-   :file: models/General/FbaInventoryRelabelShipmentResponse.csv
+   :file: models/Fba/GetFbaInstructionRestockResponse.csv
+
+|
+
+.. csv-table:: ``GetFbaInstructionRestockReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Fba/GetFbaInstructionRestockReply.csv
 
 |
 
@@ -2006,3 +2096,4 @@ Response:
 .. _double: https://docs.microsoft.com/en-us/dotnet/api/system.double?view=netcore-3.1
 .. _Datetime: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
 .. _bool: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool
+.. _guid: https://learn.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1

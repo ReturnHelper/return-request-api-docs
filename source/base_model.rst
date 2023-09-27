@@ -5,6 +5,7 @@
 .. _double: https://docs.microsoft.com/en-us/dotnet/api/system.double?view=netcore-3.1
 .. _Datetime: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
 .. _bool: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool
+.. _guid: https://learn.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1
 
 Base Models
 ===========

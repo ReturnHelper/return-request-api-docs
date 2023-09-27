@@ -1,0 +1,13 @@
+fbaInstructionDisposeId, guid_
+fbaInstructionId, guid_
+apiId, integer_
+fbaInstructionNumber, string_
+fbaInstructionHandlingCode, string_
+handlingStatusCode, string_
+quantity, integer_
+warehouseId, integer_
+warehouseApiId, integer_
+createOn, Datetime_
+modifyOn, Datetime_
+cancelRemarks, string_
+fbaInstructionDisposeItemList, :ref:`structure-GetFbaInstructionDisposeItemReply`

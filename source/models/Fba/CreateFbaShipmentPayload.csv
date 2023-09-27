@@ -1,0 +1,3 @@
+removalOrderId ,string_,Max Length 50
+trackingNumber, string_,Max Length 50
+warehouseId,integer_

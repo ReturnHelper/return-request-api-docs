@@ -1,0 +1,10 @@
+fbaInstructionItemId, guid_
+fbaInstructionId, guid_
+fbaShipmentItemId, guid_
+apiId, integer_
+instructionItemQuantity, integer_
+fnsku, string_
+newFnsku, string_
+trackingNumber, string_
+rma, string_
+arrivalOn, Datetime_
