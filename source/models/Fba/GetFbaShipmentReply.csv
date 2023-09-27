@@ -1,7 +1,7 @@
 fbaShipmentId, guid_
 apiId, integer_
 warehouseId, integer_
-fbaShipmentStatusCode, string_
+fbaShipmentStatusCode, string_, ``PENDING`` ``ARRIVED`` ``CANCELED``
 removalOrderId, string_
 rma, string_
 trackingNumber, string_
