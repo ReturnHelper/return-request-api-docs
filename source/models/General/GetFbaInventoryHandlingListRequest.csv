@@ -1,8 +1,0 @@
-recallTrackingNumber, string_
-apiName, string_
-removalOrderId, string_, Max length 35
-trackingNumber, string_
-fnsku, string_
-handlingStatusCode, string_
-createFromStr, string_
-createToStr, string_
