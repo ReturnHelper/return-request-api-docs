@@ -147,10 +147,6 @@ These are enums that used to identify the notification type which clients can ma
      - resend
    * - ``sr``
      - special request
-   * - ``fbaro``
-     - fba removal order and shipment
-   * - ``fbai``
-     - fba inventory
    * - ``labelGenerated``
      - label gererated object. Check :ref:`method-CreateLabel` for more details
    * - ``rrliv``
@@ -159,6 +155,18 @@ These are enums that used to identify the notification type which clients can ma
      - VAS object. Check :ref:`method-CreateVas` for more details
    * - ``transaction``
      - Transaction
+   * - ``markFbaShipmentArrived``
+     - Fba shipment arrived event
+   * - ``fbaShipmentPutaway``
+     - Putaway fba shipment event
+   * - ``completeFbaInstructionDispose``
+     - Complete fba instruction dispose event
+   * - ``completeFbaInstructionOthers``
+     - Complete fba instruction others event
+   * - ``completeFbaInstructionRecall``
+     - Complete fba instruction recall event
+   * - ``fbaInstructionReplenishComplete``
+     - Complete fba instruction replenish event
 
 .. list-table::
    :widths: 15 25
@@ -192,38 +200,26 @@ These are enums that used to identify the notification type which clients can ma
      - Complete handling event
    * - ``cancelInventoryHandling``
      - Cancel handling event
-   * - ``markFbaDeliver``
-     - Fba deliver event
-   * - ``completeFbaRecall``
-     - Fba complete recall event
-   * - ``completeFbaOthers``
-     - Fba others handling event
-   * - ``completeFbaDispose``
-     - Fba dispose complete event
-   * - ``receiveFbaInventory``
-     - Receive Fba inventory event
-   * - ``createFbaRelabelShipment``
-     - Create Fba relabel (replenish) shipment event
-   * - ``completeFbaRelabelRepack``
-     - Complete Fba relabel (replenish) repack event
-   * - ``assignFbaRelabelFnsku``
-     - Assign Fba Relabel (replenish) event
-   * - ``markFbaRelabelShipmentShip``
-     - Fba relabel (replenish) mark ship event
-   * - ``completeFbaRelabel``
-     - Complete Fba Relabel (replenish) event
    * - ``createSpecialRequest``
      - Create special request event
-   * - ``addAddressOnly``
-     - Add address event
-   * - ``addAddressAndLabel``
-     - Add address and label event
    * - ``recallUpdateStatus``
      - Update recall status event
    * - ``splitLineItem``
      - Split line item event result event
    * - ``addTransaction``
      - Add transaction event
+   * - ``markFbaShipmentArrived``
+     - Fba shipment arrived event
+   * - ``fbaShipmentPutaway``
+     - Putaway fba shipment event
+   * - ``completeFbaInstructionDispose``
+     - Complete fba instruction dispose event
+   * - ``completeFbaInstructionOthers``
+     - Complete fba instruction others event
+   * - ``completeFbaInstructionRecall``
+     - Complete fba instruction recall event
+   * - ``fbaInstructionReplenishComplete``
+     - Complete fba instruction replenish event
 
 
 List of supported notification
