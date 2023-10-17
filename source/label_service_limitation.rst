@@ -9,3 +9,12 @@
 
 Label Service Limitation
 =========================
+
+FREU-DHL
+------------
+
+.. csv-table:: 
+   :header: "Name", "Type", "Required", "Limitation"
+   :widths: 15, 10, 10, 30
+   :file: models/LabelServiceLimitation/FreuDhl.csv
+
