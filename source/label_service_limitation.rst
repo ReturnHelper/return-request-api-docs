@@ -12,9 +12,9 @@ Label Service Limitation
 
 FREU-DHL
 ------------
-Service type code: RETURN_PATRICE_DHL_EUR
+Service type code: ``RETURN_PATRICE_DHL_EUR``
 
-.. csv-table:: 
+.. csv-table::
    :header: "Name", "Type", "Required", "Limitation"
    :widths: 15, 10, 10, 30
    :file: models/LabelServiceLimitation/FreuDhl.csv
