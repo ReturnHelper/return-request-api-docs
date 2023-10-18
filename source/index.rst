@@ -46,6 +46,44 @@ Put authenication keys in your request header:
 
 ``API TOKEN`` is private and should never be shared to others.
 
+Clients must submit a API access request in order to be able to use Return Helper API.
+
+Below is a email template for requesting API access:
+
+::
+
+  [Template Email Subject] Request access on Return Helper API - <CLIENT CODE>
+
+  [Template Email Recipients]
+  to: support@returnhelper.com
+  cc: paco@returnhelper.com, manuel@returnhelper.com, roy@returnhelper.com
+
+  [Template Email body]
+
+  Dear Support Team,
+
+  We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
+  x-rr-apikey
+  x-rr-apitoken
+  x-api-key
+
+For example:
+
+::
+
+  Email Subject: Request access on Return Helper API - <RHHK001>
+
+  Recipients:
+  to: support@returnhelper.com
+  cc: paco@returnhelper.com, manuel@returnhelper.com, roy@returnhelper.com
+
+  Body:
+  Dear Support Team,
+  We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
+  x-rr-apikey
+  x-rr-apitoken
+  x-api-key
+
 API Endpoints
 -------------
 
@@ -92,3 +130,4 @@ General Remarks
    Return Public Api <return_public_api>
    Return User Api <return_user_api>
    Notification <Notification>
+   Label Service Limitation <label_service_limitation>
