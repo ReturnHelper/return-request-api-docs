@@ -1,0 +1,6 @@
+fbaShipmentItemId, guid_
+fbaShipmentId, guid_
+fnsku, string_
+shipmentItemQuantity, integer_
+availableQuantity, integer_
+lastPutawayOn, Datetime_

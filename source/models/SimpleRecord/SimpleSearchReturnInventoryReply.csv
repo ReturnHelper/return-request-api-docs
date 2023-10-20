@@ -1,0 +1,8 @@
+returnInventoryId, integer_
+returnRequestId, integer_
+itemRma, string_
+sku, string_
+handlingCode, string_
+handlingStatusCode, string_
+warehouseId, integer_
+createOn, Datetime_

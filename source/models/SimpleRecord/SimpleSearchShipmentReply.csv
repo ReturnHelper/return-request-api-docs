@@ -1,0 +1,10 @@
+shipmentId, integer_
+shipmentNumber, string_
+returnRequestId, integer_
+labelId, integer_
+shipmentStatusCode, string_
+referenceNumber, string_
+warehouseId, integer_
+shipmentServiceType, string_
+shipmentCountryCode, string_
+createOn, Datetime_

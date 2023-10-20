@@ -1,0 +1,8 @@
+fbaWarehouseInventoryId, guid_
+warehouseId, integer_
+fnsku, string_
+quantity, integer_
+availableQuantity, integer_
+referenceNumber, string_
+remark, string_
+lastPutawayOn, Datetime_
