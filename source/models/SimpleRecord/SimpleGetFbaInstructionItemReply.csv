@@ -1,0 +1,4 @@
+fbaInstructionItemId, guid_
+fbaInstructionId, guid_
+fbaShipmentItemId, guid_
+instructionItemQuantity, integer_

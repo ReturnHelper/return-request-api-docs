@@ -756,3 +756,73 @@ ReturnRequestLineItemIncludeImage
 
       imageUrlList, List<string_>
       returnRequestLineItem, :ref:`structure-ReturnRequestLineItemPayload`
+
+.. _structure-SimpleSearchShipmentReply:
+
+SimpleSearchShipmentReply
+--------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleSearchShipmentReply.csv 
+
+.. _structure-SimpleSearchReturnInventoryReply:
+
+SimpleSearchReturnInventoryReply
+---------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleSearchReturnInventoryReply.csv 
+
+.. _structure-SimpleSearchFbaShipmentReply:
+
+SimpleSearchFbaShipmentReply
+---------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleSearchFbaShipmentReply.csv 
+
+.. _structure-SimpleSearchFbaInstructionReply:
+
+SimpleSearchFbaInstructionReply
+---------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleSearchFbaInstructionReply.csv 
+
+.. _structure-SimpleGetFbaShipmentItemReply:
+
+SimpleGetFbaShipmentItemReply
+------------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleGetFbaShipmentItemReply.csv 
+
+.. _structure-SimpleGetFbaWarehouseInventoryReply:
+
+SimpleGetFbaWarehouseInventoryReply
+------------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleGetFbaWarehouseInventoryReply.csv 
+
+.. _structure-SimpleGetFbaInstructionItemReply:
+
+SimpleGetFbaInstructionItemReply
+------------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/SimpleRecord/SimpleGetFbaInstructionItemReply.csv 

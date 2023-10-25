@@ -1767,46 +1767,6 @@ Response:
 
 ----
 
-.. _method-searchFbaInventory:
-
-SearchFbaInventory
----------------------------
-
-::
-
-[POST] <userapi-endpoint>/Fba/FbaWarehouseInventory/search
-
-Parameters:
-
-.. _structure-SearchFbaInventoryRequest:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/SearchFbaInventoryRequest.csv
-
-|
-
-Response:
-
-.. _structure-SearchFbaInventoryResponse:
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/SearchFbaInventoryResponse.csv
-
-|
-
-.. csv-table:: ``SearchFbaInventoryReply``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Fba/SearchFbaInventoryReply.csv
-
-|
-
-----
-
 .. _method-createFbaInstruction:
 
 CreateFbaInstruction
@@ -2180,6 +2140,216 @@ Response:
 
 ----
 
+Simple Record
+==============
+
+.. _method-SearchShipment:
+
+SearchShipment
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/searchShipment
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   createFrom, Datetime_
+   createTo, Datetime_
+   pageSize, integer_
+   offset, integer_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleSearchShipmentResponse.csv
+
+|
+
+.. _method-SearchReturnInventory:
+
+SearchReturnInventory
+---------------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/searchReturnInventory
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   createFrom, Datetime_
+   createTo, Datetime_
+   pageSize, integer_
+   offset, integer_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleSearchReturnInventoryResponse.csv
+
+|
+
+.. _method-SearchFbaShipment:
+
+SearchFbaShipment
+--------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/searchFbaShipment
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   createFrom, Datetime_
+   createTo, Datetime_
+   pageSize, integer_
+   offset, integer_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleSearchFbaShipmentResponse.csv
+
+|
+
+.. _method-SearchFbaInstruction:
+
+SearchFbaInstruction
+--------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/searchFbaInstruction
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   createFrom, Datetime_
+   createTo, Datetime_
+   pageSize, integer_
+   offset, integer_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleSearchFbaInstructionResponse.csv
+
+|
+
+.. _method-GetFbaShipmentItemList:
+
+GetFbaShipmentItemList
+-----------------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/getFbaShipmentItemList
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fbaShipmentId, guid_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleGetFbaShipmentItemResponse.csv
+
+|
+
+.. _method-GetFbaWarehouseInventoryList:
+
+GetFbaWarehouseInventoryList
+-----------------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/getFbaWarehouseInventoryList
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fnsku, string_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleGetFbaWarehouseInventoryResponse.csv
+
+|
+
+.. _method-GetFbaInstructionItemList:
+
+GetFbaInstructionItemList
+-----------------------------
+
+::
+
+[Get] <userapi-endpoint>/SimpleRecord/getFbaInstructionItemList
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   fbaInstructionId, guid_
+
+|
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/SimpleRecord/SimpleGetFbaInstructionItemResponse.csv
+
+|
 
 .. reference definition goes here
 
