@@ -1,0 +1,15 @@
+shipmentCountryCode, string_, YES, ``usa``
+shipmentName, string_, YES, Max Length 32
+shipmentPhone, string_, , Max Length 50
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, YES, "Regex1: ``^(?=.{1,64}@.{4,64}$)(?=.{6,100}$).*\A[a-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,20}\z``; Regex2: ``^(?=.{1,64}@.{4,64}$)(?=.{6,100}$).*``"
+shipmentStreet1, string_, YES, Max Length 32
+shipmentStreet2, string_, , Max Length 32
+shipmentStreet3, string_, , Max Length 255
+shipmentState, string_, YES, Length 2
+shipmentCity, string_, YES, Max Length 20
+shipmentPostalCode, string_, YES, Regex: ``^\d{5}$``
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive
+dimension2, decimal_, YES, Positive
+dimension3, decimal_, YES, Positive
