@@ -502,9 +502,9 @@ Response:
 Shipment
 ===========
 
-.. _method-SearchShipment:
+.. _method-ListShipment:
 
-SearchShipment
+ListShipment
 ---------------
 
 ::
@@ -1992,7 +1992,7 @@ ListFbaInstruction
 
 ::
 
-[Get] <userapi-endpoint>/FbaInstruction/list
+[Get] <userapi-endpoint>/Fba/FbaInstruction/list
 
 Parameters:
 
