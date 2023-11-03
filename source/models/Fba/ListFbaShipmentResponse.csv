@@ -1,4 +1,4 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
-data, List<:ref:`structure-SimpleSearchShipmentReply`>
+data, List<:ref:`structure-ListFbaShipmentReply`>
 totalNumberOfRecords, integer_
