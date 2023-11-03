@@ -165,16 +165,16 @@ Retrieving History Data for Existing Portal Users
 This section is intended for existing Return Helper Portal users who are starting to implement API workflows.
 If you are a normal API user, you do not need to retrieve history data because all neccessary information are exchanged between API calls.
 
-To retrieve return shipment history data: See :ref:`method-SearchShipment`
+To retrieve return shipment history data: See :ref:`method-ListShipment`
 
-To retrieve return inventory history data: See :ref:`method-SearchReturnInventory`
+To retrieve return inventory history data: See :ref:`method-ListReturnInventory`
 
 To retrieve FBA history data:
 
-1.  Use :ref:`method-SearchFbaShipment` to search for history FBA shipments within a date range, getting a list of fbaShipmentId.
+1.  Use :ref:`method-ListFbaShipment` to search for history FBA shipments within a date range, getting a list of fbaShipmentId.
 2.  Get shipment item list using :ref:`method-GetFbaShipmentItemList`. This response contains every fba shipment items, their fnsku, total quantity as well as available quantity wihtin this fbaShipmentId.
 3.  Get the fba warehouse inventory list with a fnsku by :ref:`method-GetFbaWarehouseInventoryList`
-4.  Similarly, search fba instructions using :ref:`method-SearchFbaInstruction`.
+4.  Similarly, search fba instructions using :ref:`method-ListFbaInstruction`.
 5.  Then, get the list of items for each fba instructions by :ref:`method-GetFbaInstructionItemList`.
 
 Once you have successfully retrieved all the history data,
