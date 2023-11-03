@@ -1,3 +1,0 @@
-correlationId, string_
-meta, :ref:`structure-ApiResponseMeta`
-data, List<:ref:`structure-SimpleGetFbaWarehouseInventoryReply`>

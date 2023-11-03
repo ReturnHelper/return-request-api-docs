@@ -757,72 +757,72 @@ ReturnRequestLineItemIncludeImage
       imageUrlList, List<string_>
       returnRequestLineItem, :ref:`structure-ReturnRequestLineItemPayload`
 
-.. _structure-SimpleSearchShipmentReply:
+.. _structure-ListShipmentReply:
 
-SimpleSearchShipmentReply
+ListShipmentReply
 --------------------------
 
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleSearchShipmentReply.csv 
+      :file: models/Shipment/ListShipmentReply.csv 
 
-.. _structure-SimpleSearchReturnInventoryReply:
+.. _structure-ListReturnInventoryReply:
 
-SimpleSearchReturnInventoryReply
+ListReturnInventoryReply
 ---------------------------------
 
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleSearchReturnInventoryReply.csv 
+      :file: models/ReturnInventory/ListReturnInventoryReply.csv 
 
-.. _structure-SimpleSearchFbaShipmentReply:
+.. _structure-ListFbaShipmentReply:
 
-SimpleSearchFbaShipmentReply
+ListFbaShipmentReply
+---------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/ListFbaShipmentReply.csv 
+
+.. _structure-ListFbaInstructionReply:
+
+ListFbaInstructionReply
 ---------------------------------
 
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleSearchFbaShipmentReply.csv 
+      :file: models/Fba/ListFbaInstructionReply.csv 
 
-.. _structure-SimpleSearchFbaInstructionReply:
+.. _structure-GetFbaShipmentItemReply:
 
-SimpleSearchFbaInstructionReply
----------------------------------
-
-   .. csv-table::
-      :header: "Name", "Type", "Remarks"
-      :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleSearchFbaInstructionReply.csv 
-
-.. _structure-SimpleGetFbaShipmentItemReply:
-
-SimpleGetFbaShipmentItemReply
+GetFbaShipmentItemReply
 ------------------------------------
 
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleGetFbaShipmentItemReply.csv 
+      :file: models/Fba/GetFbaShipmentItemReply.csv 
 
-.. _structure-SimpleGetFbaWarehouseInventoryReply:
+.. _structure-GetFbaWarehouseInventoryReply:
 
-SimpleGetFbaWarehouseInventoryReply
+GetFbaWarehouseInventoryReply
 ------------------------------------
 
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleGetFbaWarehouseInventoryReply.csv 
+      :file: models/Fba/GetFbaWarehouseInventoryReply.csv 
 
-.. _structure-SimpleGetFbaInstructionItemReply:
+.. _structure-GetFbaInstructionItemReply:
 
-SimpleGetFbaInstructionItemReply
+GetFbaInstructionItemReply
 ------------------------------------
 
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/SimpleRecord/SimpleGetFbaInstructionItemReply.csv 
+      :file: models/Fba/GetFbaInstructionItemReply.csv 
