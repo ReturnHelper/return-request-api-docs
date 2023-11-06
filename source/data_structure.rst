@@ -756,3 +756,73 @@ ReturnRequestLineItemIncludeImage
 
       imageUrlList, List<string_>
       returnRequestLineItem, :ref:`structure-ReturnRequestLineItemPayload`
+
+.. _structure-ListShipmentReply:
+
+ListShipmentReply
+--------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Shipment/ListShipmentReply.csv 
+
+.. _structure-ListReturnInventoryReply:
+
+ListReturnInventoryReply
+---------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/ReturnInventory/ListReturnInventoryReply.csv 
+
+.. _structure-ListFbaShipmentReply:
+
+ListFbaShipmentReply
+---------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/ListFbaShipmentReply.csv 
+
+.. _structure-ListFbaInstructionReply:
+
+ListFbaInstructionReply
+---------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/ListFbaInstructionReply.csv 
+
+.. _structure-GetFbaShipmentItemReply:
+
+GetFbaShipmentItemReply
+------------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/GetFbaShipmentItemReply.csv 
+
+.. _structure-GetFbaWarehouseInventoryReply:
+
+GetFbaWarehouseInventoryReply
+------------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/GetFbaWarehouseInventoryReply.csv 
+
+.. _structure-GetFbaInstructionItemReply:
+
+GetFbaInstructionItemReply
+------------------------------------
+
+   .. csv-table::
+      :header: "Name", "Type", "Remarks"
+      :widths: 15, 10, 30
+      :file: models/Fba/GetFbaInstructionItemReply.csv 

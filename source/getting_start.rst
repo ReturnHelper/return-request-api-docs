@@ -153,8 +153,29 @@ Customers can send their FBA products to Return Helper warehouse. After the prod
 Here is an example workflow of FBA return:
 
 1.  Customer acknownledge RH by :ref:`method-createfbashipment` and sends FBA products to Return Helper warehouse.
-2.  The shipment is received and putaway as a FBA inventory with ``fnsku`` and ``quantity``.
-3.  Customers checks their FBA inventory with :ref:`method-searchfbainventory`, this API will return the FBA inventory list with ``fnsku`` and ``quantity``.
+2.  The shipment is received and putaway as a FBA inventory with ``fnsku`` and ``quantity``. These information are push to customers via :ref:`notification`.
+3.  Customers can always checks their FBA inventory with :ref:`method-GetFbaWarehouseInventoryList`.
 4.  Customers create a FBA instructions by :ref:`method-createfbainstruction`. (Replehishment requires additional shipping information which is currently not supported in API.)
 5.  RH will process the instruction and notify customers the results by notifications.
 6.  Customer can also check the instruction status by :ref:`method-getfbainstructionrecall`, :ref:`method-getfbainstructiondispose`, :ref:`method-getfbainstructionrestock`, :ref:`method-getfbainstructionothers`.
+
+Retrieving History Data for Existing Portal Users
+-------------------------------------------------
+
+This section is intended for existing Return Helper Portal users who are starting to implement API workflows.
+If you are a normal API user, you do not need to retrieve history data because all neccessary information are exchanged between API calls.
+
+To retrieve return shipment history data: See :ref:`method-ListShipment`
+
+To retrieve return inventory history data: See :ref:`method-ListReturnInventory`
+
+To retrieve FBA history data:
+
+1.  Use :ref:`method-ListFbaShipment` to search for history FBA shipments within a date range, getting a list of fbaShipmentId.
+2.  Get shipment item list using :ref:`method-GetFbaShipmentItemList`. This response contains every fba shipment items, their fnsku, total quantity as well as available quantity wihtin this fbaShipmentId.
+3.  Get the fba warehouse inventory list with a fnsku by :ref:`method-GetFbaWarehouseInventoryList`
+4.  Similarly, search fba instructions using :ref:`method-ListFbaInstruction`.
+5.  Then, get the list of items for each fba instructions by :ref:`method-GetFbaInstructionItemList`.
+
+Once you have successfully retrieved all the history data,
+you should rely on normal API calls to maintain your data instead of continuously polling for history data.

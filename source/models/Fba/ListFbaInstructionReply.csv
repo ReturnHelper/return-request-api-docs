@@ -1,0 +1,8 @@
+fbaInstructionId, guid_
+fbaInstructionHandlingCode, string_
+handlingStatusCode, string_
+quantity, integer_
+fbaInstructionNumber, string_
+warehouseId, integer_
+cancelRemarks, string_
+createOn, Datetime_

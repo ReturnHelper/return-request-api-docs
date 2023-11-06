@@ -1,0 +1,7 @@
+fbaShipmentId, guid_
+warehouseId, integer_
+fbaShipmentStatusCode, string_
+rma, string_
+trackingNumber, string_
+removalOrderId, string_
+createOn, Datetime_
