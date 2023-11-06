@@ -1,0 +1,13 @@
+shipmentCountryCode, string_, YES, ``sgp``
+shipmentName, string_, YES, Max Length 35
+shipmentPhone, string_, YES, Max Length 16; Regex: ``^(\+?65\s?)?[6|8|9]\d{7}$``
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, , Max Length 255
+shipmentStreet1, string_, YES, Max Length 10
+shipmentState, string_, , Length 50
+shipmentCity, string_, , Max Length 50
+shipmentPostalCode, string_, YES, Max Length 10
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive
+dimension2, decimal_, YES, Positive
+dimension3, decimal_, YES, Positive

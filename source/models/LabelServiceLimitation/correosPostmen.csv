@@ -1,0 +1,15 @@
+shipmentCountryCode, string_, YES, ``esp``
+shipmentName, string_, YES, Max Length 50
+shipmentPhone, string_, YES, "Regex: ``^[6][1-9]\d{7}$``"
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, , Max Length 255
+shipmentStreet1, string_, YES, Max Length 35
+shipmentStreet2, string_, , Max Length 35
+shipmentStreet3, string_, , Max Length 35
+shipmentState, string_, , Max Length 50
+shipmentCity, string_, , Max Length 50
+shipmentPostalCode, string_, YES, "Regex: ``^\d{5}$``"
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive
+dimension2, decimal_, YES, Positive
+dimension3, decimal_, YES, Positive

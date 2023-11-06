@@ -1,0 +1,15 @@
+shipmentCountryCode, string_, YES, ``fra``
+shipmentName, string_, YES, "Max Length 20; Only accept numeric digits, English, and French letters."
+shipmentPhone, string_, YES, Max Length 15
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, , Max Length 80
+shipmentStreet1, string_, YES, Max Length 22
+shipmentStreet2, string_, , Max Length 22
+shipmentStreet3, string_, , Max Length 22
+shipmentState, string_, , Max Length 50
+shipmentCity, string_, YES, Max Length 35
+shipmentPostalCode, string_, YES, Ｍax Length 5
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive
+dimension2, decimal_, YES, Positive
+dimension3, decimal_, YES, Positive
