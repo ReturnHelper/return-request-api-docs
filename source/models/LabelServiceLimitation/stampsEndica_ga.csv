@@ -1,0 +1,15 @@
+shipmentCountryCode, string_, YES, ``usa``
+shipmentName, string_, YES, Max Length 100
+shipmentPhone, string_, YES, Max Length 30
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, , "Max Length 50; Regex: ``^([a-zA-Z0-9_\-\.\+]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$``"
+shipmentStreet1, string_, YES, Max Length 50
+shipmentStreet2, string_, , Max Length 50
+shipmentStreet3, string_, , Max Length 100
+shipmentState, string_, YES, Max Length 50
+shipmentCity, string_, YES, Max Length 50
+shipmentPostalCode, string_, YES, Max Length 14
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive; The maximum size (length + 2 * width + 2 * height) must not exceed 330 cm
+dimension2, decimal_, YES, Positive
+dimension3, decimal_, YES, Positive

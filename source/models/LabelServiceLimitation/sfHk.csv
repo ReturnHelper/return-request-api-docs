@@ -1,0 +1,14 @@
+shipmentCountryCode, string_, YES, ``hkg``
+shipmentName, string_, , Max Length 30
+shipmentPhone, string_, YES, Max Length 20; Regex: ``^(\+?852)?[235689]{1}[0-9]{7}$``
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, , Max Length 200
+shipmentStreet1, string_, YES, "Max Length 40; When Address2 has value, the total length of Address1 + Address2 must not exceed 39 characters"
+shipmentStreet2, string_, , Max Length 39
+shipmentState, string_, , Length 50
+shipmentCity, string_, , Max Length 50
+shipmentPostalCode, string_, , Max Length 25
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive; Max length 1700 cm
+dimension2, decimal_, YES, Positive; Max length 1700 cm
+dimension3, decimal_, YES, Positive; Max length 1700 cm

@@ -1,0 +1,15 @@
+shipmentCountryCode, string_, YES, ``gbr``
+shipmentName, string_, YES, Max Length 35
+shipmentPhone, string_, YES, "Max Length 30; Regex: ``^[\+]?[0-9]{10,30}$``"
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, , Max Length 255
+shipmentStreet1, string_, YES, Max Length 70; The total length of Address1 + Address2 + Address3 must not exceed 70 characters.
+shipmentStreet2, string_, , Max Length 69
+shipmentStreet3, string_, , Max Length 68
+shipmentState, string_, , Max Length 30
+shipmentCity, string_, YES, Max Length 30
+shipmentPostalCode, string_, YES, Ｍax Length 8
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive; The maximum length must not exceed 100 cm; The maximum size (length + 2 * width + 2 * height) must not exceed 250 cm
+dimension2, decimal_, YES, Positive
+dimension3, decimal_, YES, Positive

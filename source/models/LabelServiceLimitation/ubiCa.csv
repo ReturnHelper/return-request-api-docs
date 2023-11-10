@@ -1,0 +1,15 @@
+shipmentCountryCode, string_, YES, ``can``
+shipmentName, string_, YES, Max Length 50
+shipmentPhone, string_, YES, Max Length 20
+shipmentFax, string_, , Max Length 50
+shipmentEmail, string_, YES, Max Length 50
+shipmentStreet1, string_, YES, Max Length 45
+shipmentStreet2, string_, , Max Length 41
+shipmentStreet3, string_, , Max Length 80
+shipmentState, string_, YES, Length 80
+shipmentCity, string_, YES, Max Length 50
+shipmentPostalCode, string_, YES, Max Length 16
+weight, decimal_, YES, Positive
+dimension1, decimal_, YES, Positive; Max length 200 cm
+dimension2, decimal_, YES, Positive; Max length 200 cm
+dimension3, decimal_, YES, Positive; Max length 200 cm

@@ -1,5 +1,15 @@
+.. _gettingstarted:
+
 Getting Started
 ===============
+
+Prerequisites
+-------------
+
+1. Request for API access (see: :ref:`index-Authenication`)
+2. Prepare notification endpoint for receiving notifications from our system (see: :ref:`notification`).
+   If no notfication endpoint is provided, no label restule will be receive.
+3. Go through the :ref:`gettingstarted` page
 
 Brief Introduction
 ------------------
