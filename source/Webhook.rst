@@ -1,21 +1,23 @@
 .. _notification:
 
-##################
-Notification
-##################
+#######
+Webhook
+#######
 
 Introduction
 -------------------------
 
-For information that are not instantly available during an api call, notification callbacks are sent to our clients once the information are ready.
-This page explains how notification works.
+For information that are not instantly available during an api call, notification callbacks are sent to our clients webhook once the information are ready.
+This page explains how webhook and notification works.
 
 .. _notification_endpoint:
 
 Notification Endpoint
 *********************
 
-It is an endpoint as the notification destination. Return Helper API notifies client's system about data update or result of request. It must be setup by Return Helper team. Please contact support@returnhelper.com for support.
+It is an endpoint provided by our clients to receive notifications. Return Helper API notifies client's system about data update or result of request.
+
+Clients must provide notification endpoint to the Return Helper team. To setup please contact support@returnhelper.com for support.
 
 Webhooks handling session
 *************************

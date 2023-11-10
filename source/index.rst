@@ -32,6 +32,8 @@ Changelog
    * - 2023-07
      - Release new API :ref:`method-createreturnshipment`, replacing :ref:`method-createreturnrequest` and :ref:`method-createlabel`
 
+.. _index-Authenication:
+
 Authenication
 -------------
 
@@ -129,5 +131,5 @@ General Remarks
    Data Structure <data_structure>
    Return Public Api <return_public_api>
    Return User Api <return_user_api>
-   Notification <Notification>
+   Webhook <Webhook>
    Label Service Limitation <label_service_limitation>
