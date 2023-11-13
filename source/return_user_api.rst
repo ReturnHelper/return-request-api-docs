@@ -145,7 +145,10 @@ Parameters:
 
    fromCountry, string_, Required
    fromPostalCode, string_, Required
-   weight, decimal_, Required
+   weight, decimal_, Required; Must be greater than zero (in g)
+   length, decimal_, Required; Must be greater than zero (in cm)
+   width, decimal_, Required; Must be greater than zero (in cm)
+   height, decimal_, Required; Must be greater than zero (in cm)
    limit, integer_, Optional. Number of service types to be responsed. Default value is 0 (Return all usable service types).
 
 Response:
