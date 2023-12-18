@@ -303,18 +303,6 @@ ReturnRequestPayload
    :widths: 15, 10, 30
    :file: models/ReturnRequest/ReturnRequestPayload.csv
 
-.. _structure-CreateNonRrLabelShipmentRequest:
-
-CreateNonRrLabelShipmentRequest
--------------------------------
-
-.. csv-table::  (inherit :ref:`structure-ShipmentPayload`)
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   trackingNumber, string_ ,Alphanumeric; hyphen and underscore; max length 50
-   carrier, string_
-
 .. _structure-EditReturnRequestLineItemRequest:
 
 EditReturnRequestLineItemRequest
@@ -765,7 +753,7 @@ ListShipmentReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/Shipment/ListShipmentReply.csv 
+      :file: models/Shipment/ListShipmentReply.csv
 
 .. _structure-ListReturnInventoryReply:
 
@@ -775,7 +763,7 @@ ListReturnInventoryReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/ReturnInventory/ListReturnInventoryReply.csv 
+      :file: models/ReturnInventory/ListReturnInventoryReply.csv
 
 .. _structure-ListFbaShipmentReply:
 
@@ -785,7 +773,7 @@ ListFbaShipmentReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/Fba/ListFbaShipmentReply.csv 
+      :file: models/Fba/ListFbaShipmentReply.csv
 
 .. _structure-ListFbaInstructionReply:
 
@@ -795,7 +783,7 @@ ListFbaInstructionReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/Fba/ListFbaInstructionReply.csv 
+      :file: models/Fba/ListFbaInstructionReply.csv
 
 .. _structure-GetFbaShipmentItemReply:
 
@@ -805,7 +793,7 @@ GetFbaShipmentItemReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/Fba/GetFbaShipmentItemReply.csv 
+      :file: models/Fba/GetFbaShipmentItemReply.csv
 
 .. _structure-GetFbaWarehouseInventoryReply:
 
@@ -815,7 +803,7 @@ GetFbaWarehouseInventoryReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/Fba/GetFbaWarehouseInventoryReply.csv 
+      :file: models/Fba/GetFbaWarehouseInventoryReply.csv
 
 .. _structure-GetFbaInstructionItemReply:
 
@@ -825,4 +813,4 @@ GetFbaInstructionItemReply
    .. csv-table::
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
-      :file: models/Fba/GetFbaInstructionItemReply.csv 
+      :file: models/Fba/GetFbaInstructionItemReply.csv
