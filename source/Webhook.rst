@@ -86,12 +86,13 @@ To understand how signature is generated, consider the example below:
 ::
 
    Header:
-   Content-Type: application/json; charset=utf-8
-   timestamp: 2021-07-21T13:58:40.2794872Z
-   ReturnHelper-Signature: ZgQ6fX4p0WL8UhCiueSadjD1Ye1Hw5clL3pekiMir34=
-
+    {
+      "content-type": "application/json; charset=utf-8",
+      "returnhelper-signature": "gXJRba6qE2rCQqJc8WEou2i8cCl0STp2AjH+y/R6ltw=",
+      "timestamp": "2024-01-12T09:23:08.4863561Z"
+    }
    Body:
-   {"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}
+    {“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestId”:10595,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}
 
 
 How to verify signature:
@@ -101,13 +102,14 @@ How to verify signature:
 3. | **Prepare string_to_sign**
    | Concatenate the following data as string in the following order:
    |  3-1. HTTP action (always to be POST)
-   |  3-2. Your notification endpoint (e.g. https://callback.free.beeceptor.com)
+   |  3-2. Your notification endpoint (e.g. https://s2024-01-12.free.beeceptor.com)
    |  3-3. The timestamp (extracted from header)
    |  3-4. The actual JSON payload (aka body)
-   |     Example: ``POSThttps://callback.free.beeceptor.com2021-07-21T13:58:40.2794872Z{"resend":{"resendId":295,"apiId":2,"resendNumber":"RSD210106-0000001","resendStatusCode":1,"description":"rest-client-test-api-flow","remarks":"rest-client-test-api-flow","warehouseRemarks":"stanley-test-12-17","modifyOn":"2021-01-06T03:28:15.3004082Z","modifyBy":"2","createOn":"2021-01-06T03:24:08","createBy":"2"},"trackingNumber":null,"failureReason":"stanley-test-12-17","category":"resend","action":"forceCancelResend","eventTime":"2021-07-21T13:58:40.279329Z"}``
+   |     Example: ``POSThttps://s2024-01-12.free.beeceptor.com2024-01-12T09:23:08.4863561Z{“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestId”:10595,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}``
    | Then, convert the concantenated string to Base64
-   |     Example: ``UE9TVGh0dHBzOi8vY2FsbGJhY2suZnJlZS5iZWVjZXB0b3IuY29tMjAyMS0wNy0yMVQxMzo1ODo0MC4yNzk0ODcyWnsicmVzZW5kIjp7InJlc2VuZElkIjoyOTUsImFwaUlkIjoyLCJyZXNlbmROdW1iZXIiOiJSU0QyMTAxMDYtMDAwMDAwMSIsInJlc2VuZFN0YXR1c0NvZGUiOjEsImRlc2NyaXB0aW9uIjoicmVzdC1jbGllbnQtdGVzdC1hcGktZmxvdyIsInJlbWFya3MiOiJyZXN0LWNsaWVudC10ZXN0LWFwaS1mbG93Iiwid2FyZWhvdXNlUmVtYXJrcyI6InN0YW5sZXktdGVzdC0xMi0xNyIsIm1vZGlmeU9uIjoiMjAyMS0wMS0wNlQwMzoyODoxNS4zMDA0MDgyWiIsIm1vZGlmeUJ5IjoiMiIsImNyZWF0ZU9uIjoiMjAyMS0wMS0wNlQwMzoyNDowOCIsImNyZWF0ZUJ5IjoiMiJ9LCJ0cmFja2luZ051bWJlciI6bnVsbCwiZmFpbHVyZVJlYXNvbiI6InN0YW5sZXktdGVzdC0xMi0xNyIsImNhdGVnb3J5IjoicmVzZW5kIiwiYWN0aW9uIjoiZm9yY2VDYW5jZWxSZXNlbmQiLCJldmVudFRpbWUiOiIyMDIxLTA3LTIxVDEzOjU4OjQwLjI3OTMyOVoifQ==``
+   |     Example: ``UE9TVGh0dHBzOi8vczIwMjQtMDEtMTIuZnJlZS5iZWVjZXB0b3IuY29tMjAyNC0wMS0xMlQwOToyMzowOC40ODYzNTYxWnvigJxsYWJlbOKAnTp74oCccmVnaW9uc+KAnTp74oCcUkhDTuKAnTrigJxodHRwczovL2xhYmVsLnJldHVybmhlbHBlcmNoaW5hLmNvbS9sYWJlbC8yMDI0MDEvMTA1OTUtUzI0MDExMi0wMDAwMDAxLXBxazJwdnlkZ3hwLnBkZuKAnX0s4oCcbGFiZWxJZOKAnTozMTAzMyzigJxzaGlwbWVudElk4oCdOjMwMzg1LOKAnGFwaUlk4oCdOjMzLOKAnHJlZktleeKAnTrigJxTMjQwMTEyLTAwMDAwMDHigJ0s4oCcbGFiZWxSZXF1ZXN0SWTigJ06MTA1OTUs4oCcbGFiZWxSZXF1ZXN0U3RhdHVzQ29kZeKAnTrigJxzdWNjZXNz4oCdLOKAnHNlcnZpY2VUeXBl4oCdOuKAnFJFVFVSTl9FTkRJQ0lBX1VTUFNfR1JPVU5EX0FEVkFOVEFHRV9OSuKAnSzigJx0cmFja2luZ051bWJlcuKAnTrigJw5NDM0NjExODk5NTYyMDgyOTAxMTM3IizigJxsYWJlbFVybOKAnTrigJxodHRwczovL2xhYmVsLXNlcnZpY2UtZGV2LWZpbGVzLnJldHVybnNoZWxwZXIuY29tL2xhYmVsLzIwMjQwMS8xMDU5NS1TMjQwMTEyLTAwMDAwMDEtcHFrMnB2eWRneHAucGRm4oCdLOKAnGVycm9y4oCdOm51bGws4oCccXJjb2RlVXJs4oCdOm51bGws4oCccXJjb2RlRXJyb3LigJ06bnVsbCzigJxjb3JyZWxhdGlvbklk4oCdOm51bGws4oCcY2FuY2VsQ3V0b2ZmVGltZeKAnTrigJwyMDI0LTAyLTExVDA5OjIxOjI0LjA3OTUiLOKAnG1ldGHigJ06bnVsbH0s4oCcY2F0ZWdvcnnigJ064oCcbGFiZWxHZW5lcmF0ZWTigJ0s4oCcYWN0aW9u4oCdOuKAnGxhYmVsR2VuZXJhdGVk4oCdLOKAnGV2ZW50VGltZeKAnTrigJwyMDI0LTAxLTEyVDA5OjIzOjA4LjQ4NjI3NDNa4oCdfQ==``
 4. | **Sign the string_to_sign**
+   | Signing key used in ths example: ``PEnA0mzKb7fUlGfMgCGhXPjPmPGvW70UU8bkNKdG78WDrQRwzFa572e2JsFIE1e4PLaP9h/ZEvERSR0FBDYNlQ==``
    | Signature is computed by using HMAC with SHA256 hash function:
    |   4-1. Decode Base64 string_to_sign to byte array
    |   4-2. Decode Base64 signing key to byte array
