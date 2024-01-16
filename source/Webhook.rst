@@ -7,31 +7,30 @@ Webhook
 Introduction
 -------------------------
 
-For information that are not instantly available during an api call, notification callbacks are sent to our clients webhook once the information are ready.
-This page explains how webhook and notification works.
+Webhooks in the Return Helper API are used for sending notifications to clients when certain information is not immediately available during an API call. This section explains how webhooks and notifications function.
 
 .. _notification_endpoint:
 
 Notification Endpoint
 *********************
 
-It is an endpoint provided by our clients to receive notifications. Return Helper API notifies client's system about data update or result of request.
+**Purpose**
 
-Clients must provide notification endpoint to the Return Helper team. To setup please contact support@returnhelper.com for support.
+An endpoint for clients to receive notifications about data updates or request results.
 
-Webhooks handling session
+Clients must provide a notification endpoint to the Return Helper team. Contact support@returnhelper.com for assistance.
+
+Handling Webhook Events
 *************************
 
-**Handle duplicate events**
+**Duplicate Events**
 
-Webhook endpoints might occasionally receive the same event more than once.
-We advise you to guard against duplicated event receipts by making your event processing idempotent.
-One way of doing this is logging the events you’ve processed, and then not processing already-logged events.
+Webhook endpoints might receive the same event more than once. Implement idempotent event processing to avoid duplicates, such as logging processed events.
 
-**Order of events**
+**Event Order**
 
-RH does not guarantee delivery of events in the order in which they are generated.
-For example warehouse receive the parcel and upload images
+The order of event delivery is not guaranteed. Design your endpoint to handle events in any order.
+For example warehouse receive the parcel and upload images.
 
 * :ref:`notification-MarkReceived`
 * :ref:`notification-changeLineItemImage`
@@ -45,24 +44,29 @@ Each event also includes ``eventTime``
 Signing Key
 ***********
 
-Each client has an unique signing key provided by Return Helper during account setup. This key is used to sign the notification and generate a signature (please check more details below).
-Please store your key securely and never disclose. **The signing key is Base64 encoded.**
+**Usage**
 
-Retry
-*****
+Each client receives a unique signing key for verifying notifications (please check more details below).
 
-When notification received at your end,
-please respond with status code ``2xx`` (``200`` - ``299``). Our retry mechanism is based on the status code in your response. If it is not 2xx, retrial will be triggered.
+**Security**
 
-Fail delivery
-*************
+Store your key securely and do not disclose it. **The key is Base64 encoded.**
 
-After 10 fail notfication deliveries, we will suspend the notification delivery to the specific endpoint for 24 hours.
+Retry Mechanism
+***************
 
-Header
-******
+**Response Codes**
 
-Notification header contains a timestamp and a signature.
+Respond to notifications with a ``2xx`` (``200`` - ``299``) status code. Non-2xx responses trigger retries.
+
+**Failed Deliveries**
+
+After 10 failed deliveries, notification to the endpoint is suspended for 24 hours.
+
+Notification Header
+*******************
+
+It contains a timestamp and a signature.
 
 .. csv-table::
    :header: "Name", "Type", "Remarks"
@@ -71,14 +75,20 @@ Notification header contains a timestamp and a signature.
    timestamp, string_ , ISO8601
    signature, string_ , See ``Signature`` section
 
-Signature
-*********
+Signature Verification
+**********************
 
-This section explains how a signature is generated so clients can verify the authenticity and integrity of our notification message.
-**Clients should always verify the signature before processing the payload data.**
+**Process**
 
+Verify the signature for authenticity and integrity before processing payload data. 
 
-**You must always require the raw body of the request to perform signature verification. If you’re using a framework, make sure it doesn’t manipulate the raw body. Any manipulation to the raw body of the request causes the verification to fail.**
+**Signature Verification: A Recommended Security Practice**
+
+**Verifying the signature is a crucial step in ensuring the security and integrity of the data received through webhooks. While it may be optional, we strongly recommend always performing signature verification before processing the payload data to safeguard against potential security threats.**
+
+**Handling the Raw Body**
+
+**You must always use the raw body of the request for signature verification. If you are using a framework, ensure that it does not alter the raw body. Any manipulation of the raw body causes verification to fail.**
 
 
 To understand how signature is generated, consider the example below:
@@ -95,44 +105,44 @@ To understand how signature is generated, consider the example below:
     {“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestId”:10595,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}
 
 
-How to verify signature:
+**Steps to Verify Signature**
 
-1. | **Extract the signature from header, for comparing with the generated signature later**
-2. | **Extract the timestamp from header, for generating signature**
+1. | **Retrieve the signature from header, for comparing with the generated signature later**
+2. | **Retrieve the timestamp from header, for generating signature**
 3. | **Prepare string_to_sign**
-   | Concatenate the following data as string in the following order:
+   | Concatenate the following data as string in order:
    |  3-1. HTTP action (always to be POST)
    |  3-2. Your notification endpoint (e.g. https://s2024-01-12.free.beeceptor.com)
    |  3-3. The timestamp (extracted from header)
    |  3-4. The actual JSON payload (aka body)
    |     Example: ``POSThttps://s2024-01-12.free.beeceptor.com2024-01-12T09:23:08.4863561Z{“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestId”:10595,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}``
-   | Then, convert the concantenated string to Base64
+   | Then, convert the concantenated string to Base64. This is the string_to_sign.
    |     Example: ``UE9TVGh0dHBzOi8vczIwMjQtMDEtMTIuZnJlZS5iZWVjZXB0b3IuY29tMjAyNC0wMS0xMlQwOToyMzowOC40ODYzNTYxWnvigJxsYWJlbOKAnTp74oCccmVnaW9uc+KAnTp74oCcUkhDTuKAnTrigJxodHRwczovL2xhYmVsLnJldHVybmhlbHBlcmNoaW5hLmNvbS9sYWJlbC8yMDI0MDEvMTA1OTUtUzI0MDExMi0wMDAwMDAxLXBxazJwdnlkZ3hwLnBkZuKAnX0s4oCcbGFiZWxJZOKAnTozMTAzMyzigJxzaGlwbWVudElk4oCdOjMwMzg1LOKAnGFwaUlk4oCdOjMzLOKAnHJlZktleeKAnTrigJxTMjQwMTEyLTAwMDAwMDHigJ0s4oCcbGFiZWxSZXF1ZXN0SWTigJ06MTA1OTUs4oCcbGFiZWxSZXF1ZXN0U3RhdHVzQ29kZeKAnTrigJxzdWNjZXNz4oCdLOKAnHNlcnZpY2VUeXBl4oCdOuKAnFJFVFVSTl9FTkRJQ0lBX1VTUFNfR1JPVU5EX0FEVkFOVEFHRV9OSuKAnSzigJx0cmFja2luZ051bWJlcuKAnTrigJw5NDM0NjExODk5NTYyMDgyOTAxMTM3IizigJxsYWJlbFVybOKAnTrigJxodHRwczovL2xhYmVsLXNlcnZpY2UtZGV2LWZpbGVzLnJldHVybnNoZWxwZXIuY29tL2xhYmVsLzIwMjQwMS8xMDU5NS1TMjQwMTEyLTAwMDAwMDEtcHFrMnB2eWRneHAucGRm4oCdLOKAnGVycm9y4oCdOm51bGws4oCccXJjb2RlVXJs4oCdOm51bGws4oCccXJjb2RlRXJyb3LigJ06bnVsbCzigJxjb3JyZWxhdGlvbklk4oCdOm51bGws4oCcY2FuY2VsQ3V0b2ZmVGltZeKAnTrigJwyMDI0LTAyLTExVDA5OjIxOjI0LjA3OTUiLOKAnG1ldGHigJ06bnVsbH0s4oCcY2F0ZWdvcnnigJ064oCcbGFiZWxHZW5lcmF0ZWTigJ0s4oCcYWN0aW9u4oCdOuKAnGxhYmVsR2VuZXJhdGVk4oCdLOKAnGV2ZW50VGltZeKAnTrigJwyMDI0LTAxLTEyVDA5OjIzOjA4LjQ4NjI3NDNa4oCdfQ==``
 4. | **Sign the string_to_sign**
    | Signing key used in ths example: ``PEnA0mzKb7fUlGfMgCGhXPjPmPGvW70UU8bkNKdG78WDrQRwzFa572e2JsFIE1e4PLaP9h/ZEvERSR0FBDYNlQ==``
    | Signature is computed by using HMAC with SHA256 hash function:
-   |   4-1. Decode Base64 string_to_sign to byte array
-   |   4-2. Decode Base64 signing key to byte array
-   |   4-3. Generate signature (byte array) from 4-1 and 4-2
-   |   4-4. Encode signature (byte array) to Base64
+   |   4-1. Decode Base64 string_to_sign to byte array. 
+   |   4-2. Decode Base64 signing key to byte array. 
+   |   4-3. Generate signature (byte array) from 4-1 and 4-2. 
+   |   4-4. Encode signature (byte array) to Base64. 
 5. | **Compare the signatures**
-   | Compare the signature generated from Step 4 with the signature extracted from Step 1
+   | Compare the signature generated from Step 4 with the signature retrieved in Step 1.
+   | Use a constant-time string comparison to protect against timing attacks.
 
-PS:
-You should not process a notification with eventTime significantly different (15 minutes)
-that the receiving machine’s clock to help prevent replay attacks.
+Additional Notes:
+Do not process notifications if the eventTime is significantly different (more than 15 minutes) from your system's clock. This helps prevent replay attacks.
 
 To protect against timing attacks,
 use a constant-time string comparison to compare the expected signature.
 
-Signature sample codes:
+Signature verification sample codes:
 
 - :download:`Java <samples/Sha265Sign.java>`
 - :download:`Node.js <samples/Sha265Sign.js>`
 - :download:`Apex (For Salesforce Users) <samples/Sha265Sign.apex>`
 
-Body
-****
+Notification Body
+*****************
 
 ``eventTime`` is in ISO8601 format.
 
