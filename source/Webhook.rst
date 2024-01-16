@@ -118,14 +118,18 @@ How to verify signature:
 5. | **Compare the signatures**
    | Compare the signature generated from Step 4 with the signature extracted from Step 1
 
-A complete java sample is available `HERE <https://gist.github.com/neo-cheung/f8a147307616230fb60e402f0fc8211b>`_
-
 PS:
 You should not process a notification with eventTime significantly different (15 minutes)
 that the receiving machine’s clock to help prevent replay attacks.
 
 To protect against timing attacks,
 use a constant-time string comparison to compare the expected signature.
+
+Signature sample codes:
+
+- :download:`Java <samples/Sha265Sign.java>`
+- :download:`Node.js <samples/Sha265Sign.js>`
+- :download:`Apex (For Salesforce Users) <samples/Sha265Sign.apex>`
 
 Body
 ****
