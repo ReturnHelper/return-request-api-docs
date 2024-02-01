@@ -347,16 +347,6 @@ ShipmentCostDetailPayload
    :widths: 15, 10, 30
    :file: models/ReturnRequest/ShipmentCostDetailPayload.csv
 
-.. _structure-ShipmentSupplementPayload:
-
-ShipmentSupplementPayload
--------------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/ReturnRequest/ShipmentSupplementPayload.csv
-
 .. _structure-UpdateReturnRequestLineItemHandlingRequest:
 
 UpdateReturnRequestLineItemHandlingRequest
@@ -720,17 +710,6 @@ VASStatus
       :header: "Name", "Type", "Remarks"
       :widths: 15, 10, 30
       :file: models/Notification/NotificationVASStatus.csv
-
-
-.. _structure-NotificationShipmentSupplementPayload:
-
-ShipmentSupplementPayload
--------------------------
-
-   .. csv-table::
-      :header: "Name", "Type", "Remarks"
-      :widths: 15, 10, 30
-      :file: models/Notification/NotificationShipmentSupplementPayload.csv
 
 
 .. _structure-ReturnRequestLineItemIncludeImage:
