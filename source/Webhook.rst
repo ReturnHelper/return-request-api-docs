@@ -80,7 +80,7 @@ Signature Verification
 
 **Process**
 
-Verify the signature for authenticity and integrity before processing payload data. 
+Verify the signature for authenticity and integrity before processing payload data.
 
 **Signature Verification: A Recommended Security Practice**
 
@@ -121,10 +121,10 @@ To understand how signature is generated, consider the example below:
 4. | **Sign the string_to_sign**
    | Signing key used in ths example: ``PEnA0mzKb7fUlGfMgCGhXPjPmPGvW70UU8bkNKdG78WDrQRwzFa572e2JsFIE1e4PLaP9h/ZEvERSR0FBDYNlQ==``
    | Signature is computed by using HMAC with SHA256 hash function:
-   |   4-1. Decode Base64 string_to_sign to byte array. 
-   |   4-2. Decode Base64 signing key to byte array. 
-   |   4-3. Generate signature (byte array) from 4-1 and 4-2. 
-   |   4-4. Encode signature (byte array) to Base64. 
+   |   4-1. Decode Base64 string_to_sign to byte array.
+   |   4-2. Decode Base64 signing key to byte array.
+   |   4-3. Generate signature (byte array) from 4-1 and 4-2.
+   |   4-4. Encode signature (byte array) to Base64.
 5. | **Compare the signatures**
    | Compare the signature generated from Step 4 with the signature retrieved in Step 1.
    | Use a constant-time string comparison to protect against timing attacks.
@@ -480,20 +480,6 @@ Sample:
 .. code-block:: json
 
    {
-      "shipmentSupplement":{
-         "shipmentSupplementId":3263,
-         "shipmentId":9178,
-         "actualWeight":500.0,
-         "actualWeightUom":"g",
-         "actualDimension1":10.0,
-         "actualDimension2":20.0,
-         "actualDimension3":30.0,
-         "actualDimensionUom":"cm",
-         "modifyOn":"2021-07-06T12:43:36",
-         "modifyBy":"3",
-         "createOn":"2021-07-06T12:43:36",
-         "createBy":"3"
-      },
       "returnInventoryList":[
          {
             "returnInventoryId":3880,
@@ -1031,20 +1017,6 @@ Sample:
       "fromCompany": null,
       "carrier": null,
       "referenceNumber": null
-   },
-   "shipmentSupplement": {
-      "shipmentSupplementId": 3294,
-      "shipmentId": 9265,
-      "actualWeight": 10,
-      "actualWeightUom": "g",
-      "actualDimension1": 10,
-      "actualDimension2": 10,
-      "actualDimension3": 10,
-      "actualDimensionUom": "cm",
-      "modifyOn": "2021-07-08T14:30:48",
-      "modifyBy": "3",
-      "createOn": "2021-07-08T14:30:48",
-      "createBy": "3"
    },
    "returnInventoryList": [
       {
