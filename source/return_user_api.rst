@@ -933,41 +933,6 @@ Response:
 
 ----
 
-.. _method-UpdateReturnRequestHandling:
-
-UpdateReturnRequestHandling
----------------------------
-
-::
-
-[POST]  <userapi-endpoint>/returnrequest/updateReturnRequestHandling
-
-Parameters:
-
-.. _structure-UpdateReturnRequestHandlingRequest:
-
-.. csv-table:: ``UpdateReturnRequestHandlingRequest``
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   returnRequestId, string_,,Max Length 35
-   returnRequestLineItemHandling, List<:ref:`structure-UpdateReturnRequestLineItemHandlingRequest`>
-
-|
-
-Response:
-
-.. csv-table:: ``ApiResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   correlationId, string_
-   meta, :ref:`structure-ApiResponseMeta`
-
-|
-
-----
-
 .. _method-CreateVas:
 
 CreateVas
