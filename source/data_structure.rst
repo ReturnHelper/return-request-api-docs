@@ -347,18 +347,6 @@ ShipmentCostDetailPayload
    :widths: 15, 10, 30
    :file: models/ReturnRequest/ShipmentCostDetailPayload.csv
 
-.. _structure-UpdateReturnRequestLineItemHandlingRequest:
-
-UpdateReturnRequestLineItemHandlingRequest
-------------------------------------------
-
-.. csv-table::
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-
-   returnRequestLineItemId, long_
-   handlingCode, string_
-
 .. _structure-ResendShipmentPayload:
 
 ResendShipmentPayload
