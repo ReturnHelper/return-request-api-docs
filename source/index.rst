@@ -31,6 +31,8 @@ Changelog
      - Add API endpoint for China user
    * - 2023-07
      - Release new API :ref:`method-createreturnshipment`, replacing :ref:`method-createreturnrequest` and :ref:`method-createlabel`
+   * - 2024-02
+     - Remove ``x-api-key`` from request header, this value is no longer required for API access
 
 .. _index-Authenication:
 
@@ -43,7 +45,6 @@ Put authenication keys in your request header:
 
     x-rr-apikey: (your key)
     x-rr-apitoken: (your token)
-    x-api-key: (your api key)
     Content-Type: "application/json"
 
 ``API TOKEN`` is private and should never be shared to others.
@@ -67,7 +68,6 @@ Below is a email template for requesting API access:
   We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
   x-rr-apikey
   x-rr-apitoken
-  x-api-key
 
 For example:
 
@@ -84,7 +84,6 @@ For example:
   We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
   x-rr-apikey
   x-rr-apitoken
-  x-api-key
 
 API Endpoints
 -------------
