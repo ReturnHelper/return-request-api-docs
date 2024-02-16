@@ -31,6 +31,8 @@ Changelog
      - Add API endpoint for China user
    * - 2023-07
      - Release new API :ref:`method-createreturnshipment`, replacing :ref:`method-createreturnrequest` and :ref:`method-createlabel`
+   * - 2024-02
+     - Remove ``x-api-key`` from request header, this value is no longer required for API access
 
 .. _index-Authenication:
 
