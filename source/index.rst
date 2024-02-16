@@ -43,7 +43,6 @@ Put authenication keys in your request header:
 
     x-rr-apikey: (your key)
     x-rr-apitoken: (your token)
-    x-api-key: (your api key)
     Content-Type: "application/json"
 
 ``API TOKEN`` is private and should never be shared to others.
@@ -67,7 +66,6 @@ Below is a email template for requesting API access:
   We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
   x-rr-apikey
   x-rr-apitoken
-  x-api-key
 
 For example:
 
@@ -84,7 +82,6 @@ For example:
   We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
   x-rr-apikey
   x-rr-apitoken
-  x-api-key
 
 API Endpoints
 -------------
