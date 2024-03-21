@@ -156,3 +156,4 @@ General Remarks
    Return User Api <return_user_api>
    Webhook <Webhook>
    Label Service Limitation <label_service_limitation>
+   Partner API <partner>
