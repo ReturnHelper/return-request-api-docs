@@ -8,7 +8,9 @@ Return Helper API
 
 This document only contains Return Helper Partner API.
 
-For other APIs, please refer to the main documentation at https://return-request-api.readthedocs.io/en/latest/.
+For other APIs, please refer to the main documentation at
+https://return-request-api.readthedocs.io/en/latest/.
+
 ----
 
 .. toctree::
