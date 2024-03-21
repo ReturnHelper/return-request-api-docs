@@ -9,20 +9,20 @@ The Partner API is a restricted API that is only available for partners. It prov
 
 Please note that access to the Partner API requires extra registration as a Return Helper's partner. Unauthorized access to this API is strictly prohibited.
 
-Configure Notification Endpoints for Partners' Customers
---------------------------------------------------------
+Configure Webhook for Partners' Customers
+-----------------------------------------
 
 Customer keys
 *************
 
-To configure notification endpoints for a partners' customers, partners need to ensure they use the customers' API keys and tokens instead of the partner's key and token. This ensures that the notifications are properly associated with the respective customer accounts.
+To configure webhook (i.e. manage notification endpoints) for a partners' customers, partners need to ensure they use the customers' API keys and tokens instead of the partner's key and token. This ensures that the notifications are properly associated with the respective customer accounts.
 
 .. _method-AddHttpNotification:
 
-AddHttpNotification
--------------------
+AddHttpNotification (Set up webhook)
+------------------------------------
 
-Add an notification endpoint associated with a user account (by using the user's API key and token).
+Set up webhook by adding a notification endpoint associated with a customer's account (by using the customer's API key and token).
 
 Validation
 **********
@@ -56,7 +56,7 @@ Response:
 GetAllHttpNotification
 ----------------------
 
-Get all notification endpoints under user account (by using the user's API key and token).
+Get all notification endpoints under customer account (by using the customer's API key and token).
 
 ::
 
@@ -80,10 +80,10 @@ Response:
    endpoint, string_
    isActive, bool_
 
-DeleteHttpNotification
-----------------------
+DeleteHttpNotification (Remove webhook)
+---------------------------------------
 
-Delete notification endpoints under a user account (by using the user's API key and token).
+Delete notification endpoints under a customer account (by using the customer's API key and token).
 
 ::
 
