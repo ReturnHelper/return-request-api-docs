@@ -411,6 +411,51 @@ Response:
 
 ----
 
+.. _method-getAvailableShipmentServiceType:
+
+GetAvailableShipmentServiceType
+-------------------------------
+
+Get service types for :ref:`method-CreateResend`.
+
+This API is for getting **RESEND** service types only. For return service types please check :ref:`method-GetServiceType`.
+
+There is a custom service type named ``others`` in the response payload. Customers who need special handling should contact our Customer Service before using this service type.
+
+::
+
+[GET] <userapi-endpoint>/Shipment/getAvailableShipmentServiceType
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   toCountry, string_, Required
+   warehouseId, string_, Required
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   data, List<:ref:`structure-ShipmentServiceTypeReply`>
+
+.. _structure-ShipmentServiceTypeReply:
+
+.. csv-table:: ``ShipmentServiceTypeReply``
+   :header: "Name", "Type", "Remarks"
+   :widths: 20, 20, 30
+
+   serviceTypeCode, string_, Service type code. You should use this when calling :ref:`method-CreateResend`.
+   serviceType, string_, Description of the service type
+   isEnabled, bool_
+   warehouseList,List<:ref:`structure-WarehouseResponse`>
+
+----
+
 Label
 =====
 
