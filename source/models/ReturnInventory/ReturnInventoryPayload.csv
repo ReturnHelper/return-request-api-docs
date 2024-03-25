@@ -2,6 +2,7 @@
 "warehouseId", string_,"Max Length 35"
 "returnRequestLineItemId", string_,"Max Length 35"
 "returnRequestId", string_,"Max Length 35"
+"itemRma", string_,
 "description", string_, ""
 "weight", decimal_, ""
 "weightUom", string_, ""
