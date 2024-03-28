@@ -432,27 +432,65 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 20, 20, 30
 
-   toCountry, string_, Required
    warehouseId, string_, Required
 
 Response:
 
 .. csv-table::
+   :header: "Name", "Type"
+   :widths: 15, 10
+
+   availableShipmentServiceTypeList, List<:ref:`structure-availableShipmentServiceType`>
+
+.. _structure-availableShipmentServiceType:
+
+.. csv-table:: `availableShipmentServiceType`
    :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
+   :widths: 15, 10, 30
 
-   data, List<:ref:`structure-ShipmentServiceTypeReply`>
+   serviceTypeCode, string_,
+   serviceType, string_,
+   countryCodePairList, List<:ref:`structure-countryCodePair`>,
 
-.. _structure-ShipmentServiceTypeReply:
+.. _structure-countryCodePair:
 
-.. csv-table:: ``ShipmentServiceTypeReply``
+.. csv-table:: `countryCodePair`
    :header: "Name", "Type", "Remarks"
-   :widths: 20, 20, 30
+   :widths: 15, 10, 30
 
-   serviceTypeCode, string_, Service type code. You should use this when calling :ref:`method-CreateResend`.
-   serviceType, string_, Description of the service type
-   isEnabled, bool_
-   warehouseList,List<:ref:`structure-WarehouseResponse`>
+   warehouseId, integer_,
+   description, string_,
+   fromCountryCode, string_,
+   toPostalCode, string_,
+
+Sample:
+
+::
+
+   {
+    "data": {
+        "availableShipmentServiceTypeList": [
+            {
+                "serviceTypeCode": "usps",
+                "serviceType": "USPS GA-NJ",
+                "countryCodePairList": [
+                    {
+                        "warehouseId": 2,
+                        "description": "2-United States - NJ (DEV)",
+                        "fromCountryCode": "usa",
+                        "toCountryCode": "usa"
+                    },
+                    {
+                        "warehouseId": 2,
+                        "description": "2-United States - NJ (DEV)",
+                        "fromCountryCode": "usa",
+                        "toCountryCode": "deu"
+                    }
+                ]
+            }
+        ]
+      }
+   }
 
 ----
 
@@ -1274,6 +1312,84 @@ Response:
 
 Resend
 ======
+
+
+.. method_getShippingFeeListByToShippingOption
+
+GetShippingFeeListByToShippingOption
+------------------------------------
+
+This API is for getting **RESEND** shipping fee only.
+
+::
+
+[GET] <userapi-endpoint>/Resend/getShippingFeeListByToShippingOption
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   returnInventoryIdList , List<integer_>, Required
+   toCountryCode, string_, ISO3 country code; Required
+   toPostalCode, string_, Required
+
+Response:
+
+.. csv-table::
+   :header: "Name", "Type"
+   :widths: 15, 10
+
+   shippingFeeDetailList, List<:ref:`structure-shippingFeeDetail`>
+
+.. _structure-shippingFeeDetail:
+
+.. csv-table:: `shippingFeeDetail`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   serviceTypeCode, string_,
+   serviceTypeName, string_,
+   countryCode, string_,
+   postalCodePair, :ref:`structure-postalCodePair`,
+   currencyCode, string_,
+   fee, decimal_,
+   chargeableWeight, decimal_,
+
+
+.. _structure-postalCodePair:
+
+.. csv-table:: `countryCodePair`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   from, string_,
+   to, string_,
+
+Sample:
+
+::
+
+   {
+   "data": {
+   "shippingFeeDetailList": [
+      {
+         "serviceTypeCode": "SHIPMENT_USPS_PM_NJ",
+         "serviceTypeName": "USPS PM-NJ",
+         "countryCode": "usa",
+         "postalCodePair": {
+         "from": "088",
+         "to": "139"
+         },
+         "currencyCode": "usd",
+         "fee": 7.75,
+         "chargeableWeight": 50.0
+      }
+   ]
+   }
+
+----
 
 .. _method-CreateResend:
 
