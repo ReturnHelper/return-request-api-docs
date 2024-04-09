@@ -187,6 +187,8 @@ These are enums that used to identify the notification type which clients can ma
      - Complete fba instruction recall event
    * - ``fbaInstructionReplenishComplete``
      - Complete fba instruction replenish event
+   * - ``completeRecalibrate``
+     - Complete inventory recalibrate event
 
 .. list-table::
    :widths: 15 25
@@ -240,7 +242,8 @@ These are enums that used to identify the notification type which clients can ma
      - Complete fba instruction recall event
    * - ``fbaInstructionReplenishComplete``
      - Complete fba instruction replenish event
-
+   * - ``completeRecalibrate``
+     - Complete inventory recalibrate event
 
 List of supported notification
 ------------------------------
@@ -1071,6 +1074,63 @@ Sample:
    "action": "assignUnknown",
    "eventTime": "2021-07-08T14:30:48.6330846Z"
    }
+
+----
+
+.. _notification-completeRecalibrate:
+
+Complete inventory recalibrate notification
+*******************************************
+
+This notification is sent when a warehouse recalibrate inventory dimension and weight.
+
+category: ``completeRecalibrate``
+
+action: ``completeRecalibrate``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    recalibrateSupplement, :ref:`notification-recalibrateSupplement`
+
+.. _notification-recalibrateSupplement:
+
+.. csv-table:: `recalibrateSupplement`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    warehouseId, integer_, Warehouse ID
+    returnInventoryId, integer_, Return inventory ID
+    returnRequestLineItemId, integer_, Return request line item ID
+    rma, string_, RMA
+    dimension1, double_, Dimension 1
+    dimension2, double_, Dimension 2
+    dimension3, double_, Dimension 3
+    weight, double_, Weight
+    recalibratedOn, time,
+
+Sample:
+
+.. code-block:: json
+
+   {
+    "recalibrateSupplement": {
+        "warehouseId": 8,
+        "returnInventoryId": 18191,
+        "returnRequestLineItemId": 38320,
+        "rma": "TEST2024040301",
+        "dimension1": 20.0,
+        "dimension2": 20.0,
+        "dimension3": 20.0,
+        "weight": 310.0,
+        "recalibratedOn": "2024-04-04T00:42:11.1325135Z"
+    },
+    "category": "completeRecalibrate",
+    "action": "completeRecalibrate",
+    "eventTime": "2024-04-04T00:54:29.4337417Z"
+  }
+
 
 .. reference definition goes here
 
