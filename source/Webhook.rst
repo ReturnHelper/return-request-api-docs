@@ -187,6 +187,8 @@ These are enums that used to identify the notification type which clients can ma
      - Complete fba instruction recall event
    * - ``fbaInstructionReplenishComplete``
      - Complete fba instruction replenish event
+   * - ``completeRecalibrate``
+     - Complete inventory recalibrate event
 
 .. list-table::
    :widths: 15 25
@@ -240,7 +242,8 @@ These are enums that used to identify the notification type which clients can ma
      - Complete fba instruction recall event
    * - ``fbaInstructionReplenishComplete``
      - Complete fba instruction replenish event
-
+   * - ``completeRecalibrate``
+     - Complete inventory recalibrate event
 
 List of supported notification
 ------------------------------
@@ -1071,6 +1074,289 @@ Sample:
    "action": "assignUnknown",
    "eventTime": "2021-07-08T14:30:48.6330846Z"
    }
+
+----
+
+.. _notification-completeRecalibrate:
+
+Complete inventory recalibrate notification
+*******************************************
+
+This notification is sent when a warehouse recalibrate inventory dimension and weight.
+
+category: ``completeRecalibrate``
+
+action: ``completeRecalibrate``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    recalibrateSupplement, :ref:`notification-recalibrateSupplement`
+
+.. _notification-recalibrateSupplement:
+
+.. csv-table:: `recalibrateSupplement`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    warehouseId, integer_, Warehouse ID
+    returnInventoryId, integer_, Return inventory ID
+    returnRequestLineItemId, integer_, Return request line item ID
+    rma, string_, RMA
+    dimension1, double_, Dimension 1
+    dimension2, double_, Dimension 2
+    dimension3, double_, Dimension 3
+    weight, double_, Weight
+    recalibratedOn, time,
+
+Sample:
+
+.. code-block:: json
+
+   {
+    "recalibrateSupplement": {
+        "warehouseId": 8,
+        "returnInventoryId": 18191,
+        "returnRequestLineItemId": 38320,
+        "rma": "TEST2024040301",
+        "dimension1": 20.0,
+        "dimension2": 20.0,
+        "dimension3": 20.0,
+        "weight": 310.0,
+        "recalibratedOn": "2024-04-04T00:42:11.1325135Z"
+    },
+    "category": "completeRecalibrate",
+    "action": "completeRecalibrate",
+    "eventTime": "2024-04-04T00:54:29.4337417Z"
+  }
+
+Split line item notification
+****************************
+
+.. code-block:: json
+
+  {
+  "returnRequestId": 64004,
+  "returnRequestLineItemId": 38219,
+  "returnRequestLineItemVasId": 2665,
+  "vasStatusCode": "SUCCESSFUL",
+  "splitLineItemAndReturnInventoryList": [
+    {
+      "returnRequestLineItem": {
+        "returnRequestLineItemId": 38347,
+        "apiId": 2,
+        "returnRequestId": 64004,
+        "returnRequestLineItemNumber": "RL240408-0000012",
+        "description": "AA BB CC DD EE",
+        "quantity": 1,
+        "weight": 213.0,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 22.0,
+        "handlingCode": 0,
+        "isDeleted": false,
+        "itemRma": "fdsf345",
+        "isFraudulent": false,
+        "fraudReasonCode": null
+      },
+      "returnInventory": {
+        "returnInventoryId": 18202,
+        "warehouseId": 2,
+        "returnRequestLineItemId": 38347,
+        "apiId": 2,
+        "returnRequestId": 64004,
+        "returnRequestLineItemNumber": "RL240408-0000012",
+        "description": "AA BB CC DD EE",
+        "quantity": 1,
+        "weight": 213.0,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 22.0,
+        "handlingCode": 0,
+        "handlingStatusCode": 0,
+        "completeBy": null,
+        "completeOn": null,
+        "warehouseRemarks": null,
+        "handlingUpdatedOn": null,
+        "stopAgingOn": null,
+        "sku": null,
+        "itemRma": "fdsf345",
+        "warehouseApiId": 3,
+        "modifyOn": "2024-04-08T07:39:09.2665552Z",
+        "modifyBy": "3",
+        "createOn": "2024-04-08T07:39:09.262473Z",
+        "createBy": "3"
+      },
+      "returnRequestLineItemSupplement": {
+        "returnRequestLineItemSupplementId": 24080,
+        "returnRequestLineItemId": 38347,
+        "weight": 213.0,
+        "weightUom": "g",
+        "dimension1": 23.0,
+        "dimension2": 21.0,
+        "dimension3": 11.0,
+        "dimensionUom": "cm",
+        "createOn": "2024-04-08T07:39:09.2648212Z",
+        "createBy": "3",
+        "modifyOn": "2024-04-08T07:39:09.2665658Z",
+        "modifyBy": "3",
+        "canRecalibrate": true
+      }
+    },
+    {
+      "returnRequestLineItem": {
+        "returnRequestLineItemId": 38348,
+        "apiId": 2,
+        "returnRequestId": 64004,
+        "returnRequestLineItemNumber": "RL240408-0000013",
+        "description": "AA BB CC DD EE",
+        "quantity": 1,
+        "weight": 123.0,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 22.0,
+        "handlingCode": 0,
+        "isDeleted": false,
+        "itemRma": "gfet34",
+        "isFraudulent": false,
+        "fraudReasonCode": null
+      },
+      "returnInventory": {
+        "returnInventoryId": 18203,
+        "warehouseId": 2,
+        "returnRequestLineItemId": 38348,
+        "apiId": 2,
+        "returnRequestId": 64004,
+        "returnRequestLineItemNumber": "RL240408-0000013",
+        "description": "AA BB CC DD EE",
+        "quantity": 1,
+        "weight": 123.0,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 22.0,
+        "handlingCode": 0,
+        "handlingStatusCode": 0,
+        "completeBy": null,
+        "completeOn": null,
+        "warehouseRemarks": null,
+        "handlingUpdatedOn": null,
+        "stopAgingOn": null,
+        "sku": null,
+        "itemRma": "gfet34",
+        "warehouseApiId": 3,
+        "modifyOn": "2024-04-08T07:39:09.2665379Z",
+        "modifyBy": "3",
+        "createOn": "2024-04-08T07:39:09.2625719Z",
+        "createBy": "3"
+      },
+      "returnRequestLineItemSupplement": {
+        "returnRequestLineItemSupplementId": 24081,
+        "returnRequestLineItemId": 38348,
+        "weight": 123.0,
+        "weightUom": "g",
+        "dimension1": 23.0,
+        "dimension2": 21.0,
+        "dimension3": 11.0,
+        "dimensionUom": "cm",
+        "createOn": "2024-04-08T07:39:09.264853Z",
+        "createBy": "3",
+        "modifyOn": "2024-04-08T07:39:09.266575Z",
+        "modifyBy": "3",
+        "canRecalibrate": true
+      }
+    }
+  ],
+  "category": "lineItemVasReturnInventoryLineItem",
+  "action": "splitLineItem",
+  "eventTime": "2024-04-08T07:39:19.8839667Z"
+  }
+
+Complete Inventory Handling Notification
+****************************************
+
+.. code-block:: json
+
+  {
+    "returnInventory": {
+        "returnInventoryId": 18203,
+        "warehouseId": 2,
+        "returnRequestLineItemId": 38348,
+        "apiId": 2,
+        "returnRequestId": 64004,
+        "returnRequestLineItemNumber": "RL240408-0000013",
+        "description": "AA BB CC DD EE",
+        "quantity": 1,
+        "weight": 123.0,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 22.0,
+        "handlingCode": 2,
+        "handlingStatusCode": 2,
+        "completeBy": "3",
+        "completeOn": "2024-04-08T07:43:55.0619393Z",
+        "warehouseRemarks": null,
+        "handlingUpdatedOn": "2024-04-08T07:43:55.0623048Z",
+        "stopAgingOn": null,
+        "sku": null,
+        "itemRma": "gfet34",
+        "warehouseApiId": 3,
+        "modifyOn": "2024-04-08T07:43:55.0652602Z",
+        "modifyBy": "2",
+        "createOn": "2024-04-08T07:39:09.2626",
+        "createBy": "3"
+    },
+    "category": "rinv",
+    "action": "completeInventoryHandling",
+    "eventTime": "2024-04-08T07:44:05.68514Z"
+  }
+
+Remark:
+
+.. csv-table:: `handlingCode`
+    :header: "ID", "Code", "Description"
+    :widths: 10,10,20
+
+    0, tbc, To Be Confirmed
+    1, rtn, Recall
+    2, dis, Disposal
+    3, rsd, Resend
+    4, ohd, On Hold
+    5, oth, Others
+
+.. csv-table:: `handlingStatusCode`
+    :header: "ID", "Code", "Description"
+    :widths: 10,10,20
+
+    0, pending, Pending
+    1, inProgress, In Progress
+    2, completed, Completed
+
+Force Cancel Resend Notification
+
+.. code-block:: json
+
+  {
+    "resend": {
+        "resendId": 3439,
+        "apiId": 2,
+        "resendNumber": "RSD240326-0000001",
+        "resendStatusCode": 1,
+        "description": "OC56562326565",
+        "remarks": "remark",
+        "warehouseRemarks": "force canceled",
+        "modifyOn": "2024-04-08T07:45:30.1059047Z",
+        "modifyBy": "2",
+        "createOn": "2024-03-26T07:31:46.4095",
+        "createBy": "2"
+    },
+    "trackingNumber": null,
+    "failureReason": "force canceled",
+    "category": "resend",
+    "action": "forceCancelResend",
+    "eventTime": "2024-04-08T07:45:40.3149286Z"
+  }
+
 
 .. reference definition goes here
 
