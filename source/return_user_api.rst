@@ -440,7 +440,7 @@ Response:
    :header: "Name", "Type"
    :widths: 15, 10
 
-   availableShipmentServiceTypeList, List<:ref:`structure-availableShipmentServiceType`>
+   data, List<:ref:`structure-availableShipmentServiceType`>
 
 .. _structure-availableShipmentServiceType:
 
@@ -468,28 +468,26 @@ Sample:
 ::
 
    {
-    "data": {
-        "availableShipmentServiceTypeList": [
-            {
-                "serviceTypeCode": "usps",
-                "serviceType": "USPS GA-NJ",
-                "countryCodePairList": [
-                    {
-                        "warehouseId": 2,
-                        "description": "2-United States - NJ (DEV)",
-                        "fromCountryCode": "usa",
-                        "toCountryCode": "usa"
-                    },
-                    {
-                        "warehouseId": 2,
-                        "description": "2-United States - NJ (DEV)",
-                        "fromCountryCode": "usa",
-                        "toCountryCode": "deu"
-                    }
-                ]
-            }
-        ]
+   "data": [
+      {
+         "serviceTypeCode": "usps",
+         "serviceType": "USPS GA-NJ",
+         "countryCodePairList": [
+         {
+            "warehouseId": 2,
+            "description": "2-United States - NJ (DEV)",
+            "fromCountryCode": "usa",
+            "toCountryCode": "usa"
+         },
+         {
+            "warehouseId": 2,
+            "description": "2-United States - NJ (DEV)",
+            "fromCountryCode": "usa",
+            "toCountryCode": "deu"
+         }
+         ]
       }
+   ]
    }
 
 ----
