@@ -828,7 +828,6 @@ Parameters:
    :widths: 15, 10, 10, 30
 
    shipment, :ref:`structure-ShipmentPayload`, YES, Details see below
-   returnRequestNumber, string_,,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
    returnTitle, string_, YES
    totalValue, decimal_, YES, Must be greater than zero
    totalValueCurrency, string_, YES, must be ``usd`` (case-sensitive)
@@ -845,7 +844,6 @@ Object ``ShipmentPayload``:
   :widths: 15, 10, 10, 30
 
   warehouseId, string_ , YES, Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
-  shipmentNumber, string_,, Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
   shipmentServiceType, string_ , YES, Obtain from user api :ref:`method-getServiceTypeByFromToCountry` or :ref:`method-getServiceTypeByFromCountryAndWarehouse`
   shipmentCountryCode, string_ , YES, Obtain from public api :ref:`method-getAllFromCountries`
   shipmentName, string_, YES
@@ -874,7 +872,6 @@ Object ``ReturnRequestLineItemPayload``:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnRequestLineItemNumber, string_, ,Alphanumeric hyphen and underscore (max length 50). Auto generated if not submitted. (Must be unique)
    description, string_, YES
    weight, decimal_, YES
    weightUom, string_,YES, Must be ``g``
@@ -916,7 +913,6 @@ Sample:
             "value":11.0
          }
       ],
-      "returnRequestNumber":"test202105241810",
       "returnTitle":"112e",
       "totalValue":11.0,
       "totalValueCurrency":"usd",
@@ -1414,7 +1410,6 @@ Parameters:
    :widths: 15, 10, 10, 30
 
    returnInventoryIdList, List<string_>, YES, Obtain from :ref:`notification-MarkReceived` and :ref:`notification-assignUnknown` - see :ref:`gettingstarted-ReturnArrival` for more detail
-   resendNumber, string_,,Auto generated if not submitted.
    description, string_,
    remarks, string_,
    resendShipment, :ref:`link-ResendShipmentPayload`, YES, See below
@@ -1427,7 +1422,6 @@ Object ``ResendShipmentPayload``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   resendShipmentNumber, string_,,Auto generated if not submitted.
    shipmentServiceType, string_, YES, Obtain from :ref:`method-getservicetypebyfromcountryandwarehouse`
    shipmentCountryCode, string_, YES, Obtain from public api :ref:`method-getAllCountries`
    shipmentName, string_, YES, Max length 255
