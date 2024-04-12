@@ -1033,17 +1033,23 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   createLineItemVasRequestList, List<:ref:`link-CreateReturnRequestLineItemVasRequest`>, YES
+   createVasPayloadList, List<:ref:`link-createVasPayloadList`>, YES
 
-Object ``CreateReturnRequestLineItemVasRequest``
+.. _link-createVasPayloadList:
 
-.. _link-CreateReturnRequestLineItemVasRequest:
-
-.. csv-table:: ``CreateReturnRequestLineItemVasRequest``
+.. csv-table:: ``createVasPayload``
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
    returnRequestLineItemId, string_, Required, Line Item must be ``On-hold`` in order to create Vas
+   createVasDetailList, List<:ref:`link-createVasDetailList`>, YES; You can assign multiple VAS to a line item
+
+.. _link-createVasDetailList:
+
+.. csv-table:: ``createVasDetail``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
    vasCode, string_, Required, ``mobi-fmt`` (Format Mobile phone) ``mobi-imei`` (Check Mobile Phone IMEI) ``mobi-lock`` (Check Mobile Phone Lock status) ``prd-inspec`` (Product inspection) ``repack`` (Repack) ``req-pic`` (Take pictures) ``split-parcel`` (Split Parcel)
    metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel`` (1-50) ``req-pic`` (grater than 0)
    notes, string_
@@ -1053,15 +1059,19 @@ Sample:
 ::
 
   {
-      "createLineItemVasRequestList": [
+   "createVasPayloadList": [
+      {
+         "returnRequestLineItemId": "{{returnRequestLineItemId}}",
+         "createVasDetailList": [
          {
-         "returnRequestLineItemId": {{returnRequestLineItemId}},
-         "notes": "Split parcel into 3",
-         "vasCode": "split-parcel",
-         "metaQuantity": 3
+            "vasCode": "split-parcel",
+            "notes": "Please split into 3 parcels",
+            "metaQuantity": 3
          }
-    ]
-  }
+         ]
+      }
+   ]
+   }
 
 |
 
