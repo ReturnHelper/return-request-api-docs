@@ -1551,25 +1551,25 @@ Response:
 Recall
 ======
 
-.. _method-CreateRecallByReturnInventoryId:
+.. _method-CreateRecall:
 
-CreateRecallByReturnInventoryId
--------------------------------
+CreateRecall
+------------
 
 Create recalls with at least one return inventory (max 100 inventories).
 
 ::
 
-[POST] <userapi-endpoint>/Recall/createRecallByReturnInventoryId
+[POST] <userapi-endpoint>/Recall/createRecall
 
 
 Parameters:
 
-.. csv-table:: ``CreateRecallByReturnInventoryIdRequest``
+.. csv-table:: ``CreateRecall``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   returnInventoryIdList,List<string_>, Max 100 ids for each call
+   returnInventoryIdList,List<integer_>, Max 100 inventory ids for each call
 
 |
 
@@ -1583,25 +1583,12 @@ Sample:
 
 Response:
 
-.. csv-table:: ``CreateRecallByReturnInventoryIdResponse``
+.. csv-table:: ``CreateRecallResponse``
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   recallList,List<:ref:`structure-Recall`>
-
-.. _structure-Recall:
-
-.. csv-table:: ``Recall``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Recall/Recall.csv
-
-.. _structure-RecallInventory:
-
-.. csv-table:: ``RecallInventory``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/Recall/RecallInventory.csv
+   recallId, integer_, Recall ID
+   recallNumber, string_, Recall number
 
 
 Sample:
@@ -1609,57 +1596,15 @@ Sample:
 .. code-block:: json
 
    {
-      "correlationId": "0HMJ3U7AU3UVP:00000002",
+      "correlationId": "0HN2TOLBJVHRG:00000001",
       "meta": {
          "status": 200,
          "data": {},
          "errorCode": null,
          "error": {}
       },
-      "recallList": [
-         {
-            "recallId": 1001,
-            "recallNumber": "RT1001",
-            "recallStatusCode": "in-progress",
-            "warehosueRemarks": ""
-            "recallInventoryList": [
-               {
-                  "recallInventoryId": 1001,
-                  "returnInventoryId": 2001,
-                  "recallInventoryStatusCode": "in-transit",
-                  "pickUpCode": "",
-                  "trackingNumber": "123456789",
-                  "listName": "sample",
-                  "weight": 10,
-                  "amount": 10,
-                  "pickUpOn": "",
-                  "courierTrackingNumber": "",
-                  "recallServiceType": "dhl"
-               }
-            ]
-         },
-         {
-            "recallId": 1002,
-            "recallNumber": "RT1002",
-            "recallStatusCode": "in-progress",
-            "warehosueRemarks": ""
-            "recallInventoryList": [
-               {
-                  "recallInventoryId": 1002,
-                  "returnInventoryId": 2002,
-                  "recallInventoryStatusCode": "in-transit",
-                  "pickUpCode": "",
-                  "trackingNumber": "223456789",
-                  "listName": "sample",
-                  "weight": 20,
-                  "amount": 20,
-                  "pickUpOn": "",
-                  "courierTrackingNumber": "",
-                  "recallServiceType": "dhl"
-               }
-            ]
-         }
-      ]
+      "recallId": 927,
+      "recallNumber": "RCL240416-0000001"
    }
 
 ----
