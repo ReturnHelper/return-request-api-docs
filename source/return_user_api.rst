@@ -1010,84 +1010,6 @@ Response:
 
 ----
 
-.. _method-CreateVas:
-
-CreateVas
----------
-
-Submits a Vas request.
-
-Success reponse means that the request is accept and the line item is pending for Vas action.
-
-Once there was a Vas status update, information is send by :ref:`notification-UpdateVas`
-
-::
-
-[POST]  <userapi-endpoint>/returnrequest/createVas
-
-Parameters:
-
-.. _structure-CreateVasRequest:
-
-.. csv-table:: ``CreateVasRequest``
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   createVasPayloadList, List<:ref:`link-createVasPayloadList`>, YES
-
-.. _link-createVasPayloadList:
-
-.. csv-table:: ``createVasPayload``
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   returnRequestLineItemId, string_, Required, Line Item must be ``On-hold`` in order to create Vas
-   createVasDetailList, List<:ref:`link-createVasDetailList`>, YES; You can assign multiple VAS to a line item
-
-.. _link-createVasDetailList:
-
-.. csv-table:: ``createVasDetail``
-   :header: "Name", "Type", "Required", "Remarks"
-   :widths: 15, 10, 10, 30
-
-   vasCode, string_, Required, ``mobi-fmt`` (Format Mobile phone) ``mobi-imei`` (Check Mobile Phone IMEI) ``mobi-lock`` (Check Mobile Phone Lock status) ``prd-inspec`` (Product inspection) ``repack`` (Repack) ``req-pic`` (Take pictures) ``split-parcel`` (Split Parcel)
-   metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel`` (1-50) ``req-pic`` (grater than 0)
-   notes, string_
-
-Sample:
-
-::
-
-  {
-   "createVasPayloadList": [
-      {
-         "returnRequestLineItemId": "{{returnRequestLineItemId}}",
-         "createVasDetailList": [
-         {
-            "vasCode": "split-parcel",
-            "notes": "Please split into 3 parcels",
-            "metaQuantity": 3
-         }
-         ]
-      }
-   ]
-   }
-
-|
-
-Response:
-
-.. _structure-CreateVasResponse:
-
-.. csv-table:: ``CreateVasResponse``
-   :header: "Name", "Type", "Remarks"
-   :widths: 15, 10, 30
-   :file: models/ReturnRequest/CreateVasResponse.csv
-
-|
-
-----
-
 .. _method-updateRemark:
 
 UpdateRemark
@@ -1282,6 +1204,179 @@ Response:
 
 ----
 
+.. _method-CreateVas:
+
+CreateVas
+---------
+
+Submits a Vas request. Required inventory handling to be ``ohd`` (On-hold), see :ref:`method-UpdateReturnInventoryHandling`
+
+Success reponse means that the request is accept and the line item is pending for Vas action.
+
+Once there was a Vas status update, information is send by :ref:`notification-UpdateVas`
+
+::
+
+[POST]  <userapi-endpoint>/returnrequest/createVas
+
+Parameters:
+
+.. _structure-CreateVasRequest:
+
+.. csv-table:: ``CreateVasRequest``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   createVasPayloadList, List<:ref:`link-createVasPayloadList`>, YES
+
+.. _link-createVasPayloadList:
+
+.. csv-table:: ``createVasPayload``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   returnRequestLineItemId, string_, Required, Line Item must be ``On-hold`` in order to create Vas
+   createVasDetailList, List<:ref:`link-createVasDetailList`>, YES; You can assign multiple VAS to a line item
+
+.. _link-createVasDetailList:
+
+.. csv-table:: ``createVasDetail``
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   vasCode, string_, Required, ``mobi-fmt`` (Format Mobile phone) ``mobi-imei`` (Check Mobile Phone IMEI) ``mobi-lock`` (Check Mobile Phone Lock status) ``prd-inspec`` (Product inspection) ``repack`` (Repack) ``req-pic`` (Take pictures) ``split-parcel`` (Split Parcel)
+   metaQuantity, integer_, Conditional, Only Required for `vasCode`: ``split-parcel`` (1-50) ``req-pic`` (grater than 0)
+   notes, string_
+
+Sample:
+
+::
+
+  {
+   "createVasPayloadList": [
+      {
+         "returnRequestLineItemId": "{{returnRequestLineItemId}}",
+         "createVasDetailList": [
+         {
+            "vasCode": "split-parcel",
+            "notes": "Please split into 3 parcels",
+            "metaQuantity": 3
+         }
+         ]
+      }
+   ]
+   }
+
+|
+
+Response:
+
+.. _structure-CreateVasResponse:
+
+.. csv-table:: ``CreateVasResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/ReturnRequest/CreateVasResponse.csv
+
+|
+
+----
+
+Optional steps on creating Split Parcel VAS
+-------------------------------------------
+
+When creating split parcel VAS, customers can perform addition steps to provide precise split instructions. This instruction file could be a text file or an image file.
+
+To provide additional instructions for split parcel VAS:
+
+1. Request a signed URL for the instruction file
+2. Upload the instruction file to the signed URL
+3. Provide the file name and key in the split parcel VAS request
+
+
+Request a signed URL
+********************
+
+Note that the file name and type must be exactly the same as the file uploaded in the next step.
+
+::
+
+[GET] <api-public-endpoint>/file/GetPreSignedUploadUrl
+
+Parameters:
+
+.. csv-table::
+   :header: "Name", "Type", "Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   filename, string_, YES, File name with extension
+   mimeType, string_, YES, File type e.g. ``text/plain`` ``image/jpeg`` ``image/png``
+
+|
+
+Example:
+
+.. code-block::
+
+   GET {{api-public-endpoint}}/file/GetPreSignedUploadUrl?mimeType=image%2Fpng&filename=test.png HTTP/1.1
+
+Response:
+
+.. csv-table:: ``PreSignedUploadUrlResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   preSignedUrl, string_, The signed URL for uploading the file
+   filename, string_, filename of the file
+   fileKey, string_, fileKey of the file
+   expires, string_, The expiration time of the signed URL
+
+
+Upload the instruction file to the signed URL
+*********************************************
+
+Put the instruction file to the signed URL returned from last step.
+
+A ``http 200`` response means the file is uploaded successfully.
+
+::
+
+[PUT] <preSignedUrl>
+
+Create a split parcel VAS with the file name and file key
+*********************************************************
+
+When creating the split parcel VAS as describe in :ref:`method-CreateVas` , provide the file namd and file key in the split parcel VAS request.
+
+Example:
+
+.. code-block::
+   :emphasize-lines: 10-14
+
+   {
+      "createVasPayloadList": [
+      {
+         "returnRequestLineItemId": {{returnRequestLineItemId}},
+         "createVasDetailList": [
+            {
+               "vasCode": "split-parcel",
+               "notes": "test split",
+               "metaQuantity": 2,
+               "vasFileList":[  // new property
+                  {
+                  "filename": "{{filename}}",
+                  "fileKey": "{{fileKey}}"
+                  }
+               ]
+            }
+         ]
+         }
+      ]
+   }
+
+
+
+----
 
 .. _method-AssignReturnInventorySku:
 
