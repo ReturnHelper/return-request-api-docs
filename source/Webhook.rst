@@ -419,44 +419,161 @@ action: ``recallUpdateStatus``
     recall, :ref:`structure-Recall`
     recallUpdateTypeStatus, string_, see below table
 
+.. _structure-Recall:
+
+.. csv-table:: ``Recall``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    apiId, integer_, Api id
+    recallId, integer_, Recall id
+    recallNumber, string_, Recall number
+    recallStatusCode, string_, Recall status code
+    warehouseRemarks, string_, Warehouse remarks
+    recallInventoryList, List<:ref:`structure-RecallInventory`>, List of recall inventory
+
+
+.. _structure-RecallInventory:
+
+.. csv-table:: ``RecallInventory``
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  recallInventoryId, integer_, Recall inventory id
+  returnInventoryId, integer_, Return inventory id
+  recallInventoryStatusCode, string_, Recall inventory status code
+  pickUpCode, string_, Pick up code
+  trackingNumber, string_, Tracking number
+  listName, string_, List name
+  weight, float_, Weight
+  amount, float_, Amount
+  pickUpOn, string_, Pick up on
+  courierTrackingNumber, string_, Courier tracking number
+  remarks, string_, Remarks
+  recallServiceType, string_, Recall service type
+  itemRma, string_, Item RMA
+  rma, string_, RMA
+
+
 .. csv-table:: ``values of recallUpdateTypeStatus``
-  :header: "Status code", "Description"
-  :widths: 15, 30
+  :header: "Status code", "Recall Inventory status", "Description"
+  :widths: 15, 15, 30
 
-  ``updateTrackingNumber``, Tracking number update
-  ``readyToPickUp``, Inventory is ready to pickup
-  ``pickupBySelf``, Inventory is picked up by customer
-  ``pickupByCourier``, Inventory is picked up by local courier (from recall destination to seller)
-  ``pickupByOthers``, Inventory is picked up by none of the above entities
+  ``updateTrackingNumber``, ``in-transit``, Tracking number update
+  ``readyToPickUp``, ``ready-to-pick-up`` , Inventory is ready to pickup
+  ``pickupBySelf``, ``picked-up`` , Inventory is picked up by customer
+  ``pickupByCourier``, ``picked-up`` , Inventory is picked up by local courier (from recall destination to seller)
+  ``pickupByOthers``, ``picked-up`` , Inventory is picked up by none of the above entities
 
-Sample:
+Example 1 (updateTrackingNumber):
 
 ::
 
   {
-    "recallId": 1001,
-    "recallNumber": "R1001",
-    "recallStatusCode": "completed",
-    "warehouseRemarks": ""
-    "recallInventoryList": [
-      {
-        "recallInventoryId": 2001,
-        "returnInventoryId": 3001,
-        "recallInventoryStatusCode": "picked-up",
-        "pickUpCode": "courier-pick-up",
-        "trackingNumber": "123456",
-        "listName": "recall item name",
-        "weight": 10,
-        "amount": 10,
-        "pickUpOn": "",
-        "courierTrackingNumber": "c123456",
-        "remarks": "",
-        "recallServiceType": "dhl"
-      }
-    ],
-    "recallUpdateTypeStatus": "pickupByCourier"
+    "recall": {
+      "apiId": 103,
+      "recallId": 938,
+      "recallNumber": "RCL240423-0000001",
+      "recallStatusCode": "in-progress",
+      "warehouseRemarks": null,
+      "recallInventoryList": [
+        {
+          "recallInventoryId": 1145,
+          "returnInventoryId": 18600,
+          "recallInventoryStatusCode": "in-transit",
+          "pickUpCode": "pending",
+          "trackingNumber": "S240423-0000018-AWB",
+          "listName": null,
+          "weight": null,
+          "amount": null,
+          "pickUpOn": null,
+          "courierTrackingNumber": null,
+          "remarks": null,
+          "recallServiceType": "dhl",
+          "itemRma": "S240423-0000018",
+          "rma": "S240423-0000018"
+        }
+      ]
+    },
+    "recallUpdateTypeStatus": "updateTrackingNumber",
+    "category": "recall",
+    "action": "recallUpdateStatus",
+    "eventTime": "2024-04-23T07:50:49.2479819Z"
   }
 
+
+Example 2 (readyToPickUp):
+
+::
+
+  {
+    "recall": {
+      "apiId": 103,
+      "recallId": 938,
+      "recallNumber": "RCL240423-0000001",
+      "recallStatusCode": "completed",
+      "warehouseRemarks": null,
+      "recallInventoryList": [
+        {
+          "recallInventoryId": 1145,
+          "returnInventoryId": 18600,
+          "recallInventoryStatusCode": "ready-to-pick-up",
+          "pickUpCode": "pending",
+          "trackingNumber": "S240423-0000018-AWB",
+          "listName": "S240423-0000018-ListName",
+          "weight": 100,
+          "amount": 1,
+          "pickUpOn": null,
+          "courierTrackingNumber": null,
+          "remarks": null,
+          "recallServiceType": "dhl",
+          "itemRma": "S240423-0000018",
+          "rma": "S240423-0000018"
+        }
+      ]
+    },
+    "recallUpdateTypeStatus": "markReadyToPickUp",
+    "category": "recall",
+    "action": "recallUpdateStatus",
+    "eventTime": "2024-04-23T09:01:30.2084882Z"
+  }
+
+
+Example 3 (pickUpToCourierPickUp):
+
+::
+
+  {
+    "recall": {
+      "apiId": 103,
+      "recallId": 938,
+      "recallNumber": "RCL240423-0000001",
+      "recallStatusCode": "completed",
+      "warehouseRemarks": null,
+      "recallInventoryList": [
+        {
+          "recallInventoryId": 1145,
+          "returnInventoryId": 18600,
+          "recallInventoryStatusCode": "picked-up",
+          "pickUpCode": "courier-pick-up",
+          "trackingNumber": "S240423-0000018-AWB",
+          "listName": "S240423-0000018-ListName",
+          "weight": 100,
+          "amount": 1,
+          "pickUpOn": null,
+          "courierTrackingNumber": "DHL S240423-0000018",
+          "remarks": null,
+          "recallServiceType": "dhl",
+          "itemRma": "S240423-0000018",
+          "rma": "S240423-0000018"
+        }
+      ]
+    },
+    "recallUpdateTypeStatus": "pickUpToCourierPickUp",
+    "category": "recall",
+    "action": "recallUpdateStatus",
+    "eventTime": "2024-04-23T09:03:38.4028454Z"
+  }
 
 ----
 
