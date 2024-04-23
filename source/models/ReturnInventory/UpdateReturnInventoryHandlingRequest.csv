@@ -1,2 +1,2 @@
    returnInventoryId, string_,,Max Length 35
-   handlingCode, string_
+   handlingCode, string_,, ``ohd`` for on-hold; ``dis`` for dispose handling
