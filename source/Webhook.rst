@@ -200,36 +200,20 @@ These are enums that used to identify the notification type which clients can ma
      - Shipment arrive notification event
    * - ``assignUnknown``
      - Assign unknown shipment event. Triggers when warehouse assign a package to user that has not been registered.
-   * - ``userCancelLabel``
-     - User cancel label event
-   * - ``userAddVas``
-     - Add VAS event
    * - ``vasUpdated``
      - Update VAS event
-   * - ``userChangeHandling``
-     - User change handling event
    * - ``labelGenerated``
      - label gererated event. Check :ref:`method-CreateLabel` for more details
    * - ``changeLineItemImage``
      - Update line item image event
-   * - ``userCreateResend``
-     - User create resend event
-   * - ``updateResendTrackingNumber``
-     - Update resend tracking number event
-   * - ``forceCancelResend``
-     - Force cancel resend event
    * - ``completeInventoryHandling``
      - Complete handling event
    * - ``cancelInventoryHandling``
      - Cancel handling event
-   * - ``createSpecialRequest``
-     - Create special request event
    * - ``recallUpdateStatus``
      - Update recall status event
    * - ``splitLineItem``
      - Split line item event result event
-   * - ``addTransaction``
-     - Add transaction event
    * - ``markFbaShipmentArrived``
      - Fba shipment arrived event
    * - ``fbaShipmentPutaway``
@@ -1646,32 +1630,6 @@ Remark:
     0, pending, Pending
     1, inProgress, In Progress
     2, completed, Completed
-
-Force Cancel Resend Notification
-
-.. code-block:: json
-
-  {
-    "resend": {
-        "resendId": 3439,
-        "apiId": 2,
-        "resendNumber": "RSD240326-0000001",
-        "resendStatusCode": 1,
-        "description": "OC56562326565",
-        "remarks": "remark",
-        "warehouseRemarks": "force canceled",
-        "modifyOn": "2024-04-08T07:45:30.1059047Z",
-        "modifyBy": "2",
-        "createOn": "2024-03-26T07:31:46.4095",
-        "createBy": "2"
-    },
-    "trackingNumber": null,
-    "failureReason": "force canceled",
-    "category": "resend",
-    "action": "forceCancelResend",
-    "eventTime": "2024-04-08T07:45:40.3149286Z"
-  }
-
 
 .. reference definition goes here
 
