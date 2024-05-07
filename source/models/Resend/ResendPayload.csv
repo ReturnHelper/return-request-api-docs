@@ -1,7 +1,7 @@
    resendId, string_,Max Length 35
    returnInventoryId, string_,Max Length 35
    resendNumber, string_
-   resendStatusCode, string_
+   resendStatusCode, integer_, 0: pending; 1: canceled; 2: inProgress; 3: completed; 4: failed
    description, string_
    remarks, string_
    warehouseRemarks, string_

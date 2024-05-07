@@ -356,8 +356,13 @@ This is a label create fail example, please check the highlight area:
 
 .. _notification-Resend:
 
-Resend update status notification
-*********************************
+Resend update status notification (Deprecating)
+***********************************************
+
+.. warning::
+  We are updating the resend notification structure as we are adding more features to the resend module. Please subscribe to :ref:`notification-ResendV2` for the new resend notification structure.
+
+  This notification will keep servicing in the mean time, it will be deprecated by the end of 2024.
 
 This notification is sent to client when the resend status has been update. For example, a tracking number update would trigger this notification.
 
@@ -397,6 +402,199 @@ Sample:
    }
 
 |
+.. _notification-ResendV2:
+
+Resend update status notification (New)
+***************************************
+
+This notification is sent to client when the resend status has been update. For example, a tracking number update would trigger this notification.
+
+category: ``resend``
+
+action: ``updateResendStatus``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   resend, :ref:`structure-resendpayload`,
+   resendShipmentList, List<:ref:`structure-resendshipmentpayload`>,
+   returnInventoryList, List<:ref:`structure-returninventorypayload`>,
+
+Sample A, resend status code 4 (failed) with error message:
+
+.. code-block:: json
+  :emphasize-lines: 6,44
+
+  {
+    "resend": {
+      "resendId":3588,
+      "apiId":21,
+      "resendNumber":"RSD240430-0000055",
+      "resendStatusCode":4,
+      "description":"test",
+      "remarks":"test",
+      "warehouseRemarks":null,
+      "modifyOn":"2024-05-02T02:59:17.6725416Z",
+      "modifyBy":"21",
+      "createOn":"2024-04-30T03:06:40.9068",
+      "createBy":"21"
+    },
+    "resendShipmentList": [
+      {
+        "resendShipmentId": 3583,
+        "apiId": 21,
+        "resendId": 3588,
+        "warehouseId": 2,
+        "resendShipmentNumber": "RSDS240430-0000055",
+        "shipmentServiceType": "SHIPMENT_USPS_GA_SIG_NJ",
+        "shipmentCountryCode": "usa",
+        "shipmentName": "test",
+        "shipmentPhone": "123456789",
+        "shipmentFax": null,
+        "shipmentEmail": "test@eqdw.cas",
+        "shipmentStreet1": "test1",
+        "shipmentStreet2": "test2",
+        "shipmentStreet3": "",
+        "shipmentState": "NM",
+        "shipmentCity": "tpe",
+        "shipmentPostalCode": "123456",
+        "trackingNumber": null,
+        "modifyOn":"2024-05-02T02:59:17.6725416Z",
+        "modifyBy":"21",
+        "createOn":"2024-04-30T03:06:40.9068",
+        "createBy":"21",
+        "costCurrencyCode": "usd",
+        "cost": 11.030,
+        "chargeTypeCode": "actualWeight",
+        "chargeableWeight": 500.000,
+        "shipmentLabelId": "27f4c4a4-de2a-427e-9cde-615dcf55b53d",
+        "error": "{\"message\":\"Invalid address.\"}"
+      }
+    ],
+    "returnInventoryList": [
+      {
+        "returnInventoryId": 18148,
+        "warehouseId": 2,
+        "returnRequestLineItemId": 37912,
+        "apiId": 21,
+        "returnRequestId": 63708,
+        "returnRequestLineItemNumber": "RL240321-0000007",
+        "description": "20211006-001",
+        "quantity": 1,
+        "weight": 500.000,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 1.000,
+        "handlingCode": 4,
+        "handlingStatusCode": 0,
+        "completeBy": null,
+        "completeOn": null,
+        "modifyOn":"2024-05-02T02:59:17.6725416Z",
+        "modifyBy":"21",
+        "createOn":"2024-04-30T03:06:40.9068",
+        "createBy":"3",
+        "warehouseRemarks": null,
+        "handlingUpdatedOn": "2024-04-30T07:48:40.2356",
+        "stopAgingOn": "2024-04-30T07:48:40.2356",
+        "sku": null,
+        "warehouseApiId": 3,
+        "itemRma": "6CE8B41C-2E75-4BA5-8407-1C8708532152",
+        "rma": "6CE8B41C-2E75-4BA5-8407-1C8708532152"
+      }
+    ],
+    "category":"resend",
+    "action":"updateResendStatus",
+    "eventTime":"2024-05-02T02:59:27.8657445Z"
+  }
+
+Sample B, resend status code 3 (completed) with tracking number:
+
+.. code-block:: json
+  :emphasize-lines: 6,34
+
+  {
+    "resend": {
+      "resendId":3588,
+      "apiId":21,
+      "resendNumber":"RSD240430-0000056",
+      "resendStatusCode":3,
+      "description":"test",
+      "remarks":"test",
+      "warehouseRemarks":null,
+      "modifyOn":"2024-05-02T02:59:17.6725416Z",
+      "modifyBy":"21",
+      "createOn":"2024-04-30T03:06:40.9068",
+      "createBy":"21"
+    },
+    "resendShipmentList": [
+      {
+        "resendShipmentId": 3583,
+        "apiId": 21,
+        "resendId": 3588,
+        "warehouseId": 2,
+        "resendShipmentNumber": "RSDS240430-0000056",
+        "shipmentServiceType": "SHIPMENT_USPS_GA_SIG_NJ",
+        "shipmentCountryCode": "usa",
+        "shipmentName": "test",
+        "shipmentPhone": "123456789",
+        "shipmentFax": null,
+        "shipmentEmail": "test@eqdw.cas",
+        "shipmentStreet1": "test1",
+        "shipmentStreet2": "test2",
+        "shipmentStreet3": "",
+        "shipmentState": "NM",
+        "shipmentCity": "tpe",
+        "shipmentPostalCode": "123456",
+        "trackingNumber": "9405511899563826265813",
+        "modifyOn":"2024-05-02T02:59:17.6725416Z",
+        "modifyBy":"21",
+        "createOn":"2024-04-30T03:06:40.9068",
+        "createBy":"21",
+        "costCurrencyCode": "usd",
+        "cost": 11.030,
+        "chargeTypeCode": "actualWeight",
+        "chargeableWeight": 500.000,
+        "shipmentLabelId": "27f4c4a4-de2a-427e-9cde-615dcf55b53d",
+        "error": ""
+      }
+    ],
+    "returnInventoryList": [
+      {
+        "returnInventoryId": 18148,
+        "warehouseId": 2,
+        "returnRequestLineItemId": 37912,
+        "apiId": 21,
+        "returnRequestId": 63708,
+        "returnRequestLineItemNumber": "RL240321-0000007",
+        "description": "20211006-001",
+        "quantity": 1,
+        "weight": 500.000,
+        "weightUom": "g",
+        "valueCurrencyCode": "usd",
+        "value": 1.000,
+        "handlingCode": 4,
+        "handlingStatusCode": 0,
+        "completeBy": null,
+        "completeOn": null,
+        "modifyOn":"2024-05-02T02:59:17.6725416Z",
+        "modifyBy":"21",
+        "createOn":"2024-04-30T03:06:40.9068",
+        "createBy":"3",
+        "warehouseRemarks": null,
+        "handlingUpdatedOn": "2024-04-30T07:48:40.2356",
+        "stopAgingOn": "2024-04-30T07:48:40.2356",
+        "sku": null,
+        "warehouseApiId": 3,
+        "itemRma": "6CE8B41C-2E75-4BA5-8407-1C8708532152",
+        "rma": "6CE8B41C-2E75-4BA5-8407-1C8708532152"
+      }
+    ],
+    "category":"resend",
+    "action":"updateResendStatus",
+    "eventTime":"2024-05-02T02:59:27.8657445Z"
+  }
+
 
 ----
 
