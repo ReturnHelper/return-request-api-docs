@@ -214,10 +214,6 @@ These are enums that used to identify the notification type which clients can ma
      - Update line item image event
    * - ``userCreateResend``
      - User create resend event
-   * - ``updateResendTrackingNumber``
-     - Update resend tracking number event
-   * - ``forceCancelResend``
-     - Force cancel resend event
    * - ``completeInventoryHandling``
      - Complete handling event
    * - ``cancelInventoryHandling``
@@ -1646,32 +1642,6 @@ Remark:
     0, pending, Pending
     1, inProgress, In Progress
     2, completed, Completed
-
-Force Cancel Resend Notification
-
-.. code-block:: json
-
-  {
-    "resend": {
-        "resendId": 3439,
-        "apiId": 2,
-        "resendNumber": "RSD240326-0000001",
-        "resendStatusCode": 1,
-        "description": "OC56562326565",
-        "remarks": "remark",
-        "warehouseRemarks": "force canceled",
-        "modifyOn": "2024-04-08T07:45:30.1059047Z",
-        "modifyBy": "2",
-        "createOn": "2024-03-26T07:31:46.4095",
-        "createBy": "2"
-    },
-    "trackingNumber": null,
-    "failureReason": "force canceled",
-    "category": "resend",
-    "action": "forceCancelResend",
-    "eventTime": "2024-04-08T07:45:40.3149286Z"
-  }
-
 
 .. reference definition goes here
 
