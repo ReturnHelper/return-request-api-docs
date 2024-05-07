@@ -200,32 +200,20 @@ These are enums that used to identify the notification type which clients can ma
      - Shipment arrive notification event
    * - ``assignUnknown``
      - Assign unknown shipment event. Triggers when warehouse assign a package to user that has not been registered.
-   * - ``userCancelLabel``
-     - User cancel label event
-   * - ``userAddVas``
-     - Add VAS event
    * - ``vasUpdated``
      - Update VAS event
-   * - ``userChangeHandling``
-     - User change handling event
    * - ``labelGenerated``
      - label gererated event. Check :ref:`method-CreateLabel` for more details
    * - ``changeLineItemImage``
      - Update line item image event
-   * - ``userCreateResend``
-     - User create resend event
    * - ``completeInventoryHandling``
      - Complete handling event
    * - ``cancelInventoryHandling``
      - Cancel handling event
-   * - ``createSpecialRequest``
-     - Create special request event
    * - ``recallUpdateStatus``
      - Update recall status event
    * - ``splitLineItem``
      - Split line item event result event
-   * - ``addTransaction``
-     - Add transaction event
    * - ``markFbaShipmentArrived``
      - Fba shipment arrived event
    * - ``fbaShipmentPutaway``
