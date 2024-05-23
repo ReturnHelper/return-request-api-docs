@@ -190,6 +190,16 @@ UnknownShipmentStatusResponse
    :widths: 15, 10, 30
    :file: models/General/UnknownShipmentStatusResponse.csv
 
+.. _structure-NotificationShipmentSupplementPayload:
+
+NotificationShipmentSupplementPayload
+--------------------------------------
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+   :file: models/Notification/NotificationShipmentSupplementPayload.csv
+
 .. _structure-ServiceTypeResponse:
 
 ServiceTypeResponse

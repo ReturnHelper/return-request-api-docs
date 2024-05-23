@@ -1,0 +1,9 @@
+    shipmentSupplementId, string_
+    shipmentId, string_
+    actualWeight, decimal_
+    actualWeightUom, string_
+    actualDimension1, decimal_
+    actualDimension2, decimal_
+    actualDimension3, decimal_
+    actualDimensionUom, string_
+}
