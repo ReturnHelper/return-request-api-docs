@@ -3,7 +3,7 @@ returnInventory, List<:ref:`structure-ReturnInventoryPayload`>
 returnRequest, :ref:`structure-ReturnRequestPayload`
 shipment,   :ref:`structure-NotificationShipmentPayload`
 label, :ref:`structure-LabelPayload`
-returnRequestLineItem, List<:ref:`structure-ReturnRequestLineItemPayload`>
+lineItems, List<:ref:`structure-ReturnRequestLineItemPayload`>
 sequenceNumber, long_
 category, string_
 action, string_
