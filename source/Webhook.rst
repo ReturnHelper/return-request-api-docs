@@ -1478,6 +1478,34 @@ Sample:
     "eventTime": "2024-04-04T00:54:29.4337417Z"
   }
 
+
+RMA Update Notification
+***********************
+
+This notification is sent when a warehouse updates the RMA value. For example, if a warehouse initially assigns an incorrect RMA value to a package and then re-assigns it to the correct one, this notification will be sent.
+
+category: ``notifyUserRmaSwapped``
+
+action: ``notifyUserRmaSwapped``
+
+Sample:
+
+.. code-block:: json
+  :emphasize-lines: 5-7
+
+  {
+    "payload": {
+      "userApiId": 21,
+      "clientCode": "RH21",
+      "returnInventoryId": "19029",
+      "oldRma": "USE-2-240517-D00026-56",
+      "newRma": "USE-2-240520-D00001-35"
+    },
+    "category": "notifyUserRmaSwapped",
+    "action": "notifyUserRmaSwapped",
+    "eventTime": "2024-05-23T06:26:43.4416977Z"
+  }
+
 Split line item notification
 ****************************
 
