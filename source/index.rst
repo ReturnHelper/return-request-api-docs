@@ -41,6 +41,13 @@ Changelog
 Authenication
 -------------
 
+Acquiring API key and token:
+
+1. Login to Return Helper User Web Portal.
+2. On top right, click on your protrait icon and select ``Signing Key and API Token``
+3. Create a new API key and token, or use any existing pairs.
+
+
 Put authenication keys in your request header:
 
 ::
