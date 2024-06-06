@@ -58,7 +58,7 @@ Put authenication keys in your request header:
 
 ``API TOKEN`` is private and should never be shared to others.
 
-Clients must submit a webhook setup request in order to receive notifications from Return Helper Webhook.
+Clients must submit a webhook setup request in order to receive notifications from Return Helper :ref:`notification:`
 
 .. _index-Idempotency:
 
