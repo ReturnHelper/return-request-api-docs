@@ -20,6 +20,45 @@ An endpoint for clients to receive notifications about data updates or request r
 
 Clients must provide a notification endpoint to the Return Helper team. Contact support@returnhelper.com for assistance.
 
+Below is the email template:
+
+::
+
+  [Template Email Subject] Request webhook setup in Return Helper - <CLIENT CODE>
+
+  [Template Email Recipients]
+  to: support@returnhelper.com
+  cc: paco@returnhelper.com, tingfung@returnhelper.com, roy@returnhelper.com
+
+  [Template Email body]
+
+  Dear Support Team,
+
+  We would like to request webhook setup in Return Helper. Below are my notification endpoints, please help to set up in both sandbox and production environment. 
+  Sandbox notification endpoint:
+  (sandbox-notification-endpoint)
+  Production notification endpoint:
+  (production-notification-endpoint)
+
+For example:
+
+::
+
+  Email Subject: Request webhook setup in Return Helper - <RHHK001>
+
+  Recipients:
+  to: support@returnhelper.com
+  cc: paco@returnhelper.com, tingfung@returnhelper.com, roy@returnhelper.com
+
+  Body:
+  Dear Support Team,
+
+  We would like to request webhook setup in Return Helper. Below are my notification endpoints, please help to set up in both sandbox and production environment. 
+  Sandbox notification endpoint:
+  https://sandboxcallback.free.beeceptor.com
+  Production notification endpoint:
+  https://productioncallback.free.beeceptor.com
+
 Handling Webhook Events
 *************************
 

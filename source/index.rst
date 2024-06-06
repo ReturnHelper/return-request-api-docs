@@ -41,9 +41,9 @@ Changelog
 Authenication
 -------------
 
-Acquiring API key and token:
+Getting your API key and token:
 
-1. Login to Return Helper User Web Portal.
+1. Login to Return Helper User Portal.
 2. On top right, click on your protrait icon and select ``Signing Key and API Token``
 3. Create a new API key and token, or use any existing pairs.
 
@@ -58,41 +58,7 @@ Put authenication keys in your request header:
 
 ``API TOKEN`` is private and should never be shared to others.
 
-Clients must submit a API access request in order to be able to use Return Helper API.
-
-Below is a email template for requesting API access:
-
-::
-
-  [Template Email Subject] Request access on Return Helper API - <CLIENT CODE>
-
-  [Template Email Recipients]
-  to: support@returnhelper.com
-  cc: paco@returnhelper.com, manuel@returnhelper.com, roy@returnhelper.com
-
-  [Template Email body]
-
-  Dear Support Team,
-
-  We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
-  x-rr-apikey
-  x-rr-apitoken
-
-For example:
-
-::
-
-  Email Subject: Request access on Return Helper API - <RHHK001>
-
-  Recipients:
-  to: support@returnhelper.com
-  cc: paco@returnhelper.com, manuel@returnhelper.com, roy@returnhelper.com
-
-  Body:
-  Dear Support Team,
-  We would like to request access on Return Helper API. Please help to provide the following information in both sandbox and production environment:
-  x-rr-apikey
-  x-rr-apitoken
+Clients must submit a webhook setup request in order to receive notifications from Return Helper :ref:`notification`
 
 .. _index-Idempotency:
 
