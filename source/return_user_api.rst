@@ -143,12 +143,12 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   fromCountry, string_, Required
+   fromCountryCode, string_, Required
    fromPostalCode, string_, Required
    weight, decimal_, Required; Must be greater than zero (in g)
-   length, decimal_, Required; Must be greater than zero (in cm)
-   width, decimal_, Required; Must be greater than zero (in cm)
-   height, decimal_, Required; Must be greater than zero (in cm)
+   dimension1, decimal_, Required; Must be greater than zero (in cm)
+   dimension2, decimal_, Required; Must be greater than zero (in cm)
+   dimension3, decimal_, Required; Must be greater than zero (in cm)
    limit, integer_, Optional. Number of service types to be responsed. Default value is 0 (Return all usable service types).
 
 Response:
