@@ -652,7 +652,7 @@ Note that a return shipment is not editable once it is created. If you need to c
    remarks, string_,
    totalValue, decimal_, YES, Must be greater than zero and equals to the sum of all items' value
    totalValueCurrency, string_, YES, only accepts ``usd``
-   orderNumber, string_, YES,
+   orderNumber, string_, YES, Your reference number, duplicate value allowed, could be order number, ERP system number, etc.
    shipment, :ref:`structure_ReturnShipmentPayload`, YES, Details see below
 
 .. _structure_ReturnShipmentPayload:
