@@ -346,8 +346,10 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   serviceTypeCode, _string,
-   serviceType, _string, Name of the service type
+   serviceTypeCode, string_,
+   serviceType, string_, Name of the service type
+   fromCountry, string_
+   toCountry, string_
 
 ----
 
