@@ -44,8 +44,13 @@ Authenication
 Getting your API key and token:
 
 1. Login to Return Helper User Portal.
-2. On top right, click on your protrait icon and select ``Signing Key and API Token``
-3. Create a new API key and token, or use any existing pairs.
+2. Go to Setting > Signing Key and API Token
+3. You can see all of your API key and token here. You can also create a new pair here.
+
+.. image:: images/api_key_token.png
+    :alt: API Key and Token
+    :align: center
+
 
 
 Put authenication keys in your request header:
@@ -117,6 +122,7 @@ General Remarks
 - All time return is UTC.
 
 ----
+
 
 .. toctree::
    :maxdepth: 4
