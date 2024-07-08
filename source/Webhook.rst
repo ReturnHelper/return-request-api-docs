@@ -522,8 +522,7 @@ Sample A, resend status code 4 (failed) with error message:
         "stopAgingOn": "2024-04-30T07:48:40.2356",
         "sku": null,
         "warehouseApiId": 3,
-        "itemRma": "6CE8B41C-2E75-4BA5-8407-1C8708532152",
-        "rma": "6CE8B41C-2E75-4BA5-8407-1C8708532152"
+        "rma": "USE-1005-240523-D00001-25"
       }
     ],
     "category":"resend",
@@ -609,8 +608,7 @@ Sample B, resend status code 3 (completed) with tracking number:
         "stopAgingOn": "2024-04-30T07:48:40.2356",
         "sku": null,
         "warehouseApiId": 3,
-        "itemRma": "6CE8B41C-2E75-4BA5-8407-1C8708532152",
-        "rma": "6CE8B41C-2E75-4BA5-8407-1C8708532152"
+        "rma": "USE-1005-240523-D00001-25"
       }
     ],
     "category":"resend",
@@ -672,7 +670,6 @@ action: ``recallUpdateStatus``
   courierTrackingNumber, string_, Courier tracking number
   remarks, string_, Remarks
   recallServiceType, string_, Recall service type
-  itemRma, string_, Item RMA
   rma, string_, RMA
 
 
@@ -711,8 +708,7 @@ Example 1 (updateTrackingNumber):
           "courierTrackingNumber": null,
           "remarks": null,
           "recallServiceType": "dhl",
-          "itemRma": "S240423-0000018",
-          "rma": "S240423-0000018"
+          "rma": "USE-1005-240523-D00001-25"
         }
       ]
     },
@@ -748,8 +744,7 @@ Example 2 (readyToPickUp):
           "courierTrackingNumber": null,
           "remarks": null,
           "recallServiceType": "dhl",
-          "itemRma": "S240423-0000018",
-          "rma": "S240423-0000018"
+          "rma": "USE-1005-240523-D00001-25"
         }
       ]
     },
@@ -785,8 +780,7 @@ Example 3 (pickUpToCourierPickUp):
           "courierTrackingNumber": "DHL S240423-0000018",
           "remarks": null,
           "recallServiceType": "dhl",
-          "itemRma": "S240423-0000018",
-          "rma": "S240423-0000018"
+          "rma": "USE-1005-240523-D00001-25"
         }
       ]
     },
@@ -857,7 +851,6 @@ Sample:
             "handlingUpdatedOn": "2024-05-23T01:36:18.786231",
             "stopAgingOn": null,
             "sku": null,
-            "itemRma": "USE-1005-240523-D00001-25",
             "rma": "USE-1005-240523-D00001-25",
             "warehouseApiId": 3,
             "modifyOn": "2024-05-23T01:36:18.80574",
@@ -875,8 +868,6 @@ Sample:
         "totalValue": 1.0,
         "totalValueCurrency": "usd",
         "remarks": "test1rgzedrghrehethsdd",
-        "warehouseRma": "USE-1005-240523-D00001-25",
-        "rma": "USE-1005-240523-D00001-25",
         "isArchived": false,
         "returnRequestSourceType": 0,
         "modifyOn": "2024-05-23T01:36:18.8066177Z",
@@ -983,8 +974,6 @@ Sample:
             "value": 1.0,
             "handlingCode": 0,
             "isDeleted": false,
-            "itemRma": "USE-1005-240523-D00001-25",
-            "rma": "USE-1005-240523-D00001-25",
             "isFraudulent": false,
             "fraudReasonCode": null
         },
@@ -1001,8 +990,6 @@ Sample:
             "value": 1.0,
             "handlingCode": 0,
             "isDeleted": false,
-            "itemRma": null,
-            "rma": null,
             "isFraudulent": false,
             "fraudReasonCode": null
         }
@@ -1049,7 +1036,6 @@ Sample:
         "returnTitle": "TEST0902-317496",
         "totalValue": 96.0,
         "totalValueCurrency": "usd",
-        "warehouseRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
         "remarks": "Created by Warehouse",
         "isArchived": false,
         "returnRequestFrom": "return-helper",
@@ -1114,7 +1100,6 @@ Sample:
         "warehouseRemarks": "cool",
         "handlingUpdatedOnStr": "2022-08-09 08:54:59.8219",
         "sku": null,
-        "itemRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
         "modifyOn": "0001-01-01T00:00:00",
         "modifyBy": null,
         "modifyOnStr": null,
@@ -1159,7 +1144,6 @@ Sample:
         "returnTitle": "TEST0902-317496",
         "totalValue": 96.0,
         "totalValueCurrency": "usd",
-        "warehouseRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
         "remarks": "Created by Warehouse",
         "isArchived": false,
         "returnRequestFrom": "return-helper",
@@ -1186,7 +1170,6 @@ Sample:
         "warehouseRemarks": "cool",
         "handlingUpdatedOnStr": "2022-08-09 08:54:59.8219",
         "sku": "AAAA",
-        "itemRma": "de73ec26-f2a1-425e-8507-2b2749c20f64",
         "modifyOn": "0001-01-01T00:00:00",
         "modifyBy": null,
         "modifyOnStr": null,
@@ -1284,8 +1267,7 @@ Sample:
          "valueCurrencyCode":"usd",
          "value":463.0,
          "handlingCode":0,
-         "isDeleted":false,
-         "itemRma":"068343c0-1d42-40fc-8890-6fcb381121db"
+         "isDeleted":false
       },
       "category":"rrli",
       "action":"changeLineItemImage",
@@ -1314,7 +1296,6 @@ Sample:
 .. code-block:: json
 
    {
-   "ocSequenceNumber": 9,
    "returnRequest": {
       "returnRequestId": 9324,
       "apiId": 21,
@@ -1324,7 +1305,6 @@ Sample:
       "totalValue": 10,
       "totalValueCurrency": "usd",
       "remarks": "Created by Warehouse",
-      "warehouseRma": "tf2021070801",
       "isArchived": false,
       "returnRequestSourceType": 0,
       "modifyOn": "2021-07-08T14:30:48",
@@ -1429,7 +1409,7 @@ Sample:
          "handlingUpdatedOn": null,
          "stopAgingOn": null,
          "sku": null,
-         "itemRma": "tf2021070801",
+         "rma": "USE-1005-240523-D00001-25",
          "modifyOn": "2021-07-08T14:30:48",
          "modifyBy": "3",
          "createOn": "2021-07-08T14:30:48",
@@ -1451,8 +1431,7 @@ Sample:
          "valueCurrencyCode": "usd",
          "value": 10,
          "handlingCode": 0,
-         "isDeleted": false,
-         "itemRma": "tf2021070801"
+         "isDeleted": false
          }
       }
    ],
@@ -1505,7 +1484,7 @@ Sample:
         "warehouseId": 8,
         "returnInventoryId": 18191,
         "returnRequestLineItemId": 38320,
-        "rma": "TEST2024040301",
+        "rma": "USE-1005-240523-D00001-25",
         "dimension1": 20.0,
         "dimension2": 20.0,
         "dimension3": 20.0,
@@ -1570,7 +1549,6 @@ Split line item notification
         "value": 22.0,
         "handlingCode": 0,
         "isDeleted": false,
-        "itemRma": "fdsf345",
         "isFraudulent": false,
         "fraudReasonCode": null
       },
@@ -1595,7 +1573,6 @@ Split line item notification
         "handlingUpdatedOn": null,
         "stopAgingOn": null,
         "sku": null,
-        "itemRma": "fdsf345",
         "warehouseApiId": 3,
         "modifyOn": "2024-04-08T07:39:09.2665552Z",
         "modifyBy": "3",
@@ -1632,7 +1609,6 @@ Split line item notification
         "value": 22.0,
         "handlingCode": 0,
         "isDeleted": false,
-        "itemRma": "gfet34",
         "isFraudulent": false,
         "fraudReasonCode": null
       },
@@ -1657,7 +1633,6 @@ Split line item notification
         "handlingUpdatedOn": null,
         "stopAgingOn": null,
         "sku": null,
-        "itemRma": "gfet34",
         "warehouseApiId": 3,
         "modifyOn": "2024-04-08T07:39:09.2665379Z",
         "modifyBy": "3",
@@ -1713,7 +1688,6 @@ Complete Inventory Handling Notification
         "handlingUpdatedOn": "2024-04-08T07:43:55.0623048Z",
         "stopAgingOn": null,
         "sku": null,
-        "itemRma": "gfet34",
         "warehouseApiId": 3,
         "modifyOn": "2024-04-08T07:43:55.0652602Z",
         "modifyBy": "2",
