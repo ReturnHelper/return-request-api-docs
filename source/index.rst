@@ -142,7 +142,6 @@ General Remarks
    :maxdepth: 4
    :caption: Contents:
 
-   Home <index>
    Getting Started <getting_start>
    Base Models <base_model>
    Data Structure <data_structure>
