@@ -603,8 +603,8 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   createFrom, Datetime_
-   createTo, Datetime_
+   createFrom, Datetime_, Required (Max 62 days can be set)
+   createTo, Datetime_, Required (Max 62 days can be set)
    pageSize, integer_
    offset, integer_
 
