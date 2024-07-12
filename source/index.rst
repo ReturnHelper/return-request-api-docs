@@ -93,7 +93,7 @@ e.g. CompanyABCApi/2024.16.0 (Platform=Unix/13.4.0; Runtime=8.0.2; Language=CSha
 Your request header should looks like:
 
 .. code-block:: http
-  :emphasize-lines: 4
+  :emphasize-lines: 4,5
 
     x-rr-apikey: (your key)
     x-rr-apitoken: (your token)
