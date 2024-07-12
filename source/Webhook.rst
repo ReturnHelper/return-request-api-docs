@@ -34,7 +34,7 @@ Below is the email template:
 
   Dear Support Team,
 
-  We would like to request webhook setup in Return Helper. Below are my notification endpoints, please help to set up in both sandbox and production environment. 
+  We would like to request webhook setup in Return Helper. Below are my notification endpoints, please help to set up in both sandbox and production environment.
   Sandbox notification endpoint:
   (sandbox-notification-endpoint)
   Production notification endpoint:
@@ -53,7 +53,7 @@ For example:
   Body:
   Dear Support Team,
 
-  We would like to request webhook setup in Return Helper. Below are my notification endpoints, please help to set up in both sandbox and production environment. 
+  We would like to request webhook setup in Return Helper. Below are my notification endpoints, please help to set up in both sandbox and production environment.
   Sandbox notification endpoint:
   https://sandboxcallback.free.beeceptor.com
   Production notification endpoint:
@@ -276,7 +276,7 @@ List of supported notification
 Label result notification
 *************************
 
-This notification is sent to client once the label is ready after user called :ref:`method-CreateLabel`.
+This notification is sent to client once the label is ready.
 
 **You should always use shipmentId to map your label with shipment in your integration. DO NOT use labelId.**
 
@@ -297,54 +297,61 @@ action: ``labelGenerated``
 
 Sample:
 
+USPS
+
 .. code-block:: json
-   :emphasize-lines: 13,14,16,36,37
+  :emphasize-lines: 13,14,16
 
-   (USPS)
-   {
+  {
     "label": {
-        "correlationId": null,
-        "meta": null,
-        "labelId": 11345,
-        "shipmentId": 10825,
-        "apiId": 21,
-        "refKey": "S210904-0000202",
-        "labelRequestId": 3778,
-        "labelRequestStatusCode": "success",
-        "serviceType": "usps",
-        "trackingNumber": "9201994884299101443342",
-        "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202112/4495-S211229-0000037-attc2xihut0.pdf",
-        "error": null,
-        "qrcodeUrl": "https://label-service-dev-files.returnshelper.com/label/202112/4495-S211229-0000037-qrebtcjpxne.png",
-        "qrcodeError": null
+      "correlationId": null,
+      "meta": null,
+      "labelId": 11345,
+      "referenceNumber": "ystest07110001",
+      "shipmentId": 10825,
+      "apiId": 21,
+      "refKey": "S210904-0000202",
+      "labelRequestId": 3778,
+      "labelRequestStatusCode": "success",
+      "serviceType": "usps",
+      "trackingNumber": "9201994884299101443342",
+      "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202112/4495-S211229-0000037-attc2xihut0.pdf",
+      "error": null,
+      "qrcodeUrl": "https://label-service-dev-files.returnshelper.com/label/202112/4495-S211229-0000037-qrebtcjpxne.png",
+      "qrcodeError": null
     },
     "category": "labelGenerated",
     "action": "labelGenerated",
     "eventTime": "2021-09-04T17:03:15.8888073Z"
-   }
+  }
 
-   (non-USPS)
-   {
-    "label": {
-        "correlationId": null,
-        "meta": null,
-        "labelId": 11345,
-        "shipmentId": 10825,
-        "apiId": 21,
-        "refKey": "S210904-0000202",
-        "labelRequestId": 3779,
-        "labelRequestStatusCode": "success",
-        "serviceType": "sdhl",
-        "trackingNumber": "222201040017141511",
-        "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202111/4084-BRS211122-0000018-r1o1xeci30x.pdf",
-        "error": null,
-        "qrcodeUrl": null,
-        "qrcodeError": null
-    },
-    "category": "labelGenerated",
-    "action": "labelGenerated",
-    "eventTime": "2021-09-04T17:03:15.8888073Z"
-   }
+non-USPS
+
+.. code-block:: json
+  :emphasize-lines: 13,14
+
+  {
+  "label": {
+      "correlationId": null,
+      "meta": null,
+      "labelId": 11345,
+      "referenceNumber": "ystest07110001",
+      "shipmentId": 10825,
+      "apiId": 21,
+      "refKey": "S210904-0000202",
+      "labelRequestId": 3779,
+      "labelRequestStatusCode": "success",
+      "serviceType": "sdhl",
+      "trackingNumber": "222201040017141511",
+      "labelUrl": "https://label-service-dev-files.returnshelper.com/label/202111/4084-BRS211122-0000018-r1o1xeci30x.pdf",
+      "error": null,
+      "qrcodeUrl": null,
+      "qrcodeError": null
+  },
+  "category": "labelGenerated",
+  "action": "labelGenerated",
+  "eventTime": "2021-09-04T17:03:15.8888073Z"
+  }
 
 |
 
@@ -815,20 +822,6 @@ Sample:
 .. code-block:: json
 
   {
-    "shipmentSupplement": {
-        "shipmentSupplementId": 0,
-        "shipmentId": 33838,
-        "actualWeight": 500.0,
-        "actualWeightUom": "g",
-        "actualDimension1": 10.0,
-        "actualDimension2": 20.0,
-        "actualDimension3": 30.0,
-        "actualDimensionUom": "cm",
-        "modifyOn": "2024-05-23T01:36:18.805774",
-        "modifyBy": "3",
-        "createOn": "2024-05-23T01:36:18.786906",
-        "createBy": "3"
-    },
     "returnInventoryList": [
         {
             "returnInventoryId": 19078,
@@ -836,9 +829,14 @@ Sample:
             "returnRequestLineItemId": 39555,
             "apiId": 103,
             "returnRequestId": 64945,
-            "returnRequestLineItemNumber": "RL240523-0000001",
-            "description": "20240523-001",
+            "returnRequestLineItemNumber": "BRL240711-0000004",
+            "description": "TULIPLA/Clothing/Fit - Cups too small",
             "quantity": 1,
+            "dimension1": 10.0,
+            "dimension2": 10.0,
+            "dimension3": 120.0,
+            "dimensionUom": "cm",
+            "canRecalibrate": true,
             "weight": 500.0,
             "weightUom": "g",
             "valueCurrencyCode": "usd",
@@ -862,7 +860,7 @@ Sample:
     "returnRequest": {
         "returnRequestId": 64945,
         "apiId": 103,
-        "returnRequestNumber": "95cc7887-8721-47fb-9b7a-2a4e491fa86e",
+        "returnRequestNumber": "BR240711-0000004",
         "returnStatusCode": 0,
         "returnTitle": "test1rgzedrghrehethsdd",
         "totalValue": 1.0,
@@ -882,7 +880,7 @@ Sample:
         "labelId": 34493,
         "apiTransactionId": 0,
         "warehouseId": 1005,
-        "shipmentNumber": "S240523-0000001",
+        "shipmentNumber": "BRS240711-0000004",
         "shipmentStatusCode": 6,
         "shipmentServiceType": "nrhl",
         "shipmentCountryCode": "usa",
@@ -919,7 +917,7 @@ Sample:
         "labelId": 34493,
         "shipmentId": 33838,
         "apiId": 103,
-        "refKey": "47c6fc4b-5d12-4067-87a2-19d898cfc010",
+        "refKey": "BRS240711-0000004",
         "labelRequestId": 0,
         "labelRequestStatusCode": 3,
         "serviceType": "nrhl",
@@ -965,10 +963,10 @@ Sample:
             "returnRequestLineItemId": 39555,
             "apiId": 103,
             "returnRequestId": 64945,
-            "returnRequestLineItemNumber": "RL240523-0000001",
-            "description": "20240523-001",
+            "returnRequestLineItemNumber": "BRL240711-0000004",
+            "description": "TULIPLA/Clothing/Fit - Cups too small",
             "quantity": 1,
-            "weight": 1.0,
+            "weight": 300.0,
             "weightUom": "g",
             "valueCurrencyCode": "usd",
             "value": 1.0,
@@ -981,10 +979,10 @@ Sample:
             "returnRequestLineItemId": 39556,
             "apiId": 103,
             "returnRequestId": 64945,
-            "returnRequestLineItemNumber": "RL240523-0000002",
-            "description": "20240523-002",
+            "returnRequestLineItemNumber": "BRL240711-0000005",
+            "description": "20240711-002",
             "quantity": 1,
-            "weight": 1.0,
+            "weight": 200.0,
             "weightUom": "g",
             "valueCurrencyCode": "usd",
             "value": 1.0,
@@ -994,7 +992,6 @@ Sample:
             "fraudReasonCode": null
         }
     ],
-    "sequenceNumber": 0,
     "category": "rsl",
     "action": "markShipmentArrive",
     "eventTime": "2024-05-23T01:36:29.6096847Z"

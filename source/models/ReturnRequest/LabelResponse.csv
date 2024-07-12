@@ -1,6 +1,7 @@
 correlationId, string_
 meta, :ref:`structure-ApiResponseMeta`
 labelId, long_,
+referenceNumber, string_, Value of orderNumber in :ref:`method-CreateReturnShipment`
 shipmentId, long_
 apiId, integer_
 refKey, string_
