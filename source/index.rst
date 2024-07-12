@@ -76,7 +76,21 @@ This mechanism is crucial for operations that modify data or state, such as crea
 
 To prepare the key, the client should generate a unique identifier for each transactional request and include it in the API call's headers. This enables our servers to recognize repeat submissions of the same operation, ensuring the action is executed only once and preserving data integrity and consistency, even in scenarios with network retries or other issues.
 
-Your idempotency key should be put in the request header like below:
+User Agent
+----------
+
+We strongly recommend including the user agent in your request header to help us identify the source of the request. This will enable us to offer enhanced support, particularly for API-related issues like updates and changes.
+
+Your User-Agent should be in below format:
+
+:: 
+  
+      User-Agent: {application name}/{application version} (Platform={os release version}; Runtime={(runtime | sdk) version}; Language={language})
+
+e.g. CompanyABCApi/2024.16.0 (Platform=Unix/13.4.0; Runtime=8.0.2; Language=CSharp12)
+
+
+Your request header should looks like:
 
 .. code-block:: http
   :emphasize-lines: 4
@@ -85,7 +99,7 @@ Your idempotency key should be put in the request header like below:
     x-rr-apitoken: (your token)
     Content-Type: "application/json"
     x-returnhelper-idempotency-key: (your key)
-
+    User-Agent: (your user agent)
 
 API Endpoints
 -------------
