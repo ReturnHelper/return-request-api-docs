@@ -17,7 +17,7 @@ Some objects may have an inherit class that you can use the parameters from it.
 **Our API is only designed for Server to Server integration.**
 
 Changelog
-========
+---------
 
 .. list-table::
    :widths: 25 75
