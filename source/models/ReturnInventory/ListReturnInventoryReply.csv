@@ -1,6 +1,6 @@
 returnInventoryId, integer_
 returnRequestId, integer_
-itemRma, string_
+rma, string_
 sku, string_
 handlingCode, string_
 handlingStatusCode, string_
