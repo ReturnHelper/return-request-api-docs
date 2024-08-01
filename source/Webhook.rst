@@ -59,8 +59,13 @@ For example:
   Production notification endpoint:
   https://productioncallback.free.beeceptor.com
 
+
 Handling Webhook Events
 *************************
+
+**Event Delivery**
+
+The events returned by the Event resource should not be considered to be realtime. Events might not be created until a few seconds after the action occurs. In rare cases it can take up to a few minutes for some events to appear
 
 **Duplicate Events**
 
@@ -76,8 +81,13 @@ For example warehouse receive the parcel and upload images.
 
 Your endpoint should not expect delivery of these events in this order and should handle it accordingly. You can also use the API to fetch any missing objects.
 
-
 Each event also includes ``eventTime``
+
+More reference documents on event ordering:
+
+- https://docs.stripe.com/webhooks#event-ordering
+- https://shopify.dev/docs/apps/build/webhooks#ordering-event-data
+- https://developer.adobe.com/commerce/php/best-practices/extensions/observers/#do-not-rely-on-invocation-order
 
 
 Signing Key
