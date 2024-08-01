@@ -95,7 +95,7 @@ Signing Key
 
 **Usage**
 
-Each client receives a unique signing key for verifying notifications (please check more details below).
+Each client receives a unique signing key (see :ref:`index-authenication`) for verifying notifications (please check more details below).
 
 **Security**
 
