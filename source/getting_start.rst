@@ -41,6 +41,28 @@ Cancel return label
 2.  However, in somehow, it is no longer needed. You have to cancel label in system.
 3.  :ref:`method-CancelLabel` - Cancel label by ``labelId``, which is expected in the :ref:`notification-label`.
 
+.. _gettingstarted-RMA:
+
+RMA (Return Merchandise Authorization)
+--------------------------------------
+
+When a shipment enters our warehouse, it is immediately assigned a globally unique RMA value to enhance customer tracking to their packages, and also avoid communication errors.
+
+We use RMA as our main communication identifier instead of the shipment tracking number for several reasons.
+
+- Tracking numbers can be duplicated among different carriers or even within the same carrier.
+- When a user decides to split a parcel (using :ref:`method-createvas`) , multiple parcels may share the same tracking number. By using RMA, we can simply assign new RMA numbers to identify each parcel after a split.
+
+The format of a normal RMA:
+
+- <warehouse prefix>-<warehouse ID>-<YYMMDD>-<environment single letter><rma sequence max 5 digits>-<check digits>
+- Example: ``TWN-20-230101-D12345-36``
+
+The format of a splitted RMA (After calling :ref:`method-createvas`):
+
+- <warehouse prefix>-<warehouse ID>-<YYMMDD>-<environment single letter><rma sequence max 5 digits>-<split sequence 2 digits>-<check digits>
+- Example: ``TWN-20-230101-D12345-01-36``
+
 .. _gettingstarted-ReturnArrival:
 
 Return Inventory at the return arrival
