@@ -1087,11 +1087,12 @@ Sample:
 Inventory Created Notification
 ******************************
 
-This notification is only sent after
+This notification is sent after
 
 - :ref:`notification-markreceived`
 - :ref:`notification-warehouseMarkShipmentArrivedv2`
 - :ref:`notification-assignunknown`
+- :ref:`method-createvas` when choosing to split the parcel into multiple inventories
 
 to notify a new inventory has been created in the warehouse.
 Customers can further call :ref:`method-updatereturninventoryhandling` to assign handling once the inventory has been created.
