@@ -1058,7 +1058,7 @@ Shipment
   referenceNumber, string_,
   serviceType, string_,
   customFieldMap, List<KeyValuePair>,
-  shipToWarehouse, integer_,
+  shipToWarehouseId, integer_,
   receiveDate, string_, ISO8601 format
 
 Sample:
@@ -1066,19 +1066,23 @@ Sample:
 .. code-block:: json
 
   {
-    "shipment": {
-        "shipmentId": "9999",
-        "returnRequestId": "1234",
-        "trackingNumber": "tracking1234",
-        "referenceNumber": "",
-        "serviceType": "fedex",
-        "customFieldMap": {
-            "Key01": "Value01",
-            "Key02": "Value02"
-        },
-        "shipToWarehouseId": 3,
-        "receiveDate": "2024-01-01T01:00:00.000000"
-    }
+      "shipment": {
+          "shipmentId": "35732",
+          "returnRequestId": "66848",
+          "trackingNumber": "T-20240725085212",
+          "referenceNumber": "R240725-0000003",
+          "serviceType": "fedex",
+          "customFieldMap": {
+              "CSB02": "BBB",
+              "CSA01": "AAA"
+          },
+          "shipToWarehouseId": 2,
+          "receiveDate": "2024-07-25T08:53:05.7827073Z"
+      },
+      "category": "rsl",
+      "action": "markShipmentArrive",
+      "eventTime": "2024-07-29T05:48:21.381658Z",
+      "version": "202407"
   }
 
 
@@ -1140,8 +1144,10 @@ Return Inventory
   rma,string_, Warehouse assigned RMA value; see :ref:`gettingstarted-rma`
   modifyOn,string_, ISO8601 format
   createOn,string_, ISO8601 format
-  imageList,List<Image>, see below table
-  returnInventoryMetaList,List<KeyValuePair>
+  imageList,List<:ref:`notification-inventoryCreated-Image`>, see below table
+  returnInventoryMetaList,List<:ref:`notification-inventoryCreated-ReturnInventoryMeta`>, see below table
+
+.. _notification-inventoryCreated-Image:
 
 Image
 
@@ -1151,6 +1157,17 @@ Image
 
   imageUrl,string_, URL of the image
   imageKey,string_, Key of the image
+
+.. _notification-inventoryCreated-ReturnInventoryMeta:
+
+ReturnInventoryMeta
+
+.. csv-table::
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  metaType,string_,
+  metaMap,KeyValuePair,
 
 Shipment
 
@@ -1228,8 +1245,8 @@ Sample:
           "shipToWarehouseId": 2,
           "receiveDate": "2019-01-01T00:00:00.000000"
       },
-      "category": "",
-      "action": "",
+      "category": "newInventoryCreated",
+      "action": "newInventoryCreated",
       "eventTime": "2024-07-15T03:30:05.1984163Z",
       "version": "202207"
   }
