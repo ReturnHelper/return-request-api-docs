@@ -59,8 +59,13 @@ For example:
   Production notification endpoint:
   https://productioncallback.free.beeceptor.com
 
+
 Handling Webhook Events
 *************************
+
+**Event Delivery**
+
+The events returned by the Event resource should not be considered to be realtime. Events might not be created until a few seconds after the action occurs. In rare cases it can take up to a few minutes for some events to appear
 
 **Duplicate Events**
 
@@ -76,8 +81,13 @@ For example warehouse receive the parcel and upload images.
 
 Your endpoint should not expect delivery of these events in this order and should handle it accordingly. You can also use the API to fetch any missing objects.
 
-
 Each event also includes ``eventTime``
+
+More reference documents on event ordering:
+
+- https://docs.stripe.com/webhooks#event-ordering
+- https://shopify.dev/docs/apps/build/webhooks#ordering-event-data
+- https://developer.adobe.com/commerce/php/best-practices/extensions/observers/#do-not-rely-on-invocation-order
 
 
 Signing Key
@@ -85,7 +95,7 @@ Signing Key
 
 **Usage**
 
-Each client receives a unique signing key for verifying notifications (please check more details below).
+Each client receives a unique signing key (see :ref:`index-authenication`) for verifying notifications (please check more details below).
 
 **Security**
 
@@ -228,6 +238,8 @@ These are enums that used to identify the notification type which clients can ma
      - Complete fba instruction replenish event
    * - ``completeRecalibrate``
      - Complete inventory recalibrate event
+   * - ``newInventoryCreated``
+     - New inventory created event
 
 .. list-table::
    :widths: 15 25
@@ -267,6 +279,8 @@ These are enums that used to identify the notification type which clients can ma
      - Complete fba instruction replenish event
    * - ``completeRecalibrate``
      - Complete inventory recalibrate event
+   * - ``newInventoryCreated``
+     - New inventory created event
 
 List of supported notification
 ------------------------------
@@ -677,7 +691,7 @@ action: ``recallUpdateStatus``
   courierTrackingNumber, string_, Courier tracking number
   remarks, string_, Remarks
   recallServiceType, string_, Recall service type
-  rma, string_, RMA
+  rma, string_, Warehouse assigned RMA value; see :ref:`gettingstarted-rma`
 
 
 .. csv-table:: ``values of recallUpdateTypeStatus``
@@ -1001,6 +1015,241 @@ Sample:
 
 
 ----
+
+.. _notification-warehouseMarkShipmentArrivedv2:
+
+Warehouse mark shipment arrived notification (v2)
+**************************************************
+
+.. note::
+  This is an new version of :ref:`notification-MarkReceived`.
+  In this version, the original mark receive notification has been split into two distinct notifications: mark receive and :ref:`notification-inventoryCreated`.
+
+  Existing users who currently receive the original :ref:`notification-MarkReceived` will continue to receive it without any changes.
+
+  New integration customers should contact our customer service team to enable this version. By default, the system continues to send out the original notification.
+
+category: ``rsl``
+
+action: ``markShipmentArrive``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   shipment, see below table,
+   category, string_, ``rsl``
+   action, string_, ``markShipmentArrive``
+   eventTime, string_, ISO8601 format
+   version, string_, version of the notification
+
+
+.. _structure-markreceived-shipment:
+
+Shipment
+
+.. csv-table::
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  shipmentId, string_, Unique (globally) identifier for the shipment
+  returnRequestId, string_, Unique (globally) identifier for the return request
+  trackingNumber, string_, Unique globally within 90 days
+  referenceNumber, string_,
+  serviceType, string_,
+  customFieldMap, List<KeyValuePair>,
+  shipToWarehouseId, integer_,
+  receiveDate, string_, ISO8601 format
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "shipment": {
+          "shipmentId": "35732",
+          "returnRequestId": "66848",
+          "trackingNumber": "T-20240725085212",
+          "referenceNumber": "R240725-0000003",
+          "serviceType": "fedex",
+          "customFieldMap": {
+              "CSB02": "BBB",
+              "CSA01": "AAA"
+          },
+          "shipToWarehouseId": 2,
+          "receiveDate": "2024-07-25T08:53:05.7827073Z"
+      },
+      "category": "rsl",
+      "action": "markShipmentArrive",
+      "eventTime": "2024-07-29T05:48:21.381658Z",
+      "version": "202407"
+  }
+
+
+.. _notification-inventoryCreated:
+
+Inventory Created Notification
+******************************
+
+This notification is sent after
+
+- :ref:`notification-markreceived`
+- :ref:`notification-warehouseMarkShipmentArrivedv2`
+- :ref:`notification-assignunknown`
+- :ref:`method-createvas` when choosing to split the parcel into multiple inventories
+
+to notify a new inventory has been created in the warehouse.
+Customers can further call :ref:`method-updatereturninventoryhandling` to assign handling once the inventory has been created.
+
+category: ``newInventoryCreated``
+
+action: ``newInventoryCreated``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   returnInventory, see below table,
+   shipment, see below table,
+   category, string_, ``newInventoryCreated``
+   action, string_, ``newInventoryCreated``
+   eventTime, string_, ISO8601 format
+   version, string_, version of the notification
+
+Return Inventory
+
+.. csv-table::
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  returnInventoryId,string_, Unique (globally) identifier for the return inventory
+  warehouseId,integer_, see :ref:`method-getallwarehouse`
+  apiId,integer_, Unique (globally) identifier for the customer
+  description,string_
+  quantity,integer_
+  dimension1,integer_
+  dimension2,integer_
+  dimension3,integer_
+  dimensionUom,string_, ``cm``
+  weight, integer_, in grams
+  weightUom,string_, ``g``
+  valueCurrencyCode,string_
+  value, integer_,
+  handlingCode,string_, see :ref:`method-GetAllHandlings`
+  handlingStatusCode,string_, see :ref:`method-getallhandlingstatus`
+  completeOn,string_, ISO8601 format
+  warehouseRemarks,string_
+  handlingUpdatedOn,string_, ISO8601 format
+  sku,string_, default null; Customers assign their sku by :ref:`method-assignreturninventorysku`
+  rma,string_, Warehouse assigned RMA value; see :ref:`gettingstarted-rma`
+  modifyOn,string_, ISO8601 format
+  createOn,string_, ISO8601 format
+  imageList,List<:ref:`notification-inventoryCreated-Image`>, see below table
+  returnInventoryMetaList,List<:ref:`notification-inventoryCreated-ReturnInventoryMeta`>, see below table
+
+.. _notification-inventoryCreated-Image:
+
+Image
+
+.. csv-table::
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  imageUrl,string_, URL of the image
+  imageKey,string_, Key of the image
+
+.. _notification-inventoryCreated-ReturnInventoryMeta:
+
+ReturnInventoryMeta
+
+.. csv-table::
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  metaType,string_,
+  metaMap,KeyValuePair,
+
+Shipment
+
+.. csv-table::
+  :header: "Name", "Type", "Remarks"
+  :widths: 15, 10, 30
+
+  shipmentId, string_, Unique (globally) identifier for the shipment
+  returnRequestId, string_, Unique (globally) identifier for the return request
+  trackingNumber, string_, Unique globally within 90 days
+  referenceNumber, string_,
+  serviceType, string_,
+  customFieldMap, List<KeyValuePair>,
+  shipToWarehouse, integer_,
+  receiveDate, string_, ISO8601 format
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "returnInventory": {
+          "returnInventoryId": "19973",
+          "warehouseId": 2,
+          "apiId": 21,
+          "description": "un-line-item-001",
+          "quantity": 1,
+          "dimension1": 20,
+          "dimension2": 20,
+          "dimension3": 22,
+          "dimensionUom": "cm",
+          "weight": 300,
+          "weightUom": "g",
+          "valueCurrencyCode": "usd",
+          "value": 10,
+          "handlingCode": "tbc",
+          "handlingStatusCode": "pending",
+          "completeOn": null,
+          "warehouseRemarks": null,
+          "handlingUpdatedOn": "2024-07-15T03:29:53.889398",
+          "sku": null,
+          "rma": "USE-2-240715-D00003-30",
+          "modifyOn": "2024-07-15T03:29:53.903982",
+          "createOn": "2024-07-15T03:29:53.88968",
+          "imageList": [
+              {
+                  "imageUrl": "https://rr-dev-files.returnshelper.com/images/returns/202407/USE-2-240715-D00003-30-bw5twko3.gzf.jpg",
+                  "imageKey": "images/returns/202407/USE-2-240715-D00003-30-bw5twko3.gzf.jpg"
+              },
+              {
+                  "imageUrl": "https://rr-dev-files.returnshelper.com/images/returns/202407/USE-2-240715-D00003-30-ynkgz5ei.fxm.JPG",
+                  "imageKey": "images/returns/202407/USE-2-240715-D00003-30-ynkgz5ei.fxm.JPG"
+              }
+          ],
+          "returnInventoryMetaList": [
+              {
+                  "metaType": "shipmentCustomField",
+                  "metaMap": {
+                      "CSA01": "AAA",
+                      "CSB02": "BBB"
+                  }
+              }
+          ]
+      },
+      "shipment": {
+          "shipmentId": "9999",
+          "returnRequestId": "1234",
+          "trackingNumber": "{{trackingNumber}}",
+          "referenceNumber": "",
+          "serviceType": "fedex",
+          "customFieldMap": {
+              "CSA01": "AAA",
+              "CSB02": "BBB"
+          },
+          "shipToWarehouseId": 2,
+          "receiveDate": "2019-01-01T00:00:00.000000"
+      },
+      "category": "newInventoryCreated",
+      "action": "newInventoryCreated",
+      "eventTime": "2024-07-15T03:30:05.1984163Z",
+      "version": "202207"
+  }
 
 .. _notification-warehouseUpdateRemarks:
 
@@ -1465,7 +1714,7 @@ action: ``completeRecalibrate``
     warehouseId, integer_, Warehouse ID
     returnInventoryId, integer_, Return inventory ID
     returnRequestLineItemId, integer_, Return request line item ID
-    rma, string_, RMA
+    rma, string_, Warehouse assigned RMA value; see :ref:`gettingstarted-rma`
     dimension1, double_, Dimension 1
     dimension2, double_, Dimension 2
     dimension3, double_, Dimension 3
