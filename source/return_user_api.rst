@@ -1804,7 +1804,7 @@ Response:
    outBoundWarehouseId, integer_, Warehouse id of the outbound warehouse
    shippingMethod, string_, Selected shipping method of the order
    deliveryInstructions, string_, Delivery instructions
-   consolidateShippingOrderStatus, string_, Status of the order
+   consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
    shipTo, :ref:`structure-ShipTo`, Ship to address
    customFieldMap, KeyValuePair, Custom fields for the order
    createOn, Datetime_
