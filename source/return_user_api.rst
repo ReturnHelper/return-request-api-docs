@@ -1734,7 +1734,7 @@ Parameters:
    :header: "Name", "Type","Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   outBoundWarehouseId, integer_, YES, Warehouse id of the outbound warehouse
+   outboundWarehouseId, integer_, YES, Warehouse id of the outbound warehouse
    shippingMethod, string_, YES, ``AIR_FREIGHT`` or ``COURIER_SERVICE`` or ``LAND_FREIGHT`` or ``SEA_FREIGHT``
    deliveryInstructions, string_,, Delivery instructions
    shipTo, :ref:`structure-ShipTo`, YES, Ship to address (see below)
@@ -1765,7 +1765,7 @@ Sample:
 .. code-block:: json
 
    {
-      "outBoundWarehouseId": 2,
+      "outboundWarehouseId": 2,
       "shippingMethod": "AIR_FREIGHT",
       "deliveryInstructions": "Don't leave package on porch {{$datetime iso8601}}",
       "shipTo": {
@@ -1801,7 +1801,7 @@ Response:
 
    consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
    consolidateShippingOrderNumber, string_, Human readable order number
-   outBoundWarehouseId, integer_, Warehouse id of the outbound warehouse
+   outboundWarehouseId, integer_, Warehouse id of the outbound warehouse
    shippingMethod, string_, Selected shipping method of the order
    deliveryInstructions, string_, Delivery instructions
    consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
@@ -1818,7 +1818,7 @@ Sample:
       "data": {
          "consolidateShippingOrderId": "01J54T64ZZ1R7MMVS4SRA1XK7R",
          "consolidateShippingOrderNumber": "CNS240813-0000001",
-         "outBoundWarehouseId": 2,
+         "outboundWarehouseId": 2,
          "shippingMethod": "AIR_FREIGHT",
          "deliveryInstructions": "Don't leave package on porch 2024-08-13T02:48:25.873Z",
          "consolidateShippingOrderStatus": "CREATED",
@@ -2039,7 +2039,7 @@ Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
 .. _method-UpdateConsolidateShippingOrderShipTo:
 
 Update Shipping Information
----------------------------
+----------------------------
 
 ::
 
