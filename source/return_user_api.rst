@@ -1719,8 +1719,8 @@ Consolidate Shipping
 
 .. _method-CreateConsolidateShippingOrder:
 
-Create
--------------------------------
+Create Order
+------------
 
 Initiate a consolidate shipping order by providing the outbound warehouse id, shipping method, delivery instructions, ship to address, and custom fields.
 
@@ -1857,8 +1857,8 @@ Sample:
 
 .. _method-AddInventoryToConsolidateShippingOrder:
 
-AddInventory
--------------------------------------
+Add Inventory
+-------------
 
 Add inventory to a consolidate shipping order. An inventory must be in the same warehouse of the consolidate shipping order.
 
@@ -1938,8 +1938,8 @@ Sample:
 
 .. _method-RemoveInventoryFromConsolidateShippingOrder:
 
-RemoveInventory
-----------------------------------------
+Remove Inventory
+----------------
 
 ::
 
@@ -2007,8 +2007,8 @@ Sample:
 
 .. _method-UpdateConsolidateShippingOrderShippingMethod:
 
-UpdateShippingMethod
----------------------------------------------
+Update Shipping Method
+----------------------
 
 ::
 
@@ -2038,8 +2038,8 @@ Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
 
 .. _method-UpdateConsolidateShippingOrderShipTo:
 
-UpdateShipTo
--------------------------------------
+Update Shipping Information
+---------------------------
 
 ::
 
@@ -2083,8 +2083,8 @@ Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
 
 .. _method-ConfirmConsolidateShippingOrder:
 
-Confirm
---------------------------------
+Confirm Order
+-------------
 
 ::
 
@@ -2112,8 +2112,8 @@ Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
 
 .. _method-CancelConsolidateShippingOrder:
 
-Cancel
--------------------------------
+Cancel Order
+------------
 
 ::
 
