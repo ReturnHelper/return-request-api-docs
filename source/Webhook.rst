@@ -1773,6 +1773,11 @@ Sample:
 Split line item notification
 ****************************
 
+category: ``lineItemVasReturnInventoryLineItem``
+
+action: ``splitLineItem``
+
+
 .. code-block:: json
 
   {
@@ -1910,6 +1915,11 @@ Split line item notification
 Complete Inventory Handling Notification
 ****************************************
 
+category: ``rinv``
+
+action: ``completeInventoryHandling``
+
+
 .. code-block:: json
 
   {
@@ -1965,6 +1975,89 @@ Remark:
     0, pending, Pending
     1, inProgress, In Progress
     2, completed, Completed
+
+----
+
+.. _notification-updateReturnInventoryMeta:
+
+Update Return Inventory Meta Notification
+*****************************************
+
+This notification is sent when a warehouse adds or updates meta information of a return inventory.
+
+category: ``updateReturnInventoryMeta``
+
+action: ``updateReturnInventoryMeta``
+
+.. code-block:: json
+  :emphasize-lines: 35-51
+
+  {
+    "returnInventory":{
+      "returnInventoryId":19769,
+      "warehouseId":2,
+      "returnRequestLineItemId":41033,
+      "apiId":2,
+      "returnRequestId":66231,
+      "returnRequestLineItemNumber":"UNL240704-0000002",
+      "description":"un-line-item-001",
+      "quantity":1,
+      "dimension1":20,
+      "dimension2":20,
+      "dimension3":22,
+      "dimensionUom":"cm",
+      "canRecalibrate":true,
+      "weight":300,
+      "weightUom":"g",
+      "valueCurrencyCode":"usd",
+      "value":30,
+      "handlingCode":0,
+      "handlingStatusCode":0,
+      "completeBy":null,
+      "completeOn":null,
+      "warehouseRemarks":null,
+      "handlingUpdatedOn":"2024-07-04T06:04:50.320813",
+      "stopAgingOn":null,
+      "sku":null,
+      "rma":"USE-2-240704-D00003-12",
+      "warehouseApiId":3,
+      "modifyOn":"2024-07-04T06:04:50.321891",
+      "modifyBy":"3",
+      "createOn":"2024-07-04T06:04:50.320886",
+      "createBy":"3"
+    },
+    "returnInventoryMetaList":[
+      {
+        "returnInventoryId":19769,
+        "metaType":"whs",
+        "metaMap":{
+          "EAN":"987456789876",
+          "IMEI":"IMEI956789876567898765453456"
+        }
+      },
+      {
+        "returnInventoryId":19769,
+        "metaType":"usr",
+        "metaMap":{
+          "LPN":"LPN6001978"
+        }
+      }
+    ],
+    "category":"updateReturnInventoryMeta",
+    "action":"updateReturnInventoryMeta",
+    "eventTime":"2024-07-11T08:39:59.42014Z"
+  }
+
+Remark:
+
+.. csv-table:: `meta`
+    :header: "Name", "Description"
+    :widths: 10,20
+
+    returnInventoryId, Return inventory id
+    metaType, ``usr`` (User) or ``whs`` (Warehouse)
+    metaMap, KeyValuePair
+
 
 .. reference definition goes here
 
