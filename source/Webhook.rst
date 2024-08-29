@@ -1072,6 +1072,8 @@ This notification is sent after
 to notify a new inventory has been created in the warehouse.
 Customers can further call :ref:`method-updatereturninventoryhandling` to assign handling once the inventory has been created.
 
+Please note that if multiple multiple packages are sent with the same tracking number of label, multiple inventories will be created. (Multiple notifications will be sent)
+
 category: ``newInventoryCreated``
 
 action: ``newInventoryCreated``
