@@ -824,7 +824,7 @@ Warehouse mark shipment received notification
   
   Customers that subscribes this notification without the need of returnInventoryList, no action is required.
   
-  For customers that uses the returnInventoryList, please subscribe to :ref:`notification-warehouseMarkShipmentArrivedv2` and `notification-inventoryCreated` for the new notification structure.
+  For customers that uses the returnInventoryList, please subscribe to :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated` for the new notification structure.
 
 This notification is sent when warehouse receive a shipment.
 

@@ -37,8 +37,10 @@ Changelog
      - Update :ref:`index-idempotency` section
    * - 2024-07
      - Add :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated`
-     - This is an new version of :ref:`notification-MarkReceived` that split into two distinct notifications: mark receive and inventory created.
-     - Annocing the removal of returnInventoryList from :ref:`notification-MarkReceived`, please check the link for more details.
+       
+       This is an new version of :ref:`notification-MarkReceived` that split into two distinct notifications: mark receive and inventory created.
+   * - 
+     - BREAKING: Removal of returnInventoryList from :ref:`notification-MarkReceived`, please check the link for more details.
 
 
 
