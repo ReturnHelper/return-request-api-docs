@@ -819,6 +819,13 @@ Example 3 (pickUpToCourierPickUp):
 Warehouse mark shipment received notification
 *********************************************
 
+.. warning::
+  We are removing the returnInventoryList from this notification. 
+  
+  Customers that subscribes this notification without the need of returnInventoryList, no action is required.
+  
+  For customers that uses the returnInventoryList, please subscribe to :ref:`notification-warehouseMarkShipmentArrivedv2` and `notification-inventoryCreated` for the new notification structure.
+
 This notification is sent when warehouse receive a shipment.
 
 category: ``rsl``
@@ -836,41 +843,6 @@ Sample:
 .. code-block:: json
 
   {
-    "returnInventoryList": [
-        {
-            "returnInventoryId": 19078,
-            "warehouseId": 1005,
-            "returnRequestLineItemId": 39555,
-            "apiId": 103,
-            "returnRequestId": 64945,
-            "returnRequestLineItemNumber": "BRL240711-0000004",
-            "description": "TULIPLA/Clothing/Fit - Cups too small",
-            "quantity": 1,
-            "dimension1": 10.0,
-            "dimension2": 10.0,
-            "dimension3": 120.0,
-            "dimensionUom": "cm",
-            "canRecalibrate": true,
-            "weight": 500.0,
-            "weightUom": "g",
-            "valueCurrencyCode": "usd",
-            "value": 1.0,
-            "handlingCode": 0,
-            "handlingStatusCode": 0,
-            "completeBy": null,
-            "completeOn": null,
-            "warehouseRemarks": null,
-            "handlingUpdatedOn": "2024-05-23T01:36:18.786231",
-            "stopAgingOn": null,
-            "sku": null,
-            "rma": "USE-1005-240523-D00001-25",
-            "warehouseApiId": 3,
-            "modifyOn": "2024-05-23T01:36:18.80574",
-            "modifyBy": "3",
-            "createOn": "2024-05-23T01:36:18.778048",
-            "createBy": "3"
-        }
-    ],
     "returnRequest": {
         "returnRequestId": 64945,
         "apiId": 103,
@@ -1022,11 +994,10 @@ Warehouse mark shipment arrived notification (v2)
 **************************************************
 
 .. note::
-  This is an new version of :ref:`notification-MarkReceived`.
+  This is a new version of :ref:`notification-MarkReceived`.
   In this version, the original mark receive notification has been split into two distinct notifications: mark receive and :ref:`notification-inventoryCreated`.
 
-  Existing users who currently receive the original :ref:`notification-MarkReceived` will continue to receive it without any changes.
-
+  There are changes made to the original notification structure. Please see :ref:`notification-MarkReceived`
   New integration customers should contact our customer service team to enable this version. By default, the system continues to send out the original notification.
 
 category: ``rsl``
