@@ -69,23 +69,23 @@ Return Inventory at the return arrival
 --------------------------------------
 
 When the return shipment arrives a warehouse,
-it will be marked received and converted into Return Inventory for seller's further management. (See :ref:`section-ReturnInventory`)
-
-It is very important to note that **the whole shipment will be handled as a single Return Inventory** when converting :ref:`section-ReturnRequest` into :ref:`section-ReturnInventory`.
-
+it will be marked received and converted into Return Inventory (See :ref:`section-ReturnInventory`) for seller's further management such as applying :ref:`method-UpdateReturnInventoryHandling`. 
 
 There are two types of return arrival:
 
 `Type 1 - Return Shipment:`
 
 1.  Initiated by seller and label is provided by Return Helper. Return Request has been created upon seller's request.
-2.  :ref:`notification-MarkReceived` will be sent to your notification endpoint. Return inventory payload, will be included in the notification payload. ``returnInventoryId`` is expected in it.
-3.  It is an action of Putaway. Image of the return will be uploaded in the next step. Please expect :ref:`notification-changeLineItemImage` later.
+2.  :ref:`notification-warehousemarkshipmentarrivedv2` will be sent to your notification endpoint. Followed by :ref:`notification-inventorycreated` where ``returnInventoryId`` is expected in it.
+3.  In some cases, when there are multiple packages that uses the same label, each package will be handled as a return inventory within the same shipment (and return request). i.e. There will be multiple :ref:`notification-inventorycreated` sent to your notification endpoint. Each inventory has their own ``returnInventoryId`` but they can share the same ``shipmentId`` and ``returnRequestId``.
+4.  Inventory image will be uploaded in the next step. It will be pushed as :ref:`notification-changeLineItemImage`.
 
 `Type 2 - Unknown Shipment:`
 
 1.  Not initiated by seller but Return Helper identifies that it belongs to a specific seller. Return Request record will be created when arrives warehouse and then assign to the seller.
-2.  :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId`` and ``returnRequestId`` are expected in it.
+2.  :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId``, ``shipmentId`` and ``returnRequestId`` are expected in it.
+    
+    As the unknown shipment is now converted to a return shipment, the same case about multiple packages also applies here. i.e. There will be multiple :ref:`notification-inventorycreated` sent to your notification endpoint. Each inventory has their own ``returnInventoryId`` but they can share the same ``shipmentId`` and ``returnRequestId``.  
 3.  Before assigning to the seller, image of shipment has been uploaded. So, this notificaion will also include the image list.
 4.  However, if there is any change on the image list, you will be also notified by :ref:`notification-changeLineItemImage`.
 

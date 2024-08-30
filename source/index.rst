@@ -40,8 +40,27 @@ Changelog
        
        This is an new version of :ref:`notification-MarkReceived` that split into two distinct notifications: mark receive and inventory created.
    * - 
-     - BREAKING: Removal of returnInventoryList from :ref:`notification-MarkReceived`, please check the link for more details.
+     - **BREAKING**: Deprecating :ref:`notification-MarkReceived` at 31st December 2024. Please use :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated` instead.
 
+.. _index-Deprecating:
+
+Deprecating API
+---------------
+
+.. list-table:: 
+    :widths: 25 75
+    :header-rows: 1
+  
+    * - Date
+      - Description
+    * - 2024-12-31
+      - :ref:`method-createreturnrequest` 
+        
+        :ref:`method-createlabel`
+
+        :ref:`notification-MarkReceived`
+
+        :ref:`notification-Resend`
 
 
 .. _index-Authenication:

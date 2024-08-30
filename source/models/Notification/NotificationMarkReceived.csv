@@ -1,3 +1,4 @@
+returnInventory, List<:ref:`structure-ReturnInventoryPayload`>
 returnRequest, :ref:`structure-ReturnRequestPayload`
 shipment,   :ref:`structure-NotificationShipmentPayload`
 label, :ref:`structure-LabelPayload`

@@ -499,8 +499,8 @@ Label
 
 .. _method-CreateLabel:
 
-CreateLabel
----------------------------
+CreateLabel (Deprecating)
+-------------------------
 
 .. warning::
    We are combining :ref:`method-createreturnrequest` and :ref:`method-createlabel` into :ref:`method-createreturnshipment`
@@ -515,7 +515,7 @@ A success response only means the request is accepted. The requested label does 
 
 For more details please check :ref:`notification-label`
 
-:ref:`notification-MarkReceived` is trigger when the shipment has been received in warehouse.
+:ref:`notification-warehousemarkshipmentarrivedv2` is trigger when the shipment has been received in warehouse, followed by :ref:`notification-inventorycreated` when the inventory has been created.
 
 ::
 
@@ -805,8 +805,8 @@ Sample:
 
 .. _method-createReturnRequest:
 
-CreateReturnRequest
--------------------
+CreateReturnRequest (Deprecating)
+---------------------------------
 
 .. warning::
    We are combining :ref:`method-createreturnrequest` and :ref:`method-createlabel` into :ref:`method-createreturnshipment`
@@ -1516,7 +1516,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryIdList, List<string_>, YES, Obtain from :ref:`notification-MarkReceived` and :ref:`notification-assignUnknown` - see :ref:`gettingstarted-ReturnArrival` for more detail
+   returnInventoryIdList, List<string_>, YES, Obtain from :ref:`notification-inventorycreated` - see :ref:`gettingstarted-ReturnArrival` for more detail
    description, string_,
    remarks, string_,
    resendShipment, :ref:`link-ResendShipmentPayload`, YES, See below

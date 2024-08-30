@@ -76,7 +76,8 @@ Webhook endpoints might receive the same event more than once. Implement idempot
 The order of event delivery is not guaranteed. Design your endpoint to handle events in any order.
 For example warehouse receive the parcel and upload images.
 
-* :ref:`notification-MarkReceived`
+* :ref:`notification-warehouseMarkShipmentArrivedv2`
+* :ref:`notification-inventorycreated`
 * :ref:`notification-changeLineItemImage`
 
 Your endpoint should not expect delivery of these events in this order and should handle it accordingly. You can also use the API to fetch any missing objects.
@@ -816,15 +817,16 @@ Example 3 (pickUpToCourierPickUp):
 
 .. _notification-MarkReceived:
 
-Warehouse mark shipment received notification
-*********************************************
+Warehouse mark shipment received notification (Deprecating)
+***********************************************************
 
 .. warning::
-  We are removing the returnInventoryList from this notification. 
+  This notification is deprecating on 31st December, 2024. 
+
+  For current customers: It is very important to understand that, this notification cannot handle multiple packages in one shipment. (see :ref:`gettingstarted-ReturnArrival`).
+  Please make sure to migrate to the new notifications :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated`.
   
-  Customers that subscribes this notification without the need of returnInventoryList, no action is required.
-  
-  For customers that uses the returnInventoryList, please subscribe to :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated` for the new notification structure.
+  For more information please see :ref:`gettingstarted-ReturnArrival` and :ref:`index-deprecating`
 
 This notification is sent when warehouse receive a shipment.
 
@@ -843,6 +845,41 @@ Sample:
 .. code-block:: json
 
   {
+    "returnInventoryList": [
+      {
+          "returnInventoryId": 19078,
+          "warehouseId": 1005,
+          "returnRequestLineItemId": 39555,
+          "apiId": 103,
+          "returnRequestId": 64945,
+          "returnRequestLineItemNumber": "BRL240711-0000004",
+          "description": "TULIPLA/Clothing/Fit - Cups too small",
+          "quantity": 1,
+          "dimension1": 10.0,
+          "dimension2": 10.0,
+          "dimension3": 120.0,
+          "dimensionUom": "cm",
+          "canRecalibrate": true,
+          "weight": 500.0,
+          "weightUom": "g",
+          "valueCurrencyCode": "usd",
+          "value": 1.0,
+          "handlingCode": 0,
+          "handlingStatusCode": 0,
+          "completeBy": null,
+          "completeOn": null,
+          "warehouseRemarks": null,
+          "handlingUpdatedOn": "2024-05-23T01:36:18.786231",
+          "stopAgingOn": null,
+          "sku": null,
+          "rma": "USE-1005-240523-D00001-25",
+          "warehouseApiId": 3,
+          "modifyOn": "2024-05-23T01:36:18.80574",
+          "modifyBy": "3",
+          "createOn": "2024-05-23T01:36:18.778048",
+          "createBy": "3"
+      }
+    ],
     "returnRequest": {
         "returnRequestId": 64945,
         "apiId": 103,
@@ -997,9 +1034,6 @@ Warehouse mark shipment arrived notification (v2)
   This is a new version of :ref:`notification-MarkReceived`.
   In this version, the original mark receive notification has been split into two distinct notifications: mark receive and :ref:`notification-inventoryCreated`.
 
-  There are changes made to the original notification structure. Please see :ref:`notification-MarkReceived`
-  New integration customers should contact our customer service team to enable this version. By default, the system continues to send out the original notification.
-
 category: ``rsl``
 
 action: ``markShipmentArrive``
@@ -1072,7 +1106,9 @@ This notification is sent after
 to notify a new inventory has been created in the warehouse.
 Customers can further call :ref:`method-updatereturninventoryhandling` to assign handling once the inventory has been created.
 
-Please note that if multiple multiple packages are sent with the same tracking number of label, multiple inventories will be created. (Multiple notifications will be sent)
+If multiple packages are sent with the same tracking number of label, multiple inventories will be created. (Multiple notifications will be sent). Each of them has their own inventory id, but they share the same shipment id and return request id.
+
+See :ref:`gettingstarted-ReturnArrival` for more information.
 
 category: ``newInventoryCreated``
 
