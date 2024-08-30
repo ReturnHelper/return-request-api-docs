@@ -41,7 +41,11 @@ Changelog
        This is an new version of :ref:`notification-MarkReceived` that split into two distinct notifications: mark receive and inventory created.
    * - 
      - **BREAKING**: Deprecating :ref:`notification-MarkReceived` at 31st December 2024. Please use :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated` instead.
-
+   * - 
+     - Added :ref:`index-deprecating` list
+   * - 
+     - Add descriptions about multiple return inventory within a same shipment to :ref:`gettingstarted-returnarrival`
+      
 .. _index-Deprecating:
 
 Deprecating API
