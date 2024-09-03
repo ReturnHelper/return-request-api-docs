@@ -1877,7 +1877,7 @@ Parameters:
    :widths: 15, 10, 10, 30
 
    consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
-   returnInventoryIdList, List<integer_>, YES, Inventory id list to be added to the consolidate shipping order
+   returnInventoryIdList, List<long_>, YES, Inventory id list to be added to the consolidate shipping order
 
 Sample:
 
@@ -1899,7 +1899,7 @@ Response:
 
    consolidateShippingInventoryId, string_, Unique id for the consolidate shipping inventory
    consolidateShippingOrderId, string_,
-   returnInventoryId, integer_,
+   returnInventoryId, long_,
    consolidateShippingInventoryStatus, string_, ``IN_PROGRESS`` or ``PACKED`` or ``PENDING`` or ``SHIPPED``
 
 Sample:
@@ -1952,7 +1952,7 @@ Parameters:
    :widths: 15, 10, 10, 30
 
    consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
-   returnInventoryIdList, List<integer_>, YES, Inventory id list to be removed from the consolidate shipping order
+   returnInventoryIdList, List<long_>, YES, Inventory id list to be removed from the consolidate shipping order
 
 Sample:
 
@@ -1972,7 +1972,7 @@ Response:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   returnInventoryId, string_, The return inventory id of the remvoed inventory
+   returnInventoryId, long_, The return inventory id of the remvoed inventory
    handlingCode, string_, The handling code will be reset to ``ohd`` (On-hold)
    handlingStatusCode, string_, The handling status code will be reset to ``pending``
 
