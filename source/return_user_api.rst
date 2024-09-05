@@ -1706,6 +1706,438 @@ Sample:
 
 ----
 
+Consolidate Shipping
+====================
+
+.. note::
+
+   Consolidate Shipping enables customers to send multiple inventories in one shipment.
+
+   To use this feature, customers must first create a consolidate shipping order using the :ref:`method-createconsolidateshippingorder` method. They can then manage inventories by adding or removing them from the consolidate shipping order using the :ref:`method-addinventorytoconsolidateshippingorder` and :ref:`method-removeinventoryfromconsolidateshippingorder` methods respectively.
+
+   Once the shipment is ready to be sent, customers can confirm the consolidate shipping order using the :ref:`method-confirmconsolidateshippingorder` method. Our customer service team will then contact the customer to confirm the shipping cost before the shipment is sent.
+
+.. _method-CreateConsolidateShippingOrder:
+
+Create Order
+------------
+
+Initiate a consolidate shipping order by providing the outbound warehouse id, shipping method, delivery instructions, ship to address, and custom fields.
+
+::
+
+[POST] <userapi-endpoint>/outbound/ConsolidateShipping/order/create
+
+Parameters:
+
+.. csv-table:: ``CreateConsolidateShippingOrderRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   outboundWarehouseId, integer_, YES, Warehouse id of the outbound warehouse
+   shippingMethod, string_, YES, ``AIR_FREIGHT`` or ``COURIER_SERVICE`` or ``LAND_FREIGHT`` or ``SEA_FREIGHT``
+   deliveryInstructions, string_,, Delivery instructions
+   shipTo, :ref:`structure-ShipTo`, YES, Ship to address (see below)
+   customFieldMap, KeyValuePair, ,Custom fields for the order
+
+.. _structure-ShipTo:
+
+.. csv-table:: ``ShipTo``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   shipToCountry, string_, YES, ISO3 small letters
+   shipToContactName, string_, YES,
+   shipToPhone, string_, YES,
+   shipToFax, string_,,
+   shipToEmail, string_, YES,
+   shipToCompanyName, string_, YES,
+   shipToStreet1, string_, YES,
+   shipToStreet2, string_,,
+   shipToStreet3, string_,,
+   shipToCity, string_, YES,
+   shipToState, string_, YES,
+   shipToPostalCode, string_, YES,
+   shipToType, string_, YES,
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "outboundWarehouseId": 2,
+      "shippingMethod": "AIR_FREIGHT",
+      "deliveryInstructions": "Don't leave package on porch {{$datetime iso8601}}",
+      "shipTo": {
+         "shipToCountry": "usa",
+         "shipToContactName": "John Doe",
+         "shipToPhone": "+1-555-1234",
+         "shipToFax": "+1-555-5678",
+         "shipToEmail": "john.doe@example.com",
+         "shipToCompanyName": "Doe Industries",
+         "shipToStreet1": "123 Elm St",
+         "shipToStreet2": "Suite 456",
+         "shipToStreet3": "",
+         "shipToCity": "Springfield",
+         "shipToState": "IL",
+         "shipToPostalCode": "62704",
+         "shipToType": "Business"
+      },
+      "customFieldMap": {
+         "PRIORITY_LEVEL": "High",
+         "KEY_NO_9": "117"
+      }
+   }
+
+
+
+Response:
+
+.. _structure-CreateConsolidateShippingOrderResponse:
+
+.. csv-table:: ``CreateConsolidateShippingOrderResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
+   consolidateShippingOrderNumber, string_, Human readable order number
+   outboundWarehouseId, integer_, Warehouse id of the outbound warehouse
+   shippingMethod, string_, Selected shipping method of the order
+   deliveryInstructions, string_, Delivery instructions
+   consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+   shipTo, :ref:`structure-ShipTo`, Ship to address
+   customFieldMap, KeyValuePair, Custom fields for the order
+   createOn, Datetime_
+   modifyOn, Datetime_
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "data": {
+         "consolidateShippingOrderId": "01J54T64ZZ1R7MMVS4SRA1XK7R",
+         "consolidateShippingOrderNumber": "CNS240813-0000001",
+         "outboundWarehouseId": 2,
+         "shippingMethod": "AIR_FREIGHT",
+         "deliveryInstructions": "Don't leave package on porch 2024-08-13T02:48:25.873Z",
+         "consolidateShippingOrderStatus": "CREATED",
+         "shipTo": {
+            "shipToCountry": "usa",
+            "shipToContactName": "John Doe",
+            "shipToPhone": "+1-555-1234",
+            "shipToFax": "+1-555-5678",
+            "shipToEmail": "john.doe@example.com",
+            "shipToCompanyName": "Doe Industries",
+            "shipToStreet1": "123 Elm St",
+            "shipToStreet2": "Suite 456",
+            "shipToStreet3": "",
+            "shipToCity": "Springfield",
+            "shipToState": "IL",
+            "shipToPostalCode": "62704",
+            "shipToType": "Business"
+         },
+         "customFieldMap": {
+            "PRIORITY_LEVEL": "High",
+            "KEY_NO_9": "117"
+         },
+         "createOn": "2024-08-13T02:48:29.950468Z",
+         "modifyOn": "2024-08-13T02:48:29.992877Z"
+      },
+      "correlationId": "0HN5R89JOAUBR:00000001",
+      "meta": {
+         "status": 200,
+         "data": {},
+         "errorCode": null,
+         "error": {}
+      }
+   }
+
+----
+
+.. _method-AddInventoryToConsolidateShippingOrder:
+
+Add Inventory
+-------------
+
+Add inventory to a consolidate shipping order. An inventory must be in the same warehouse of the consolidate shipping order.
+
+The maximum number of inventories that can be added is 500 per request.
+
+::
+
+[POST] <userapi-endpoint>/outbound/consolidateShipping/inventory/add
+
+Parameters:
+
+.. csv-table:: ``AddInventoryToConsolidateShippingOrderRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
+   returnInventoryIdList, List<long_>, YES, Inventory id list to be added to the consolidate shipping order
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "consolidateShippingOrderId": "01J4RE1T4ZJVHFY7A5CXYTCZJH",
+      "returnInventoryIdList": [
+         20278,
+         20251
+    ]
+}
+
+Response:
+
+.. csv-table:: ``AddInventoryToConsolidateShippingOrderResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   consolidateShippingInventoryId, string_, Unique id for the consolidate shipping inventory
+   consolidateShippingOrderId, string_,
+   returnInventoryId, long_,
+   consolidateShippingInventoryStatus, string_, ``IN_PROGRESS`` or ``PACKED`` or ``PENDING`` or ``SHIPPED``
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "data": [
+      {
+         "consolidateShippingInventoryId": "01J583N2JTQG0X6E64QTPHKSKQ",
+         "consolidateShippingOrderId": "01J583MXHNXSPT64S7GTW0VN49",
+         "returnInventoryId": 20278,
+         "consolidateShippingInventoryStatus": "PENDING"
+      },
+      {
+         "consolidateShippingInventoryId": "01J583N2K9FCYVQN3QXNZWN7EG",
+         "consolidateShippingOrderId": "01J583MXHNXSPT64S7GTW0VN49",
+         "returnInventoryId": 20251,
+         "consolidateShippingInventoryStatus": "PENDING"
+      }
+      ],
+      "correlationId": "0HN5R89JOAUBR:00000001",
+      "meta": {
+         "status": 200,
+         "data": {},
+         "errorCode": null,
+         "error": {}
+      }
+   }
+
+.. note::
+
+      The response only returns the list of inventories that are included in the request. For example, if you add 2 inventories, the response will only include those 2 inventories, even if you have previously added another 10 inventories in a separate API call.
+
+----
+
+.. _method-RemoveInventoryFromConsolidateShippingOrder:
+
+Remove Inventory
+----------------
+
+::
+
+[POST] <userapi-endpoint>/outbound/consolidateShipping/inventory/remove
+
+Parameters:
+
+.. csv-table:: ``RemoveInventoryFromConsolidateShippingOrderRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
+   returnInventoryIdList, List<long_>, YES, Inventory id list to be removed from the consolidate shipping order
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "consolidateShippingOrderId": "01J4RE1T4ZJVHFY7A5CXYTCZJH",
+      "returnInventoryIdList": [
+         20278,
+         20251
+      ]
+   }
+
+Response:
+
+.. csv-table:: ``RemoveInventoryFromConsolidateShippingOrderResponse``
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   returnInventoryId, long_, The return inventory id of the remvoed inventory
+   handlingCode, string_, The handling code will be reset to ``ohd`` (On-hold)
+   handlingStatusCode, string_, The handling status code will be reset to ``pending``
+
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "data": [
+      {
+         "returnInventoryId": 20278,
+         "handlingCode": "ohd",
+         "handlingStatusCode": "pending"
+      },
+      {
+         "returnInventoryId": 20251,
+         "handlingCode": "ohd",
+         "handlingStatusCode": "pending"
+      }
+      ],
+      "correlationId": "0HN5R89JOAUBR:00000001",
+      "meta": {
+         "status": 200,
+         "data": {},
+         "errorCode": null,
+         "error": {}
+      }
+   }
+
+----
+
+.. _method-UpdateConsolidateShippingOrderShippingMethod:
+
+Update Shipping Method
+----------------------
+
+::
+
+[POST] <userapi-endpoint>/outbound/ConsolidateShipping/order/updateShippingMethod
+
+Parameters:
+
+.. csv-table:: ``UpdateConsolidateShippingOrderShippingMethodRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
+   shippingMethod, string_, YES, ``AIR_FREIGHT`` or ``COURIER_SERVICE`` or ``LAND_FREIGHT`` or ``SEA_FREIGHT``
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "consolidateShippingOrderId": "01J54T64ZZ1R7MMVS4SRA1XK7R",
+      "shippingMethod": "AIR_FREIGHT"
+   }
+
+Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
+
+----
+
+.. _method-UpdateConsolidateShippingOrderShipTo:
+
+Update Shipping Information
+----------------------------
+
+::
+
+[POST] <userapi-endpoint>/outbound/ConsolidateShipping/order/updateShipToInformation
+
+Parameters:
+
+.. csv-table:: ``UpdateConsolidateShippingOrderShipToRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
+   shipTo, :ref:`structure-ShipTo`, YES, Ship to address (see below)
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "consolidateShippingOrderId": "01J54T64ZZ1R7MMVS4SRA1XK7R",
+      "shipTo": {
+         "shipToCountry": "usa",
+         "shipToContactName": "This name has been updated",
+         "shipToPhone": "+1-555-1234",
+         "shipToFax": "+1-555-5678",
+         "shipToEmail": "john.doe@example.com",
+         "shipToCompanyName": "This company name has been updated",
+         "shipToStreet1": "This address has been updated",
+         "shipToStreet2": "Suite 456",
+         "shipToStreet3": "",
+         "shipToCity": "Springfield",
+         "shipToState": "IL",
+         "shipToPostalCode": "62704",
+         "shipToType": "Updated type"
+      }
+   }
+
+Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
+
+----
+
+.. _method-ConfirmConsolidateShippingOrder:
+
+Confirm Order
+-------------
+
+::
+
+[POST] <userapi-endpoint>/outbound/consolidateShipping/order/confirm
+
+Parameters:
+
+.. csv-table:: ``ConfirmConsolidateShippingOrderRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "consolidateShippingOrderId": "01J54T64ZZ1R7MMVS4SRA1XK7R"
+   }
+
+Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
+
+----
+
+.. _method-CancelConsolidateShippingOrder:
+
+Cancel Order
+------------
+
+::
+
+[POST] <userapi-endpoint>/outbound/consolidateShipping/order/cancel
+
+Parameters:
+
+.. csv-table:: ``CancelConsolidateShippingOrderRequest``
+   :header: "Name", "Type","Required", "Remarks"
+   :widths: 15, 10, 10, 30
+
+   consolidateShippingOrderId, string_, YES, Unique id included in the response of :ref:`method-CreateConsolidateShippingOrder`
+
+
+Sample:
+
+.. code-block:: json
+
+   {
+      "consolidateShippingOrderId": "01J54T64ZZ1R7MMVS4SRA1XK7R"
+   }
+
+Response: Same as :ref:`structure-CreateConsolidateShippingOrderResponse`
+
+----
+
 FBA
 ===
 
