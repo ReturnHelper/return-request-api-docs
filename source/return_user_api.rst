@@ -1862,8 +1862,6 @@ Add Inventory
 
 Add inventory to a consolidate shipping order. An inventory must be in the same warehouse of the consolidate shipping order.
 
-The handling status of the inventory must be ``ohd`` (On-hold). Otherwise the inventory cannot be addeded.
-
 The maximum number of inventories that can be added is 500 per request.
 
 ::
