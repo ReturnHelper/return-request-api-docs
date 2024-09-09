@@ -757,6 +757,10 @@ Sample:
                     "valueCurrencyCode": "usd"
                 }
             ]
+        },
+         "customFieldMap": {
+            "KEY3":"value3",
+            "KEY4":"value4"
         }
       }
    }
