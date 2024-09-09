@@ -1062,7 +1062,7 @@ Shipment
   trackingNumber, string_, Unique globally within 90 days
   referenceNumber, string_,
   serviceType, string_,
-  customFieldMap, List<KeyValuePair>,
+  customFieldMap, List<:ref:`gettingstarted-customfield`>,
   shipToWarehouseId, integer_,
   receiveDate, string_, ISO8601 format
 

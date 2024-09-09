@@ -37,29 +37,31 @@ Changelog
      - Update :ref:`index-idempotency` section
    * - 2024-07
      - Add :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated`
-       
+
        This is an new version of :ref:`notification-MarkReceived` that split into two distinct notifications: mark receive and inventory created.
-   * - 
+   * -
      - **BREAKING**: Deprecating :ref:`notification-MarkReceived` at 31st December 2024. Please use :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated` instead.
-   * - 
+   * -
      - Added :ref:`index-deprecating` list
-   * - 
+   * -
      - Add descriptions about multiple return inventory within a same shipment to :ref:`gettingstarted-returnarrival`
-      
+   * -
+     - Add :ref:`gettingstarted-customfield` in :ref:`method-createreturnshipment` and :ref:`notification-warehousemarkshipmentarrivedv2`
+
 .. _index-Deprecating:
 
 Deprecating API
 ---------------
 
-.. list-table:: 
+.. list-table::
     :widths: 25 75
     :header-rows: 1
-  
+
     * - Date
       - Description
     * - 2024-12-31
-      - :ref:`method-createreturnrequest` 
-        
+      - :ref:`method-createreturnrequest`
+
         :ref:`method-createlabel`
 
         :ref:`notification-MarkReceived`
@@ -114,8 +116,8 @@ We strongly recommend including the user agent in your request header to help us
 
 Your User-Agent should be in below format:
 
-:: 
-  
+::
+
       User-Agent: {application name}/{application version} (Platform={os release version}; Runtime={(runtime | sdk) version}; Language={language})
 
 e.g. CompanyABCApi/2024.16.0 (Platform=Unix/13.4.0; Runtime=8.0.2; Language=CSharp12)

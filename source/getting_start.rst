@@ -69,7 +69,7 @@ Return Inventory at the return arrival
 --------------------------------------
 
 When the return shipment arrives a warehouse,
-it will be marked received and converted into Return Inventory (See :ref:`section-ReturnInventory`) for seller's further management such as applying :ref:`method-UpdateReturnInventoryHandling`. 
+it will be marked received and converted into Return Inventory (See :ref:`section-ReturnInventory`) for seller's further management such as applying :ref:`method-UpdateReturnInventoryHandling`.
 
 There are two types of return arrival:
 
@@ -84,8 +84,8 @@ There are two types of return arrival:
 
 1.  Not initiated by seller but Return Helper identifies that it belongs to a specific seller. Return Request record will be created when arrives warehouse and then assign to the seller.
 2.  :ref:`notification-assignUnknown` will be sent to your notification endpoint. Return inventory payload and return request payload will be included in the notification payload. ``returnInventoryId``, ``shipmentId`` and ``returnRequestId`` are expected in it.
-    
-    As the unknown shipment is now converted to a return shipment, the same case about multiple packages also applies here. i.e. There will be multiple :ref:`notification-inventorycreated` sent to your notification endpoint. Each inventory has their own ``returnInventoryId`` but they can share the same ``shipmentId`` and ``returnRequestId``.  
+
+    As the unknown shipment is now converted to a return shipment, the same case about multiple packages also applies here. i.e. There will be multiple :ref:`notification-inventorycreated` sent to your notification endpoint. Each inventory has their own ``returnInventoryId`` but they can share the same ``shipmentId`` and ``returnRequestId``.
 3.  Before assigning to the seller, image of shipment has been uploaded. So, this notificaion will also include the image list.
 4.  However, if there is any change on the image list, you will be also notified by :ref:`notification-changeLineItemImage`.
 
@@ -110,6 +110,35 @@ On-hold return inventory
 ------------------------
 
 :ref:`method-UpdateReturnInventoryHandling` - update handling by ``returnInventoryId``, with on-hold handling.
+
+.. _gettingstarted-customfield:
+
+CustomField
+------------
+
+Custom field is a new feature that allows you to store additional information of the return.
+It can be used to store any of your information that is not covered by the existing fields.
+
+It is a ``Dictionary<string,string>`` list, you can store any key-value pair in it. The maximum number of custom fields for return is 24.
+
+Please note that we do not process custom field data. It is only for your reference.
+
+Sample:
+
+.. code-block:: json
+
+  {
+    "customFieldMap": {
+      "customerId": "buyer123",
+      "dateOfPurchase": "2024-07-01"
+    }
+  }
+
+Example of custom field usage:
+
+1. :ref:`method-createreturnshipment` - Create return shipment with custom field.
+2. Once the return shipment arrives, :ref:`notification-warehousemarkshipmentarrivedv2` will be sent to your notification endpoint which include custom fields.
+
 
 Create resend and cancel resend
 -------------------------------

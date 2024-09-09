@@ -641,6 +641,8 @@ Create a return shipment and queue a return label request. The return label will
 
 Note that a return shipment is not editable once it is created. If you need to change the return shipment, you can cancel the label and create a new one. To cancel a label please check :ref:`method-CancelLabel`.
 
+This API method support :ref:`gettingstarted-customfield`
+
 ::
 
 [POST] <userapi-endpoint>/ReturnShipment/createReturnShipment
@@ -667,6 +669,7 @@ Note that a return shipment is not editable once it is created. If you need to c
    shipToWarehouseId, integer_, YES,  Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
    boxType, string_, YES, Use ``cus`` or obtain from :ref:`method-GetAllBoxTypes`
    parcel, :ref:`structure-ParcelPayload`, YES, Details see below
+   customFieldMap, List<:ref:`gettingstarted-customfield`>,, Custom Field
 
 .. _structure-ShipFromPayload:
 
