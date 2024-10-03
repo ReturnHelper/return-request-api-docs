@@ -821,11 +821,11 @@ Warehouse mark shipment received notification (Deprecating)
 ***********************************************************
 
 .. warning::
-  This notification is deprecating on 31st December, 2024. 
+  This notification is deprecating on 31st December, 2024.
 
   For current customers: It is very important to understand that, this notification cannot handle multiple packages in one shipment. (see :ref:`gettingstarted-ReturnArrival`).
   Please make sure to migrate to the new notifications :ref:`notification-warehouseMarkShipmentArrivedv2` and :ref:`notification-inventoryCreated`.
-  
+
   For more information please see :ref:`gettingstarted-ReturnArrival` and :ref:`index-deprecating`
 
 This notification is sent when warehouse receive a shipment.
@@ -2067,6 +2067,202 @@ Remark:
     metaType, ``usr`` (User) or ``whs`` (Warehouse)
     metaMap, KeyValuePair
 
+
+----
+
+Consolidate shipping shipment sent notification
+***********************************************
+
+This notification is sent when a warehouse sends a consolidated shipment to a carrier.
+
+category: ``consolidateShippingShipmentSent``
+action: ``consolidateShippingShipmentSent``
+
+.. csv-table:: `shipment`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   consolidateShippingOrderId,string_, Unique id for the consolidate shipping order
+   consolidateShippingOrderNumber,string_, Human readable order number
+   consolidateShippingOrderStatus,string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+   consolidateShippingShipmentId,string_, Unique id for the consolidate shipping shipment
+   consolidateShippingShipmentNumber,string_, Human readable shipment number
+   consolidateShippingShipmentStatus,string_, ``CREATED`` or ``SHIPPED``
+   outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+   awb,string_, Air Waybill number
+   serviceProvider,string_, name of the service provider
+   shipDate,string_, Date of shipment
+   customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+   boxList, see below, List of boxes in the shipment
+
+.. _notification-consolidateShipping-boxList:
+
+.. csv-table:: `consolidateShippingBoxList`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    consolidateShippingShipmentBoxId,string_, Unique id for the consolidate shipping box
+    boxNumber, string_, Box number
+    consolidateShippingShipmentBoxStatus,string_, ``IN_PROGRESS`` or ``SHIPPED``
+    consolidateShippingInventoryList, see below, List of inventory in the box
+
+.. csv-table:: `consolidateShippingInventoryList`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    consolidateShippingInventoryId,string_, Unique id for the consolidate shipping inventory
+    returnInventoryId, long_, Return inventory id
+    rma, string_, RMA
+    consolidateShippingInventoryStatus, string_, ``IN_PROGRESS`` or ``PACKED`` or ``PENDING`` or ``SHIPPED``
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "shipment": {
+          "consolidateShippingOrderId": "01J6BHQXW156FJRN4YYW7BSW9P",
+          "consolidateShippingOrderNumber": "CNS240828-0000003",
+          "consolidateShippingOrderStatus": "PARTIALLY_SHIPPED",
+          "consolidateShippingShipmentId": "01J6BHTRWK2AZGK4VEH5JN4GQ3",
+          "consolidateShippingShipmentNumber": "CNSS240828-0000004",
+          "consolidateShippingShipmentStatus": "SHIPPED",
+          "outboundWarehouseId": 2,
+          "awb": "YS2024082800003",
+          "serviceProvider": "ups",
+          "shipDate": "2024-08-28T03:54:39.851475Z",
+          "customFieldMap": {
+              "CSB02": "BBB",
+              "CSA01": "AAA"
+          },
+          "boxList": [
+              {
+                  "consolidateShippingShipmentBoxId": "01J6BHV1EVPWR844DM30AKX0FP",
+                  "boxNumber": "box1",
+                  "consolidateShippingShipmentBoxStatus": "SHIPPED",
+                  "consolidateShippingInventoryList": [
+                      {
+                          "consolidateShippingInventoryId": "01J6BHR5YKYY884Q6BAR4K9ASP",
+                          "returnInventoryId": 20390,
+                          "rma": "USE-2-240827-D00016-30",
+                          "consolidateShippingInventoryStatus": "SHIPPED"
+                      }
+                  ]
+              }
+          ]
+      },
+      "category": "consolidateShippingShipmentSent",
+      "action": "consolidateShippingShipmentSent",
+      "eventTime": "2024-08-28T05:49:51.857563Z",
+      "version": "202207"
+  }
+
+----
+
+Consolidate shipping order completed notification
+*************************************************
+
+This notification is sent when a warehouse completes a consolidate shipping order.
+
+category: ``consolidateShippingOrderCompleted``
+action: ``consolidateShippingOrderCompleted``
+
+.. csv-table:: `order`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
+    consolidateShippingOrderNumber,string_, Human readable order number
+    consolidateShippingOrderStatus,string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+    shippingFee, decimal_, Shipping fee
+    currencyCode,string_, Currency code
+    shippingMethod,string_, Shipping method
+    customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+    deliveryInstructions,string_, Delivery instructions
+    shipmentList, see below, List of shipments in the order
+
+.. csv-table:: `shipmentList`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    consolidateShippingShipmentId,string_, Unique id for the consolidate shipping shipment
+    consolidateShippingShipmentNumber,string_, Human readable shipment number
+    consolidateShippingShipmentStatus,string_, ``CREATED`` or ``SHIPPED``
+    awb,string_, Air Waybill number
+    serviceProvider,string_, name of the service provider
+    shipDate,string_, Date of shipment
+    boxList, :ref:`notification-consolidateShipping-boxList`, List of boxes in the shipment
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "order": {
+          "consolidateShippingOrderId": "01J6C41GDYQ8GM8F3SZCGVNWXF",
+          "consolidateShippingOrderNumber": "CNS240828-0000005",
+          "consolidateShippingOrderStatus": "SHIPPED",
+          "outboundWarehouseId": 2,
+          "shippingFee": 59.0,
+          "currencyCode": "usd",
+          "shippingMethod": "AIR_FREIGHT",
+          "customFieldMap": {},
+          "deliveryInstructions": "Test For Confirm order quote",
+          "shipmentList": [
+              {
+                  "consolidateShippingShipmentId": "01J6C43G5114F09S2VB257C4ZM",
+                  "consolidateShippingShipmentNumber": "CNSS240828-0000007",
+                  "consolidateShippingShipmentStatus": "SHIPPED",
+                  "awb": "YS2024082800008",
+                  "serviceProvider": "dhl",
+                  "shipDate": "2024-08-28T09:16:32.554938Z",
+                  "boxList": [
+                      {
+                          "consolidateShippingShipmentBoxId": "01J6C443KFJE6V2BVKBPTP70BW",
+                          "boxNumber": "1",
+                          "consolidateShippingShipmentBoxStatus": "SHIPPED",
+                          "consolidateShippingInventoryList": [
+                              {
+                                  "consolidateShippingInventoryId": "01J6C41WDJ47KDNRDNECC4K8ZR",
+                                  "returnInventoryId": 19787,
+                                  "rma": "USE-2-240704-D00020-22",
+                                  "consolidateShippingInventoryStatus": "SHIPPED"
+                              }
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "consolidateShippingShipmentId": "01J6C44CEWV62PV05WWSHXD1QX",
+                  "consolidateShippingShipmentNumber": "CNSS240828-0000008",
+                  "consolidateShippingShipmentStatus": "SHIPPED",
+                  "awb": "YS2024082800007",
+                  "serviceProvider": "ups",
+                  "shipDate": "2024-08-28T09:14:03.956307",
+                  "boxList": [
+                      {
+                          "consolidateShippingShipmentBoxId": "01J6C44MAA9A2NM2N5KFSBTTSB",
+                          "boxNumber": "1",
+                          "consolidateShippingShipmentBoxStatus": "SHIPPED",
+                          "consolidateShippingInventoryList": [
+                              {
+                                  "consolidateShippingInventoryId": "01J6C41WDJVQJ9GFHPY8D88EK7",
+                                  "returnInventoryId": 19784,
+                                  "rma": "USE-2-240704-D00017-39",
+                                  "consolidateShippingInventoryStatus": "SHIPPED"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ]
+      },
+      "category": "consolidateShippingOrderCompleted",
+      "action": "consolidateShippingOrderCompleted",
+      "eventTime": "2024-08-28T09:32:29.087401Z",
+      "version": "202408"
+  }
 
 .. reference definition goes here
 
