@@ -47,6 +47,9 @@ Changelog
      - Add descriptions about multiple return inventory within a same shipment to :ref:`gettingstarted-returnarrival`
    * -
      - Add :ref:`gettingstarted-customfield` in :ref:`method-createreturnshipment` and :ref:`notification-warehousemarkshipmentarrivedv2`
+   * - 2024-10
+     - Add :ref:`method-ConsolidateShipping` and webhook notifications
+
 
 .. _index-Deprecating:
 

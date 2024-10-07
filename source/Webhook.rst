@@ -2070,12 +2070,185 @@ Remark:
 
 ----
 
-Consolidate shipping shipment sent notification
+Consolidate Shipping cost updated notification
+**********************************************
+
+This notification is sent when the shipping cost of a consolidated shipping order is updated.
+
+category: ``consolidateShippingOrderShippingFeeUpdated``
+
+action: ``consolidateShippingOrderShippingFeeUpdated``
+
+.. csv-table:: `ConsolidateShippingOrder`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    warehouseApiId, integer_, Warehouse ID
+    consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
+    consolidateShippingOrderNumber, string_, Human readable order number
+    outboundWarehouseId, integer_, Warehouse id of the outbound warehouse
+    shippingMethod, string_, Shipping method
+    consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+    shippingFee, double_, Shipping fee
+    currencyCode, string_, Currency code
+    shipToContactName, string_, Ship to contact name
+    shipToPhone, string_, Ship to phone
+    shipToFax, string_, Ship to fax
+    shipToEmail, string_, Ship to email
+    shipToCompanyName, string_, Ship to company name
+    shipToStreet1, string_, Ship to street 1
+    shipToStreet2, string_, Ship to street 2
+    shipToStreet3, string_, Ship to street 3
+    shipToCity, string_, Ship to city
+    shipToState, string_, Ship to state
+    shipToPostalCode, string_, Ship to postal code
+    shipToCountry, string_, Ship to country
+    deliveryInstructions, string_, Delivery instructions
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "order": {
+          "apiId": 2,
+          "warehouseApiId": 3,
+          "consolidateShippingOrderId": "01J9B1T17QMENHXVWBS8P5JW3R",
+          "consolidateShippingOrderNumber": "CNS241004-0000002",
+          "outboundWarehouseId": 2,
+          "shippingMethod": "AIR_FREIGHT",
+          "consolidateShippingOrderStatus": "CONFIRMED",
+          "shippingFee": 81.0,
+          "currencyCode": "USD",
+          "shipToContactName": "John Doe",
+          "shipToPhone": "+1-555-1234",
+          "shipToFax": "+1-555-5678",
+          "shipToEmail": "john.doe@example.com",
+          "shipToCompanyName": "Doe Industries",
+          "shipToStreet1": "123 Elm St",
+          "shipToStreet2": "Suite 456",
+          "shipToStreet3": "",
+          "shipToCity": "Springfield",
+          "shipToState": "IL",
+          "shipToPostalCode": "62704",
+          "shipToCountry": "usa",
+          "deliveryInstructions": "Test For UpdateShippingCost"
+      },
+      "category": "consolidateShippingOrderShippingFeeUpdated",
+      "action": "consolidateShippingOrderShippingFeeUpdated",
+      "eventTime": "2024-10-04T06:09:46.344665Z",
+      "version": "202409",
+      "notificationId": "01J9B2C2B8HNR1DRGA74BJQQB5"
+  }
+
+
+----
+
+Consolidate Shipping Order All Inventories Packed notification
+**************************************************************
+
+This notification is sent when a warehouse packs all inventories into boxes for a consolidated shipping order.
+
+category: ``consolidateShippingOrderInventoryAllPacked``
+
+action: ``consolidateShippingOrderInventoryAllPacked``
+
+.. csv-table::
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
+    consolidateShippingOrderNumber, string_, Human readable order number
+    consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+    outboundWarehouseId, integer_, Warehouse id of the outbound warehouse
+    shippingFee, double_, Shipping fee
+    currencyCode, string_, Currency code
+    shippingMethod, string_, Shipping method
+    customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+    deliveryInstructions, string_, Delivery instructions
+    shipmentList, see below, List of shipments in the order
+
+.. csv-table:: `consolidateShippingShipmentList`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    consolidateShippingShipmentId, string_, Unique id for the consolidate shipping shipment
+    consolidateShippingShipmentNumber, string_, Human readable shipment number
+    consolidateShippingShipmentStatus, string_, ``CREATED`` or ``SHIPPED``
+    boxList, :ref:`notification-consolidateShipping-boxList`, List of boxes in the shipment
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "order": {
+          "consolidateShippingOrderId": "01J9B72DKS8XAFRAWBXT18E143",
+          "consolidateShippingOrderNumber": "CNS241004-0000006",
+          "consolidateShippingOrderStatus": "CONFIRMED",
+          "outboundWarehouseId": 2,
+          "shippingFee": 11.0,
+          "currencyCode": "usd",
+          "shippingMethod": "AIR_FREIGHT",
+          "customFieldMap": {},
+          "deliveryInstructions": "Test For Confirm order quote",
+          "shipmentList": [
+              {
+                  "consolidateShippingShipmentId": "01J9B754HJQ4F9GX3QJRW05TSV",
+                  "consolidateShippingShipmentNumber": "CNSS241004-0000006",
+                  "consolidateShippingShipmentStatus": "CREATED",
+                  "boxList": [
+                      {
+                          "consolidateShippingShipmentBoxId": "01J9B75NCC5NV1VRWQ324ZCYQY",
+                          "boxNumber": "1",
+                          "consolidateShippingShipmentBoxStatus": "IN_PROGRESS",
+                          "consolidateShippingInventoryList": [
+                              {
+                                  "consolidateShippingInventoryId": "01J9B73218NPT5S4XAHG2WA9NH",
+                                  "returnInventoryId": 20530,
+                                  "rma": "USE-2-240903-D00001-19",
+                                  "consolidateShippingInventoryStatus": "PACKED"
+                              }
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "consolidateShippingShipmentId": "01J9B73H47Z7R3YAP8WV3N7960",
+                  "consolidateShippingShipmentNumber": "CNSS241004-0000005",
+                  "consolidateShippingShipmentStatus": "CREATED",
+                  "boxList": [
+                      {
+                          "consolidateShippingShipmentBoxId": "01J9B74V2TGFR5PGCNV4T77BRK",
+                          "boxNumber": "1",
+                          "consolidateShippingShipmentBoxStatus": "IN_PROGRESS",
+                          "consolidateShippingInventoryList": [
+                              {
+                                  "consolidateShippingInventoryId": "01J9B73218RB618PFPR4VEDRR8",
+                                  "returnInventoryId": 20606,
+                                  "rma": "USE-2-240906-D00013-0",
+                                  "consolidateShippingInventoryStatus": "PACKED"
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ]
+      },
+      "category": "consolidateShippingOrderInventoryAllPacked",
+      "action": "consolidateShippingOrderInventoryAllPacked",
+      "eventTime": "2024-10-04T07:36:51.0883217Z",
+      "version": "202410",
+      "notificationId": "01J9B7BGMG2J0S3DTGH2MX515X"
+  }
+
+Consolidate Shipping shipment sent notification
 ***********************************************
 
 This notification is sent when a warehouse sends a consolidated shipment to a carrier.
 
 category: ``consolidateShippingShipmentSent``
+
 action: ``consolidateShippingShipmentSent``
 
 .. csv-table:: `shipment`
@@ -2159,12 +2332,81 @@ Sample:
 
 ----
 
-Consolidate shipping order completed notification
+Consolidate Shipping AWB updated notification
+*********************************************
+
+This notification is sent when the Air Waybill number of a consolidated shipment is updated.
+
+category: ``consolidateShippingShipmentShipped``
+
+action: ``consolidateShippingShipmentShipped``
+
+.. csv-table:: `ConsolidateShippingShipment`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    consolidateShippingOrderId,string_, Unique id for the consolidate shipping order
+    consolidateShippingOrderNumber,string_, Human readable order number
+    consolidateShippingOrderStatus,string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+    customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+    consolidateShippingShipmentId,string_, Unique id for the consolidate shipping shipment
+    consolidateShippingShipmentNumber,string_, Human readable shipment number
+    consolidateShippingShipmentStatus,string_, ``CREATED`` or ``SHIPPED``
+    awb,string_, Air Waybill number
+    serviceProvider,string_, name of the service provider
+    shipDate,string_, Date of shipment
+    boxList, :ref:`notification-consolidateShipping-boxList`, List of boxes in the shipment
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "shipment": {
+          "consolidateShippingOrderId": "01J9B4V8WS48SB75Z4T9Q3ZDVX",
+          "consolidateShippingOrderNumber": "CNS241004-0000004",
+          "consolidateShippingOrderStatus": "PARTIALLY_SHIPPED",
+          "outboundWarehouseId": 2,
+          "customFieldMap": {},
+          "consolidateShippingShipmentId": "01J9B4W52J04Z9W4APY7J25MGR",
+          "consolidateShippingShipmentNumber": "CNSS241004-0000004",
+          "consolidateShippingShipmentStatus": "SHIPPED",
+          "awb": "T202410040655",
+          "serviceProvider": "ups",
+          "shipDate": "2024-10-04T06:55:23.6587111Z",
+          "boxList": [
+              {
+                  "consolidateShippingShipmentBoxId": "01J9B4WJMVGE46FSE9W15YK262",
+                  "boxNumber": "1",
+                  "consolidateShippingShipmentBoxStatus": "SHIPPED",
+                  "consolidateShippingInventoryList": [
+                      {
+                          "consolidateShippingInventoryId": "01J9B4VJTF2J9HHXA4T2PCE7PW",
+                          "returnInventoryId": 20719,
+                          "rma": "USE-2-240916-D00014-15",
+                          "consolidateShippingInventoryStatus": "SHIPPED"
+                      }
+                  ]
+              }
+          ]
+      },
+      "category": "consolidateShippingShipmentShipped",
+      "action": "consolidateShippingShipmentShipped",
+      "eventTime": "2024-10-04T07:01:50.5283889Z",
+      "version": "202408",
+      "notificationId": "01J9B5BDA0YVGZPTXKCKEMNMG1"
+  }
+
+----
+
+Consolidate Shipping order completed notification
 *************************************************
 
 This notification is sent when a warehouse completes a consolidate shipping order.
 
 category: ``consolidateShippingOrderCompleted``
+
 action: ``consolidateShippingOrderCompleted``
 
 .. csv-table:: `order`
@@ -2262,6 +2504,52 @@ Sample:
       "action": "consolidateShippingOrderCompleted",
       "eventTime": "2024-08-28T09:32:29.087401Z",
       "version": "202408"
+  }
+
+----
+
+Consolidate Shipping Order Cancelled Notification
+*************************************************
+
+This notification is sent when a warehouse force cancels a consolidate shipping order.
+
+category: ``consolidateShippingOrderCancelled``
+
+action: ``consolidateShippingOrderCancelled``
+
+.. csv-table:: `ConsolidateShippingOrder`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
+    consolidateShippingOrderNumber,string_, Human readable order number
+    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+    shippingMethod,string_, Shipping method
+    shippingFee, decimal_, Shipping fee
+    deliveryInstructions,string_, Delivery instructions
+    consolidateShippingOrderStatus,string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
+    customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+
+Sample:
+
+.. code-block:: json
+
+  {
+      "order": {
+          "consolidateShippingOrderId": "01J9B68R054VARA55P0C7G2W6D",
+          "consolidateShippingOrderNumber": "CNS241004-0000005",
+          "outboundWarehouseId": 2,
+          "shippingMethod": "AIR_FREIGHT",
+          "shippingFee": 0.0,
+          "deliveryInstructions": "Test For cancel order",
+          "consolidateShippingOrderStatus": "CANCELED",
+          "customFieldMap": {}
+      },
+      "category": "consolidateShippingOrderCancelled",
+      "action": "consolidateShippingOrderCancelled",
+      "eventTime": "2024-10-04T07:25:22.7765288Z",
+      "version": "202410",
+      "notificationId": "01J9B6PGESZ1BJVT70TGV1TWM0"
   }
 
 .. reference definition goes here

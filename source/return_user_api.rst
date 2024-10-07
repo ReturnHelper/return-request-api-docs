@@ -1713,6 +1713,8 @@ Sample:
 
 ----
 
+.. _method-ConsolidateShipping:
+
 Consolidate Shipping
 ====================
 
