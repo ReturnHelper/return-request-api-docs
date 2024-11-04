@@ -1063,7 +1063,7 @@ Shipment
   referenceNumber, string_,
   serviceType, string_,
   customFieldMap, List<:ref:`gettingstarted-customfield`>,
-  shipToWarehouseId, integer_,
+  shipToWarehouseId, integer_, see :ref:`method-getallwarehouse`
   receiveDate, string_, ISO8601 format
 
 Sample:
@@ -1720,7 +1720,7 @@ action: ``completeRecalibrate``
     :header: "Name", "Type", "Remarks"
     :widths: 15, 10, 30
 
-    warehouseId, integer_, Warehouse ID
+    warehouseId, integer_, see :ref:`method-getallwarehouse`
     returnInventoryId, integer_, Return inventory ID
     returnRequestLineItemId, integer_, Return request line item ID
     rma, string_, Warehouse assigned RMA value; see :ref:`gettingstarted-rma`
@@ -2086,7 +2086,7 @@ action: ``consolidateShippingOrderShippingFeeUpdated``
     warehouseApiId, integer_, Warehouse ID
     consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
     consolidateShippingOrderNumber, string_, Human readable order number
-    outboundWarehouseId, integer_, Warehouse id of the outbound warehouse
+    outboundWarehouseId, integer_, Warehouse id of the outbound warehouse; see :ref:`method-getallwarehouse`
     shippingMethod, string_, Shipping method
     consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
     shippingFee, double_, Shipping fee
@@ -2160,7 +2160,7 @@ action: ``consolidateShippingOrderInventoryAllPacked``
     consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
     consolidateShippingOrderNumber, string_, Human readable order number
     consolidateShippingOrderStatus, string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
-    outboundWarehouseId, integer_, Warehouse id of the outbound warehouse
+    outboundWarehouseId, integer_, Warehouse id of the outbound warehouse; see :ref:`method-getallwarehouse`
     shippingFee, double_, Shipping fee
     currencyCode, string_, Currency code
     shippingMethod, string_, Shipping method
@@ -2261,7 +2261,7 @@ action: ``consolidateShippingShipmentSent``
    consolidateShippingShipmentId,string_, Unique id for the consolidate shipping shipment
    consolidateShippingShipmentNumber,string_, Human readable shipment number
    consolidateShippingShipmentStatus,string_, ``CREATED`` or ``SHIPPED``
-   outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+   outboundWarehouseId,integer_, Warehouse id of the outbound warehouse; see :ref:`method-getallwarehouse`
    awb,string_, Air Waybill number
    serviceProvider,string_, name of the service provider
    shipDate,string_, Date of shipment
@@ -2348,7 +2348,7 @@ action: ``consolidateShippingShipmentShipped``
     consolidateShippingOrderId,string_, Unique id for the consolidate shipping order
     consolidateShippingOrderNumber,string_, Human readable order number
     consolidateShippingOrderStatus,string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
-    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse; see :ref:`method-getallwarehouse`
     customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
     consolidateShippingShipmentId,string_, Unique id for the consolidate shipping shipment
     consolidateShippingShipmentNumber,string_, Human readable shipment number
@@ -2416,7 +2416,7 @@ action: ``consolidateShippingOrderCompleted``
     consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
     consolidateShippingOrderNumber,string_, Human readable order number
     consolidateShippingOrderStatus,string_, ``CANCELED`` or ``CONFIRMED`` or ``CREATED`` or ``PARTIALLY_SHIPPED`` or ``READY_TO_SHIP`` or ``SHIPPED``
-    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse, see :ref:`method-getallwarehouse`
     shippingFee, decimal_, Shipping fee
     currencyCode,string_, Currency code
     shippingMethod,string_, Shipping method
@@ -2523,7 +2523,7 @@ action: ``consolidateShippingOrderCancelled``
 
     consolidateShippingOrderId, string_, Unique id for the consolidate shipping order
     consolidateShippingOrderNumber,string_, Human readable order number
-    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse
+    outboundWarehouseId,integer_, Warehouse id of the outbound warehouse; see :ref:`method-getallwarehouse`
     shippingMethod,string_, Shipping method
     shippingFee, decimal_, Shipping fee
     deliveryInstructions,string_, Delivery instructions
@@ -2551,6 +2551,252 @@ Sample:
       "version": "202410",
       "notificationId": "01J9B6PGESZ1BJVT70TGV1TWM0"
   }
+
+----
+
+.. _notification-buyerReturnLabelGenerated:
+
+Buyer return label generated notificaiton
+*****************************************
+
+This notification is only used for customers that have integrated with our Branded return service.
+
+When a buyer creates a return request in the branded return portal, a return label is generated and this notification is triggered.
+
+category: ``buyerReturnRrLabel``
+action: ``buyerReturnLabelGenerated``
+
+.. csv-table:: `BuyerReturn`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+    buyerReturnId, string_, Unique id for the buyer return
+    apiId, integer_, API ID
+    referenceNumber, string_, Reference number
+    returnRequestId, integer_, Return request id
+    shipmentId, integer_, Shipment id
+    returnRequestNumber, string_, Return request number
+    shipmentNumber, string_, Shipment number
+    totalValue, decimal_, Total value
+    totalValueCurrency, string_, Currency code
+    remarks, string_, Remarks
+    labelId, string_, Label id
+    labelRequestStatusCode, string_, Label request status code
+    trackingNumber, string_, Tracking number
+    labelFile, :ref:`notification-buyerReturn-labelFile`, Label file
+    error, string_, Error
+    warehouseId, integer_, Warehouse id; see :ref:`method-getallwarehouse`
+    shipmentServiceType, string_, Shipment service type
+    shipmentCountryCode, string_, Shipment country code
+    shipmentName, string_, Shipment name
+    shipmentPhone, string_, Shipment phone
+    shipmentFax, string_, Shipment fax
+    shipmentEmail, string_, Shipment email
+    shipmentStreet1, string_, Shipment street 1
+    shipmentStreet2, string_, Shipment street 2
+    shipmentStreet3, string_, Shipment street 3
+    shipmentState, string_, Shipment state
+    shipmentCity, string_, Shipment city
+    shipmentPostalCode, string_, Shipment postal code
+    costCurrencyCode, string_, Cost currency code
+    cost, decimal_, Cost
+    boxType, string_, Box type
+    weight, decimal_, Weight
+    weightUom, string_, Weight unit of measure
+    dimension1, decimal_, Dimension 1
+    dimension2, decimal_, Dimension 2
+    dimension3, decimal_, Dimension 3
+    dimensionUom, string_, Dimension unit of measure
+    sellerCostCurrencyCode, string_, Seller cost currency code
+    sellerCost, decimal_, Seller cost
+    buyerCostCurrencyCode, string_, Buyer cost currency code
+    buyerCost, decimal_, Buyer cost
+    createdAt, string_, Created at
+    updatedAt, string_, Updated at
+    customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+    buyerReturnLine, List<:ref:`notification-buyerReturn-lineItem`>, Buyer return line item
+
+
+.. _notification-buyerReturn-labelFile:
+
+.. csv-table:: `labelFile`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    labelUrl, string_, Label URL
+    labelKey, string_, Label key
+
+
+.. _notification-buyerReturn-lineItem:
+
+.. csv-table:: `buyerReturnLineItem`
+    :header: "Name", "Type", "Remarks"
+    :widths: 15, 10, 30
+
+    buyerReturnLineItemId, string_, Unique id for the buyer return line item
+    referenceNumber, string_, Reference number
+    description, string_, Description
+    quantity, integer_, Quantity
+    weight, decimal_, Weight
+    weightUom, string_, Weight unit of measure
+    value, decimal_, Value
+    valueCurrencyCode, string_, Value currency code
+    returnReasonCode, string_, Return reason code
+    returnReason, string_, Return reason
+
+Sample of a success label generation:
+
+.. code-block:: json
+  :emphasize-lines: 16-19
+
+  {
+      "buyerReturn": {
+          "buyerReturnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "apiId": 123,
+          "referenceNumber": "LBID000050550",
+          "returnRequestId": 456,
+          "shipmentId": 789,
+          "returnRequestNumber": "RRN-001",
+          "shipmentNumber": "SHP-001",
+          "totalValue": 99.99,
+          "totalValueCurrency": "USD",
+          "remarks": "Sample remarks",
+          "labelId": "1234",
+          "labelRequestStatusCode": "success",
+          "trackingNumber": "TRK123456789",
+          "labelFile": {
+              "labelUrl": "https://example.com/label.pdf",
+              "labelKey": "label.pdf"
+          },
+          "error": null,
+          "warehouseId": 10,
+          "shipmentServiceType": "Standard",
+          "shipmentCountryCode": "usa",
+          "shipmentName": "John Doe",
+          "shipmentPhone": "+1234567890",
+          "shipmentFax": "+1987654321",
+          "shipmentEmail": "sally.wong+lbtestorder@lovebonito.com",
+          "shipmentStreet1": "123 Main St",
+          "shipmentStreet2": "Apt 4B",
+          "shipmentStreet3": null,
+          "shipmentState": "CA",
+          "shipmentCity": "Los Angeles",
+          "shipmentPostalCode": "90001",
+          "costCurrencyCode": "USD",
+          "cost": 15.5,
+          "boxType": "Medium Box",
+          "weight": 2.5,
+          "weightUom": "kg",
+          "dimension1": 30,
+          "dimension2": 20,
+          "dimension3": 10,
+          "dimensionUom": "cm",
+          "sellerCostCurrencyCode": "USD",
+          "sellerCost": 10.0,
+          "buyerCostCurrencyCode": "USD",
+          "buyerCost": 5.5,
+          "createdAt": "2023-05-15T10:30:00Z",
+          "updatedAt": "2023-05-15T11:45:00Z",
+          "customFieldMap": {
+              "buyerReturnOrderId": "LBID000050550",
+              "buyerReturnEmail": "sally.wong+lbtestorder@lovebonito.com"
+          },
+          "buyerReturnLineItemList": [
+              {
+                  "buyerReturnLineItemId": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+                  "referenceNumber": "REF123456",
+                  "description": "Sample item description",
+                  "quantity": 2,
+                  "weight": 1.5,
+                  "weightUom": "kg",
+                  "value": 75.0,
+                  "valueCurrencyCode": "USD",
+                  "returnReasonCode": "RR123",
+                  "returnReason": "Damaged item"
+              }
+          ]
+      },
+      "category": "buyerReturnRrLabel",
+      "action": "buyerReturnLabelGenerated",
+      "eventTime": "2021-09-04T17:03:15.8888073Z",
+      "version": "202408"
+  }
+
+Sample of a fail label generation:
+
+.. code-block:: json
+  :emphasize-lines: 16-17
+
+  {
+      "buyerReturn": {
+          "buyerReturnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "apiId": 123,
+          "referenceNumber": "REF-001",
+          "returnRequestId": 456,
+          "shipmentId": 789,
+          "returnRequestNumber": "RRN-001",
+          "shipmentNumber": "SHP-001",
+          "totalValue": 99.99,
+          "totalValueCurrency": "USD",
+          "remarks": "Sample remarks",
+          "labelId": "1234",
+          "labelRequestStatusCode": "fail",
+          "trackingNumber": null,
+          "labelFile": null,
+          "error": "Invalid phone number",
+          "warehouseId": 10,
+          "shipmentServiceType": "Standard",
+          "shipmentCountryCode": "usa",
+          "shipmentName": "John Doe",
+          "shipmentPhone": "+1234567890",
+          "shipmentFax": "+1987654321",
+          "shipmentEmail": "john.doe@example.com",
+          "shipmentStreet1": "123 Main St",
+          "shipmentStreet2": "Apt 4B",
+          "shipmentStreet3": null,
+          "shipmentState": "CA",
+          "shipmentCity": "Los Angeles",
+          "shipmentPostalCode": "90001",
+          "costCurrencyCode": "USD",
+          "cost": 15.5,
+          "boxType": "Medium Box",
+          "weight": 2.5,
+          "weightUom": "kg",
+          "dimension1": 30,
+          "dimension2": 20,
+          "dimension3": 10,
+          "dimensionUom": "cm",
+          "sellerCostCurrencyCode": "USD",
+          "sellerCost": 10.0,
+          "buyerCostCurrencyCode": "USD",
+          "buyerCost": 5.5,
+          "createdAt": "2023-05-15T10:30:00Z",
+          "updatedAt": "2023-05-15T11:45:00Z",
+          "customFieldMap": {
+              "buyerReturnOrderId": "LBID000050550",
+              "buyerReturnEmail": "sally.wong+lbtestorder@lovebonito.com"
+          },
+          "buyerReturnLineItemList": [
+              {
+                  "buyerReturnLineItemId": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+                  "referenceNumber": "REF123456",
+                  "description": "Sample item description",
+                  "quantity": 2,
+                  "weight": 1.5,
+                  "weightUom": "kg",
+                  "value": 75.0,
+                  "valueCurrencyCode": "USD",
+                  "returnReasonCode": "RR123",
+                  "returnReason": "Damaged item"
+              }
+          ]
+      },
+      "category": "buyerReturnRrLabel",
+      "action": "buyerReturnLabelGenerated",
+      "eventTime": "2021-09-04T17:03:15.8888073Z",
+      "version": "202408"
+  }
+
 
 .. reference definition goes here
 

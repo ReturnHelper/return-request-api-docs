@@ -49,6 +49,10 @@ Changelog
      - Add :ref:`gettingstarted-customfield` in :ref:`method-createreturnshipment` and :ref:`notification-warehousemarkshipmentarrivedv2`
    * - 2024-10
      - Add :ref:`method-ConsolidateShipping` and webhook notifications
+   * -
+     - Add :ref:`miscellaneous_states` reference
+   * -
+     - Add :ref:`notification-buyerReturnLabelGenerated`
 
 
 .. _index-Deprecating:
@@ -187,3 +191,4 @@ General Remarks
    Return User Api <return_user_api>
    Webhook <Webhook>
    Label Service Limitation <label_service_limitation>
+   Miscellaneous <miscellaneous>
