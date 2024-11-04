@@ -2554,7 +2554,7 @@ Sample:
 
 ----
 
-.. _notification_buyerReturnLabelGenerated:
+.. _notification-buyerReturnLabelGenerated:
 
 Buyer return label generated notificaiton
 *****************************************
