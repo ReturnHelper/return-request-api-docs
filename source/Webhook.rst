@@ -189,6 +189,7 @@ Signature verification sample codes:
 
 - :download:`Java <samples/Sha265Sign.java>`
 - :download:`Node.js <samples/Sha265Sign.js>`
+- :download:`Typescript <samples/Sha265Sign.ts>`
 - :download:`Apex (For Salesforce Users) <samples/Sha265Sign.apex>`
 
 Notification Body
