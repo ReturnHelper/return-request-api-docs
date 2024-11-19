@@ -949,8 +949,8 @@ Response:
 
 .. _method-EditReturnRequest:
 
-EditReturnRequest
------------------
+EditReturnRequest (Deprecating)
+-------------------------------
 
 ::
 
