@@ -1,10 +1,11 @@
-   returnRequestId, string_,Max Length 35
-   returnRequestNumber, string_
-   returnStatusCode, string_
-   returnTitle, string_
-   totalValue, decimal_
-   totalValueCurrency, string_
-   warehouseRma, string_
-   remarks, string_
-   isArchived, bool_
-   returnRequestFrom, string_
+returnRequestId, string_,Max Length 35
+returnRequestNumber, string_
+sellerReferenceNumber, string_, Optional; system generated value will fill in if not provided
+returnStatusCode, string_
+returnTitle, string_
+totalValue, decimal_
+totalValueCurrency, string_
+warehouseRma, string_
+remarks, string_
+isArchived, bool_
+returnRequestFrom, string_

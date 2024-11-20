@@ -2,6 +2,7 @@
 "warehouseId", string_,"Max Length 35"
 "returnRequestLineItemId", string_,"Max Length 35"
 "returnRequestId", string_,"Max Length 35"
+"sellerReferenceNumber", string_, Optional; system generated value will fill in if not provided
 "rma", string_,
 "description", string_, ""
 "weight", decimal_, ""
