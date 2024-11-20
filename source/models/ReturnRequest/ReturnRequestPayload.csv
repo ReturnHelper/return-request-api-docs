@@ -1,6 +1,6 @@
 returnRequestId, string_,Max Length 35
 returnRequestNumber, string_
-sellerReferenceNumber, string_
+sellerReferenceNumber, string_, Optional; system generated value will fill in if not provided
 returnStatusCode, string_
 returnTitle, string_
 totalValue, decimal_
