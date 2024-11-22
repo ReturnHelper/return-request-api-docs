@@ -657,6 +657,7 @@ This API method support :ref:`gettingstarted-customfield`
    totalValue, decimal_, YES, Must be greater than zero and equals to the sum of all items' value
    totalValueCurrency, string_, YES, only accepts ``usd``
    orderNumber, string_, YES, Customized reference number. Duplicate value allowed. Could be order number or ERP system number or etc
+   sellerReferenceNumber, string_, YES, Optional; system generated value will fill in if not provided
    shipment, :ref:`structure_ReturnShipmentPayload`, YES, Details see below
 
 .. _structure_ReturnShipmentPayload:
@@ -668,6 +669,7 @@ This API method support :ref:`gettingstarted-customfield`
    shipFrom, :ref:`structure-ShipFromPayload`, YES, Details see below
    shipToWarehouseId, integer_, YES,  Obtain from user api :ref:`method-getAllWarehouse` or :ref:`method-getWarehouseByFromCountry`
    boxType, string_, YES, Use ``cus`` or obtain from :ref:`method-GetAllBoxTypes`
+   sellerReferenceNumber, string_, YES, Optional; system generated value will fill in if not provided
    parcel, :ref:`structure-ParcelPayload`, YES, Details see below
    customFieldMap, List<:ref:`gettingstarted-customfield`>,, Custom Field
 
@@ -714,6 +716,8 @@ This API method support :ref:`gettingstarted-customfield`
    value, decimal_, YES, Must be greater than zero
    weightUom, string_, YES, only accepts ``g``
    valueCurrencyCode, string_, YES, only accepts ``usd``
+   customFieldMap, List<:ref:`gettingstarted-customfield`>,, Custom Field
+   sellerReferenceNumber, string_, YES, Optional; system generated value will fill in if not provided
 
 Sample:
 
@@ -726,6 +730,7 @@ Sample:
     "totalValue": 300.99,
     "totalValueCurrency": "usd",
     "orderNumber": "ORDERNUMBER20230711",
+    "sellerReferenceNumber": "rr_ref",
     "shipment":{
         "shipFrom":{
             "country": "usa",
@@ -741,6 +746,7 @@ Sample:
         },
         "shipToWarehouseId": 1009,
         "boxType": "cus",
+        "sellerReferenceNumber": "shipment_ref",
         "parcel":{
             "weight": 150,
             "weightUnit": "g",
@@ -750,18 +756,19 @@ Sample:
             "dimensionUnit": "cm",
             "items":[
                 {
-                    "description": "abc",
-                    "weight": 150,
-                    "value": 300.99,
-                    "weightUom": "g",
-                    "valueCurrencyCode": "usd"
+                     "description": "abc",
+                     "weight": 150,
+                     "value": 300.99,
+                     "weightUom": "g",
+                     "valueCurrencyCode": "usd",
+                     "sellerReferenceNumber": "line_item_ref",
+                     "customFieldMap": {
+                           "KEY3":"value3",
+                           "KEY4":"value4"
+                     }
                 }
             ]
         },
-         "customFieldMap": {
-            "KEY3":"value3",
-            "KEY4":"value4"
-        }
       }
    }
 

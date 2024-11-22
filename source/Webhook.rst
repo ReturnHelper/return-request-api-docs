@@ -1065,6 +1065,7 @@ Shipment
   :widths: 15, 10, 30
 
   shipmentId, string_, Unique (globally) identifier for the shipment
+  sellerReferenceNumber, string_,
   returnRequestId, string_, Unique (globally) identifier for the return request
   trackingNumber, string_, Unique globally within 90 days
   referenceNumber, string_,
@@ -1406,6 +1407,7 @@ Sample:
     "returnRequest": {
         "returnRequestId": 54521,
         "returnRequestNumber": "WUS220808-0000003",
+        "sellerReferenceNumber": "WUS220808-0000003",
         "returnStatusCode": "0",
         "returnTitle": "TEST0902-317496",
         "totalValue": 96.0,
@@ -1426,6 +1428,7 @@ Sample:
         "returnRequestLineItemId": 27320,
         "returnRequestId": 54521,
         "returnRequestLineItemNumber": "WUSL220808-0000003",
+        "sellerReferenceNumber": "WUSL220808-0000003",
         "description": "TEST0902-317496",
         "weight": 74.000,
         "weightUom": "g",
