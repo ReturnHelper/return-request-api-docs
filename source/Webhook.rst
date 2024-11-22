@@ -1697,6 +1697,7 @@ Sample:
          "apiId": 21,
          "returnRequestId": 9324,
          "returnRequestLineItemNumber": "UNL210708-0000017",
+         "sellerReferenceNumber": "UNL210708-0000017",
          "description": "tf2021070801",
          "quantity": 1,
          "weight": 10,
