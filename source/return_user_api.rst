@@ -747,6 +747,10 @@ Sample:
         "shipToWarehouseId": 1009,
         "boxType": "cus",
         "sellerReferenceNumber": "shipment_ref",
+        "customFieldMap":{
+            "KEY1":"value1",
+            "KEY2":"value2"
+        },
         "parcel":{
             "weight": 150,
             "weightUnit": "g",
