@@ -221,9 +221,9 @@ Put authenication keys in your request header:
 
 ``API TOKEN`` is private and should never be shared to others.
 
-================================================================================================================================================================================================================================================================================
-Clients must submit a webhook setup request in order to receive notifications from Return Helper :ref:`notification`. Please contact us at support@returnhelper.com or fill in this `Google Form <https://docs.google.com/forms/d/1O4Lu4HersNCV8ROKoh1KpKsRD_mYgb7G3CI1fK7IqWE/>`_
-================================================================================================================================================================================================================================================================================
+
+Clients must submit a webhook setup request in order to receive notifications from Return Helper :ref:`notification`. Please contact us at support@returnhelper.com or fill in this `Google Form <https://forms.gle/iBVkRZvfLQ8o1Nqg8>`_
+========================================================================================================================================================================================================================================
 
 .. _index-Idempotency:
 
