@@ -152,7 +152,7 @@ To understand how signature is generated, consider the example below:
       "timestamp": "2024-01-12T09:23:08.4863561Z"
     }
    Body:
-    {“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestId”:10595,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}
+    {“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}
 
 
 **Steps to Verify Signature**
@@ -165,7 +165,7 @@ To understand how signature is generated, consider the example below:
    |  3-2. Your notification endpoint (e.g. https://s2024-01-12.free.beeceptor.com)
    |  3-3. The timestamp (extracted from header)
    |  3-4. The actual JSON payload (aka body)
-   |     Example: ``POSThttps://s2024-01-12.free.beeceptor.com2024-01-12T09:23:08.4863561Z{“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestId”:10595,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}``
+   |     Example: ``POSThttps://s2024-01-12.free.beeceptor.com2024-01-12T09:23:08.4863561Z{“label”:{“regions”:{“RHCN”:“https://label.returnhelperchina.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”},“labelId”:31033,“shipmentId”:30385,“apiId”:33,“refKey”:“S240112-0000001”,“labelRequestStatusCode”:“success”,“serviceType”:“RETURN_ENDICIA_USPS_GROUND_ADVANTAGE_NJ”,“trackingNumber”:“9434611899562082901137",“labelUrl”:“https://label-service-dev-files.returnshelper.com/label/202401/10595-S240112-0000001-pqk2pvydgxp.pdf”,“error”:null,“qrcodeUrl”:null,“qrcodeError”:null,“correlationId”:null,“cancelCutoffTime”:“2024-02-11T09:21:24.0795",“meta”:null},“category”:“labelGenerated”,“action”:“labelGenerated”,“eventTime”:“2024-01-12T09:23:08.4862743Z”}``
    | Then, convert the concantenated string to Base64. This is the string_to_sign.
    |     Example: ``UE9TVGh0dHBzOi8vczIwMjQtMDEtMTIuZnJlZS5iZWVjZXB0b3IuY29tMjAyNC0wMS0xMlQwOToyMzowOC40ODYzNTYxWnvigJxsYWJlbOKAnTp74oCccmVnaW9uc+KAnTp74oCcUkhDTuKAnTrigJxodHRwczovL2xhYmVsLnJldHVybmhlbHBlcmNoaW5hLmNvbS9sYWJlbC8yMDI0MDEvMTA1OTUtUzI0MDExMi0wMDAwMDAxLXBxazJwdnlkZ3hwLnBkZuKAnX0s4oCcbGFiZWxJZOKAnTozMTAzMyzigJxzaGlwbWVudElk4oCdOjMwMzg1LOKAnGFwaUlk4oCdOjMzLOKAnHJlZktleeKAnTrigJxTMjQwMTEyLTAwMDAwMDHigJ0s4oCcbGFiZWxSZXF1ZXN0SWTigJ06MTA1OTUs4oCcbGFiZWxSZXF1ZXN0U3RhdHVzQ29kZeKAnTrigJxzdWNjZXNz4oCdLOKAnHNlcnZpY2VUeXBl4oCdOuKAnFJFVFVSTl9FTkRJQ0lBX1VTUFNfR1JPVU5EX0FEVkFOVEFHRV9OSuKAnSzigJx0cmFja2luZ051bWJlcuKAnTrigJw5NDM0NjExODk5NTYyMDgyOTAxMTM3IizigJxsYWJlbFVybOKAnTrigJxodHRwczovL2xhYmVsLXNlcnZpY2UtZGV2LWZpbGVzLnJldHVybnNoZWxwZXIuY29tL2xhYmVsLzIwMjQwMS8xMDU5NS1TMjQwMTEyLTAwMDAwMDEtcHFrMnB2eWRneHAucGRm4oCdLOKAnGVycm9y4oCdOm51bGws4oCccXJjb2RlVXJs4oCdOm51bGws4oCccXJjb2RlRXJyb3LigJ06bnVsbCzigJxjb3JyZWxhdGlvbklk4oCdOm51bGws4oCcY2FuY2VsQ3V0b2ZmVGltZeKAnTrigJwyMDI0LTAyLTExVDA5OjIxOjI0LjA3OTUiLOKAnG1ldGHigJ06bnVsbH0s4oCcY2F0ZWdvcnnigJ064oCcbGFiZWxHZW5lcmF0ZWTigJ0s4oCcYWN0aW9u4oCdOuKAnGxhYmVsR2VuZXJhdGVk4oCdLOKAnGV2ZW50VGltZeKAnTrigJwyMDI0LTAxLTEyVDA5OjIzOjA4LjQ4NjI3NDNa4oCdfQ==``
 4. | **Sign the string_to_sign**
@@ -327,7 +327,6 @@ USPS
       "shipmentId": 10825,
       "apiId": 21,
       "refKey": "S210904-0000202",
-      "labelRequestId": 3778,
       "labelRequestStatusCode": "success",
       "serviceType": "usps",
       "trackingNumber": "9201994884299101443342",
@@ -355,7 +354,6 @@ non-USPS
       "shipmentId": 10825,
       "apiId": 21,
       "refKey": "S210904-0000202",
-      "labelRequestId": 3779,
       "labelRequestStatusCode": "success",
       "serviceType": "sdhl",
       "trackingNumber": "222201040017141511",
@@ -384,7 +382,6 @@ This is a label create fail example, please check the highlight area:
         "shipmentId": 10833,
         "apiId": 103,
         "refKey": "S210906-0000085",
-        "labelRequestId": 3782,
         "labelRequestStatusCode": "fail",
         "serviceType": "ap",
         "trackingNumber": null,
@@ -946,7 +943,6 @@ Sample:
         "shipmentId": 33838,
         "apiId": 103,
         "refKey": "BRS240711-0000004",
-        "labelRequestId": 0,
         "labelRequestStatusCode": 3,
         "serviceType": "nrhl",
         "trackingNumber": "T-20240523010504",
@@ -1626,7 +1622,6 @@ Sample:
       "shipmentId": 9265,
       "apiId": 21,
       "refKey": "UN210708-0000012",
-      "labelRequestId": 0,
       "labelRequestStatusCode": 3,
       "serviceType": "unkwn",
       "trackingNumber": "tf2021070801",
