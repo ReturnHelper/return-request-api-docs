@@ -545,7 +545,6 @@ Response:
    shipmentId, long_
    apiId, integer_
    refKey, string_
-   labelRequestId, long_
    labelRequestStatusCode, string_, Enum: ``canceled`` ``queue`` ``fail`` ``started`` ``success``
    serviceType, string_
    error, string_
@@ -787,7 +786,6 @@ Response:
    shipmentId, integer_, Shipment ID
    referenceNumber, string_, Reference number
    labelId, integer_, Label ID
-   labelRequestId, integer_, Label request ID
    labelRequestStatusCode, string_, Label request status code
    cost, decimal_, Cost
    costCurrencyCode, string_, Cost currency code
@@ -804,7 +802,6 @@ Sample:
          "shipmentId": 28407,
          "referenceNumber": "ORDERNUMBER2307111539",
          "labelId": 29020,
-         "labelRequestId": 9170,
          "labelRequestStatusCode": "queued",
          "refKey": "S230711-0000028",
          "cost": 4.6,

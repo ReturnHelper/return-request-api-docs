@@ -5,7 +5,6 @@ referenceNumber, string_, Value of orderNumber in :ref:`method-CreateReturnShipm
 shipmentId, long_
 apiId, integer_
 refKey, string_
-labelRequestId, long_
 labelRequestStatusCode, string_, Enum: ``canceled`` ``queue`` ``fail`` ``started`` ``success``
 serviceType, string_
 trackingNumber, string_, Only available for label status ``success``
