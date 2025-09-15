@@ -47,6 +47,8 @@ GetAllWarehouse
 
 [Get] <userapi-endpoint>/warehouse/getAllWarehouse
 
+Get all warehouse countries/ regions.
+
 Parameters: No Input
 
 Response:
@@ -67,6 +69,8 @@ Response:
 GetWarehouseByFromCountry
 -------------------------
 
+Get warehouse by from countries/ regions.
+
 ::
 
 [Get] <userapi-endpoint>/warehouse/getWarehouseByFromCountry
@@ -77,7 +81,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   countryCode, string_
+   countryCode, string_, country or region code in ISO3
 
 Response:
 
@@ -130,7 +134,7 @@ GetShippingFeeListByFromShippingOption
 
 This API is for getting **RETURN** service types only. For resend service types please check :ref:`method-getAvailableShipmentServiceType`.
 
-Get service type fee list by fromCountry and fromPostalCode. Responses are sorted by shipping fee in ascending order.
+Get service type fee list by fromCountry/ region and fromPostalCode. Responses are sorted by shipping fee in ascending order.
 To get the lowest fee service type, please set ``limit=1``.
 
 ::
@@ -143,7 +147,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   fromCountryCode, string_, Required
+   fromCountryCode, string_, Required; country or region code in ISO3
    fromPostalCode, string_, Required
    weight, decimal_, Required; Must be greater than zero (in g)
    dimension1, decimal_, Required; Must be greater than zero (in cm)
@@ -170,7 +174,7 @@ Response:
    :widths: 15, 10, 30
 
    serviceTypeCode, string_
-   countryCode , string_
+   countryCode , string_, country or region code
    postalCodePair, :ref:`structure-ShippingFeeSummaryPostalCodePairReply`
    currencyCode, string_
    fee, decimal_
@@ -192,7 +196,7 @@ Response:
    :widths: 15, 10, 30
 
    warehouseId, integer_, Assign this value to shipment ``warehouseId`` when calling :ref:`method-createReturnRequest`
-   countryCode, string_
+   countryCode, string_, country or region code in ISO3
    contactName, string_
    companyName, string_
    phone, string_
@@ -348,8 +352,8 @@ Response:
 
    serviceTypeCode, string_,
    serviceType, string_, Name of the service type
-   fromCountry, string_
-   toCountry, string_
+   fromCountry, string_, country or region code in ISO3
+   toCountry, string_, country or region code in ISO3
 
 ----
 
@@ -357,6 +361,8 @@ Response:
 
 GetServiceTypeByFromToCountry
 -----------------------------
+
+Get service type by from and to country/ region
 
 ::
 
@@ -369,8 +375,8 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   fromCountry, string_
-   toCountry, string_
+   fromCountry, string_, country or region code in ISO3
+   toCountry, string_, country or region code in ISO3
 
 Response:
 
@@ -388,6 +394,8 @@ Response:
 GetServiceTypeByFromCountryAndWarehouse
 ----------------------------------------
 
+Get service type by from country/ region and warehouse
+
 ::
 
 [GET] <userapi-endpoint>/servicetype/getServiceTypeByFromCountryAndWarehouse
@@ -399,7 +407,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   fromCountry, string_
+   fromCountry, string_, country or region code in ISO3
    warehouseId, string_,Max Length 35
 
 Response:
@@ -452,7 +460,7 @@ Response:
 
    serviceTypeCode, string_,
    serviceType, string_,
-   countryCodePairList, List<:ref:`structure-countryCodePair`>,
+   countryCodePairList, List<:ref:`structure-countryCodePair`>, List of country/ region code pair list
 
 .. _structure-countryCodePair:
 
@@ -462,7 +470,7 @@ Response:
 
    warehouseId, integer_,
    description, string_,
-   fromCountryCode, string_,
+   fromCountryCode, string_, country or region code in ISO3
    toPostalCode, string_,
 
 Sample:
@@ -678,7 +686,7 @@ This API method support :ref:`gettingstarted-customfield`
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   country, string_, YES, ISO3 country code. Obtain from public api :ref:`method-getAllFromCountries`
+   country, string_, YES, ISO3 country/ region code. Obtain from public api :ref:`method-getAllFromCountries`
    contactName, string_, YES,
    phone, string_, YES,
    email, string_, YES,
@@ -1763,7 +1771,7 @@ Parameters:
    :header: "Name", "Type","Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   shipToCountry, string_, YES, ISO3 small letters
+   shipToCountry, string_, YES, ISO3 country/ region code in small letters
    shipToContactName, string_, YES,
    shipToPhone, string_, YES,
    shipToFax, string_,,

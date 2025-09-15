@@ -59,6 +59,8 @@ GetAllCountries
 
 [GET] <publicapi-endpoint>/country/getAllCountries
 
+Get all countries/ region
+
 Parameters: No Input
 
 Response:
@@ -82,6 +84,8 @@ GetAllFromCountries
 ::
 
 [GET] <publicapi-endpoint>/country/getAllFromCountries
+
+Get all from countries/ regions
 
 Parameters: No Input
 
