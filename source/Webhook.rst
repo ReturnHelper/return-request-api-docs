@@ -2607,7 +2607,7 @@ action: ``buyerReturnLabelGenerated``
     error, string_, Error
     warehouseId, integer_, Warehouse id; see :ref:`method-getallwarehouse`
     shipmentServiceType, string_, Shipment service type
-    shipmentCountryCode, string_, Shipment country code
+    shipmentCountryCode, string_, Shipment country/ region code
     shipmentName, string_, Shipment name
     shipmentPhone, string_, Shipment phone
     shipmentFax, string_, Shipment fax

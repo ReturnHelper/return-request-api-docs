@@ -7,7 +7,7 @@ newShipmentStreet3, string_
 newShipmentState, string_
 newShipmentCity, string_
 newShipmentPostalCode, string_
-newShipmentCountryCode, string_
+newShipmentCountryCode, string_, 
 newShipmentReferenceId, string_
 filename, string_
 fileKey, string_

@@ -34,6 +34,13 @@ Request a return label
 1. :ref:`method-createreturnshipment` - create a return shipment and queue a return label request
 2. :ref:`notification-label` - label request result will be sent to your :ref:`notification_endpoint`
 
+It is very important to note that creating a return label is a asynchronous process. User must integrate notification endpoint to receive the label result. The flow of the label request is as follows:
+
+.. image:: images/api_key_token.png
+    :alt: Create Return Label Flow
+    :align: center
+
+
 Cancel return label
 -------------------
 
