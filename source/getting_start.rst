@@ -36,7 +36,7 @@ Request a return label
 
 It is very important to note that creating a return label is a asynchronous process. User must integrate notification endpoint to receive the label result. The flow of the label request is as follows:
 
-.. image:: images/api_key_token.png
+.. image:: images/return_label_flow.png
     :alt: Create Return Label Flow
     :align: center
 
