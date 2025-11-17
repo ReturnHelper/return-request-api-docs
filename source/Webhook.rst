@@ -679,8 +679,8 @@ action: ``recallUpdateStatus``
   :header: "Name", "Type", "Remarks"
   :widths: 15, 10, 30
 
-  recallInventoryId, integer_, Recall inventory id
-  returnInventoryId, integer_, Return inventory id
+  recallInventoryId, long_, Recall inventory id
+  returnInventoryId, long_, Return inventory id
   recallInventoryStatusCode, string_, Recall inventory status code
   pickUpCode, string_, Pick up code
   trackingNumber, string_, Tracking number
@@ -1060,9 +1060,9 @@ Shipment
   :header: "Name", "Type", "Remarks"
   :widths: 15, 10, 30
 
-  shipmentId, string_, Unique (globally) identifier for the shipment
+  shipmentId, long_, Unique (globally) identifier for the shipment
   sellerReferenceNumber, string_,
-  returnRequestId, string_, Unique (globally) identifier for the return request
+  returnRequestId, long_, Unique (globally) identifier for the return request
   trackingNumber, string_, Unique globally within 90 days
   referenceNumber, string_,
   serviceType, string_,
@@ -1136,7 +1136,7 @@ Return Inventory
   :header: "Name", "Type", "Remarks"
   :widths: 15, 10, 30
 
-  returnInventoryId,string_, Unique (globally) identifier for the return inventory
+  returnInventoryId,long_, Unique (globally) identifier for the return inventory
   warehouseId,integer_, see :ref:`method-getallwarehouse`
   apiId,integer_, Unique (globally) identifier for the customer
   description,string_
@@ -1189,8 +1189,8 @@ Shipment
   :header: "Name", "Type", "Remarks"
   :widths: 15, 10, 30
 
-  shipmentId, string_, Unique (globally) identifier for the shipment
-  returnRequestId, string_, Unique (globally) identifier for the return request
+  shipmentId, long_, Unique (globally) identifier for the shipment
+  returnRequestId, long_, Unique (globally) identifier for the return request
   trackingNumber, string_, Unique globally within 90 days
   referenceNumber, string_,
   serviceType, string_,
@@ -1735,7 +1735,7 @@ action: ``completeRecalibrate``
     :widths: 15, 10, 30
 
     warehouseId, integer_, see :ref:`method-getallwarehouse`
-    returnInventoryId, integer_, Return inventory ID
+    returnInventoryId, long_, Return inventory ID
     returnRequestLineItemId, integer_, Return request line item ID
     rma, string_, Warehouse assigned RMA value; see :ref:`gettingstarted-rma`
     dimension1, double_, Dimension 1

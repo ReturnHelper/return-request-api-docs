@@ -1119,7 +1119,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryId, string_,,Max Length 35
+   returnInventoryId, long_,,Max Length 35
 
 |
 
@@ -1214,7 +1214,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryId, string_,,Max Length 35
+   returnInventoryId, long_,,Max Length 35
 
 |
 
@@ -1455,7 +1455,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   returnInventoryIdList , List<integer_>, Required
+   returnInventoryIdList , List<long_>, Required
    toCountryCode, string_, ISO3 country code; Required
    toPostalCode, string_, Required
 
@@ -1539,7 +1539,7 @@ Parameters:
    :header: "Name", "Type", "Required", "Remarks"
    :widths: 15, 10, 10, 30
 
-   returnInventoryIdList, List<string_>, YES, Obtain from :ref:`notification-inventorycreated` - see :ref:`gettingstarted-ReturnArrival` for more detail
+   returnInventoryIdList, List<long_>, YES, Obtain from :ref:`notification-inventorycreated` - see :ref:`gettingstarted-ReturnArrival` for more detail
    description, string_,
    remarks, string_,
    resendShipment, :ref:`link-ResendShipmentPayload`, YES, See below
@@ -1689,7 +1689,7 @@ Parameters:
    :header: "Name", "Type", "Remarks"
    :widths: 15, 10, 30
 
-   returnInventoryIdList,List<integer_>, Max 100 inventory ids for each call
+   returnInventoryIdList,List<long_>, Max 100 inventory ids for each call
 
 |
 
