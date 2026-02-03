@@ -2816,7 +2816,223 @@ Sample of a fail label generation:
       "eventTime": "2021-09-04T17:03:15.8888073Z",
       "version": "202408"
   }
+ 
+ 
+----
 
+.. _notification-shopifyBuyerCreateReturn:
+
+Shopify buyer create return notification
+*****************************************
+
+category: ``shopifyBuyerCreateReturn``
+
+action: ``shopifyBuyerCreateReturn``
+
+.. csv-table:: `ShopifyReturn`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   shopifyReturnId, string_, Unique id for the Shopify return
+   apiId, integer_, Your API ID
+   referenceNumber, string_, Reference number
+   returnRequestId, integer_, Return request id
+   shipmentId, integer_, Shipment id
+   returnRequestNumber, string_, Return request number
+   shipmentNumber, string_, Shipment number
+   totalValue, decimal_, Total value
+   totalValueCurrency, string_, Currency code
+   remarks, string_, Remarks
+   labelRequestStatusCode, integer_, Label request status code
+   trackingNumber, string_, Tracking number
+   labelUrl, string_, Label URL
+   error, string_, Error message
+   warehouseId, integer_, Warehouse id; see :ref:`method-getallwarehouse`
+   shipmentServiceType, string_, Shipment service type
+   shipmentCountryCode, string_, Shipment country/region code
+   shipmentName, string_, Shipment name
+   shipmentPhone, string_, Shipment phone
+   shipmentFax, string_, Shipment fax
+   shipmentEmail, string_, Shipment email
+   shipmentStreet1, string_, Shipment street 1
+   shipmentStreet2, string_, Shipment street 2
+   shipmentStreet3, string_, Shipment street 3
+   shipmentState, string_, Shipment state
+   shipmentCity, string_, Shipment city
+   shipmentPostalCode, string_, Shipment postal code
+   costCurrencyCode, string_, Cost currency code
+   cost, decimal_, Cost
+   boxType, string_, Box type
+   weight, decimal_, Weight
+   weightUom, string_, Weight unit of measure
+   dimension1, decimal_, Dimension 1
+   dimension2, decimal_, Dimension 2
+   dimension3, decimal_, Dimension 3
+   dimensionUom, string_, Dimension unit of measure
+   shopifyShopId, string_, Shopify shop id
+   shopifyOrderId, string_, Shopify order id
+   shopifyOrderNumber, string_, Shopify order number
+   shopifyReturnStatusCode, string_, Shopify return status code
+   shopifyOrderName, string_, Shopify order name
+   isDeleted, bool_, Is deleted
+   requestParty, string_, Request party
+   customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+   modifyOn, string_, Modified on (ISO8601)
+   modifyBy, string_, Modified by
+   createOn, string_, Created on (ISO8601)
+   createBy, string_, Created by
+   shopifyReturnLineItemList, List<:ref:`structure-shopifyReturnLineItemEntry`>, List of Shopify return line items
+
+.. _structure-shopifyReturnLineItemEntry:
+
+.. csv-table:: `shopifyReturnLineItemEntry`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   shopifyReturnLineItem, :ref:`structure-shopifyReturnLineItem`, Line item details
+   shopifyReturnLineItemImageList, List<:ref:`structure-shopifyReturnLineItemImage`>, Line item images
+   customFieldMap, List<:ref:`gettingstarted-customfield`>, Custom Field
+
+.. _structure-shopifyReturnLineItem:
+
+.. csv-table:: `shopifyReturnLineItem`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   shopifyReturnLineItemId, string_, Unique id for the Shopify return line item
+   shopifyReturnId, string_, Shopify return id
+   apiId, integer_, API ID
+   returnRequestLineItemId, integer_, Return request line item id
+   returnRequestLineItemNumber, string_, Return request line item number
+   sellerReferenceNumber, string_, Seller reference number
+   description, string_, Description
+   quantity, integer_, Quantity
+   weight, decimal_, Weight
+   weightUom, string_, Weight unit of measure
+   value, decimal_, Value
+   valueCurrencyCode, string_, Value currency code
+   returnReasonCode, string_, Return reason code
+   returnReason, string_, Return reason
+   shopifyProductId, long_, Shopify product id
+   buyerNotes, string_, Buyer notes
+   isDeleted, bool_, Is deleted
+
+.. _structure-shopifyReturnLineItemImage:
+
+.. csv-table:: `shopifyReturnLineItemImage`
+   :header: "Name", "Type", "Remarks"
+   :widths: 15, 10, 30
+
+   shopifyReturnLineItemImageId, string_, Unique id for the line item image
+   shopifyReturnLineItemId, string_, Shopify return line item id
+   apiId, integer_, API ID
+   shopifyLineItemImageUrl, string_, Image URL
+   fileName, string_, File name
+   fileExt, string_, File extension
+   isDeleted, bool_, Is deleted
+
+Sample:
+
+.. code-block:: json
+  :emphasize-lines: 69-70,87-88
+
+  {
+      "shopifyReturn": {
+          "shopifyReturnId": "e32becce-295e-4de6-b0b0-f3bb9ed13f31",
+          "apiId": 175,
+          "referenceNumber": "SSP260113-0000001",
+          "returnRequestId": 73146,
+          "shipmentId": 41987,
+          "returnRequestNumber": "SP260113-0000001",
+          "shipmentNumber": "SSP260113-0000001",
+          "totalValue": 120.0,
+          "totalValueCurrency": "usd",
+          "remarks": null,
+          "labelRequestStatusCode": 1,
+          "trackingNumber": null,
+          "labelUrl": null,
+          "error": null,
+          "warehouseId": 25,
+          "shipmentServiceType": "RETURN_EMX_ARE",
+          "shipmentCountryCode": "are",
+          "shipmentName": "John Doe Dubai",
+          "shipmentPhone": "+9711234567890",
+          "shipmentFax": null,
+          "shipmentEmail": "john.wang+DUTEST@returnhelper.com",
+          "shipmentStreet1": "Al Khail Rd",
+          "shipmentStreet2": "N/A",
+          "shipmentStreet3": null,
+          "shipmentState": "Dubai",
+          "shipmentCity": "Hadaeq Sheikh Mohammed Bin Rashid",
+          "shipmentPostalCode": "00000",
+          "costCurrencyCode": "usd",
+          "cost": 6.6,
+          "boxType": "cus",
+          "weight": 50.0,
+          "weightUom": "g",
+          "dimension1": 10.0,
+          "dimension2": 10.0,
+          "dimension3": 10.0,
+          "dimensionUom": "cm",
+          "shopifyShopId": "42b66d90-1c3b-4274-bb21-93dff877ebad",
+          "shopifyOrderId": "6864440295704",
+          "shopifyOrderNumber": "1087",
+          "shopifyReturnStatusCode": "lb-queued",
+          "shopifyOrderName": "RH1087",
+          "isDeleted": false,
+          "requestParty": "buyer",
+          "customFieldMap": {
+              "SHOPIFY_ORDER_NAME": "RH1087"
+          },
+          "modifyOn": "2026-01-13T03:06:46.5388208Z",
+          "modifyBy": "175",
+          "createOn": "2026-01-13T03:06:46.1684226Z",
+          "createBy": "175"
+      },
+      "shopifyReturnLineItemList": [
+          {
+              "shopifyReturnLineItem": {
+                  "shopifyReturnLineItemId": "167e11ba-c1d3-4d95-9dbe-13c3050b1cab",
+                  "shopifyReturnId": "e32becce-295e-4de6-b0b0-f3bb9ed13f31",
+                  "apiId": 175,
+                  "returnRequestLineItemId": 49124,
+                  "returnRequestLineItemNumber": "SPL260113-0000001",
+                  "sellerReferenceNumber": "16547872702744",
+                  "description": "FLOWER MO (V2)",
+                  "quantity": 1,
+                  "weight": 50.0,
+                  "weightUom": "g",
+                  "value": 120.0,
+                  "valueCurrencyCode": "usd",
+                  "returnReasonCode": "LATE_DELIVERY",
+                  "returnReason": "Late delivery",
+                  "shopifyProductId": 16547872702744,
+                  "buyerNotes": "",
+                  "isDeleted": false
+              },
+              "shopifyReturnLineItemImageList": [
+                  {
+                      "shopifyReturnLineItemImageId": "cc824293-e59b-4702-ad78-d1e384fa1c61",
+                      "shopifyReturnLineItemId": "167e11ba-c1d3-4d95-9dbe-13c3050b1cab",
+                      "apiId": 175,
+                      "shopifyLineItemImageUrl": "https://rhbr-file.s3.amazonaws.com/dev/public/upload/ryanhteststore.myshopify.com/16547872702744/bACJhk_hH2RhfnsAh5VCm-663ff8c701bf4090b2f815f8e2da9066.jpg",
+                      "fileName": "bACJhk_hH2RhfnsAh5VCm-663ff8c701bf4090b2f815f8e2da9066.jpg",
+                      "fileExt": ".jpg",
+                      "isDeleted": false
+                  }
+              ],
+              "customFieldMap": {
+                  "RESOLUTION_METHOD": "Refund",
+                  "RESOLUTION_METHOD_CODE": "REFUND"
+              }
+          }
+      ],
+      "category": "shopifyBuyerCreateReturn",
+      "action": "shopifyBuyerCreateReturn",
+      "eventTime": "2026-01-13T03:06:56.7446542Z",
+      "version": "202207",
+      "notificationId": "01KETN47V8ARDGXGA0VJE2XB4E"
+  }
 
 .. reference definition goes here
 
