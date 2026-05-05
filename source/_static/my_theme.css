@@ -1,7 +1,13 @@
 .wy-nav-content {
   max-width: 1200px !important;
+  margin-left: 0 !important;
   }
 
 .line > .docutils{
   display: inherit !important;
+}
+
+/* Hide the sidebar navigation */
+.wy-nav-side {
+  display: none !important;
 }
